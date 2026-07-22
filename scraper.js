@@ -45,7 +45,7 @@ puppeteer.use(StealthPlugin());
 
     await page.setCookie(...cookies);
 
-    const targetUrl = 'https://ads.google.com/localservices/inbox?cid=2903573653&bid=10985702078&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
+    const targetUrl = 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
     console.log("LSA Inbox sayfasına gidiliyor...");
     
     await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 90000 });
@@ -184,7 +184,7 @@ puppeteer.use(StealthPlugin());
             if (ampm.toUpperCase() === 'AM' && hours === 12) hours = 0;
           }
           
-          const dateObj = new Date(2000 + parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), hours, parseInt(minutes, 10));
+          const dateObj = new Date(2000 + parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), hours + 2, parseInt(minutes, 10));
           return {
             ...lead,
             date: `${String(dateObj.getDate()).padStart(2, '0')}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${String(dateObj.getFullYear()).slice(-2)} ${String(dateObj.getHours()).padStart(2, '0')}:${String(dateObj.getMinutes()).padStart(2, '0')}`
@@ -201,7 +201,7 @@ puppeteer.use(StealthPlugin());
     };
 
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-    console.log(`Başarıyla ${adjustedLeads.length} adet veri (Christian Poterucha dahil) data.json dosyasına yazıldı!`);
+    console.log(`Başarıyla ${adjustedLeads.length} adet veri data.json dosyasına yazıldı!`);
 
     await browser.close();
   } catch (error) {
