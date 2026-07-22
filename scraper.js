@@ -4,6 +4,45 @@ const fs = require('fs');
 
 puppeteer.use(StealthPlugin());
 
+// Ham panel metninden MÜŞTERİ BİLGİSİ ve SADECE GERÇEK MESAJI süzen fonksiyon
+function parseCleanMessage(rawText) {
+  if (!rawText || rawText === '-' || !rawText.includes('Unterhaltung')) {
+    return rawText;
+  }
+
+  // 1. En üstteki müşteri ismi ve numarasını yakala (Örn: Christian Poterucha 0676... veya Potenzieller Kunde 0664...)
+  let customerHeader = "";
+  const headerMatch = rawText.match(/(?:Potenzieller Kunde|[A-Z][a-z]+\s+[A-Z][a-z]+)\s+[\d\s]+/i);
+  if (headerMatch) {
+    customerHeader = headerMatch[0].trim();
+  }
+
+  // 2. "Unterhaltung" kelimesinden sonrasını kesip al
+  let parts = rawText.split('Unterhaltung');
+  let chatContent = parts[parts.length - 1];
+
+  // 3. Alt sistem yazılarını ve butonları temizle
+  chatContent = chatContent
+    .split('Wird geladen')[0]
+    .split('Audioinhalte')[0]
+    .split('Hier dem Kunden')[0]
+    .trim();
+
+  // 4. Mesajın başındaki profil harfini (P), Potenzieller Kunde yazısını ve tarihi temizle
+  chatContent = chatContent
+    .replace(/^P\s+/gi, '')
+    .replace(/^Potenzieller Kunde\s+/gi, '')
+    .replace(/^\d{2}\.\d{2}\.\d{2}\s+/gi, '')
+    .trim();
+
+  // Müşteri bilgisi bulunduysa mesajın başına ekle
+  if (customerHeader && chatContent) {
+    return `[${customerHeader}]\n${chatContent}`;
+  }
+
+  return chatContent.length > 0 ? chatContent : rawText;
+}
+
 (async () => {
   try {
     const browser = await puppeteer.launch({
@@ -66,16 +105,15 @@ puppeteer.use(StealthPlugin());
       console.warn("Çerezler güncellenirken hata oluştu:", cookieErr.message);
     }
 
-    console.log("Sayfa içeriğinin yüklenmesi ve scroll yapılması bekleniyor...");
+    console.log("Sayfa içeriğinin yüklenmesi ve yumuşak scroll bekleniyor...");
     await new Promise(resolve => setTimeout(resolve, 6000));
 
-    // Tablonun tamamı yüklensin diye yumuşak scroll yap
+    // Christian Poterucha ve alt satırların tam yüklenmesi için yumuşak scroll
     await page.evaluate(async () => {
       await new Promise((resolve) => {
         let totalHeight = 0;
         let distance = 300;
         let timer = setInterval(() => {
-          let scrollHeight = document.body.scrollHeight;
           window.scrollBy(0, distance);
           totalHeight += distance;
           if (totalHeight >= 1200) {
@@ -87,7 +125,7 @@ puppeteer.use(StealthPlugin());
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // 1. AŞAMA: SADECE GERÇEK LEAD SATIRLARINI VE İNDEKSLLERİNİ TESPİT ET
+    // 1. AŞAMA: GERÇEK SATIRLARI VE İNDEKSLLERİNİ TESPİT ET
     const validRowsIndices = await page.evaluate(() => {
       const allRows = Array.from(document.querySelectorAll('[role="row"], tr'));
       const valid = [];
@@ -133,7 +171,7 @@ puppeteer.use(StealthPlugin());
 
     let leads = [];
 
-    // 2. AŞAMA: HER BİR GERÇEK SATIR İÇİN DÖNGÜYE GİR VE MESAJLARI ÇEK
+    // 2. AŞAMA: SATIRLARA TIKLA VE TEMİZ MESAJLARI AL
     for (const item of validRowsIndices) {
       let messageText = "-";
 
@@ -141,7 +179,7 @@ puppeteer.use(StealthPlugin());
         try {
           console.log(`[${item.phone}] Mesaj paneli açılıyor...`);
 
-          // JavaScript Mouse Event'i ile hücresine GERÇEK TIKLAMA simüle et
+          // Native Mouse Event ile tıklama simülasyonu
           const clickSuccess = await page.evaluate((index) => {
             const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
             const targetRow = rows[index];
@@ -149,7 +187,6 @@ puppeteer.use(StealthPlugin());
 
             const clickTarget = targetRow.querySelector('td, div[role="gridcell"]') || targetRow;
             
-            // Native Event tetikle
             ['mousedown', 'mouseup', 'click'].forEach(eventType => {
               const evt = new MouseEvent(eventType, {
                 bubbles: true,
@@ -162,25 +199,18 @@ puppeteer.use(StealthPlugin());
           }, item.domIndex);
 
           if (clickSuccess) {
-            // Sağ panelin açılması ve içeriğin Google API'den çekilmesi için bekle
             await new Promise(resolve => setTimeout(resolve, 4500));
 
-            // Mesaj içeriğini yakala
-            messageText = await page.evaluate(() => {
-              // 1. Yöntem: Google LSA Mesajlaşma Gövdesi
+            // Ham panel metnini çek
+            let rawMessageText = await page.evaluate(() => {
               const conversationElements = Array.from(document.querySelectorAll('div, section, article'));
-              
-              // "Unterhaltung" veya mesaj içeriğinin yer aldığı ana bloğu bul
               const chatBlock = conversationElements.find(el => {
                 const txt = el.innerText || '';
-                return (txt.includes('Unterhaltung') || txt.includes('Kundennachricht')) && txt.length > 20;
+                return txt.includes('Unterhaltung') && txt.length > 20;
               });
 
-              if (chatBlock) {
-                return chatBlock.innerText.trim();
-              }
+              if (chatBlock) return chatBlock.innerText.trim();
 
-              // 2. Yöntem: Sağ paneli tümüyle al
               const sideDrawer = document.querySelector('[role="region"], .conversation-view, .detail-view, drawer-content');
               if (sideDrawer && sideDrawer.innerText.length > 10) {
                 return sideDrawer.innerText.trim();
@@ -189,11 +219,14 @@ puppeteer.use(StealthPlugin());
               return "-";
             });
 
-            console.log(` -> [${item.phone}] MESAJ BAŞARIYLA ÇEKİLDİ:`, messageText.replace(/\n/g, ' ').substring(0, 45) + "...");
+            // Metni Temizleme Fonksiyonuna Gönder
+            messageText = parseCleanMessage(rawMessageText);
+
+            console.log(` -> [${item.phone}] ÇEKİLEN MESAJ:`, messageText.replace(/\n/g, ' ').substring(0, 60) + "...");
           }
 
         } catch (err) {
-          console.warn(` -> [${item.phone}] Mesaj çekme hatası:`, err.message);
+          console.warn(` -> [${item.phone}] Hata:`, err.message);
         }
       }
 
@@ -229,14 +262,13 @@ puppeteer.use(StealthPlugin());
       return lead;
     });
 
-    // Verileri data.json dosyasına yaz
     const outputData = {
       updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
       leads: adjustedLeads
     };
 
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-    console.log(`İŞLEM TAMAM! Toplam ${adjustedLeads.length} lead ve tüm mesaj içerikleri data.json'a yazıldı.`);
+    console.log(`İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
     await browser.close();
   } catch (error) {
