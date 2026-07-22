@@ -2,7 +2,10 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const fs = require('fs');
 
+// Stealth eklentisini aktif et (Google bot tespitini engeller)
 puppeteer.use(StealthPlugin());
+
+const LSA_URL = 'https://ads.google.com/local-services-ads/inbox/';
 
 // Ham panel metninden MÜŞTERİ BİLGİSİ ve SADECE GERÇEK MESAJI süzen fonksiyon
 function parseCleanMessage(rawText) {
@@ -10,7 +13,7 @@ function parseCleanMessage(rawText) {
     return rawText;
   }
 
-  // 1. En üstteki müşteri ismi ve numarasını yakala (Örn: Christian Poterucha 0676... veya Potenzieller Kunde 0664...)
+  // 1. En üstteki müşteri ismi ve numarasını yakala
   let customerHeader = "";
   const headerMatch = rawText.match(/(?:Potenzieller Kunde|[A-Z][a-z]+\s+[A-Z][a-z]+)\s+[\d\s]+/i);
   if (headerMatch) {
@@ -35,7 +38,6 @@ function parseCleanMessage(rawText) {
     .replace(/^\d{2}\.\d{2}\.\d{2}\s+/gi, '')
     .trim();
 
-  // Müşteri bilgisi bulunduysa mesajın başına ekle
   if (customerHeader && chatContent) {
     return `[${customerHeader}]\n${chatContent}`;
   }
@@ -43,10 +45,41 @@ function parseCleanMessage(rawText) {
   return chatContent.length > 0 ? chatContent : rawText;
 }
 
-(async () => {
+// Sadece GitHub Secrets üzerindeki GOOGLE_COOKIES değerini yükleyen fonksiyon
+async function loadCookies(page) {
+  if (!process.env.GOOGLE_COOKIES || process.env.GOOGLE_COOKIES.trim() === '') {
+    throw new Error("❌ GOOGLE_COOKIES secret değişkeni GitHub depoda bulunamadı!");
+  }
+
+  console.log("📌 GitHub Secrets üzerindeki GOOGLE_COOKIES okunuyor...");
+  
   try {
-    const browser = await puppeteer.launch({
-      headless: "new",
+    const rawCookies = JSON.parse(process.env.GOOGLE_COOKIES);
+    
+    // Puppeteer'ın hata vermesini önlemek için SameSite alanlarını temizle
+    const cookies = rawCookies.map(cookie => {
+      const cleaned = { ...cookie };
+      if (cleaned.sameSite === 'no_restriction' || cleaned.sameSite === 'unspecified' || !cleaned.sameSite) {
+        delete cleaned.sameSite;
+      }
+      return cleaned;
+    });
+
+    await page.setCookie(...cookies);
+    console.log(`✅ ${cookies.length} adet çerez tarayıcıya yüklendi.`);
+  } catch (err) {
+    throw new Error(`❌ GOOGLE_COOKIES parse edilemedi: ${err.message}`);
+  }
+}
+
+(async () => {
+  let browser;
+  try {
+    console.log("🚀 GitHub Actions Runner üzerinde Scraper başlatılıyor...");
+
+    // GitHub Actions ortamına özel Puppeteer parametreleri
+    browser = await puppeteer.launch({
+      headless: 'new',
       executablePath: '/usr/bin/google-chrome',
       args: [
         '--no-sandbox',
@@ -57,9 +90,10 @@ function parseCleanMessage(rawText) {
         '--lang=de-AT,de'
       ]
     });
-    
+
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
+    
     await page.setExtraHTTPHeaders({
       'Accept-Language': 'de-AT,de;q=0.9,en-US;q=0.8,en;q=0.7'
     });
@@ -69,210 +103,83 @@ function parseCleanMessage(rawText) {
 
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
 
-    if (!process.env.GOOGLE_COOKIES) {
-      throw new Error("GOOGLE_COOKIES secret değişkeni bulunamadı!");
-    }
+    // Çerezleri yükle
+    await loadCookies(page);
 
-    const rawCookies = JSON.parse(process.env.GOOGLE_COOKIES);
-    const cookies = rawCookies.map(cookie => {
-      const cleaned = { ...cookie };
-      if (cleaned.sameSite === 'no_restriction' || cleaned.sameSite === 'unspecified') {
-        delete cleaned.sameSite;
-      }
-      return cleaned;
-    });
-
-    await page.setCookie(...cookies);
-
-    const targetUrl = 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
-    console.log("LSA Inbox sayfasına gidiliyor...");
-    
-    await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 90000 });
+    console.log("🌐 LSA Inbox sayfasına gidiliyor...");
+    await page.goto(LSA_URL, { waitUntil: 'networkidle2' });
 
     const pageTitle = await page.title();
-    console.log("Sayfa Başlığı:", pageTitle);
+    console.log(`📄 Sayfa Başlığı: ${pageTitle}`);
 
-    if (pageTitle.includes("Anmelden") || pageTitle.includes("Sign in")) {
-      throw new Error("Oturum açılamadı! GOOGLE_COOKIES süresi dolmuş veya geçersiz.");
+    if (pageTitle.includes('Anmelden') || pageTitle.includes('Sign in') || page.url().includes('accounts.google.com')) {
+      throw new Error("❌ Oturum açılamadı! GOOGLE_COOKIES süresi dolmuş veya geçersiz.");
     }
 
-    // Taze çerezleri kaydet
-    try {
-      const freshCookies = await page.cookies();
-      fs.writeFileSync('updated_cookies.json', JSON.stringify(freshCookies, null, 2));
-      console.log("Güncellenmiş taze çerezler 'updated_cookies.json' dosyasına kaydedildi.");
-    } catch (cookieErr) {
-      console.warn("Çerezler güncellenirken hata oluştu:", cookieErr.message);
-    }
+    console.log("✅ LSA Paneline başarıyla giriş yapıldı. Veriler taranıyor...");
 
-    console.log("Sayfa içeriğinin yüklenmesi ve yumuşak scroll bekleniyor...");
-    await new Promise(resolve => setTimeout(resolve, 6000));
-
-    // Christian Poterucha ve alt satırların tam yüklenmesi için yumuşak scroll
-    await page.evaluate(async () => {
-      await new Promise((resolve) => {
-        let totalHeight = 0;
-        let distance = 300;
-        let timer = setInterval(() => {
-          window.scrollBy(0, distance);
-          totalHeight += distance;
-          if (totalHeight >= 1200) {
-            clearInterval(timer);
-            resolve();
-          }
-        }, 200);
-      });
+    await page.waitForSelector('amp-lead-inbox-item, .lead-item, table tbody tr', { timeout: 30000 }).catch(() => {
+      console.log("⚠️ Veri elemanları beklenirken zaman aşımı yaşandı, mevcut sayfa taranıyor...");
     });
-    await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // 1. AŞAMA: GERÇEK SATIRLARI VE İNDEKSLLERİNİ TESPİT ET
-    const validRowsIndices = await page.evaluate(() => {
-      const allRows = Array.from(document.querySelectorAll('[role="row"], tr'));
-      const valid = [];
+    // Panel verilerini topla
+    const leads = await page.evaluate(() => {
+      const extractedLeads = [];
+      const items = document.querySelectorAll('amp-lead-inbox-item, .lead-item');
 
-      allRows.forEach((row, idx) => {
-        const text = row.innerText || '';
-        const cells = Array.from(row.querySelectorAll('td, div[role="gridcell"]'));
-        
-        if (cells.length >= 4) {
-          const firstCol = cells[0]?.innerText?.trim() || '';
-          
-          // "Kunde", "Telefon" başlıklarını veya takvim rakamlarını ele
-          if (firstCol && 
-              firstCol !== 'Kunde' && 
-              !firstCol.includes('Telefon') && 
-              firstCol.length > 2) {
-            
-            const isMessage = /nachricht|message/i.test(text);
-            const jobType = cells[1]?.innerText?.trim() || '-';
-            const location = cells[3]?.innerText?.trim() || '-';
-            
-            let rawStatus = cells[5]?.innerText?.trim() || cells[4]?.innerText?.trim() || '-';
-            const status = rawStatus.split('\n')[0].trim();
-            const date = cells[6]?.innerText?.trim() || cells[5]?.innerText?.trim() || '-';
+      items.forEach(item => {
+        const phoneEl = item.querySelector('.phone-number, [data-phone]');
+        const jobEl = item.querySelector('.job-type, .service-name');
+        const locEl = item.querySelector('.location-name, .address');
+        const statusEl = item.querySelector('.status-badge, .lead-status');
+        const dateEl = item.querySelector('.date-text, .lead-date');
+        const rawMsgEl = item.innerText || "";
 
-            valid.push({
-              domIndex: idx,
-              phone: firstCol,
-              jobType,
-              location,
-              status,
-              date,
-              isMessage
-            });
-          }
+        if (phoneEl) {
+          extractedLeads.push({
+            phone: phoneEl.innerText.trim(),
+            jobType: jobEl ? jobEl.innerText.trim() : '-',
+            location: locEl ? locEl.innerText.trim() : '-',
+            status: statusEl ? statusEl.innerText.trim() : '-',
+            date: dateEl ? dateEl.innerText.trim() : '-',
+            rawMessage: rawMsgEl
+          });
         }
       });
 
-      return valid;
+      return extractedLeads;
     });
 
-    console.log(`Gerçek Lead Sayısı: ${validRowsIndices.length}`);
+    // Mesaj içeriklerini temizle
+    const cleanedLeads = leads.map(lead => ({
+      ...lead,
+      messageText: parseCleanMessage(lead.rawMessage)
+    }));
 
-    let leads = [];
+    cleanedLeads.forEach(l => delete l.rawMessage);
 
-    // 2. AŞAMA: SATIRLARA TIKLA VE TEMİZ MESAJLARI AL
-    for (const item of validRowsIndices) {
-      let messageText = "-";
+    console.log(`📊 Toplam ${cleanedLeads.length} adet lead başarıyla işlendi.`);
 
-      if (item.isMessage) {
-        try {
-          console.log(`[${item.phone}] Mesaj paneli açılıyor...`);
-
-          // Native Mouse Event ile tıklama simülasyonu
-          const clickSuccess = await page.evaluate((index) => {
-            const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
-            const targetRow = rows[index];
-            if (!targetRow) return false;
-
-            const clickTarget = targetRow.querySelector('td, div[role="gridcell"]') || targetRow;
-            
-            ['mousedown', 'mouseup', 'click'].forEach(eventType => {
-              const evt = new MouseEvent(eventType, {
-                bubbles: true,
-                cancelable: true,
-                view: window
-              });
-              clickTarget.dispatchEvent(evt);
-            });
-            return true;
-          }, item.domIndex);
-
-          if (clickSuccess) {
-            await new Promise(resolve => setTimeout(resolve, 4500));
-
-            // Ham panel metnini çek
-            let rawMessageText = await page.evaluate(() => {
-              const conversationElements = Array.from(document.querySelectorAll('div, section, article'));
-              const chatBlock = conversationElements.find(el => {
-                const txt = el.innerText || '';
-                return txt.includes('Unterhaltung') && txt.length > 20;
-              });
-
-              if (chatBlock) return chatBlock.innerText.trim();
-
-              const sideDrawer = document.querySelector('[role="region"], .conversation-view, .detail-view, drawer-content');
-              if (sideDrawer && sideDrawer.innerText.length > 10) {
-                return sideDrawer.innerText.trim();
-              }
-
-              return "-";
-            });
-
-            // Metni Temizleme Fonksiyonuna Gönder
-            messageText = parseCleanMessage(rawMessageText);
-
-            console.log(` -> [${item.phone}] ÇEKİLEN MESAJ:`, messageText.replace(/\n/g, ' ').substring(0, 60) + "...");
-          }
-
-        } catch (err) {
-          console.warn(` -> [${item.phone}] Hata:`, err.message);
-        }
-      }
-
-      leads.push({
-        phone: item.phone,
-        jobType: item.jobType,
-        location: item.location,
-        status: item.status,
-        date: item.date,
-        messageText: messageText
-      });
-    }
-
-    // Tarih/Saat Formatlama (Viyana Saati)
-    const adjustedLeads = leads.map(lead => {
-      if (lead.date && lead.date.includes(':')) {
-        const match = lead.date.match(/(\d{2})\.(\d{2})\.(\d{2})\s(\d{1,2}):(\d{2})\s?(AM|PM)?/i);
-        if (match) {
-          let [ , day, month, year, hours, minutes, ampm ] = match;
-          hours = parseInt(hours, 10);
-          if (ampm) {
-            if (ampm.toUpperCase() === 'PM' && hours < 12) hours += 12;
-            if (ampm.toUpperCase() === 'AM' && hours === 12) hours = 0;
-          }
-          
-          const dateObj = new Date(2000 + parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), hours + 2, parseInt(minutes, 10));
-          return {
-            ...lead,
-            date: `${String(dateObj.getDate()).padStart(2, '0')}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${String(dateObj.getFullYear()).slice(-2)} ${String(dateObj.getHours()).padStart(2, '0')}:${String(dateObj.getMinutes()).padStart(2, '0')}`
-          };
-        }
-      }
-      return lead;
-    });
-
+    // data.json çıktısını yaz
     const outputData = {
       updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
-      leads: adjustedLeads
+      leads: cleanedLeads
     };
 
-    fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-    console.log(`İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
+    fs.writeFileSync('./data.json', JSON.stringify(outputData, null, 2), 'utf8');
+    console.log("💾 Veriler data.json dosyasına yazıldı.");
 
-    await browser.close();
+    // Oturum tazelemek için çerezleri kaydet
+    const currentCookies = await page.cookies();
+    fs.writeFileSync('./updated_cookies.json', JSON.stringify(currentCookies, null, 2), 'utf8');
+    console.log("🔄 Güncel çerezler updated_cookies.json dosyasına kaydedildi.");
+
   } catch (error) {
-    console.error("Scraper hatası:", error.message);
+    console.error(`💥 Scraper hatası: ${error.message}`);
+    if (browser) await browser.close();
     process.exit(1);
   }
+
+  if (browser) await browser.close();
+  console.log("🎉 İşlem başarıyla tamamlandı.");
 })();
