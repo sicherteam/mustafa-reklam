@@ -18,7 +18,7 @@
       background-repeat: no-repeat;
       background-position: center center;
       background-size: contain; /* Görseli bozmadan ekranın ortasına sığdırır */
-      opacity: 0.08; /* Siliklik derecesi (%8 saydamlık) */
+      opacity: 0.12; /* Resmin görünürlüğünü biraz artırdık (%12) */
       z-index: -1;
       pointer-events: none;
     }
@@ -30,19 +30,34 @@
       position: relative;
     }
 
+    /* Ana Kart Yarı Saydam (Resim Altından Görünsün Diye) */
     .main-card { 
-      border: none; 
+      border: 1px solid rgba(255, 255, 255, 0.6); 
       border-radius: 16px; 
       box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-      background: rgba(255, 255, 255, 0.92); /* Arka plan resmiyle okunabilirliği korumak için hafif buzlu cam efekti */
-      backdrop-filter: blur(5px);
+      background: rgba(255, 255, 255, 0.75) !important; /* Yarı saydam beyaz */
+      backdrop-filter: blur(8px); /* Şık buzlu cam efekti */
+    }
+
+    /* Tablo ve İç Elemanların Şeffaflaştırılması */
+    .table-responsive {
+      background: transparent !important;
+    }
+
+    .table {
+      --bs-table-bg: transparent !important; /* Tablo arka planını şeffaf yapar */
+      --bs-table-color: #1e293b;
     }
 
     .table th { 
-      background-color: #1e293b; 
+      background-color: rgba(30, 41, 59, 0.9) !important; /* Tablo başlığı koyu kalmaya devam eder */
       color: #fff; 
       border: none; 
       padding: 14px; 
+    }
+
+    .table td {
+      background: transparent !important;
     }
 
     .badge-status { 
@@ -53,20 +68,20 @@
       display: inline-block;
     }
 
-    .bg-belastet { background-color: #d1e7dd; color: #0f5132; }
-    .bg-pruefung { background-color: #fff3cd; color: #664d03; }
-    .bg-nicht { background-color: #f8d7da; color: #842029; }
-    .bg-default { background-color: #e2e3e5; color: #41464b; }
+    .bg-belastet { background-color: rgba(209, 231, 221, 0.9); color: #0f5132; }
+    .bg-pruefung { background-color: rgba(255, 243, 205, 0.9); color: #664d03; }
+    .bg-nicht { background-color: rgba(248, 215, 218, 0.9); color: #842029; }
+    .bg-default { background-color: rgba(226, 227, 229, 0.9); color: #41464b; }
     #countdown-box { display: none; }
 
     /* Mesaj Kutusu Stili */
     .message-box {
-      background-color: #f8fafc;
+      background-color: rgba(248, 250, 252, 0.85);
       border-left: 4px solid #0d6efd;
       border-radius: 6px;
       padding: 10px 12px;
       margin-top: 8px;
-      white-space: pre-line; /* Mesajlardaki alt satır geçişlerini [Header]\nMessage düzeninde korumak için */
+      white-space: pre-line;
     }
 
     /* --- MOBİL UYUM ÖZELLEŞTİRMELERİ --- */
@@ -80,19 +95,20 @@
       /* Mobil Kart Görünümü Container'ı */
       .mobile-cards-view { display: flex; flex-direction: column; gap: 12px; }
       
-      /* Mobil Lead Kartı */
+      /* Mobil Lead Kartı (Resim Görünsün Diye Yarı Saydam) */
       .lead-card {
-        background: rgba(255, 255, 255, 0.95);
-        border: 1px solid #e2e8f0;
+        background: rgba(255, 255, 255, 0.82) !important;
+        border: 1px solid rgba(226, 232, 240, 0.8);
         border-radius: 12px;
         padding: 14px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        backdrop-filter: blur(4px);
       }
       .lead-card-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        border-bottom: 1px solid #f1f5f9;
+        border-bottom: 1px solid rgba(241, 245, 249, 0.8);
         padding-bottom: 8px;
         margin-bottom: 10px;
       }
@@ -131,7 +147,7 @@
       </div>
       <div class="col-12 col-md-6">
         <div class="d-flex flex-column flex-sm-row gap-2">
-          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort, Nachricht...)...">
+          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort, Nachricht...)..." style="background: rgba(255, 255, 255, 0.9);">
           <button id="btn-refresh" onclick="startLiveScrape()" class="btn btn-primary text-nowrap">
             🔄 Daten neu laden
           </button>
@@ -250,7 +266,7 @@
             </tr>
             ${cleanedMsg ? `
               <tr class="collapse" id="msg-desktop-${index}">
-                <td colspan="6" class="bg-light p-3">
+                <td colspan="6" class="p-3">
                   <div class="message-box">
                     <strong class="text-primary small d-block mb-1">💬 Kundennachricht:</strong>
                     <div class="small text-dark">${cleanedMsg}</div>
