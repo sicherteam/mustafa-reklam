@@ -30,7 +30,7 @@ const fs = require('fs');
 
     await page.setCookie(...cookies);
 
-    const targetUrl = 'https://ads.google.com/localservices/inbox?cid=2903573653&bid=10985702078&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
+    const targetUrl = 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
     console.log("LSA Inbox sayfasına gidiliyor...");
     
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 90000 });
