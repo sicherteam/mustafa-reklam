@@ -28,17 +28,30 @@ jobs:
           sudo apt-get install -y google-chrome-stable
 
       - name: NPM Bağımlılıklarını Yükle
-        run: npm install
+        run: npm install puppeteer-core puppeteer-extra puppeteer-extra-plugin-stealth
 
-      - name: Scraper Scriptini Çalıştır
+      - name: Çerez Kaynağını Belirle ve Scraper'ı Çalıştır
         env:
-          GOOGLE_COOKIES: ${{ secrets.GOOGLE_COOKIES }}
-        run: node scraper.js
+          GOOGLE_COOKIES_SECRET: ${{ secrets.GOOGLE_COOKIES }}
+        run: |
+          # Eğer önceki çalıştırmadan kaydedilmiş taze çerez dosyası varsa onu kullan, yoksa Secret'ı kullan
+          if [ -f "updated_cookies.json" ]; then
+            echo "Güncellenmiş yerel çerezler (updated_cookies.json) kullanılıyor..."
+            export GOOGLE_COOKIES=$(cat updated_cookies.json)
+          else
+            echo "GitHub Secret çerezleri kullanılıyor..."
+            export GOOGLE_COOKIES="$GOOGLE_COOKIES_SECRET"
+          fi
+          
+          node scraper.js
 
-      - name: data.json Dosyasını Repoya Commit Et
+      - name: Değişiklikleri (data.json ve updated_cookies.json) Repoya Commit Et
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
-          git commit -m "Automated update: data.json" || exit 0
+          
+          # Hem verileri hem de yenilenen çerezleri depoya ekle
+          git add data.json updated_cookies.json
+          
+          git commit -m "Automated update: data.json and fresh cookies" || exit 0
           git push
