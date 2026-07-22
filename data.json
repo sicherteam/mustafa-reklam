@@ -1,131 +1,167 @@
 {
-  "updatedAt": "22.7.2026, 17:22:19",
+  "updatedAt": "22.7.2026, 19:42:52",
   "leads": [
+    {
+      "phone": "0660 3717336",
+      "jobType": "-",
+      "location": "Wien",
+      "requestType": "Telefon",
+      "status": "Belastet",
+      "date": "21.07.26 15:47",
+      "messageText": "-"
+    },
     {
       "phone": "0676 6723777",
       "jobType": "-",
       "location": "Wien",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "21.07.26 16:14"
+      "date": "21.07.26 14:14",
+      "messageText": "-"
     },
     {
       "phone": "01 9977183",
       "jobType": "-",
       "location": "Wien",
+      "requestType": "Telefon",
       "status": "Wird überprüft",
-      "date": "22.07.26 13:13"
+      "date": "22.07.26 11:13",
+      "messageText": "-"
     },
     {
       "phone": "0660 5859753",
       "jobType": "-",
       "location": "Maria Enzersdorf",
+      "requestType": "Telefon",
       "status": "Wird überprüft",
-      "date": "22.07.26 13:08"
+      "date": "22.07.26 11:08",
+      "messageText": "-"
     },
     {
       "phone": "0680 1607650",
       "jobType": "-",
       "location": "Wien",
+      "requestType": "Telefon",
       "status": "Wird überprüft",
-      "date": "22.07.26 13:09"
+      "date": "22.07.26 11:09",
+      "messageText": "-"
     },
     {
       "phone": "0664 5845003",
       "jobType": "Beförderung von Umzugsgut",
       "location": "Oberpullendorf",
+      "requestType": "Telefon",
       "status": "Wird überprüft",
-      "date": "22.07.26 10:19"
+      "date": "22.07.26 08:19",
+      "messageText": "-"
     },
     {
       "phone": "0664 6360233",
       "jobType": "-",
       "location": "Eisenstadt",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "21.07.26 10:14"
+      "date": "21.07.26 08:14",
+      "messageText": "-"
     },
     {
       "phone": "0676 5955223",
       "jobType": "-",
       "location": "Wien",
+      "requestType": "Telefon",
       "status": "Wird überprüft",
-      "date": "22.07.26 09:05"
+      "date": "22.07.26 07:05",
+      "messageText": "-"
     },
     {
       "phone": "0676 9379144",
       "jobType": "-",
       "location": "Baden",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "21.07.26 07:58"
+      "date": "21.07.26 05:58",
+      "messageText": "-"
     },
     {
       "phone": "0677 63730075",
       "jobType": "-",
       "location": "Wiener Neustadt",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "21.07.26 07:29"
+      "date": "21.07.26 05:29",
+      "messageText": "-"
     },
     {
       "phone": "0664 75105881",
       "jobType": "Beförderung von Umzugsgut",
       "location": "Rechnitz",
+      "requestType": "Nachricht",
       "status": "Belastet",
-      "date": "20.07.26 18:39"
+      "date": "20.07.26 16:39",
+      "messageText": "Google Lokale Dienstleistungen\n\nPotenzieller Kunde\n0664 75105881\nARCHIVIEREN\nALS \"TERMIN VEREINBART\" MARKIEREN\nZusammenfassung der Anfrage\nErhalten am 20.07.2026 an 4:39 PM.\nDiese Anfrage bewerten\nStatusNeu\nGebührenstatus\nBelastet\nAnfrage-ID327322966\nArt der AnfrageNachricht\nUnternehmenskategorieUmzugsdienst\nDiensttypBeförderung von Umzugsgut\nStandortRechnitz\nSuchabsichtKategorie\nKundenname\nKundenname hinzufügen\nIhre Notizen\nHier hinzugefügte Notizen sind für Kunden nicht sichtbar, sollten jedoch trotzdem keine sensiblen oder vertraulichen Informationen enthalten.\n\nP\nPotenzieller Kunde\n20.07.26\nBenötige noch diese Woche Hilfe beim Transport von 2 kleinen Chouches,2 Kredenzen,einer Truhennähmaschine,einem Schaukelstuhl und drei schmalen Schränken.\nWird geladen…\nAudioinhalte werden geladen\nHier dem Kunden antworten\nSENDEN\nLead"
     },
     {
       "phone": "0660 1014088",
       "jobType": "Beförderung von Umzugsgut",
       "location": "Brunn am Gebirge",
+      "requestType": "Nachricht",
       "status": "Belastet",
-      "date": "20.07.26 18:01"
-    },
-    {
-      "phone": "0660 3717336",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Wird überprüft",
-      "date": "21.07.26 17:47"
+      "date": "20.07.26 16:01",
+      "messageText": "-"
     },
     {
       "phone": "0664 9589236",
       "jobType": "-",
       "location": "Wien",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "20.07.26 10:40"
+      "date": "20.07.26 08:40",
+      "messageText": "-"
     },
     {
       "phone": "0664 75074835",
       "jobType": "Beförderung von Umzugsgut",
       "location": "Baden",
+      "requestType": "Nachricht",
       "status": "Belastet",
-      "date": "20.07.26 10:34"
+      "date": "20.07.26 08:34",
+      "messageText": "-"
     },
     {
       "phone": "0676 3638030",
       "jobType": "-",
       "location": "Waidhofen an der Ybbs",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "20.07.26 08:52"
+      "date": "20.07.26 06:52",
+      "messageText": "-"
     },
     {
       "phone": "0681 20226071",
       "jobType": "-",
       "location": "Mistelbach",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "19.07.26 19:46"
+      "date": "19.07.26 17:46",
+      "messageText": "-"
     },
     {
       "phone": "0699 10296011",
       "jobType": "-",
       "location": "Pfaffstätten",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "19.07.26 16:39"
+      "date": "19.07.26 14:39",
+      "messageText": "-"
     },
     {
       "phone": "0670 4002581",
       "jobType": "-",
       "location": "Korneuburg",
+      "requestType": "Telefon",
       "status": "Belastet",
-      "date": "19.07.26 10:18"
+      "date": "19.07.26 08:18",
+      "messageText": "-"
     }
   ]
 }
