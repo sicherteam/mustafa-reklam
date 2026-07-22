@@ -1,4 +1,157 @@
 {
-  "updatedAt": "23.7.2026, 00:04:45",
-  "leads": []
+  "updatedAt": "23.7.2026, 00:10:24",
+  "leads": [
+    {
+      "phone": "0660 3717336",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "21.07.26 17:47",
+      "messageText": "-"
+    },
+    {
+      "phone": "0676 6723777",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "21.07.26 16:14",
+      "messageText": "-"
+    },
+    {
+      "phone": "01 9977183",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "22.07.26 13:13",
+      "messageText": "-"
+    },
+    {
+      "phone": "0660 5859753",
+      "jobType": "-",
+      "location": "Maria Enzersdorf",
+      "status": "Wird überprüft",
+      "date": "22.07.26 13:08",
+      "messageText": "-"
+    },
+    {
+      "phone": "0680 1607650",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "22.07.26 13:09",
+      "messageText": "-"
+    },
+    {
+      "phone": "0664 5845003",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Oberpullendorf",
+      "status": "Wird überprüft",
+      "date": "22.07.26 10:19",
+      "messageText": "-"
+    },
+    {
+      "phone": "0664 6360233",
+      "jobType": "-",
+      "location": "Eisenstadt",
+      "status": "Belastet",
+      "date": "21.07.26 10:14",
+      "messageText": "-"
+    },
+    {
+      "phone": "0676 5955223",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "22.07.26 09:05",
+      "messageText": "-"
+    },
+    {
+      "phone": "0676 9379144",
+      "jobType": "-",
+      "location": "Baden",
+      "status": "Belastet",
+      "date": "21.07.26 07:58",
+      "messageText": "-"
+    },
+    {
+      "phone": "0677 63730075",
+      "jobType": "-",
+      "location": "Wiener Neustadt",
+      "status": "Belastet",
+      "date": "21.07.26 07:29",
+      "messageText": "-"
+    },
+    {
+      "phone": "0664 75105881",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Rechnitz",
+      "status": "Belastet",
+      "date": "20.07.26 18:39",
+      "messageText": "[Potenzieller Kunde\n0664 75105881]\nBenötige noch diese Woche Hilfe beim Transport von 2 kleinen Chouches,2 Kredenzen,einer Truhennähmaschine,einem Schaukelstuhl und drei schmalen Schränken."
+    },
+    {
+      "phone": "0660 1014088",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Brunn am Gebirge",
+      "status": "Belastet",
+      "date": "20.07.26 18:01",
+      "messageText": "[Potenzieller Kunde\n0660 1014088]\nSo schnell, wie möglich"
+    },
+    {
+      "phone": "Christian Poterucha",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Mödling",
+      "status": "Belastet",
+      "date": "20.07.26 13:00",
+      "messageText": "[Christian Poterucha\n0676 4610046]\nC\nChristian Poterucha\n20.07.26\nGuten Tag, können Sie für mich einen Umzug von 2340 Mödling, Payergasse nach 2351 Wiener Neudorf, Anningerstrasse organisieren? - eine Eck-Couch 210x280 - eine Couch 210x86 - ein Kasten 160x187x40 - einen Eckkasten 236x49x35 (vier Korpuse) - ein Sideboard 162x42x72 - ein Boxspringbett zirka 200x200"
+    },
+    {
+      "phone": "0664 9589236",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "20.07.26 10:40",
+      "messageText": "-"
+    },
+    {
+      "phone": "0664 75074835",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Baden",
+      "status": "Belastet",
+      "date": "20.07.26 10:34",
+      "messageText": "[Potenzieller Kunde\n0664 75074835]\nHallo, ich benötige Unterstützung für einen Umzug innerhalb von Baden. Folgende Möbel und Gegenstände sollen transportiert werden: * Kinderbett * Sofa * Esszimmertisch mit Stühlen * Kleiderschrank (ca. 1,80 × 2,50 m, lässt sich in einzelne Elemente zerlegen) * Outdoor-Lounge * Gartentisch mit 4 Stühlen * Grill * Waschmaschine * Pflanzen Wir übernehmen das Verpacken selbst und benötigen lediglich Unterstützung beim Tragen und Transport. Da ich alleinerziehende Mama einer Tochter bin, freue ich mich über ein faires Angebot. Der Umzug könnte zwischen Mittwoch und spätestens dem 1. August stattfin"
+    },
+    {
+      "phone": "0676 3638030",
+      "jobType": "-",
+      "location": "Waidhofen an der Ybbs",
+      "status": "Belastet",
+      "date": "20.07.26 08:52",
+      "messageText": "-"
+    },
+    {
+      "phone": "0681 20226071",
+      "jobType": "-",
+      "location": "Mistelbach",
+      "status": "Belastet",
+      "date": "19.07.26 19:46",
+      "messageText": "-"
+    },
+    {
+      "phone": "0699 10296011",
+      "jobType": "-",
+      "location": "Pfaffstätten",
+      "status": "Belastet",
+      "date": "19.07.26 16:39",
+      "messageText": "-"
+    },
+    {
+      "phone": "0670 4002581",
+      "jobType": "-",
+      "location": "Korneuburg",
+      "status": "Belastet",
+      "date": "19.07.26 10:18",
+      "messageText": "-"
+    }
+  ]
 }
