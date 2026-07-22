@@ -69,13 +69,25 @@ puppeteer.use(StealthPlugin());
     console.log("Sayfa içeriğinin yüklenmesi ve scroll yapılması bekleniyor...");
     await new Promise(resolve => setTimeout(resolve, 6000));
 
-    // Christian Poterucha ve alt satırların yüklenmesi için sayfayı aşağı kaydır
-    await page.evaluate(() => {
-      window.scrollBy(0, 1000);
+    // Tablonun tamamı yüklensin diye yumuşak scroll yap
+    await page.evaluate(async () => {
+      await new Promise((resolve) => {
+        let totalHeight = 0;
+        let distance = 300;
+        let timer = setInterval(() => {
+          let scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
+          if (totalHeight >= 1200) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 200);
+      });
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // 1. AŞAMA: SADECE GERÇEK TABLO SATIRLARINI TESPİT ET
+    // 1. AŞAMA: SADECE GERÇEK LEAD SATIRLARINI VE İNDEKSLLERİNİ TESPİT ET
     const validRowsIndices = await page.evaluate(() => {
       const allRows = Array.from(document.querySelectorAll('[role="row"], tr'));
       const valid = [];
@@ -84,11 +96,10 @@ puppeteer.use(StealthPlugin());
         const text = row.innerText || '';
         const cells = Array.from(row.querySelectorAll('td, div[role="gridcell"]'));
         
-        // En az 4 hücresi olan satırları filtrele
         if (cells.length >= 4) {
           const firstCol = cells[0]?.innerText?.trim() || '';
           
-          // "Kunde", "Telefon", sayısal takvim çöpleri veya çok kısa metinleri ele
+          // "Kunde", "Telefon" başlıklarını veya takvim rakamlarını ele
           if (firstCol && 
               firstCol !== 'Kunde' && 
               !firstCol.includes('Telefon') && 
@@ -122,52 +133,65 @@ puppeteer.use(StealthPlugin());
 
     let leads = [];
 
-    // 2. AŞAMA: HER BİR GERÇEK SATIR İÇİN DÖNGÜYE GİR
+    // 2. AŞAMA: HER BİR GERÇEK SATIR İÇİN DÖNGÜYE GİR VE MESAJLARI ÇEK
     for (const item of validRowsIndices) {
       let messageText = "-";
 
       if (item.isMessage) {
         try {
-          console.log(`[${item.phone}] Mesaj detayı açılıyor...`);
+          console.log(`[${item.phone}] Mesaj paneli açılıyor...`);
 
-          const allRows = await page.$$('[role="row"], tr');
-          const targetRow = allRows[item.domIndex];
+          // JavaScript Mouse Event'i ile hücresine GERÇEK TIKLAMA simüle et
+          const clickSuccess = await page.evaluate((index) => {
+            const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
+            const targetRow = rows[index];
+            if (!targetRow) return false;
 
-          if (targetRow) {
-            // Tıklanabilir iç hücreyi bul ve tıkla
-            const clickTarget = await targetRow.$('td, div[role="gridcell"], a, span');
-            if (clickTarget) {
-              await clickTarget.click();
-            } else {
-              await targetRow.click();
-            }
+            const clickTarget = targetRow.querySelector('td, div[role="gridcell"]') || targetRow;
+            
+            // Native Event tetikle
+            ['mousedown', 'mouseup', 'click'].forEach(eventType => {
+              const evt = new MouseEvent(eventType, {
+                bubbles: true,
+                cancelable: true,
+                view: window
+              });
+              clickTarget.dispatchEvent(evt);
+            });
+            return true;
+          }, item.domIndex);
 
-            // Panel geçişi için yeterli zaman ver
-            await new Promise(resolve => setTimeout(resolve, 4000));
+          if (clickSuccess) {
+            // Sağ panelin açılması ve içeriğin Google API'den çekilmesi için bekle
+            await new Promise(resolve => setTimeout(resolve, 4500));
 
-            // Detay panelindeki mesaj alanını yakala
+            // Mesaj içeriğini yakala
             messageText = await page.evaluate(() => {
-              const chatContainers = Array.from(document.querySelectorAll('div, section, p'));
+              // 1. Yöntem: Google LSA Mesajlaşma Gövdesi
+              const conversationElements = Array.from(document.querySelectorAll('div, section, article'));
               
-              const match = chatContainers.find(c => {
-                const txt = c.innerText || '';
-                return txt.includes('Unterhaltung') && txt.length > 25;
+              // "Unterhaltung" veya mesaj içeriğinin yer aldığı ana bloğu bul
+              const chatBlock = conversationElements.find(el => {
+                const txt = el.innerText || '';
+                return (txt.includes('Unterhaltung') || txt.includes('Kundennachricht')) && txt.length > 20;
               });
 
-              if (match) {
-                return match.innerText.trim();
+              if (chatBlock) {
+                return chatBlock.innerText.trim();
               }
 
-              const sidePanel = document.querySelector('[role="region"], .conversation-view, .detail-view');
-              if (sidePanel) {
-                return sidePanel.innerText.trim();
+              // 2. Yöntem: Sağ paneli tümüyle al
+              const sideDrawer = document.querySelector('[role="region"], .conversation-view, .detail-view, drawer-content');
+              if (sideDrawer && sideDrawer.innerText.length > 10) {
+                return sideDrawer.innerText.trim();
               }
 
               return "-";
             });
 
-            console.log(` -> [${item.phone}] MESAJ BAŞARIYLA ALINDI:`, messageText.substring(0, 35) + "...");
+            console.log(` -> [${item.phone}] MESAJ BAŞARIYLA ÇEKİLDİ:`, messageText.replace(/\n/g, ' ').substring(0, 45) + "...");
           }
+
         } catch (err) {
           console.warn(` -> [${item.phone}] Mesaj çekme hatası:`, err.message);
         }
@@ -195,7 +219,7 @@ puppeteer.use(StealthPlugin());
             if (ampm.toUpperCase() === 'AM' && hours === 12) hours = 0;
           }
           
-          const dateObj = new Date(2000 + parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), hours, parseInt(minutes, 10));
+          const dateObj = new Date(2000 + parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), hours + 2, parseInt(minutes, 10));
           return {
             ...lead,
             date: `${String(dateObj.getDate()).padStart(2, '0')}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${String(dateObj.getFullYear()).slice(-2)} ${String(dateObj.getHours()).padStart(2, '0')}:${String(dateObj.getMinutes()).padStart(2, '0')}`
@@ -212,11 +236,11 @@ puppeteer.use(StealthPlugin());
     };
 
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-    console.log(`Başarıyla ${adjustedLeads.length} adet veri data.json dosyasına yazıldı!`);
+    console.log(`İŞLEM TAMAM! Toplam ${adjustedLeads.length} lead ve tüm mesaj içerikleri data.json'a yazıldı.`);
 
     await browser.close();
   } catch (error) {
-    console.error("Scraper çalışırken hata oluştu:", error.message);
+    console.error("Scraper hatası:", error.message);
     process.exit(1);
   }
 })();
