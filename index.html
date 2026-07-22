@@ -17,8 +17,8 @@
       background-image: url('mustafa.png'); 
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: contain; /* Görseli bozmadan ekranın ortasına sığdırır */
-      opacity: 0.80; /* Resmin görünürlüğünü biraz artırdık (%12) */
+      background-size: contain;
+      opacity: 0.25; /* Görünürlük seviyesi (İsteğe göre 0.10 - 0.25 arası değiştirebilirsin) */
       z-index: -1;
       pointer-events: none;
     }
@@ -30,34 +30,42 @@
       position: relative;
     }
 
-    /* Ana Kart Yarı Saydam (Resim Altından Görünsün Diye) */
+    /* Ana Kart - Hafif Yarı Saydam Cam Efekti */
     .main-card { 
-      border: 1px solid rgba(255, 255, 255, 0.6); 
+      border: 1px solid rgba(225, 232, 240, 0.7); 
       border-radius: 16px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-      background: rgba(255, 255, 255, 0.75) !important; /* Yarı saydam beyaz */
-      backdrop-filter: blur(8px); /* Şık buzlu cam efekti */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
+      background: rgba(255, 255, 255, 0.70) !important; 
+      backdrop-filter: blur(4px);
     }
 
-    /* Tablo ve İç Elemanların Şeffaflaştırılması */
+    /* TABLONUN TÜM BEYAZLIKLARINI BASTIRAN ŞEFFAFLIK KODLARI */
     .table-responsive {
       background: transparent !important;
     }
 
     .table {
-      --bs-table-bg: transparent !important; /* Tablo arka planını şeffaf yapar */
-      --bs-table-color: #1e293b;
+      --bs-table-bg: transparent !important;
+      --bs-table-accent-bg: transparent !important;
+      --bs-table-striped-bg: transparent !important;
+      --bs-table-hover-bg: rgba(255, 255, 255, 0.3) !important; /* Üzerine gelince hafif parlama */
+      color: #1e293b;
+      background-color: transparent !important;
     }
 
+    /* Hücrelerin arka plan beyazlığını komple kaldırıyoruz */
+    .table td, .table th, .table tr {
+      background: transparent !important;
+      background-color: transparent !important;
+      border-bottom-color: rgba(226, 232, 240, 0.6) !important;
+    }
+
+    /* Tablo Başlığı */
     .table th { 
-      background-color: rgba(30, 41, 59, 0.9) !important; /* Tablo başlığı koyu kalmaya devam eder */
-      color: #fff; 
+      background-color: rgba(30, 41, 59, 0.92) !important; 
+      color: #fff !important; 
       border: none; 
       padding: 14px; 
-    }
-
-    .table td {
-      background: transparent !important;
     }
 
     .badge-status { 
@@ -76,7 +84,7 @@
 
     /* Mesaj Kutusu Stili */
     .message-box {
-      background-color: rgba(248, 250, 252, 0.85);
+      background-color: rgba(248, 250, 252, 0.9);
       border-left: 4px solid #0d6efd;
       border-radius: 6px;
       padding: 10px 12px;
@@ -89,15 +97,11 @@
       body { padding: 10px 5px; }
       .main-card { padding: 1.25rem !important; border-radius: 12px; }
       
-      /* Masaüstü tablosunu mobilde gizle */
       .desktop-table-view { display: none !important; }
-      
-      /* Mobil Kart Görünümü Container'ı */
       .mobile-cards-view { display: flex; flex-direction: column; gap: 12px; }
       
-      /* Mobil Lead Kartı (Resim Görünsün Diye Yarı Saydam) */
       .lead-card {
-        background: rgba(255, 255, 255, 0.82) !important;
+        background: rgba(255, 255, 255, 0.75) !important;
         border: 1px solid rgba(226, 232, 240, 0.8);
         border-radius: 12px;
         padding: 14px;
@@ -118,19 +122,11 @@
         margin-bottom: 6px;
         font-size: 0.9em;
       }
-      .lead-card-label {
-        color: #64748b;
-        font-weight: 500;
-      }
-      .lead-card-value {
-        font-weight: 600;
-        color: #1e293b;
-        text-align: right;
-      }
+      .lead-card-label { color: #64748b; font-weight: 500; }
+      .lead-card-value { font-weight: 600; color: #1e293b; text-align: right; }
     }
 
     @media (min-width: 768px) {
-      /* Masaüstünde mobil kart görünümünü gizle */
       .mobile-cards-view { display: none !important; }
     }
   </style>
@@ -147,7 +143,7 @@
       </div>
       <div class="col-12 col-md-6">
         <div class="d-flex flex-column flex-sm-row gap-2">
-          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort, Nachricht...)..." style="background: rgba(255, 255, 255, 0.9);">
+          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort, Nachricht...)..." style="background: rgba(255, 255, 255, 0.85);">
           <button id="btn-refresh" onclick="startLiveScrape()" class="btn btn-primary text-nowrap">
             🔄 Daten neu laden
           </button>
@@ -166,7 +162,7 @@
 
     <!-- MASAÜSTÜ TABLO GÖRÜNÜMÜ -->
     <div class="table-responsive desktop-table-view">
-      <table class="table table-hover align-middle" id="leadTable">
+      <table class="table align-middle" id="leadTable">
         <thead>
           <tr>
             <th>Telefon</th>
@@ -191,7 +187,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Mesaj Metnini Temizleyen Yardımcı Fonksiyon
     function cleanMessageText(text) {
       if (!text || text === '-' || text.trim() === '') return null;
       
@@ -248,7 +243,6 @@
 
           const cleanedMsg = cleanMessageText(lead.messageText);
 
-          // 1. Masaüstü Tablo Satırı
           const msgButton = cleanedMsg ? `
             <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#msg-desktop-${index}">
               💬 Nachricht
@@ -277,7 +271,6 @@
           `;
           tbody.innerHTML += row;
 
-          // 2. Mobil Kart Satırı
           const mobileMsgHTML = cleanedMsg ? `
             <div class="message-box mt-2">
               <strong class="text-primary small d-block mb-1">💬 Nachricht:</strong>
@@ -347,14 +340,12 @@
       const input = document.getElementById('searchInput');
       const filter = input.value.toLowerCase();
       
-      // Masaüstü Tablo Araması
       const rows = document.querySelectorAll('#lead-table-body tr');
       rows.forEach(row => {
         const text = row.innerText.toLowerCase();
         row.style.display = text.includes(filter) ? '' : 'none';
       });
 
-      // Mobil Kart Araması
       const cards = document.querySelectorAll('#lead-cards-body .searchable-item');
       cards.forEach(card => {
         const text = card.innerText.toLowerCase();
