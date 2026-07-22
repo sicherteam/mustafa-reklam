@@ -57,7 +57,7 @@ puppeteer.use(StealthPlugin());
       throw new Error("Oturum açılamadı! GOOGLE_COOKIES süresi dolmuş veya geçersiz.");
     }
 
-    // Taze çerezleri sakla
+    // Taze çerezleri kaydet
     try {
       const freshCookies = await page.cookies();
       fs.writeFileSync('updated_cookies.json', JSON.stringify(freshCookies, null, 2));
@@ -66,8 +66,14 @@ puppeteer.use(StealthPlugin());
       console.warn("Çerezler güncellenirken hata oluştu:", cookieErr.message);
     }
 
-    console.log("İçeriğin yüklenmesi bekleniyor...");
-    await new Promise(resolve => setTimeout(resolve, 8000));
+    console.log("Sayfa içeriğinin yüklenmesi ve scroll yapılması bekleniyor...");
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
+    // Christian Poterucha ve alt satırların yüklenmesi için sayfayı aşağı kaydır
+    await page.evaluate(() => {
+      window.scrollBy(0, 1000);
+    });
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
     // TABLO SATIRLARINI VE MESAJ BİLGİLERİNİ ÇEKME
     let leads = [];
@@ -75,13 +81,12 @@ puppeteer.use(StealthPlugin());
     console.log(`Toplam ${totalRowsCount} adet satır elementi tespit edildi.`);
 
     for (let i = 0; i < totalRowsCount; i++) {
-      // DOM değişken nesneleri için elemanları her döngüde taze seçiyoruz
       const currentRows = await page.$$('[role="row"], tr');
       if (!currentRows[i]) continue;
 
       const row = currentRows[i];
 
-      // Satırdaki verileri oku
+      // Satırdaki ham verileri oku
       const rowData = await row.evaluate(el => {
         const cells = Array.from(el.querySelectorAll('td, div[role="gridcell"]'));
         if (cells.length < 5) return null;
@@ -91,7 +96,7 @@ puppeteer.use(StealthPlugin());
         const jobType = cells[1]?.innerText?.trim() || '-';
         const location = cells[3]?.innerText?.trim() || '-';
         
-        // Satır içinde "Nachricht" veya "Message" geçiyor mu?
+        // "Nachricht" kelimesi hücresinde veya satır metninde geçiyor mu?
         const isMessage = /nachricht|message/i.test(rowText);
 
         let rawStatus = cells[5]?.innerText?.trim() || cells[4]?.innerText?.trim() || '-';
@@ -99,7 +104,7 @@ puppeteer.use(StealthPlugin());
 
         const date = cells[6]?.innerText?.trim() || cells[5]?.innerText?.trim() || '-';
 
-        // 'Kunde' veya tablo başlıkları değilse kabul et (İsim veya Numara fark etmeksizin)
+        // Başlıklar dışındaki tüm satırları al (Numara veya İsim fark etmeksizin)
         if (phoneOrName && phoneOrName !== 'Kunde' && !phoneOrName.includes('Telefon')) {
           return { phone: phoneOrName, jobType, location, isMessage, status, date };
         }
@@ -110,12 +115,12 @@ puppeteer.use(StealthPlugin());
 
       let messageText = "-";
 
-      // Eğer satır mesaj içeriyorsa tıkla ve sağ panelden metni çek
+      // Eğer satır bir mesaj talebi ise tıklayıp detay panelini bekle
       if (rowData.isMessage) {
         try {
-          console.log(`[${rowData.phone}] Mesaj detayına tıklanıyor...`);
+          console.log(`[${rowData.phone}] mesaj detayına tıklanıyor...`);
 
-          // Garanti tıklama için ilk hücreye veya satıra tıkla
+          // Tıklanabilir ilk hücreye bas
           const cellToClick = await row.$('td, div[role="gridcell"]');
           if (cellToClick) {
             await cellToClick.click();
@@ -123,38 +128,34 @@ puppeteer.use(StealthPlugin());
             await row.click();
           }
           
-          // Panel içeriğinin değişmesi için 3.5 saniye bekle
-          await new Promise(resolve => setTimeout(resolve, 3500));
+          // Tıklandıktan sonra sağ panelin DOM'da oluşmasını bekle
+          await new Promise(resolve => setTimeout(resolve, 3000));
 
-          // Detay panelinden "Unterhaltung" metnini yakala
+          // Sağ panel içindeki metin bloklarını tara
           messageText = await page.evaluate(() => {
-            const allBoxes = Array.from(document.querySelectorAll('div, section'));
+            // Sağ paneldeki tüm div/section elementlerini tara
+            const allElements = Array.from(document.querySelectorAll('div, section, p'));
             
-            // "Unterhaltung" kelimesini içeren ana kutuyu bul
-            const chatBox = allBoxes.find(b => {
-              const txt = b.innerText || '';
-              return txt.includes('Unterhaltung') && txt.length > 25;
+            // "Unterhaltung" veya müşteri mesajını barındıran kapsayıcıyı yakala
+            const chatContainer = allElements.find(el => {
+              const text = el.innerText || '';
+              return text.includes('Unterhaltung') && text.length > 20;
             });
 
-            if (chatBox) {
-              const fullText = chatBox.innerText;
-              const parts = fullText.split('Unterhaltung');
-              if (parts.length > 1) {
-                return parts[1].trim();
-              }
-              return fullText.trim();
+            if (chatContainer) {
+              return chatContainer.innerText.trim();
             }
 
-            // Alternatif kapsayıcı kontrolü
-            const conversationEl = document.querySelector('.conversation-view, [role="region"]');
-            if (conversationEl) {
-              return conversationEl.innerText.trim();
+            // Alternatif: Genel detay paneli metnini al
+            const detailPanel = document.querySelector('[role="region"], .conversation-view, .detail-view');
+            if (detailPanel) {
+              return detailPanel.innerText.trim();
             }
 
             return "-";
           });
 
-          console.log(` -> [${rowData.phone}] Mesaj çekildi: ${messageText.substring(0, 35)}...`);
+          console.log(` -> [${rowData.phone}] Başarıyla çekilen metin:`, messageText.substring(0, 40) + "...");
 
         } catch (clickErr) {
           console.warn(` -> [${rowData.phone}] Tıklama hatası:`, clickErr.message);
