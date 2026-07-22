@@ -1,44 +1,12 @@
 {
-  "updatedAt": "22.7.2026, 20:31:23",
+  "updatedAt": "22.7.2026, 20:36:01",
   "leads": [
-    {
-      "phone": "6",
-      "jobType": "7",
-      "location": "9",
-      "status": "11",
-      "date": "12",
-      "messageText": "-"
-    },
-    {
-      "phone": "13",
-      "jobType": "14",
-      "location": "16",
-      "status": "18",
-      "date": "19",
-      "messageText": "-"
-    },
-    {
-      "phone": "20",
-      "jobType": "21",
-      "location": "23",
-      "status": "25",
-      "date": "26",
-      "messageText": "-"
-    },
-    {
-      "phone": "27",
-      "jobType": "28",
-      "location": "30",
-      "status": "31",
-      "date": "-",
-      "messageText": "-"
-    },
     {
       "phone": "0660 3717336",
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "21.07.26 17:47",
+      "date": "21.07.26 15:47",
       "messageText": "-"
     },
     {
@@ -46,7 +14,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "21.07.26 16:14",
+      "date": "21.07.26 14:14",
       "messageText": "-"
     },
     {
@@ -54,7 +22,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "22.07.26 13:13",
+      "date": "22.07.26 11:13",
       "messageText": "-"
     },
     {
@@ -62,7 +30,7 @@
       "jobType": "-",
       "location": "Maria Enzersdorf",
       "status": "Wird überprüft",
-      "date": "22.07.26 13:08",
+      "date": "22.07.26 11:08",
       "messageText": "-"
     },
     {
@@ -70,7 +38,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "22.07.26 13:09",
+      "date": "22.07.26 11:09",
       "messageText": "-"
     },
     {
@@ -78,7 +46,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Oberpullendorf",
       "status": "Wird überprüft",
-      "date": "22.07.26 10:19",
+      "date": "22.07.26 08:19",
       "messageText": "-"
     },
     {
@@ -86,7 +54,7 @@
       "jobType": "-",
       "location": "Eisenstadt",
       "status": "Belastet",
-      "date": "21.07.26 10:14",
+      "date": "21.07.26 08:14",
       "messageText": "-"
     },
     {
@@ -94,7 +62,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "22.07.26 09:05",
+      "date": "22.07.26 07:05",
       "messageText": "-"
     },
     {
@@ -102,7 +70,7 @@
       "jobType": "-",
       "location": "Baden",
       "status": "Belastet",
-      "date": "21.07.26 07:58",
+      "date": "21.07.26 05:58",
       "messageText": "-"
     },
     {
@@ -110,7 +78,7 @@
       "jobType": "-",
       "location": "Wiener Neustadt",
       "status": "Belastet",
-      "date": "21.07.26 07:29",
+      "date": "21.07.26 05:29",
       "messageText": "-"
     },
     {
@@ -118,7 +86,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Rechnitz",
       "status": "Belastet",
-      "date": "20.07.26 18:39",
+      "date": "20.07.26 16:39",
       "messageText": "Google Lokale Dienstleistungen\n\nPotenzieller Kunde\n0664 75105881\nARCHIVIEREN\nALS \"TERMIN VEREINBART\" MARKIEREN\nZusammenfassung der Anfrage\nErhalten am 20.07.2026 an 4:39 PM.\nDiese Anfrage bewerten\nStatusNeu\nGebührenstatus\nBelastet\nAnfrage-ID327322966\nArt der AnfrageNachricht\nUnternehmenskategorieUmzugsdienst\nDiensttypBeförderung von Umzugsgut\nStandortRechnitz\nSuchabsichtKategorie\nKundenname\nKundenname hinzufügen\nIhre Notizen\nHier hinzugefügte Notizen sind für Kunden nicht sichtbar, sollten jedoch trotzdem keine sensiblen oder vertraulichen Informationen enthalten.\nUnterhaltung\nP\nPotenzieller Kunde\n20.07.26\nBenötige noch diese Woche Hilfe beim Transport von 2 kleinen Chouches,2 Kredenzen,einer Truhennähmaschine,einem Schaukelstuhl und drei schmalen Schränken.\nWird geladen…\nAudioinhalte werden geladen\nHier dem Kunden antworten\nSENDEN"
     },
     {
@@ -126,7 +94,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Brunn am Gebirge",
       "status": "Belastet",
-      "date": "20.07.26 18:01",
+      "date": "20.07.26 16:01",
       "messageText": "-"
     },
     {
@@ -134,7 +102,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Mödling",
       "status": "Belastet",
-      "date": "20.07.26 13:00",
+      "date": "20.07.26 11:00",
       "messageText": "-"
     },
     {
@@ -142,7 +110,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "20.07.26 10:40",
+      "date": "20.07.26 08:40",
       "messageText": "-"
     },
     {
@@ -150,7 +118,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Baden",
       "status": "Belastet",
-      "date": "20.07.26 10:34",
+      "date": "20.07.26 08:34",
       "messageText": "-"
     },
     {
@@ -158,7 +126,7 @@
       "jobType": "-",
       "location": "Waidhofen an der Ybbs",
       "status": "Belastet",
-      "date": "20.07.26 08:52",
+      "date": "20.07.26 06:52",
       "messageText": "-"
     },
     {
@@ -166,7 +134,7 @@
       "jobType": "-",
       "location": "Mistelbach",
       "status": "Belastet",
-      "date": "19.07.26 19:46",
+      "date": "19.07.26 17:46",
       "messageText": "-"
     },
     {
@@ -174,15 +142,7 @@
       "jobType": "-",
       "location": "Pfaffstätten",
       "status": "Belastet",
-      "date": "19.07.26 16:39",
-      "messageText": "-"
-    },
-    {
-      "phone": "-",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "Wien",
-      "status": "Belastet",
-      "date": "19.07.26 15:34",
+      "date": "19.07.26 14:39",
       "messageText": "-"
     },
     {
@@ -190,7 +150,7 @@
       "jobType": "-",
       "location": "Korneuburg",
       "status": "Belastet",
-      "date": "19.07.26 10:18",
+      "date": "19.07.26 08:18",
       "messageText": "-"
     }
   ]
