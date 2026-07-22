@@ -6,31 +6,102 @@
   <title>LSA Lead Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background-color: #f4f6f9; padding: 25px 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .card { border: none; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-    .table th { background-color: #1e293b; color: #fff; border: none; padding: 14px; }
-    .badge-status { font-size: 0.85em; padding: 8px 12px; border-radius: 20px; font-weight: 600; }
+    body { 
+      background-color: #f4f6f9; 
+      padding: 15px 10px; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    }
+    .main-card { 
+      border: none; 
+      border-radius: 16px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    }
+    .table th { 
+      background-color: #1e293b; 
+      color: #fff; 
+      border: none; 
+      padding: 14px; 
+    }
+    .badge-status { 
+      font-size: 0.85em; 
+      padding: 6px 12px; 
+      border-radius: 20px; 
+      font-weight: 600; 
+      display: inline-block;
+    }
     .bg-belastet { background-color: #d1e7dd; color: #0f5132; }
     .bg-pruefung { background-color: #fff3cd; color: #664d03; }
     .bg-nicht { background-color: #f8d7da; color: #842029; }
     .bg-default { background-color: #e2e3e5; color: #41464b; }
     #countdown-box { display: none; }
+
+    /* --- MOBİL UYUM ÖZELLEŞTİRMELERİ --- */
+    @media (max-width: 767.98px) {
+      body { padding: 10px 5px; }
+      .main-card { padding: 1.25rem !important; border-radius: 12px; }
+      
+      /* Masaüstü tablosunu mobilde gizle */
+      .desktop-table-view { display: none !important; }
+      
+      /* Mobil Kart Görünümü Container'ı */
+      .mobile-cards-view { display: flex; flex-direction: column; gap: 12px; }
+      
+      /* Mobil Lead Kartı */
+      .lead-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      }
+      .lead-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 8px;
+        margin-bottom: 10px;
+      }
+      .lead-card-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+        font-size: 0.9em;
+      }
+      .lead-card-label {
+        color: #64748b;
+        font-weight: 500;
+      }
+      .lead-card-value {
+        font-weight: 600;
+        color: #1e293b;
+        text-align: right;
+      }
+    }
+
+    @media (min-width: 768px) {
+      /* Masaüstünde mobil kart görünümünü gizle */
+      .mobile-cards-view { display: none !important; }
+    }
   </style>
 </head>
 <body>
-  <div class="container card p-4">
-    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
-      <div>
-        <h2 class="fw-bold mb-1">LSA Anfragen (Leads)</h2>
+  <div class="container main-card p-4">
+    <!-- Header Alanı -->
+    <div class="row g-3 align-items-center mb-3">
+      <div class="col-12 col-md-6">
+        <h2 class="fw-bold mb-1 fs-3">LSA Anfragen (Leads)</h2>
         <div class="text-muted small">
           <strong>Letzte Aktualisierung:</strong> <span id="last-update" class="text-primary fw-bold">Yükleniyor...</span>
         </div>
       </div>
-      <div class="d-flex gap-2 align-items-center">
-        <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort...)...">
-        <button id="btn-refresh" onclick="startLiveScrape()" class="btn btn-primary text-nowrap">
-          🔄 Daten neu laden
-        </button>
+      <div class="col-12 col-md-6">
+        <div class="d-flex flex-column flex-sm-row gap-2">
+          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort...)...">
+          <button id="btn-refresh" onclick="startLiveScrape()" class="btn btn-primary text-nowrap">
+            🔄 Daten neu laden
+          </button>
+        </div>
       </div>
     </div>
 
@@ -38,12 +109,13 @@
     <div id="countdown-box" class="alert alert-info align-items-center justify-content-between mb-3">
       <div>
         <strong>🤖 Prüfe auf neue Daten...</strong>
-        <span class="ms-2">data.json wird vom Server neu geladen.</span>
+        <div class="small text-muted d-block d-sm-inline">data.json wird neu geladen.</div>
       </div>
-      <div class="fw-bold fs-4 text-primary ms-3"><span id="timer">10</span>s</div>
+      <div class="fw-bold fs-4 text-primary ms-2"><span id="timer">10</span>s</div>
     </div>
 
-    <div class="table-responsive">
+    <!-- MASAÜSTÜ TABLO GÖRÜNÜMÜ -->
+    <div class="table-responsive desktop-table-view">
       <table class="table table-hover align-middle" id="leadTable">
         <thead>
           <tr>
@@ -59,15 +131,20 @@
         </tbody>
       </table>
     </div>
+
+    <!-- MOBİL KART GÖRÜNÜMÜ -->
+    <div id="lead-cards-body" class="mobile-cards-view">
+      <div class="text-center text-muted py-4">Veriler yükleniyor...</div>
+    </div>
   </div>
 
   <script>
     async function loadData() {
       const tbody = document.getElementById('lead-table-body');
+      const cardsBody = document.getElementById('lead-cards-body');
       const updateSpan = document.getElementById('last-update');
 
       try {
-        // Cache bypass: Rastgele bir t parametresi veriyoruz ki tarayıcı eskiyi çekmesin
         const response = await fetch('./data.json?t=' + new Date().getTime(), {
           cache: 'no-cache'
         });
@@ -80,9 +157,12 @@
         updateSpan.innerText = data.updatedAt || 'Unbekannt';
 
         tbody.innerHTML = '';
+        cardsBody.innerHTML = '';
 
         if (!data.leads || data.leads.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-muted">Keine Daten vorhanden.</td></tr>';
+          const emptyMsg = '<div class="text-center py-4 text-muted">Keine Daten vorhanden.</div>';
+          tbody.innerHTML = `<tr><td colspan="5" class="text-center py-4 text-muted">Keine Daten vorhanden.</td></tr>`;
+          cardsBody.innerHTML = emptyMsg;
           return;
         }
 
@@ -99,6 +179,7 @@
             badgeClass = 'bg-nicht';
           }
 
+          // 1. Masaüstü Tablo Satırı
           const row = `
             <tr>
               <td><a href="tel:${lead.phone}" class="fw-bold text-decoration-none">${lead.phone}</a></td>
@@ -109,11 +190,38 @@
             </tr>
           `;
           tbody.innerHTML += row;
+
+          // 2. Mobil Kart Satırı
+          const card = `
+            <div class="lead-card searchable-item">
+              <div class="lead-card-header">
+                <div>
+                  <a href="tel:${lead.phone}" class="fw-bold fs-6 text-decoration-none text-primary d-block">
+                    📞 ${lead.phone}
+                  </a>
+                  <small class="text-muted">${lead.date || '-'}</small>
+                </div>
+                <span class="badge badge-status ${badgeClass}">${cleanStatus}</span>
+              </div>
+              <div class="lead-card-row">
+                <span class="lead-card-label">Hizmet:</span>
+                <span class="lead-card-value">${lead.jobType || '-'}</span>
+              </div>
+              <div class="lead-card-row">
+                <span class="lead-card-label">Konum:</span>
+                <span class="lead-card-value">${lead.location || '-'}</span>
+              </div>
+            </div>
+          `;
+          cardsBody.innerHTML += card;
         });
+
       } catch (err) {
         console.error("Yükleme hatası:", err);
         updateSpan.innerText = 'Fehler beim Laden';
-        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-danger py-4">Veri okunamadı: ${err.message}</td></tr>`;
+        const errorMsg = `Veri okunamadı: ${err.message}`;
+        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-danger py-4">${errorMsg}</td></tr>`;
+        cardsBody.innerHTML = `<div class="text-center text-danger py-4">${errorMsg}</div>`;
       }
     }
 
@@ -136,7 +244,6 @@
           clearInterval(countdown);
           box.style.display = 'none';
           btn.disabled = false;
-          // Yeni veriyi çeker
           loadData();
         }
       }, 1000);
@@ -145,11 +252,19 @@
     function filterTable() {
       const input = document.getElementById('searchInput');
       const filter = input.value.toLowerCase();
+      
+      // Masaüstü Tablo Araması
       const rows = document.querySelectorAll('#lead-table-body tr');
-
       rows.forEach(row => {
         const text = row.innerText.toLowerCase();
         row.style.display = text.includes(filter) ? '' : 'none';
+      });
+
+      // Mobil Kart Araması
+      const cards = document.querySelectorAll('#lead-cards-body .searchable-item');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? '' : 'none';
       });
     }
 
