@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSA Lead Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f4f6f9; padding: 25px 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .card { border: none; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .table th { background-color: #1e293b; color: #fff; border: none; padding: 14px; }
+    .badge-status { font-size: 0.85em; padding: 8px 12px; border-radius: 20px; font-weight: 600; }
+    .bg-belastet { background-color: #d1e7dd; color: #0f5132; }
+    .bg-pruefung { background-color: #fff3cd; color: #664d03; }
+    .bg-nicht { background-color: #f8d7da; color: #842029; }
+    .bg-default { background-color: #e2e3e5; color: #41464b; }
+    #countdown-box { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container card p-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+      <div>
+        <h2 class="fw-bold mb-1">LSA Anfragen (Leads)</h2>
+        <div class="text-muted small">
+          <strong>Letzte Aktualisierung:</strong> <span id="last-update" class="text-primary fw-bold">Yükleniyor...</span>
+        </div>
+      </div>
+      <div class="d-flex gap-2 align-items-center">
+        <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort...)...">
+        <button id="btn-refresh" onclick="startLiveScrape()" class="btn btn-primary text-nowrap">
+          🔄 Daten neu laden
+        </button>
+      </div>
+    </div>
+
+    <!-- Geri Sayım Kutusu -->
+    <div id="countdown-box" class="alert alert-info align-items-center justify-content-between mb-3">
+      <div>
+        <strong>🤖 Prüfe auf neue Daten...</strong>
+        <span class="ms-2">data.json wird vom Server neu geladen.</span>
+      </div>
+      <div class="fw-bold fs-4 text-primary ms-3"><span id="timer">10</span>s</div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle" id="leadTable">
+        <thead>
+          <tr>
+            <th>Telefon</th>
+            <th>Hizmet</th>
+            <th>Konum</th>
+            <th>Durum</th>
+            <th>Tarih</th>
+          </tr>
+        </thead>
+        <tbody id="lead-table-body">
+          <tr><td colspan="5" class="text-center py-4">Veriler yükleniyor...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    async function loadData() {
+      const tbody = document.getElementById('lead-table-body');
+      const updateSpan = document.getElementById('last-update');
+
+      try {
+        // Cache bypass: Rastgele bir t parametresi veriyoruz ki tarayıcı eskiyi çekmesin
+        const response = await fetch('./data.json?t=' + new Date().getTime(), {
+          cache: 'no-cache'
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP Hata kodu: ${response.status}`);
+        }
+
+        const data = await response.json();
+        updateSpan.innerText = data.updatedAt || 'Unbekannt';
+
+        tbody.innerHTML = '';
+
+        if (!data.leads || data.leads.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-muted">Keine Daten vorhanden.</td></tr>';
+          return;
+        }
+
+        data.leads.forEach(lead => {
+          let rawStatus = lead.status || '';
+          let cleanStatus = rawStatus.split('\n')[0].trim();
+          
+          let badgeClass = 'bg-default';
+          if (cleanStatus.includes('Belastet') && !cleanStatus.includes('Nicht')) {
+            badgeClass = 'bg-belastet';
+          } else if (cleanStatus.includes('überprüft')) {
+            badgeClass = 'bg-pruefung';
+          } else if (cleanStatus.includes('Nicht belastet')) {
+            badgeClass = 'bg-nicht';
+          }
+
+          const row = `
+            <tr>
+              <td><a href="tel:${lead.phone}" class="fw-bold text-decoration-none">${lead.phone}</a></td>
+              <td>${lead.jobType || '-'}</td>
+              <td>${lead.location || '-'}</td>
+              <td><span class="badge badge-status ${badgeClass}">${cleanStatus}</span></td>
+              <td class="text-muted small">${lead.date || '-'}</td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+        });
+      } catch (err) {
+        console.error("Yükleme hatası:", err);
+        updateSpan.innerText = 'Fehler beim Laden';
+        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-danger py-4">Veri okunamadı: ${err.message}</td></tr>`;
+      }
+    }
+
+    function startLiveScrape() {
+      const btn = document.getElementById('btn-refresh');
+      const box = document.getElementById('countdown-box');
+      const timerSpan = document.getElementById('timer');
+
+      btn.disabled = true;
+      box.style.display = 'flex';
+
+      let timeLeft = 10;
+      timerSpan.innerText = timeLeft;
+
+      const countdown = setInterval(() => {
+        timeLeft--;
+        timerSpan.innerText = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdown);
+          box.style.display = 'none';
+          btn.disabled = false;
+          // Yeni veriyi çeker
+          loadData();
+        }
+      }, 1000);
+    }
+
+    function filterTable() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const rows = document.querySelectorAll('#lead-table-body tr');
+
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? '' : 'none';
+      });
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

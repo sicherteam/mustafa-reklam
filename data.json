@@ -1,0 +1,145 @@
+{
+  "updatedAt": "22.7.2026, 16:23:25",
+  "leads": [
+    {
+      "phone": "0699 81496221",
+      "jobType": "-",
+      "location": "Mödling",
+      "status": "Nicht belastet",
+      "date": "22.07.26 15:41"
+    },
+    {
+      "phone": "0676 87831603",
+      "jobType": "Baumpflege",
+      "location": "Bad Vöslau",
+      "status": "Belastet",
+      "date": "21.07.26 15:29"
+    },
+    {
+      "phone": "0676 5151111",
+      "jobType": "-",
+      "location": "Kottingbrunn",
+      "status": "Belastet",
+      "date": "21.07.26 15:11"
+    },
+    {
+      "phone": "0664 1120380",
+      "jobType": "Winterdienst",
+      "location": "Korneuburg",
+      "status": "Nicht belastet",
+      "date": "22.07.26 14:31"
+    },
+    {
+      "phone": "076 533 91 40",
+      "jobType": "-",
+      "location": "Gerasdorf bei Wien",
+      "status": "Belastet",
+      "date": "21.07.26 13:11"
+    },
+    {
+      "phone": "0699 16335597",
+      "jobType": "-",
+      "location": "Mistelbach",
+      "status": "Belastet",
+      "date": "21.07.26 12:42"
+    },
+    {
+      "phone": "0676 7125984",
+      "jobType": "Kunstrasenverlegung",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "22.07.26 11:57"
+    },
+    {
+      "phone": "0664 1802610",
+      "jobType": "-",
+      "location": "Puchberg am Schneeberg",
+      "status": "Belastet",
+      "date": "21.07.26 11:31"
+    },
+    {
+      "phone": "0664 6486001",
+      "jobType": "Kunstrasenverlegung",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "22.07.26 10:09"
+    },
+    {
+      "phone": "0681 10766130",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Nicht belastet",
+      "date": "21.07.26 18:21"
+    },
+    {
+      "phone": "0676 3100739",
+      "jobType": "-",
+      "location": "Ternitz",
+      "status": "Wird überprüft",
+      "date": "21.07.26 17:13"
+    },
+    {
+      "phone": "0676 7497457",
+      "jobType": "Baumpflege",
+      "location": "Felixdorf",
+      "status": "Nicht belastet",
+      "date": "22.07.26 07:06"
+    },
+    {
+      "phone": "0664 4655049",
+      "jobType": "Gartenteiche, Springbrunnen und Wasserspiele",
+      "location": "Strasshof an der Nordbahn",
+      "status": "Nicht belastet",
+      "date": "21.07.26 18:48"
+    },
+    {
+      "phone": "0699 19246262",
+      "jobType": "Baumpflege",
+      "location": "Heldenberg",
+      "status": "Belastet",
+      "date": "20.07.26 14:19"
+    },
+    {
+      "phone": "0664 2558747",
+      "jobType": "-",
+      "location": "Gloggnitz",
+      "status": "Nicht belastet",
+      "date": "21.07.26 12:37"
+    },
+    {
+      "phone": "0676 3305727",
+      "jobType": "Baumfällarbeiten",
+      "location": "Wien",
+      "status": "Nicht belastet",
+      "date": "21.07.26 11:17"
+    },
+    {
+      "phone": "0699 12178304",
+      "jobType": "-",
+      "location": "Korneuburg",
+      "status": "Belastet",
+      "date": "20.07.26 11:05"
+    },
+    {
+      "phone": "0676 5412117",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "20.07.26 10:15"
+    },
+    {
+      "phone": "0664 3535035",
+      "jobType": "-",
+      "location": "Bezirk Sankt Pölten-Land",
+      "status": "Belastet",
+      "date": "20.07.26 10:01"
+    },
+    {
+      "phone": "0677 63141054",
+      "jobType": "Baumpflege",
+      "location": "Korneuburg",
+      "status": "Nicht belastet",
+      "date": "20.07.26 10:15"
+    }
+  ]
+}
