@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const fs = require('fs');
-const path = require('path'); // Dosya yollarını güvenli bulmak için eklendi
+const path = require('path');
 
 puppeteer.use(StealthPlugin());
 
@@ -70,7 +70,6 @@ async function loadCookies(page) {
   }
 
   try {
-    // Puppeteer'ın hata vermesini önlemek için SameSite alanlarını temizle
     const cookies = rawCookies.map(cookie => {
       const cleaned = { ...cookie };
       if (cleaned.sameSite === 'no_restriction' || cleaned.sameSite === 'unspecified') {
@@ -112,7 +111,6 @@ async function loadCookies(page) {
 
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
 
-    // YENİ YAPI: Çerezleri yükle (Akıllı Fonksiyonu Çağır)
     await loadCookies(page);
 
     const targetUrl = 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
@@ -123,17 +121,16 @@ async function loadCookies(page) {
     const pageTitle = await page.title();
     console.log("Sayfa Başlığı:", pageTitle);
 
-    if (pageTitle.includes("Anmelden") || pageTitle.includes("Sign in")) {
-      throw new Error("Oturum açılamadı! Çerezlerin süresi dolmuş veya geçersiz.");
-    }
-
-    // Taze çerezleri kaydet
-    try {
-      const freshCookies = await page.cookies();
-      fs.writeFileSync('updated_cookies.json', JSON.stringify(freshCookies, null, 2));
-      console.log("✅ Güncellenmiş taze çerezler 'updated_cookies.json' dosyasına kaydedildi.");
-    } catch (cookieErr) {
-      console.warn("⚠️ Çerezler güncellenirken hata oluştu:", cookieErr.message);
+    // YENİ: Genişletilmiş hata başlığı kontrolü
+    if (
+      pageTitle.includes("Anmelden") || 
+      pageTitle.includes("Sign in") || 
+      pageTitle.includes("YouTube") || 
+      pageTitle.includes("Error") || 
+      pageTitle.includes("504") || 
+      pageTitle.includes("Serverfehler")
+    ) {
+      throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
     console.log("Sayfa içeriğinin yüklenmesi ve yumuşak scroll bekleniyor...");
@@ -198,6 +195,11 @@ async function loadCookies(page) {
     });
 
     console.log(`📊 Gerçek Lead Sayısı: ${validRowsIndices.length}`);
+
+    // YENİ: 0 Veri Kontrolü (Koruma Kalkanı)
+    if (validRowsIndices.length === 0) {
+      throw new Error("❌ Sayfada hiçbir mesaj bulunamadı! Sayfa tam yüklenmemiş veya Google engellemiş olabilir. Eski verileri korumak için işlem iptal ediliyor.");
+    }
 
     let leads = [];
 
@@ -293,8 +295,18 @@ async function loadCookies(page) {
       leads: adjustedLeads
     };
 
+    // Verileri Kaydet
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
     console.log(`🎉 İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
+
+    // YENİ: Çerezleri sadece işlem tamamen başarılı olduğunda en son kaydet
+    try {
+      const freshCookies = await page.cookies();
+      fs.writeFileSync('updated_cookies.json', JSON.stringify(freshCookies, null, 2));
+      console.log("✅ Güncellenmiş taze çerezler 'updated_cookies.json' dosyasına başarıyla kaydedildi.");
+    } catch (cookieErr) {
+      console.warn("⚠️ Çerezler güncellenirken hata oluştu:", cookieErr.message);
+    }
 
     await browser.close();
   } catch (error) {
