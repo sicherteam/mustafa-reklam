@@ -18,7 +18,7 @@
       background-repeat: no-repeat;
       background-position: center center;
       background-size: contain;
-      opacity: 0.25; /* Görünürlük seviyesi (İsteğe göre 0.10 - 0.25 arası değiştirebilirsin) */
+      opacity: 0.15; /* Görünürlük seviyesi (0.10 - 0.25 arası ayarlayabilirsin) */
       z-index: -1;
       pointer-events: none;
     }
@@ -30,16 +30,15 @@
       position: relative;
     }
 
-    /* Ana Kart - Hafif Yarı Saydam Cam Efekti */
+    /* Ana Kart - Blur Kaldırıldı, Yarı Saydam Beyaz Zemin */
     .main-card { 
       border: 1px solid rgba(225, 232, 240, 0.7); 
       border-radius: 16px; 
       box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
-      background: rgba(255, 255, 255, 0.70) !important; 
-      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.75) !important; 
     }
 
-    /* TABLONUN TÜM BEYAZLIKLARINI BASTIRAN ŞEFFAFLIK KODLARI */
+    /* TABLO VE HÜCRE ŞEFFAFLIK KODLARI (BLUR'SUZ) */
     .table-responsive {
       background: transparent !important;
     }
@@ -48,12 +47,12 @@
       --bs-table-bg: transparent !important;
       --bs-table-accent-bg: transparent !important;
       --bs-table-striped-bg: transparent !important;
-      --bs-table-hover-bg: rgba(255, 255, 255, 0.3) !important; /* Üzerine gelince hafif parlama */
+      --bs-table-hover-bg: rgba(255, 255, 255, 0.4) !important; /* Üzerine gelince hafif beyazlama */
       color: #1e293b;
       background-color: transparent !important;
     }
 
-    /* Hücrelerin arka plan beyazlığını komple kaldırıyoruz */
+    /* Hücrelerin arka plan renklerini tamamen sıfırlıyoruz */
     .table td, .table th, .table tr {
       background: transparent !important;
       background-color: transparent !important;
@@ -101,12 +100,11 @@
       .mobile-cards-view { display: flex; flex-direction: column; gap: 12px; }
       
       .lead-card {
-        background: rgba(255, 255, 255, 0.75) !important;
+        background: rgba(255, 255, 255, 0.8) !important;
         border: 1px solid rgba(226, 232, 240, 0.8);
         border-radius: 12px;
         padding: 14px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-        backdrop-filter: blur(4px);
       }
       .lead-card-header {
         display: flex;
