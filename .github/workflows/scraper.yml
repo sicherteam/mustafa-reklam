@@ -43,7 +43,6 @@ jobs:
 
       - name: Scraper'ı Çalıştır
         env:
-          # Artık Bash'te JSON parse etmiyoruz. Sadece değişkene atıyoruz, Node.js kendisi çözecek.
           GOOGLE_COOKIES_SECRET: ${{ secrets.GOOGLE_COOKIES }}
         run: node scraper.js
 
@@ -63,8 +62,8 @@ jobs:
           
           git commit -m "Automated update: data.json and fresh cookies"
           
-          # ÇÖZÜM BURADA: --autostash parametresi eklendi
-          # Bu sayede commit edilmemiş başka geçici dosyalar varsa onları saklayıp rebase'i zorlar
-          git pull --rebase --autostash origin main
+          # ÇÖZÜM: --autostash ile geçici dosyalar saklanır, -X theirs ile lokal botun verisi üstün kılınır
+          git pull --rebase --autostash -X theirs origin main
           
-          git push
+          # Güncel veriyi hata almadan ana branch'e gönder
+          git push origin main
