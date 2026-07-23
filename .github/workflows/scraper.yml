@@ -1,8 +1,6 @@
 name: LSA Lead Scraper Automation
 
 on:
-  schedule:
-    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 # Repoya yazma izni (Commit için şart)
