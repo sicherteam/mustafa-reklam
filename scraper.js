@@ -72,9 +72,18 @@ async function loadCookies(page) {
   try {
     const cookies = rawCookies.map(cookie => {
       const cleaned = { ...cookie };
+      
       if (cleaned.sameSite === 'no_restriction' || cleaned.sameSite === 'unspecified') {
         delete cleaned.sameSite;
       }
+      
+      // KRİTİK EKLEME: Chromium'un tanımadığı yeni nesil çerez parametrelerini siliyoruz
+      delete cleaned.partitionKey;
+      delete cleaned.size;
+      delete cleaned.priority;
+      delete cleaned.sourceScheme;
+      delete cleaned.sourcePort;
+
       return cleaned;
     });
 
@@ -121,7 +130,7 @@ async function loadCookies(page) {
     const pageTitle = await page.title();
     console.log("Sayfa Başlığı:", pageTitle);
 
-    // YENİ: Genişletilmiş hata başlığı kontrolü
+    // Genişletilmiş hata başlığı kontrolü
     if (
       pageTitle.includes("Anmelden") || 
       pageTitle.includes("Sign in") || 
@@ -196,7 +205,7 @@ async function loadCookies(page) {
 
     console.log(`📊 Gerçek Lead Sayısı: ${validRowsIndices.length}`);
 
-    // YENİ: 0 Veri Kontrolü (Koruma Kalkanı)
+    // 0 Veri Kontrolü (Koruma Kalkanı)
     if (validRowsIndices.length === 0) {
       throw new Error("❌ Sayfada hiçbir mesaj bulunamadı! Sayfa tam yüklenmemiş veya Google engellemiş olabilir. Eski verileri korumak için işlem iptal ediliyor.");
     }
@@ -299,7 +308,7 @@ async function loadCookies(page) {
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
     console.log(`🎉 İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
-    // YENİ: Çerezleri sadece işlem tamamen başarılı olduğunda en son kaydet
+    // Çerezleri sadece işlem tamamen başarılı olduğunda en son kaydet
     try {
       const freshCookies = await page.cookies();
       fs.writeFileSync('updated_cookies.json', JSON.stringify(freshCookies, null, 2));
