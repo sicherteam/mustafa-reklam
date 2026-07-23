@@ -50,19 +50,19 @@ function parseCleanMessage(rawText) {
     const userDataPath = path.join(__dirname, 'user_data');
 
     const browser = await puppeteer.launch({
-      headless: "new",
+      headless: false, // 👈 Xvfb ile çalıştıracağımız için false yapıyoruz
       executablePath: '/usr/bin/google-chrome',
-      userDataDir: userDataPath,
+      userDataDir: userDataPath, // /home/ubuntu/mustafa-reklam/user_data
       args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--profile-directory=Profile 8', // 👈 ZIP'TEN ÇIKAN PROFİL EKLENDİ
-        '--disable-blink-features=AutomationControlled',
-        '--disable-infobars',
-        '--window-size=1920,1080',
-        '--lang=de-AT,de'
-      ]
-    });
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--profile-directory=Default', // 👈 Artık Default klasörünü okuyacak
+      '--disable-blink-features=AutomationControlled',
+      '--disable-infobars',
+      '--window-size=1920,1080',
+      '--lang=de-AT,de'
+    ]
+  });
     
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
