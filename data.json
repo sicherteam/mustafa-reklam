@@ -1,6 +1,14 @@
 {
-  "updatedAt": "23.7.2026, 16:31:18",
+  "updatedAt": "23.7.2026, 18:45:22",
   "leads": [
+    {
+      "phone": "0676 7991290",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "23.07.26 19:09",
+      "messageText": "-"
+    },
     {
       "phone": "0664 5845003",
       "jobType": "Beförderung von Umzugsgut",
@@ -127,7 +135,7 @@
       "location": "Rechnitz",
       "status": "Belastet",
       "date": "20.07.26 20:39",
-      "messageText": "Google Lokale Dienstleistungen\n\nPotenzieller Kunde\n0664 75105881\nARCHIVIEREN\nALS \"TERMIN VEREINBART\" MARKIEREN\nZusammenfassung der Anfrage\nErhalten am 20.07.2026 an 6:39 PM.\nDiese Anfrage bewerten\nStatusNeu\nGebührenstatus\nBelastet\nAnfrage-ID327322966\nArt der AnfrageNachricht\nUnternehmenskategorieUmzugsdienst\nDiensttypBeförderung von Umzugsgut\nStandortRechnitz\nSuchabsichtKategorie\nKundenname\nKundenname hinzufügen\nIhre Notizen\nHier hinzugefügte Notizen sind für Kunden nicht sichtbar, sollten jedoch trotzdem keine sensiblen oder vertraulichen Informationen enthalten.\nUnterhaltung\nHier dem Kunden antworten\nSENDEN"
+      "messageText": "[Potenzieller Kunde\n0664 75105881]\nBenötige noch diese Woche Hilfe beim Transport von 2 kleinen Chouches,2 Kredenzen,einer Truhennähmaschine,einem Schaukelstuhl und drei schmalen Schränken."
     },
     {
       "phone": "0660 1014088",
@@ -151,14 +159,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "20.07.26 12:40",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 75074835",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "Baden",
-      "status": "Belastet",
-      "date": "20.07.26 12:34",
       "messageText": "-"
     }
   ]
