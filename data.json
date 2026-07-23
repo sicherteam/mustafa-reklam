@@ -1,6 +1,14 @@
 {
-  "updatedAt": "23.7.2026, 07:16:26",
+  "updatedAt": "23.7.2026, 07:31:46",
   "leads": [
+    {
+      "phone": "0660 5901746",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "23.07.26 07:24",
+      "messageText": "-"
+    },
     {
       "phone": "0660 3717336",
       "jobType": "-",
@@ -143,14 +151,6 @@
       "location": "Pfaffstätten",
       "status": "Belastet",
       "date": "19.07.26 16:39",
-      "messageText": "-"
-    },
-    {
-      "phone": "0670 4002581",
-      "jobType": "-",
-      "location": "Korneuburg",
-      "status": "Belastet",
-      "date": "19.07.26 10:18",
       "messageText": "-"
     }
   ]
