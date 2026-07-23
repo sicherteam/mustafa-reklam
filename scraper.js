@@ -45,63 +45,6 @@ function parseCleanMessage(rawText) {
   return chatContent.length > 0 ? chatContent : rawText;
 }
 
-// Çerezleri akıllı ve güvenli bir şekilde yükleyen fonksiyon
-async function loadCookies(page) {
-  let rawCookies = null;
-  const cookieFilePath = path.join(__dirname, 'updated_cookies.json');
-
-  // 1. ÖNCELİK: Eğer repoda 'updated_cookies.json' varsa doğrudan onu kullan
-  if (fs.existsSync(cookieFilePath)) {
-    console.log("📌 Yerel 'updated_cookies.json' dosyası bulundu. Çerezler dosyadan okunuyor...");
-    try {
-      const fileContent = fs.readFileSync(cookieFilePath, 'utf8');
-      rawCookies = JSON.parse(fileContent);
-    } catch (err) {
-      console.error(`⚠️ Dosya okuma hatası, Secret'a düşülüyor: ${err.message}`);
-    }
-  }
-
-  // 2. YEDEK: Eğer dosya yoksa (örn. ilk çalışma) GitHub Secret'ı kullan
-  if (!rawCookies) {
-    console.log("📌 GitHub Secret (GOOGLE_COOKIES_SECRET) kullanılıyor...");
-    if (!process.env.GOOGLE_COOKIES_SECRET || process.env.GOOGLE_COOKIES_SECRET.trim() === '') {
-      throw new Error("❌ Ne updated_cookies.json dosyası ne de GOOGLE_COOKIES_SECRET bulundu!");
-    }
-    rawCookies = JSON.parse(process.env.GOOGLE_COOKIES_SECRET);
-  }
-
-  try {
-    const cookies = rawCookies.map(cookie => {
-      const cleaned = { ...cookie };
-      
-      // KRİTİK YENİ ÇÖZÜM: sameSite alanı null, boolean veya hatalı formattaysa düzelt
-      if (cleaned.sameSite) {
-        const ss = String(cleaned.sameSite).toLowerCase();
-        if (ss === 'strict') cleaned.sameSite = 'Strict';
-        else if (ss === 'lax') cleaned.sameSite = 'Lax';
-        else if (ss === 'none' || ss === 'no_restriction') cleaned.sameSite = 'None';
-        else delete cleaned.sameSite; // Tanımsız veya geçersizse sök at
-      } else {
-        delete cleaned.sameSite; // Alan boş veya null ise direkt sil
-      }
-      
-      // Chromium'un tanımadığı diğer yeni nesil çerez parametrelerini siliyoruz
-      delete cleaned.partitionKey;
-      delete cleaned.size;
-      delete cleaned.priority;
-      delete cleaned.sourceScheme;
-      delete cleaned.sourcePort;
-
-      return cleaned;
-    });
-
-    await page.setCookie(...cookies);
-    console.log(`✅ ${cookies.length} adet çerez tarayıcıya yüklendi.`);
-  } catch (err) {
-    throw new Error(`❌ Çerezler tarayıcıya yüklenirken hata oluştu: ${err.message}`);
-  }
-}
-
 (async () => {
   try {
     const userDataPath = path.join(__dirname, 'user_data');
@@ -109,10 +52,11 @@ async function loadCookies(page) {
     const browser = await puppeteer.launch({
       headless: "new",
       executablePath: '/usr/bin/google-chrome',
-      userDataDir: userDataPath, // <-- KALICI CHROME PROFİLİ EKLENDİ
+      userDataDir: userDataPath,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
+        '--profile-directory=Profile 8', // 👈 ZIP'TEN ÇIKAN PROFİL EKLENDİ
         '--disable-blink-features=AutomationControlled',
         '--disable-infobars',
         '--window-size=1920,1080',
@@ -131,7 +75,7 @@ async function loadCookies(page) {
 
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
 
-    await loadCookies(page);
+    // ❌ loadCookies(page) ÇAĞRISI KALDIRILDI (Artık oturum doğrudan user_data/Profile 8 dizininden okunuyor)
 
     const targetUrl = 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
     console.log("LSA Inbox sayfasına gidiliyor...");
@@ -319,20 +263,13 @@ async function loadCookies(page) {
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
     console.log(`🎉 İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
-    // Çerezleri sadece işlem tamamen başarılı olduğunda en son kaydet
-    try {
-      const freshCookies = await page.cookies();
-      fs.writeFileSync('updated_cookies.json', JSON.stringify(freshCookies, null, 2));
-      console.log("✅ Güncellenmiş taze çerezler 'updated_cookies.json' dosyasına başarıyla kaydedildi.");
-    } catch (cookieErr) {
-      console.warn("⚠️ Çerezler güncellenirken hata oluştu:", cookieErr.message);
-    }
+    // ❌ ÇEREZLERİ DOSYAYA KAYDETME ADIMI KALDIRILDI (Canlı profil çerezleri user_data içinde saklanıyor)
 
     // --- GIT PUSH ADIMI ---
     console.log("🚀 GitHub'a güncel veriler push ediliyor...");
     try {
-      execSync('git add data.json updated_cookies.json');
-      execSync('git commit -m "Auto-update data.json and cookies [cron]"');
+      execSync('git add data.json'); // updated_cookies.json kaldırıldığı için sadece data.json ekleniyor
+      execSync('git commit -m "Auto-update data.json [cron]"');
       execSync('git pull --rebase origin main');
       execSync('git push origin main');
       console.log("✅ GitHub'a başarıyla push edildi!");
