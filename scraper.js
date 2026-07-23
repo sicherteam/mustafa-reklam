@@ -73,11 +73,18 @@ async function loadCookies(page) {
     const cookies = rawCookies.map(cookie => {
       const cleaned = { ...cookie };
       
-      if (cleaned.sameSite === 'no_restriction' || cleaned.sameSite === 'unspecified') {
-        delete cleaned.sameSite;
+      // KRİTİK YENİ ÇÖZÜM: sameSite alanı null, boolean veya hatalı formattaysa düzelt
+      if (cleaned.sameSite) {
+        const ss = String(cleaned.sameSite).toLowerCase();
+        if (ss === 'strict') cleaned.sameSite = 'Strict';
+        else if (ss === 'lax') cleaned.sameSite = 'Lax';
+        else if (ss === 'none' || ss === 'no_restriction') cleaned.sameSite = 'None';
+        else delete cleaned.sameSite; // Tanımsız veya geçersizse sök at
+      } else {
+        delete cleaned.sameSite; // Alan boş veya null ise direkt sil
       }
       
-      // KRİTİK EKLEME: Chromium'un tanımadığı yeni nesil çerez parametrelerini siliyoruz
+      // Chromium'un tanımadığı diğer yeni nesil çerez parametrelerini siliyoruz
       delete cleaned.partitionKey;
       delete cleaned.size;
       delete cleaned.priority;
@@ -323,3 +330,4 @@ async function loadCookies(page) {
     process.exit(1);
   }
 })();
+  
