@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 puppeteer.use(StealthPlugin());
 
@@ -323,7 +324,16 @@ async function loadCookies(page) {
     } catch (cookieErr) {
       console.warn("⚠️ Çerezler güncellenirken hata oluştu:", cookieErr.message);
     }
-
+    // --- GIT PUSH ADIMI ---
+console.log("🚀 GitHub'a güncel veriler push ediliyor...");
+try {
+  execSync('git add data.json updated_cookies.json');
+  execSync('git commit -m "Auto-update data.json and cookies [cron]"');
+  execSync('git push origin main');
+  console.log("✅ GitHub'a başarıyla push edildi!");
+} catch (gitErr) {
+  console.error("⚠️ Git push hatası:", gitErr.message);
+}
     await browser.close();
   } catch (error) {
     console.error("💥 Scraper hatası:", error.message);
