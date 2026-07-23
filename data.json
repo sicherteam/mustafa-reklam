@@ -1,6 +1,14 @@
 {
-  "updatedAt": "23.7.2026, 13:31:46",
+  "updatedAt": "23.7.2026, 13:46:25",
   "leads": [
+    {
+      "phone": "0650 8559501",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Nicht belastet",
+      "date": "23.07.26 13:37",
+      "messageText": "-"
+    },
     {
       "phone": "01 9977183",
       "jobType": "-",
@@ -152,14 +160,6 @@
       "status": "Belastet",
       "date": "20.07.26 10:34",
       "messageText": "[Potenzieller Kunde\n0664 75074835]\nHallo, ich benötige Unterstützung für einen Umzug innerhalb von Baden. Folgende Möbel und Gegenstände sollen transportiert werden: * Kinderbett * Sofa * Esszimmertisch mit Stühlen * Kleiderschrank (ca. 1,80 × 2,50 m, lässt sich in einzelne Elemente zerlegen) * Outdoor-Lounge * Gartentisch mit 4 Stühlen * Grill * Waschmaschine * Pflanzen Wir übernehmen das Verpacken selbst und benötigen lediglich Unterstützung beim Tragen und Transport. Da ich alleinerziehende Mama einer Tochter bin, freue ich mich über ein faires Angebot. Der Umzug könnte zwischen Mittwoch und spätestens dem 1. August stattfin"
-    },
-    {
-      "phone": "0676 3638030",
-      "jobType": "-",
-      "location": "Waidhofen an der Ybbs",
-      "status": "Belastet",
-      "date": "20.07.26 08:52",
-      "messageText": "-"
     }
   ]
 }
