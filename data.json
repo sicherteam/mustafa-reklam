@@ -1,6 +1,14 @@
 {
-  "updatedAt": "23.7.2026, 13:16:32",
+  "updatedAt": "23.7.2026, 13:31:46",
   "leads": [
+    {
+      "phone": "01 9977183",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "22.07.26 13:13",
+      "messageText": "-"
+    },
     {
       "phone": "0660 5859753",
       "jobType": "-",
@@ -79,14 +87,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "21.07.26 16:14",
-      "messageText": "-"
-    },
-    {
-      "phone": "01 9977183",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Wird überprüft",
-      "date": "22.07.26 13:13",
       "messageText": "-"
     },
     {
