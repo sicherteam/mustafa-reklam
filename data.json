@@ -1,12 +1,12 @@
 {
-  "updatedAt": "23.7.2026, 18:45:22",
+  "updatedAt": "23.7.2026, 19:00:41",
   "leads": [
     {
       "phone": "0676 7991290",
       "jobType": "-",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "23.07.26 19:09",
+      "date": "23.07.26 17:09",
       "messageText": "-"
     },
     {
@@ -14,7 +14,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Oberpullendorf",
       "status": "Belastet",
-      "date": "22.07.26 12:19",
+      "date": "22.07.26 10:19",
       "messageText": "-"
     },
     {
@@ -22,7 +22,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Nicht belastet",
-      "date": "23.07.26 15:37",
+      "date": "23.07.26 13:37",
       "messageText": "-"
     },
     {
@@ -30,7 +30,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "22.07.26 15:13",
+      "date": "22.07.26 13:13",
       "messageText": "-"
     },
     {
@@ -38,7 +38,7 @@
       "jobType": "-",
       "location": "Maria Enzersdorf",
       "status": "Belastet",
-      "date": "22.07.26 15:08",
+      "date": "22.07.26 13:08",
       "messageText": "-"
     },
     {
@@ -46,7 +46,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "22.07.26 15:09",
+      "date": "22.07.26 13:09",
       "messageText": "-"
     },
     {
@@ -54,7 +54,7 @@
       "jobType": "-",
       "location": "Klosterneuburg",
       "status": "Wird überprüft",
-      "date": "23.07.26 11:04",
+      "date": "23.07.26 09:04",
       "messageText": "-"
     },
     {
@@ -62,7 +62,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "22.07.26 11:05",
+      "date": "22.07.26 09:05",
       "messageText": "-"
     },
     {
@@ -70,7 +70,7 @@
       "jobType": "-",
       "location": "Neunkirchen",
       "status": "Wird überprüft",
-      "date": "23.07.26 10:51",
+      "date": "23.07.26 08:51",
       "messageText": "-"
     },
     {
@@ -78,7 +78,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Nicht belastet",
-      "date": "23.07.26 10:52",
+      "date": "23.07.26 08:52",
       "messageText": "-"
     },
     {
@@ -86,7 +86,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "23.07.26 09:24",
+      "date": "23.07.26 07:24",
       "messageText": "-"
     },
     {
@@ -94,7 +94,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "21.07.26 19:47",
+      "date": "21.07.26 17:47",
       "messageText": "-"
     },
     {
@@ -102,7 +102,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "21.07.26 18:14",
+      "date": "21.07.26 16:14",
       "messageText": "-"
     },
     {
@@ -110,7 +110,7 @@
       "jobType": "-",
       "location": "Eisenstadt",
       "status": "Belastet",
-      "date": "21.07.26 12:14",
+      "date": "21.07.26 10:14",
       "messageText": "-"
     },
     {
@@ -118,7 +118,7 @@
       "jobType": "-",
       "location": "Baden",
       "status": "Belastet",
-      "date": "21.07.26 09:58",
+      "date": "21.07.26 07:58",
       "messageText": "-"
     },
     {
@@ -126,7 +126,7 @@
       "jobType": "-",
       "location": "Wiener Neustadt",
       "status": "Belastet",
-      "date": "21.07.26 09:29",
+      "date": "21.07.26 07:29",
       "messageText": "-"
     },
     {
@@ -134,7 +134,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Rechnitz",
       "status": "Belastet",
-      "date": "20.07.26 20:39",
+      "date": "20.07.26 18:39",
       "messageText": "[Potenzieller Kunde\n0664 75105881]\nBenötige noch diese Woche Hilfe beim Transport von 2 kleinen Chouches,2 Kredenzen,einer Truhennähmaschine,einem Schaukelstuhl und drei schmalen Schränken."
     },
     {
@@ -142,7 +142,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Brunn am Gebirge",
       "status": "Belastet",
-      "date": "20.07.26 20:01",
+      "date": "20.07.26 18:01",
       "messageText": "[Potenzieller Kunde\n0660 1014088]\nSo schnell, wie möglich"
     },
     {
@@ -150,15 +150,15 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Mödling",
       "status": "Belastet",
-      "date": "20.07.26 15:00",
-      "messageText": "[Christian Poterucha\n0676 4610046]\nC\nChristian Poterucha\n20.07.26\nGuten Tag, können Sie für mich einen Umzug von 2340 Mödling, Payergasse nach 2351 Wiener Neudorf, Anningerstrasse organisieren? - eine Eck-Couch 210x280 - eine Couch 210x86 - ein Kasten 160x187x40 - einen Eckkasten 236x49x35 (vier Korpuse) - ein Sideboard 162x42x72 - ein Boxspringbett zirka 200x200"
+      "date": "20.07.26 13:00",
+      "messageText": "-"
     },
     {
       "phone": "0664 9589236",
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "20.07.26 12:40",
+      "date": "20.07.26 10:40",
       "messageText": "-"
     }
   ]
