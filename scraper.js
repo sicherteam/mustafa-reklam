@@ -324,11 +324,12 @@ async function loadCookies(page) {
     } catch (cookieErr) {
       console.warn("⚠️ Çerezler güncellenirken hata oluştu:", cookieErr.message);
     }
-    // --- GIT PUSH ADIMI ---
+// --- GIT PUSH ADIMI ---
 console.log("🚀 GitHub'a güncel veriler push ediliyor...");
 try {
   execSync('git add data.json updated_cookies.json');
   execSync('git commit -m "Auto-update data.json and cookies [cron]"');
+  execSync('git pull --rebase origin main');
   execSync('git push origin main');
   console.log("✅ GitHub'a başarıyla push edildi!");
 } catch (gitErr) {
