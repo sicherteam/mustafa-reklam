@@ -1,6 +1,14 @@
 {
-  "updatedAt": "23.7.2026, 10:16:26",
+  "updatedAt": "23.7.2026, 10:31:40",
   "leads": [
+    {
+      "phone": "0664 5845003",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Oberpullendorf",
+      "status": "Belastet",
+      "date": "22.07.26 10:19",
+      "messageText": "-"
+    },
     {
       "phone": "0664 3405526",
       "jobType": "-",
@@ -79,14 +87,6 @@
       "location": "Wien",
       "status": "Wird überprüft",
       "date": "22.07.26 13:09",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 5845003",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "Oberpullendorf",
-      "status": "Wird überprüft",
-      "date": "22.07.26 10:19",
       "messageText": "-"
     },
     {
