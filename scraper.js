@@ -47,22 +47,36 @@ function parseCleanMessage(rawText) {
 
 (async () => {
   try {
-    const userDataPath = path.join(__dirname, 'user_data');
+    const userDataPath = '/home/ubuntu/mustafa-reklam/user_data';
 
+    // 0. ÇAKIŞMA VE KİLİT DOSYALARINI TEMİZLE
+    try {
+      const singletonLock = path.join(userDataPath, 'SingletonLock');
+      const singletonCookie = path.join(userDataPath, 'SingletonCookie');
+      const singletonSocket = path.join(userDataPath, 'SingletonSocket');
+      
+      if (fs.existsSync(singletonLock)) fs.unlinkSync(singletonLock);
+      if (fs.existsSync(singletonCookie)) fs.unlinkSync(singletonCookie);
+      if (fs.existsSync(singletonSocket)) fs.unlinkSync(singletonSocket);
+    } catch (cleanErr) {
+      console.warn("⚠️ Kilit dosyaları temizlenirken ufak uyarı:", cleanErr.message);
+    }
+
+    // 1. TARAYICIYI BAŞLAT (Canlı profil diziniyle)
     const browser = await puppeteer.launch({
-      headless: false, // 👈 Xvfb ile çalıştıracağımız için false yapıyoruz
+      headless: "new", // Sunucu arka planında sessiz çalışması için
       executablePath: '/usr/bin/google-chrome',
-      userDataDir: userDataPath, // /home/ubuntu/mustafa-reklam/user_data
+      userDataDir: userDataPath, 
       args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--profile-directory=Default', // 👈 Artık Default klasörünü okuyacak
-      '--disable-blink-features=AutomationControlled',
-      '--disable-infobars',
-      '--window-size=1920,1080',
-      '--lang=de-AT,de'
-    ]
-  });
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-blink-features=AutomationControlled',
+        '--disable-infobars',
+        '--window-size=1920,1080',
+        '--lang=de-AT,de'
+      ]
+    });
     
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
@@ -74,8 +88,6 @@ function parseCleanMessage(rawText) {
     page.setDefaultTimeout(90000);
 
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-
-    // ❌ loadCookies(page) ÇAĞRISI KALDIRILDI (Artık oturum doğrudan user_data/Profile 8 dizininden okunuyor)
 
     const targetUrl = 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
     console.log("LSA Inbox sayfasına gidiliyor...");
@@ -117,7 +129,7 @@ function parseCleanMessage(rawText) {
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // 1. AŞAMA: GERÇEK SATIRLARI VE İNDEKSLLERİNİ TESPİT ET
+    // 2. AŞAMA: GERÇEK SATIRLARI VE İNDEKSLLERİNİ TESPİT ET
     const validRowsIndices = await page.evaluate(() => {
       const allRows = Array.from(document.querySelectorAll('[role="row"], tr'));
       const valid = [];
@@ -167,7 +179,7 @@ function parseCleanMessage(rawText) {
 
     let leads = [];
 
-    // 2. AŞAMA: SATIRLARA TIKLA VE TEMİZ MESAJLARI AL
+    // 3. AŞAMA: SATIRLARA TIKLA VE TEMİZ MESAJLARI AL
     for (const item of validRowsIndices) {
       let messageText = "-";
 
@@ -263,12 +275,10 @@ function parseCleanMessage(rawText) {
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
     console.log(`🎉 İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
-    // ❌ ÇEREZLERİ DOSYAYA KAYDETME ADIMI KALDIRILDI (Canlı profil çerezleri user_data içinde saklanıyor)
-
     // --- GIT PUSH ADIMI ---
     console.log("🚀 GitHub'a güncel veriler push ediliyor...");
     try {
-      execSync('git add data.json'); // updated_cookies.json kaldırıldığı için sadece data.json ekleniyor
+      execSync('git add data.json');
       execSync('git commit -m "Auto-update data.json [cron]"');
       execSync('git pull --rebase origin main');
       execSync('git push origin main');
