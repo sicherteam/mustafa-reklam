@@ -104,9 +104,12 @@ async function loadCookies(page) {
 
 (async () => {
   try {
+    const userDataPath = path.join(__dirname, 'user_data');
+
     const browser = await puppeteer.launch({
       headless: "new",
       executablePath: '/usr/bin/google-chrome',
+      userDataDir: userDataPath, // <-- KALICI CHROME PROFİLİ EKLENDİ
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -324,21 +327,22 @@ async function loadCookies(page) {
     } catch (cookieErr) {
       console.warn("⚠️ Çerezler güncellenirken hata oluştu:", cookieErr.message);
     }
-// --- GIT PUSH ADIMI ---
-console.log("🚀 GitHub'a güncel veriler push ediliyor...");
-try {
-  execSync('git add data.json updated_cookies.json');
-  execSync('git commit -m "Auto-update data.json and cookies [cron]"');
-  execSync('git pull --rebase origin main');
-  execSync('git push origin main');
-  console.log("✅ GitHub'a başarıyla push edildi!");
-} catch (gitErr) {
-  console.error("⚠️ Git push hatası:", gitErr.message);
-}
+
+    // --- GIT PUSH ADIMI ---
+    console.log("🚀 GitHub'a güncel veriler push ediliyor...");
+    try {
+      execSync('git add data.json updated_cookies.json');
+      execSync('git commit -m "Auto-update data.json and cookies [cron]"');
+      execSync('git pull --rebase origin main');
+      execSync('git push origin main');
+      console.log("✅ GitHub'a başarıyla push edildi!");
+    } catch (gitErr) {
+      console.error("⚠️ Git push hatası:", gitErr.message);
+    }
+
     await browser.close();
   } catch (error) {
     console.error("💥 Scraper hatası:", error.message);
     process.exit(1);
   }
 })();
-  
