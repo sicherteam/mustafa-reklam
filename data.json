@@ -1,6 +1,14 @@
 {
-  "updatedAt": "24.7.2026, 09:00:55",
+  "updatedAt": "24.7.2026, 09:11:52",
   "leads": [
+    {
+      "phone": "0664 3405526",
+      "jobType": "-",
+      "location": "Klosterneuburg",
+      "status": "Belastet",
+      "date": "23.07.26 09:04",
+      "messageText": "-"
+    },
     {
       "phone": "0680 2404585",
       "jobType": "-",
@@ -71,14 +79,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "22.07.26 13:09",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 3405526",
-      "jobType": "-",
-      "location": "Klosterneuburg",
-      "status": "Wird überprüft",
-      "date": "23.07.26 09:04",
       "messageText": "-"
     },
     {
