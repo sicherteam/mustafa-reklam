@@ -1,6 +1,14 @@
 {
-  "updatedAt": "24.7.2026, 08:55:51",
+  "updatedAt": "24.7.2026, 09:00:55",
   "leads": [
+    {
+      "phone": "0680 2404585",
+      "jobType": "-",
+      "location": "Neunkirchen",
+      "status": "Belastet",
+      "date": "23.07.26 08:51",
+      "messageText": "-"
+    },
     {
       "phone": "0660 5901746",
       "jobType": "-",
@@ -79,14 +87,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "22.07.26 09:05",
-      "messageText": "-"
-    },
-    {
-      "phone": "0680 2404585",
-      "jobType": "-",
-      "location": "Neunkirchen",
-      "status": "Wird überprüft",
-      "date": "23.07.26 08:51",
       "messageText": "-"
     },
     {
