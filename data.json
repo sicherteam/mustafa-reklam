@@ -1,6 +1,14 @@
 {
-  "updatedAt": "24.7.2026, 12:22:43",
+  "updatedAt": "24.7.2026, 12:33:35",
   "leads": [
+    {
+      "phone": "0676 3857318",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "24.07.26 12:29",
+      "messageText": "-"
+    },
     {
       "phone": "0664 2043892",
       "jobType": "-",
@@ -152,14 +160,6 @@
       "status": "Belastet",
       "date": "21.07.26 07:29",
       "messageText": "-"
-    },
-    {
-      "phone": "0664 75105881",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "Rechnitz",
-      "status": "Belastet",
-      "date": "20.07.26 18:39",
-      "messageText": "[Potenzieller Kunde\n0664 75105881]\nBenötige noch diese Woche Hilfe beim Transport von 2 kleinen Chouches,2 Kredenzen,einer Truhennähmaschine,einem Schaukelstuhl und drei schmalen Schränken."
     }
   ]
 }
