@@ -1,6 +1,14 @@
 {
-  "updatedAt": "24.7.2026, 14:44:36",
+  "updatedAt": "24.7.2026, 14:55:35",
   "leads": [
+    {
+      "phone": "0665 65979575",
+      "jobType": "-",
+      "location": "Hollabrunn",
+      "status": "Wird überprüft",
+      "date": "24.07.26 14:43",
+      "messageText": "-"
+    },
     {
       "phone": "0680 2076828",
       "jobType": "-",
@@ -151,14 +159,6 @@
       "location": "Eisenstadt",
       "status": "Belastet",
       "date": "21.07.26 10:14",
-      "messageText": "-"
-    },
-    {
-      "phone": "0676 9379144",
-      "jobType": "-",
-      "location": "Baden",
-      "status": "Belastet",
-      "date": "21.07.26 07:58",
       "messageText": "-"
     }
   ]
