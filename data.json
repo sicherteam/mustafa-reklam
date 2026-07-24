@@ -1,6 +1,14 @@
 {
-  "updatedAt": "24.7.2026, 15:55:33",
+  "updatedAt": "24.7.2026, 16:22:35",
   "leads": [
+    {
+      "phone": "0664 4862365",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "24.07.26 15:53",
+      "messageText": "-"
+    },
     {
       "phone": "0676 9136595",
       "jobType": "Beförderung von Umzugsgut",
@@ -151,14 +159,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "21.07.26 16:14",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 6360233",
-      "jobType": "-",
-      "location": "Eisenstadt",
-      "status": "Belastet",
-      "date": "21.07.26 10:14",
       "messageText": "-"
     }
   ]
