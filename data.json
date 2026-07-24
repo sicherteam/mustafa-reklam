@@ -1,6 +1,14 @@
 {
-  "updatedAt": "24.7.2026, 14:22:33",
+  "updatedAt": "24.7.2026, 14:33:37",
   "leads": [
+    {
+      "phone": "0680 2076828",
+      "jobType": "-",
+      "location": "Kittsee",
+      "status": "Wird überprüft",
+      "date": "24.07.26 14:24",
+      "messageText": "-"
+    },
     {
       "phone": "0676 3857318",
       "jobType": "-",
@@ -151,14 +159,6 @@
       "location": "Baden",
       "status": "Belastet",
       "date": "21.07.26 07:58",
-      "messageText": "-"
-    },
-    {
-      "phone": "0677 63730075",
-      "jobType": "-",
-      "location": "Wiener Neustadt",
-      "status": "Belastet",
-      "date": "21.07.26 07:29",
       "messageText": "-"
     }
   ]
