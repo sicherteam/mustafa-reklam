@@ -1,6 +1,14 @@
 {
-  "updatedAt": "24.7.2026, 07:22:55",
+  "updatedAt": "24.7.2026, 07:33:56",
   "leads": [
+    {
+      "phone": "0660 5901746",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "23.07.26 07:24",
+      "messageText": "-"
+    },
     {
       "phone": "0681 10114066",
       "jobType": "-",
@@ -87,14 +95,6 @@
       "location": "Wien",
       "status": "Nicht belastet",
       "date": "23.07.26 08:52",
-      "messageText": "-"
-    },
-    {
-      "phone": "0660 5901746",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Wird überprüft",
-      "date": "23.07.26 07:24",
       "messageText": "-"
     },
     {
