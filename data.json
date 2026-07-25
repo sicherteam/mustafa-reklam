@@ -1,6 +1,14 @@
 {
-  "updatedAt": "25.7.2026, 12:33:41",
+  "updatedAt": "25.7.2026, 12:44:46",
   "leads": [
+    {
+      "phone": "0676 6803622",
+      "jobType": "-",
+      "location": "Korneuburg",
+      "status": "Wird überprüft",
+      "date": "25.07.26 12:31",
+      "messageText": "-"
+    },
     {
       "phone": "0676 3857318",
       "jobType": "-",
@@ -151,14 +159,6 @@
       "location": "Wien",
       "status": "Nicht belastet",
       "date": "23.07.26 08:52",
-      "messageText": "-"
-    },
-    {
-      "phone": "0660 3717336",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Belastet",
-      "date": "21.07.26 17:47",
       "messageText": "-"
     }
   ]
