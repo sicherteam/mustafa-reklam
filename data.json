@@ -1,6 +1,14 @@
 {
-  "updatedAt": "25.7.2026, 15:00:49",
+  "updatedAt": "25.7.2026, 15:17:45",
   "leads": [
+    {
+      "phone": "0681 20514761",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "25.07.26 15:04",
+      "messageText": "-"
+    },
     {
       "phone": "0665 65979575",
       "jobType": "-",
@@ -151,14 +159,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "22.07.26 13:09",
-      "messageText": "-"
-    },
-    {
-      "phone": "0676 5955223",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Belastet",
-      "date": "22.07.26 09:05",
       "messageText": "-"
     }
   ]
