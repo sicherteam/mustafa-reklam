@@ -1,6 +1,14 @@
 {
-  "updatedAt": "25.7.2026, 12:22:42",
+  "updatedAt": "25.7.2026, 12:33:41",
   "leads": [
+    {
+      "phone": "0676 3857318",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "24.07.26 12:29",
+      "messageText": "-"
+    },
     {
       "phone": "0676 9136595",
       "jobType": "Beförderung von Umzugsgut",
@@ -55,14 +63,6 @@
       "location": "Kittsee",
       "status": "Wird überprüft",
       "date": "24.07.26 14:24",
-      "messageText": "-"
-    },
-    {
-      "phone": "0676 3857318",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Wird überprüft",
-      "date": "24.07.26 12:29",
       "messageText": "-"
     },
     {
