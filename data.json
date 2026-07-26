@@ -1,6 +1,14 @@
 {
-  "updatedAt": "26.7.2026, 08:51:45",
+  "updatedAt": "26.7.2026, 09:00:48",
   "leads": [
+    {
+      "phone": "0660 1631426",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Nicht belastet",
+      "date": "26.07.26 08:59",
+      "messageText": "-"
+    },
     {
       "phone": "0664 3374458",
       "jobType": "Beförderung von Umzugsgut",
@@ -143,14 +151,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "22.07.26 13:13",
-      "messageText": "-"
-    },
-    {
-      "phone": "0660 5859753",
-      "jobType": "-",
-      "location": "Maria Enzersdorf",
-      "status": "Belastet",
-      "date": "22.07.26 13:08",
       "messageText": "-"
     }
   ]
