@@ -1,6 +1,14 @@
 {
-  "updatedAt": "26.7.2026, 08:34:38",
+  "updatedAt": "26.7.2026, 08:51:45",
   "leads": [
+    {
+      "phone": "0664 3374458",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Guntramsdorf",
+      "status": "Belastet",
+      "date": "25.07.26 08:43",
+      "messageText": "[Potenzieller Kunde\n0664 3374458]\nGestern um 8:43 AM\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+    },
     {
       "phone": "0664 4862365",
       "jobType": "Beförderung von Umzugsgut",
@@ -64,14 +72,6 @@
       "status": "Belastet",
       "date": "24.07.26 11:27",
       "messageText": "-"
-    },
-    {
-      "phone": "0664 3374458",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "Guntramsdorf",
-      "status": "Wird überprüft",
-      "date": "25.07.26 08:43",
-      "messageText": "[Potenzieller Kunde\n0664 3374458]\n8:43 AM\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
     },
     {
       "phone": "0681 10114066",
