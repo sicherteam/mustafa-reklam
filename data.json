@@ -1,6 +1,14 @@
 {
-  "updatedAt": "26.7.2026, 12:17:39",
+  "updatedAt": "26.7.2026, 12:34:41",
   "leads": [
+    {
+      "phone": "0664 2446607",
+      "jobType": "-",
+      "location": "Oberpullendorf",
+      "status": "Belastet",
+      "date": "17.07.26 17:07",
+      "messageText": "-"
+    },
     {
       "phone": "0664 4375467",
       "jobType": "Beförderung von Umzugsgut",
@@ -63,14 +71,6 @@
       "location": "Kittsee",
       "status": "Belastet",
       "date": "24.07.26 14:24",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 2446607",
-      "jobType": "-",
-      "location": "Oberpullendorf",
-      "status": "Belastet",
-      "date": "17.07.26 17:07",
       "messageText": "-"
     },
     {
