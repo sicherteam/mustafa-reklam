@@ -1,6 +1,14 @@
 {
-  "updatedAt": "26.7.2026, 19:17:41",
+  "updatedAt": "26.7.2026, 19:34:43",
   "leads": [
+    {
+      "phone": "0664 8487791",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Wien",
+      "status": "Nicht belastet",
+      "date": "26.07.26 19:18",
+      "messageText": "-"
+    },
     {
       "phone": "0664 1011886",
       "jobType": "-",
@@ -23,7 +31,7 @@
       "location": "Klosterneuburg",
       "status": "Wird überprüft",
       "date": "26.07.26 14:18",
-      "messageText": "Google Lokale Dienstleistungen\n\nPotenzieller Kunde\n0664 6129223\nARCHIVIEREN\nALS \"TERMIN VEREINBART\" MARKIEREN\nZusammenfassung der Anfrage\nErhalten am 26.07.2026 an 2:18 PM.\nStatusNeu\nGebührenstatus\nWird überprüft\nhelp_outline\nAnfrage-ID328279913\nArt der AnfrageNachricht\nUnternehmenskategorieUmzugsdienst\nDiensttypBeförderung von Umzugsgut\nStandortKlosterneuburg\nSuchabsichtKategorie\nKundenname\nKundenname hinzufügen\nIhre Notizen\nHier hinzugefügte Notizen sind für Kunden nicht sichtbar, sollten jedoch trotzdem keine sensiblen oder vertraulichen Informationen enthalten.\nUnterhaltung\nHier dem Kunden antworten\nSENDEN"
+      "messageText": "[Potenzieller Kunde\n0664 6129223]\n2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
     },
     {
       "phone": "0676 6803622",
@@ -143,14 +151,6 @@
       "location": "Klosterneuburg",
       "status": "Belastet",
       "date": "23.07.26 09:04",
-      "messageText": "-"
-    },
-    {
-      "phone": "0680 2404585",
-      "jobType": "-",
-      "location": "Neunkirchen",
-      "status": "Belastet",
-      "date": "23.07.26 08:51",
       "messageText": "-"
     }
   ]
