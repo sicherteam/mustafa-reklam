@@ -41,7 +41,7 @@ async function sendTelegramMessage(lead) {
         parse_mode: 'Markdown'
       })
     });
-    if (res.ok) console.log('📱 Telegram bildirimi başarıyla gönderildi.');
+    if (res.ok) console.log(`📱 Telegram bildirimi gönderildi: ${lead["Musteri"]}`);
   } catch (err) {
     console.error('⚠️ Telegram mesaj hatası:', err.message);
   }
@@ -256,35 +256,58 @@ function clearChromeLocks() {
       });
     }
 
-    // JSON Kayıt
-    const outputData = {
-      updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
-      leads
-    };
-    fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-    console.log(`🎉 İŞLEM TAMAM! ${leads.length} veri data.json dosyasına yazıldı.`);
+    // 3. AŞAMA: SADECE YENİ MÜŞTERİ VARSA KAYDET VE BİLDİRİM GÖNDER
+    let previousLeads = [];
+    if (fs.existsSync('data.json')) {
+      try {
+        const oldContent = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+        previousLeads = oldContent.leads || [];
+      } catch (e) {
+        console.warn("⚠️ Eski data.json okunamadı, tümü yeni kabul edilecek:", e.message);
+      }
+    }
 
-    // 3. AŞAMA: GIT PUSH & BİLDİRİM
-    try {
-      const gitStatus = execSync('git status --porcelain data.json').toString().trim();
-      if (!gitStatus) {
-        console.log("ℹ️ 'data.json' değişmedi, Git push atlandı.");
-      } else {
+    // Var olan listede bulunmayan YENİ müşteri tespiti
+    const newLeads = leads.filter(newLead => {
+      return !previousLeads.some(oldLead => 
+        oldLead["Musteri"] === newLead["Musteri"] &&
+        oldLead["Ilk gorusme"] === newLead["Ilk gorusme"] &&
+        oldLead["Mesaj"] === newLead["Mesaj"]
+      );
+    });
+
+    console.log(`🔎 İnceleme Tamamlandı. Bulunan YENİ Lead Sayısı: ${newLeads.length}`);
+
+    if (newLeads.length > 0) {
+      const outputData = {
+        updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
+        leads
+      };
+
+      fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
+      console.log(`🎉 YENİ MÜŞTERİ GELMİŞ! ${newLeads.length} adet yeni lead data.json dosyasına yazıldı.`);
+
+      try {
         console.log("⏳ GitHub Pages çakışma önleyici (10sn)...");
         await new Promise(r => setTimeout(r, 10000));
 
         execSync('git add data.json');
-        execSync('git commit -m "Auto-update data.json [cron] [skip ci]" || true');
+        execSync('git commit -m "Auto-update data.json [new leads] [skip ci]" || true');
         execSync('git pull origin main --rebase -X ours');
         execSync('git push origin main');
         console.log("✅ GitHub'a başarıyla push edildi!");
 
-        if (leads.length > 0) {
-          await sendTelegramMessage(leads[0]);
+        // SADECE YENİ MÜŞTERİLER İÇİN TELEGRAM MESAJI AT
+        for (const newLead of newLeads) {
+          await sendTelegramMessage(newLead);
+          await new Promise(r => setTimeout(r, 1000));
         }
+
+      } catch (gitErr) {
+        console.error("⚠️ Git push veya Telegram hatası:", gitErr.message);
       }
-    } catch (gitErr) {
-      console.error("⚠️ Git push hatası:", gitErr.message);
+    } else {
+      console.log("ℹ️ Yeni bir müşteri veya değişiklik yok. Telegram bildirimi ve Git push atlandı.");
     }
 
   } catch (error) {
