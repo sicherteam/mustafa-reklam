@@ -1,6 +1,14 @@
 {
-  "updatedAt": "27.7.2026, 10:34:59",
+  "updatedAt": "27.7.2026, 10:51:54",
   "leads": [
+    {
+      "phone": "0664 4375467",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Wien",
+      "status": "Belastet",
+      "date": "26.07.26 10:38",
+      "messageText": "-"
+    },
     {
       "phone": "0660 2211459",
       "jobType": "Beförderung von Umzugsgut",
@@ -79,14 +87,6 @@
       "location": "Oberpullendorf",
       "status": "Belastet",
       "date": "17.07.26 17:07",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 4375467",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "Wien",
-      "status": "Wird überprüft",
-      "date": "26.07.26 10:38",
       "messageText": "-"
     },
     {
