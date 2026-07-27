@@ -1,3 +1,4 @@
+require('dotenv').config();
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const fs = require('fs');
@@ -7,13 +8,18 @@ const { execSync } = require('child_process');
 
 puppeteer.use(StealthPlugin());
 
-// --- TELEGRAM BİLDİRİM AYARLARI ---
-const TELEGRAM_BOT_TOKEN = '8522620255:AAEXl9-EPWcF5I888W1tBMXneATLF94eV0o';
-const TELEGRAM_CHAT_ID = '446803635';
+// --- TELEGRAM BİLDİRİM AYARLARI (.env üzerinden okunuyor) ---
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const PROJECT_NAME = 'Mustafa Reklam'; // Proje ayrımı için
 
 // Telegram Bildirim Fonksiyonu
 function sendTelegramMessage(lead) {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.warn("⚠️ Telegram bilgileri eksik! Lütfen .env dosyasını kontrol et.");
+    return;
+  }
+
   const message = `🔔 *YENİ LSA LEAD!* (${PROJECT_NAME})\n\n` +
                   `👤 *Müşteri:* ${lead.phone}\n` +
                   `📍 *Konum:* ${lead.location}\n` +
