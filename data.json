@@ -1,6 +1,14 @@
 {
-  "updatedAt": "27.7.2026, 07:17:44",
+  "updatedAt": "27.7.2026, 07:34:46",
   "leads": [
+    {
+      "phone": "0681 81963267",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "27.07.26 07:25",
+      "messageText": "-"
+    },
     {
       "phone": "0664 8487791",
       "jobType": "Beförderung von Umzugsgut",
@@ -143,14 +151,6 @@
       "location": "Oberwart",
       "status": "Nicht belastet",
       "date": "24.07.26 11:43",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 3405526",
-      "jobType": "-",
-      "location": "Klosterneuburg",
-      "status": "Belastet",
-      "date": "23.07.26 09:04",
       "messageText": "-"
     }
   ]
