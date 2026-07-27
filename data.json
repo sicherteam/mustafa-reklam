@@ -1,12 +1,52 @@
 {
-  "updatedAt": "27.7.2026, 17:34:51",
+  "updatedAt": "27.7.2026, 17:46:36",
   "leads": [
+    {
+      "phone": "-",
+      "jobType": "-",
+      "location": "2",
+      "status": "4",
+      "date": "5",
+      "messageText": "-"
+    },
+    {
+      "phone": "6",
+      "jobType": "7",
+      "location": "9",
+      "status": "11",
+      "date": "12",
+      "messageText": "-"
+    },
+    {
+      "phone": "13",
+      "jobType": "14",
+      "location": "16",
+      "status": "18",
+      "date": "19",
+      "messageText": "-"
+    },
+    {
+      "phone": "20",
+      "jobType": "21",
+      "location": "23",
+      "status": "25",
+      "date": "26",
+      "messageText": "-"
+    },
+    {
+      "phone": "27",
+      "jobType": "28",
+      "location": "30",
+      "status": "31",
+      "date": "-",
+      "messageText": "-"
+    },
     {
       "phone": "0676 9556177",
       "jobType": "-",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "27.07.26 14:51",
+      "date": "27.07.26 14:53",
       "messageText": "-"
     },
     {
@@ -14,7 +54,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "27.07.26 14:27",
+      "date": "27.07.26 14:28",
       "messageText": "-"
     },
     {
@@ -22,7 +62,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Klosterneuburg",
       "status": "Belastet",
-      "date": "26.07.26 14:18",
+      "date": "27.07.26 14:18",
       "messageText": "[Potenzieller Kunde\n0664 6129223]\nGestern um 2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
     },
     {
@@ -30,7 +70,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Wien",
       "status": "Belastet",
-      "date": "26.07.26 10:38",
+      "date": "27.07.26 10:45",
       "messageText": "-"
     },
     {
@@ -38,7 +78,7 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Wiener Neustadt",
       "status": "Belastet",
-      "date": "26.07.26 10:32",
+      "date": "27.07.26 10:34",
       "messageText": "-"
     },
     {
@@ -46,7 +86,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Nicht belastet",
-      "date": "27.07.26 09:15",
+      "date": "27.07.26 09:16",
       "messageText": "-"
     },
     {
@@ -62,15 +102,23 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Wien",
       "status": "Wird überprüft",
-      "date": "27.07.26 07:25",
+      "date": "27.07.26 07:29",
       "messageText": "-"
+    },
+    {
+      "phone": "-",
+      "jobType": "Innerörtlicher Umzug",
+      "location": "Wiener Neustadt",
+      "status": "Belastet",
+      "date": "26.07.26 22:51",
+      "messageText": "[Erhalten am 25]\nGestern um 10:51 PM\nHallo, ich möchte ein Angebot für einen kleinen Umzug in Ebenfurth anfragen. Umzug: * Von: 1. Stock (ohne Aufzug) * Nach: 3. Stock (ohne Aufzug) * Entfernung: ca. 300 Meter Zu transportieren sind: * Waschmaschine * Kühlschrank * Wäschetrockner * Eckcouch Könnten Sie mir bitte ein Angebot (wenn möglich als Fixpreis) sowie einen möglichen Termin nennen? Vielen Dank und freundliche Grüße"
     },
     {
       "phone": "0664 8487791",
       "jobType": "Beförderung von Umzugsgut",
       "location": "Wien",
       "status": "Nicht belastet",
-      "date": "26.07.26 19:18",
+      "date": "26.07.26 19:19",
       "messageText": "-"
     },
     {
@@ -78,7 +126,7 @@
       "jobType": "-",
       "location": "Sankt Pölten",
       "status": "Nicht belastet",
-      "date": "26.07.26 15:27",
+      "date": "26.07.26 15:29",
       "messageText": "-"
     },
     {
@@ -86,7 +134,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "25.07.26 15:04",
+      "date": "26.07.26 15:06",
       "messageText": "-"
     },
     {
@@ -94,7 +142,7 @@
       "jobType": "-",
       "location": "Korneuburg",
       "status": "Belastet",
-      "date": "25.07.26 12:31",
+      "date": "26.07.26 12:35",
       "messageText": "-"
     },
     {
@@ -102,7 +150,7 @@
       "jobType": "-",
       "location": "Oberpullendorf",
       "status": "Belastet",
-      "date": "17.07.26 17:07",
+      "date": "26.07.26 12:17",
       "messageText": "-"
     },
     {
@@ -118,15 +166,15 @@
       "jobType": "Beförderung von Umzugsgut",
       "location": "Guntramsdorf",
       "status": "Belastet",
-      "date": "25.07.26 08:43",
-      "messageText": "[Potenzieller Kunde\n0664 3374458]\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+      "date": "26.07.26 08:43",
+      "messageText": "Google Lokale Dienstleistungen\n\nPotenzieller Kunde\n0664 3374458\nARCHIVIEREN\nALS \"TERMIN VEREINBART\" MARKIEREN\nZusammenfassung der Anfrage\nErhalten am 25.07.2026 an 8:43 AM.\nDiese Anfrage bewerten\nStatusNeu\nGebührenstatus\nBelastet\nAnfrage-ID328134542\nArt der AnfrageNachricht\nUnternehmenskategorieUmzugsdienst\nDiensttypBeförderung von Umzugsgut\nStandortGuntramsdorf\nSuchabsichtKategorie\nKundenname\nKundenname hinzufügen\nIhre Notizen\nHier hinzugefügte Notizen sind für Kunden nicht sichtbar, sollten jedoch trotzdem keine sensiblen oder vertraulichen Informationen enthalten.\nUnterhaltung\nHier dem Kunden antworten\nSENDEN"
     },
     {
       "phone": "0664 4862365",
       "jobType": "Beförderung von Umzugsgut",
       "location": "Wien",
       "status": "Belastet",
-      "date": "24.07.26 15:53",
+      "date": "25.07.26 15:57",
       "messageText": "-"
     },
     {
@@ -134,7 +182,7 @@
       "jobType": "-",
       "location": "Hollabrunn",
       "status": "Belastet",
-      "date": "24.07.26 14:43",
+      "date": "25.07.26 14:46",
       "messageText": "-"
     },
     {
@@ -142,7 +190,7 @@
       "jobType": "-",
       "location": "Kittsee",
       "status": "Belastet",
-      "date": "24.07.26 14:24",
+      "date": "25.07.26 14:25",
       "messageText": "-"
     },
     {
@@ -150,7 +198,7 @@
       "jobType": "-",
       "location": "Wien",
       "status": "Belastet",
-      "date": "24.07.26 12:29",
+      "date": "25.07.26 12:31",
       "messageText": "-"
     }
   ]
