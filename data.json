@@ -1,10 +1,18 @@
 {
-  "updatedAt": "27.7.2026, 22:30:48",
+  "updatedAt": "27.7.2026, 22:31:46",
   "leads": [
+    {
+      "Musteri": "-",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Ilk gorusme": "27.07.26 19:51",
+      "Son gorusme": "27.07.26 20:46",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0681 84437048",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0681 84437048",
+      "Konum": "Wien",
       "Ilk gorusme": "27.07.26 17:53",
       "Son gorusme": "27.07.26 17:54",
       "Mesaj": "-"
@@ -12,7 +20,7 @@
     {
       "Musteri": "0676 9556177",
       "Hizmet": "-",
-      "Konum": "0676 9556177",
+      "Konum": "Wien",
       "Ilk gorusme": "27.07.26 14:51",
       "Son gorusme": "27.07.26 14:53",
       "Mesaj": "-"
@@ -20,7 +28,7 @@
     {
       "Musteri": "0660 4445617",
       "Hizmet": "-",
-      "Konum": "0660 4445617",
+      "Konum": "Wien",
       "Ilk gorusme": "27.07.26 14:27",
       "Son gorusme": "27.07.26 14:28",
       "Mesaj": "-"
@@ -28,15 +36,15 @@
     {
       "Musteri": "0664 6129223",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0664 6129223",
+      "Konum": "Klosterneuburg",
       "Ilk gorusme": "26.07.26 14:18",
       "Son gorusme": "27.07.26 14:18",
-      "Mesaj": "[Potenzieller Kunde\n0664 6129223]\nGestern um 2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
     },
     {
       "Musteri": "0664 4375467",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0664 4375467",
+      "Konum": "Wien",
       "Ilk gorusme": "26.07.26 10:38",
       "Son gorusme": "27.07.26 10:45",
       "Mesaj": "-"
@@ -44,7 +52,7 @@
     {
       "Musteri": "0660 2211459",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0660 2211459",
+      "Konum": "Wiener Neustadt",
       "Ilk gorusme": "26.07.26 10:32",
       "Son gorusme": "27.07.26 10:34",
       "Mesaj": "-"
@@ -52,7 +60,7 @@
     {
       "Musteri": "0681 81805099",
       "Hizmet": "-",
-      "Konum": "0681 81805099",
+      "Konum": "Wien",
       "Ilk gorusme": "27.07.26 09:15",
       "Son gorusme": "27.07.26 09:16",
       "Mesaj": "-"
@@ -60,7 +68,7 @@
     {
       "Musteri": "0676 7222178",
       "Hizmet": "-",
-      "Konum": "0676 7222178",
+      "Konum": "Niederösterreich",
       "Ilk gorusme": "27.07.26 09:04",
       "Son gorusme": "27.07.26 09:04",
       "Mesaj": "-"
@@ -68,15 +76,23 @@
     {
       "Musteri": "0681 81963267",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0681 81963267",
+      "Konum": "Wien",
       "Ilk gorusme": "27.07.26 07:25",
       "Son gorusme": "27.07.26 07:29",
       "Mesaj": "-"
     },
     {
+      "Musteri": "-",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wiener Neustadt",
+      "Ilk gorusme": "25.07.26 22:51",
+      "Son gorusme": "26.07.26 22:51",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 10:51 PM\nHallo, ich möchte ein Angebot für einen kleinen Umzug in Ebenfurth anfragen. Umzug: * Von: 1. Stock (ohne Aufzug) * Nach: 3. Stock (ohne Aufzug) * Entfernung: ca. 300 Meter Zu transportieren sind: * Waschmaschine * Kühlschrank * Wäschetrockner * Eckcouch Könnten Sie mir bitte ein Angebot (wenn möglich als Fixpreis) sowie einen möglichen Termin nennen? Vielen Dank und freundliche Grüße"
+    },
+    {
       "Musteri": "0664 8487791",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0664 8487791",
+      "Konum": "Wien",
       "Ilk gorusme": "26.07.26 19:18",
       "Son gorusme": "26.07.26 19:19",
       "Mesaj": "-"
@@ -84,7 +100,7 @@
     {
       "Musteri": "0664 1011886",
       "Hizmet": "-",
-      "Konum": "0664 1011886",
+      "Konum": "Sankt Pölten",
       "Ilk gorusme": "26.07.26 15:27",
       "Son gorusme": "26.07.26 15:29",
       "Mesaj": "-"
@@ -92,7 +108,7 @@
     {
       "Musteri": "0681 20514761",
       "Hizmet": "-",
-      "Konum": "0681 20514761",
+      "Konum": "Wien",
       "Ilk gorusme": "25.07.26 15:04",
       "Son gorusme": "26.07.26 15:06",
       "Mesaj": "-"
@@ -100,7 +116,7 @@
     {
       "Musteri": "0676 6803622",
       "Hizmet": "-",
-      "Konum": "0676 6803622",
+      "Konum": "Korneuburg",
       "Ilk gorusme": "25.07.26 12:31",
       "Son gorusme": "26.07.26 12:35",
       "Mesaj": "-"
@@ -108,7 +124,7 @@
     {
       "Musteri": "0664 2446607",
       "Hizmet": "-",
-      "Konum": "0664 2446607",
+      "Konum": "Oberpullendorf",
       "Ilk gorusme": "17.07.26 17:07",
       "Son gorusme": "26.07.26 12:17",
       "Mesaj": "-"
@@ -116,7 +132,7 @@
     {
       "Musteri": "0660 1631426",
       "Hizmet": "-",
-      "Konum": "0660 1631426",
+      "Konum": "Wien",
       "Ilk gorusme": "26.07.26 08:59",
       "Son gorusme": "26.07.26 08:59",
       "Mesaj": "-"
@@ -124,15 +140,15 @@
     {
       "Musteri": "0664 3374458",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0664 3374458",
+      "Konum": "Guntramsdorf",
       "Ilk gorusme": "25.07.26 08:43",
       "Son gorusme": "26.07.26 08:43",
-      "Mesaj": "[Potenzieller Kunde\n0664 3374458]\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 10:51 PM\nHallo, ich möchte ein Angebot für einen kleinen Umzug in Ebenfurth anfragen. Umzug: * Von: 1. Stock (ohne Aufzug) * Nach: 3. Stock (ohne Aufzug) * Entfernung: ca. 300 Meter Zu transportieren sind: * Waschmaschine * Kühlschrank * Wäschetrockner * Eckcouch Könnten Sie mir bitte ein Angebot (wenn möglich als Fixpreis) sowie einen möglichen Termin nennen? Vielen Dank und freundliche Grüße"
     },
     {
       "Musteri": "0664 4862365",
       "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "0664 4862365",
+      "Konum": "Wien",
       "Ilk gorusme": "24.07.26 15:53",
       "Son gorusme": "25.07.26 15:57",
       "Mesaj": "-"
@@ -140,7 +156,7 @@
     {
       "Musteri": "0665 65979575",
       "Hizmet": "-",
-      "Konum": "0665 65979575",
+      "Konum": "Hollabrunn",
       "Ilk gorusme": "24.07.26 14:43",
       "Son gorusme": "25.07.26 14:46",
       "Mesaj": "-"
