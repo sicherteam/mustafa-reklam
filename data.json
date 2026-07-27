@@ -1,5 +1,5 @@
 {
-  "updatedAt": "27.7.2026, 18:06:49",
+  "updatedAt": "27.7.2026, 18:10:13",
   "leads": [
     {
       "phone": "-",
@@ -7,38 +7,6 @@
       "location": "2",
       "status": "4",
       "date": "5",
-      "messageText": "-"
-    },
-    {
-      "phone": "6",
-      "jobType": "7",
-      "location": "9",
-      "status": "11",
-      "date": "12",
-      "messageText": "-"
-    },
-    {
-      "phone": "13",
-      "jobType": "14",
-      "location": "16",
-      "status": "18",
-      "date": "19",
-      "messageText": "-"
-    },
-    {
-      "phone": "20",
-      "jobType": "21",
-      "location": "23",
-      "status": "25",
-      "date": "26",
-      "messageText": "-"
-    },
-    {
-      "phone": "27",
-      "jobType": "28",
-      "location": "30",
-      "status": "31",
-      "date": "-",
       "messageText": "-"
     },
     {
