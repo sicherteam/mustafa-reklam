@@ -2,9 +2,57 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 const { execSync } = require('child_process');
 
 puppeteer.use(StealthPlugin());
+
+// --- TELEGRAM BİLDİRİM AYARLARI ---
+const TELEGRAM_BOT_TOKEN = '8522620255:AAEXl9-EPWcF5I888W1tBMXneATLF94eV0o';
+const TELEGRAM_CHAT_ID = '446803635';
+const PROJECT_NAME = 'Mustafa Reklam'; // Osman Reklam projesi için burayı "Osman Reklam" yapabilirsin
+
+// Telegram Bildirim Fonksiyonu
+function sendTelegramMessage(lead) {
+  const message = `🔔 *YENİ LSA LEAD!* (${PROJECT_NAME})\n\n` +
+                  `👤 *Müşteri:* ${lead.phone}\n` +
+                  `📍 *Konum:* ${lead.location}\n` +
+                  `💼 *Hizmet:* ${lead.jobType}\n` +
+                  `📅 *Tarih:* ${lead.date}\n` +
+                  `💬 *Mesaj:* ${lead.messageText}`;
+
+  const data = JSON.stringify({
+    chat_id: TELEGRAM_CHAT_ID,
+    text: message,
+    parse_mode: 'Markdown'
+  });
+
+  const options = {
+    hostname: 'api.telegram.org',
+    port: 443,
+    path: `/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(data)
+    }
+  };
+
+  const req = https.request(options, (res) => {
+    let responseString = '';
+    res.on('data', chunk => { responseString += chunk; });
+    res.on('end', () => {
+      console.log('📱 Telegram bildirimi başarıyla gönderildi.');
+    });
+  });
+
+  req.on('error', (error) => {
+    console.error('⚠️ Telegram mesajı atılamadı:', error.message);
+  });
+
+  req.write(data);
+  req.end();
+}
 
 // Ham panel metninden MÜŞTERİ BİLGİSİ ve SADECE GERÇEK MESAJI süzen fonksiyon
 function parseCleanMessage(rawText) {
@@ -284,7 +332,7 @@ function parseCleanMessage(rawText) {
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
     console.log(`🎉 İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
-    // --- AKILLI GIT PUSH ADIMI ---
+    // --- AKILLI GIT PUSH VE BİLDİRİM ADIMI ---
     try {
       const gitStatus = execSync('git status --porcelain data.json').toString().trim();
 
@@ -297,6 +345,11 @@ function parseCleanMessage(rawText) {
         execSync('git pull --rebase origin main');
         execSync('git push origin main');
         console.log("✅ GitHub'a başarıyla push edildi!");
+
+        // 📱 SADECE YENİ DEĞİŞİKLİK VARDISA TELEGRAM BİLDİRİMİ GÖNDER
+        if (adjustedLeads.length > 0) {
+          sendTelegramMessage(adjustedLeads[0]);
+        }
       }
     } catch (gitErr) {
       console.error("⚠️ Git push hatası:", gitErr.message);
