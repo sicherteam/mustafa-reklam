@@ -3,10 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MUSTAFA REKLAMLAR</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>MUSTAFA REKLAMLAR | LSA Performance Dashboard</title>
+  
+  <!-- CSS & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* --- ARKA PLAN SİLİK RESİM (mustafa.png) --- */
+    :root {
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --glass-bg: rgba(255, 255, 255, 0.78);
+      --glass-border: rgba(226, 232, 240, 0.8);
+      --primary-accent: #2563eb;
+      --primary-hover: #1d4ed8;
+      --card-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 4px 12px -2px rgba(15, 23, 42, 0.02);
+    }
+
+    /* Fixed Background with Blur Overlay */
     body::before {
       content: "";
       position: fixed;
@@ -14,163 +28,258 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: url('mustafa.png'); 
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain;
-      opacity: 0.80;
+      background: url('mustafa.png') center/contain no-repeat;
+      opacity: 0.18;
       z-index: -1;
       pointer-events: none;
     }
 
-    body { 
-      background-color: #f4f6f9; 
-      padding: 15px 10px; 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      position: relative;
+    body {
+      font-family: var(--font-main);
+      background-color: #f8fafc;
+      color: #0f172a;
+      padding: 24px 12px;
+      min-height: 100vh;
     }
 
-    /* Ana Kart - Yarı Saydam Beyaz Zemin */
-    .main-card { 
-      border: 1px solid rgba(225, 232, 240, 0.6); 
-      border-radius: 16px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
-      background: rgba(255, 255, 255, 0.70) !important; 
+    /* Container Glassmorphism */
+    .dashboard-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
     }
 
-    /* TABLO VE HÜCRE ŞEFFAFLIK KODLARI */
-    .table-responsive {
-      background: transparent !important;
+    /* Pulse Live Badge */
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10b981;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 1.8s infinite;
     }
 
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    /* Stat Cards */
+    .stat-box {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 14px;
+      padding: 14px 18px;
+      transition: all 0.2s ease;
+    }
+    .stat-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Search & Controls */
+    .search-input {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 16px 10px 42px;
+      font-size: 0.92rem;
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      background: #ffffff;
+      border-color: var(--primary-accent);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    }
+
+    /* Custom Table Styling */
+    .table-container {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
     .table {
-      --bs-table-bg: transparent !important;
-      --bs-table-accent-bg: transparent !important;
-      --bs-table-striped-bg: transparent !important;
-      --bs-table-hover-bg: rgba(255, 255, 255, 0.5) !important;
-      color: #1e293b;
-      background-color: transparent !important;
+      margin-bottom: 0;
+      --bs-table-bg: transparent;
+    }
+    .table thead th {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 16px;
+      border: none;
+    }
+    .table tbody tr {
+      transition: background-color 0.15s ease;
+    }
+    .table tbody tr:hover {
+      background-color: rgba(241, 245, 249, 0.6) !important;
+    }
+    .table td {
+      padding: 14px 16px;
+      vertical-align: middle;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+      font-size: 0.93rem;
     }
 
-    .table td, .table th, .table tr {
-      background: transparent !important;
-      background-color: transparent !important;
-      border-bottom-color: rgba(226, 232, 240, 0.6) !important;
+    /* Badges & Action Buttons */
+    .badge-service {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+    .badge-location {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #e2e8f0;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 8px;
     }
 
-    .table th { 
-      background-color: rgba(30, 41, 59, 0.92) !important; 
-      color: #fff !important; 
-      border: none; 
-      padding: 14px; 
-    }
-
-    #countdown-box { display: none; }
-
-    /* Mesaj Kutusu Stili */
-    .message-box {
-      background-color: rgba(248, 250, 252, 0.95);
-      border-left: 4px solid #0d6efd;
-      border-radius: 6px;
-      padding: 12px 14px;
-      margin-top: 6px;
+    /* Chat/Message Box Styling */
+    .chat-bubble {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: 10px;
+      padding: 12px 16px;
       white-space: pre-line;
       word-break: break-word;
+      font-size: 0.9rem;
+      color: #14532d;
     }
 
-    /* --- MOBİL UYUM ÖZELLEŞTİRMELERİ --- */
+    /* Mobile View Cards */
     @media (max-width: 767.98px) {
-      body { padding: 10px 5px; }
-      .main-card { padding: 1.25rem !important; border-radius: 12px; }
-      
       .desktop-table-view { display: none !important; }
-      .mobile-cards-view { display: flex; flex-direction: column; gap: 12px; }
-      
-      .lead-card {
-        background: rgba(255, 255, 255, 0.75) !important;
-        border: 1px solid rgba(226, 232, 240, 0.7);
-        border-radius: 12px;
-        padding: 14px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      .mobile-card {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
       }
-      .lead-card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        border-bottom: 1px solid rgba(241, 245, 249, 0.8);
-        padding-bottom: 8px;
-        margin-bottom: 10px;
-      }
-      .lead-card-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 6px;
-        font-size: 0.9em;
-      }
-      .lead-card-label { color: #64748b; font-weight: 500; }
-      .lead-card-value { font-weight: 600; color: #1e293b; text-align: right; }
     }
-
     @media (min-width: 768px) {
       .mobile-cards-view { display: none !important; }
     }
   </style>
 </head>
 <body>
-  <div class="container main-card p-4">
-    <!-- Header Alanı -->
-    <div class="row g-3 align-items-center mb-3">
-      <div class="col-12 col-md-6">
-        <h2 class="fw-bold mb-1 fs-3">MUSTAFA REKLAMLAR</h2>
-        <div class="text-muted small">
-          <strong>Letzte Aktualisierung:</strong> <span id="last-update" class="text-primary fw-bold">Yükleniyor...</span>
-        </div>
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="d-flex flex-column flex-sm-row gap-2">
-          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control" placeholder="Suchen (Telefon, Ort, Dienst...)..." style="background: rgba(255, 255, 255, 0.85);">
-          <button id="btn-refresh" onclick="startLiveScrape()" class="btn btn-primary text-nowrap">
-            🔄 Daten neu laden
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Geri Sayım Kutusu -->
-    <div id="countdown-box" class="alert alert-info align-items-center justify-content-between mb-3">
+  <div class="container-xl dashboard-card p-4 my-2">
+    
+    <!-- TOP HEADER & BRAND -->
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between pb-3 mb-3 border-bottom border-secondary-subtle gap-3">
       <div>
-        <strong>🤖 Prüfe auf neue Daten...</strong>
-        <div class="small text-muted d-block d-sm-inline">data.json wird neu geladen.</div>
+        <div class="d-flex align-items-center gap-2 mb-1">
+          <span class="pulse-dot"></span>
+          <span class="text-uppercase fw-bold text-success small tracking-wider">Live System</span>
+        </div>
+        <h1 class="fw-extrabold fs-3 mb-0 text-slate-900">MUSTAFA REKLAMLAR</h1>
+        <div class="text-muted small mt-1">
+          <i class="bi bi-clock-history me-1"></i>Letzte Aktualisierung: <span id="last-update" class="fw-bold text-dark">Lade Daten...</span>
+        </div>
       </div>
-      <div class="fw-bold fs-4 text-primary ms-2"><span id="timer">10</span>s</div>
+
+      <!-- Action Button & Polling Alert -->
+      <div class="d-flex align-items-center gap-2">
+        <button id="btn-refresh" onclick="startLiveScrape()" class="btn btn-primary px-3 py-2 fw-semibold d-flex align-items-center gap-2 rounded-3">
+          <i class="bi bi-arrow-clockwise fs-5" id="refresh-icon"></i>
+          <span>Daten neu laden</span>
+        </button>
+      </div>
     </div>
 
-    <!-- MASAÜSTÜ TABLO GÖRÜNÜMÜ -->
-    <div class="table-responsive desktop-table-view">
+    <!-- KPI STATS CARDS -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-4">
+        <div class="stat-box">
+          <div class="text-muted small fw-medium mb-1"><i class="bi bi-people me-1"></i>Gesamte Leads</div>
+          <div class="fs-4 fw-bold text-dark" id="stat-total-leads">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="stat-box">
+          <div class="text-muted small fw-medium mb-1"><i class="bi bi-chat-left-text me-1"></i>Nachrichten</div>
+          <div class="fs-4 fw-bold text-primary" id="stat-total-messages">0</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="stat-box">
+          <div class="text-muted small fw-medium mb-1"><i class="bi bi-funnel me-1"></i>Aktiver Filter</div>
+          <div class="fs-6 fw-bold text-secondary" id="stat-filtered-count">Alle angezeigt</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COUNTDOWN NOTIFICATION -->
+    <div id="countdown-box" class="alert alert-info border-0 shadow-sm d-none align-items-center justify-content-between mb-4 rounded-3">
+      <div class="d-flex align-items-center gap-2">
+        <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+        <div>
+          <strong class="d-block">🤖 Automatische Aktualisierung läuft...</strong>
+          <span class="small text-muted">Die neuesten Daten werden von LSA abgerufen.</span>
+        </div>
+      </div>
+      <div class="fw-bold fs-4 text-primary ms-3"><span id="timer">10</span>s</div>
+    </div>
+
+    <!-- SEARCH & TOOLBAR -->
+    <div class="position-relative mb-3">
+      <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+      <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control search-input" placeholder="Nach Name, Telefon, Ort oder Hizmet suchen...">
+    </div>
+
+    <!-- DESKTOP TABLE VIEW -->
+    <div class="table-responsive desktop-table-view table-container">
       <table class="table align-middle" id="leadTable">
         <thead>
           <tr>
-            <th>Musteri / Telefon</th>
+            <th>Kunde / Telefon</th>
             <th>Hizmet</th>
             <th>Konum</th>
-            <th>İlk Görüşme</th>
-            <th>Son Görüşme</th>
-            <th>Aksiyon</th>
+            <th>Erstes Gespräch</th>
+            <th>Letztes Gespräch</th>
+            <th class="text-end">Aktion</th>
           </tr>
         </thead>
         <tbody id="lead-table-body">
-          <tr><td colspan="6" class="text-center py-4">Veriler yükleniyor...</td></tr>
+          <tr>
+            <td colspan="6" class="text-center py-5 text-muted">
+              <div class="spinner-border spinner-border-sm text-primary me-2"></div>
+              Veriler yükleniyor...
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- MOBİL KART GÖRÜNÜMÜ -->
+    <!-- MOBILE CARDS VIEW -->
     <div id="lead-cards-body" class="mobile-cards-view">
-      <div class="text-center text-muted py-4">Veriler yükleniyor...</div>
+      <div class="text-center text-muted py-4">
+        <div class="spinner-border spinner-border-sm text-primary me-2"></div>
+        Veriler yükleniyor...
+      </div>
     </div>
+
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     function cleanMessageText(text) {
       if (!text || text === '-' || text.trim() === '') return null;
@@ -185,10 +294,18 @@
       return cleaned.length > 0 ? cleaned : null;
     }
 
+    function copyToClipboard(str) {
+      navigator.clipboard.writeText(str);
+      alert('Kopiert: ' + str);
+    }
+
     async function loadData() {
       const tbody = document.getElementById('lead-table-body');
       const cardsBody = document.getElementById('lead-cards-body');
       const updateSpan = document.getElementById('last-update');
+
+      const statTotalLeads = document.getElementById('stat-total-leads');
+      const statTotalMessages = document.getElementById('stat-total-messages');
 
       try {
         const response = await fetch('./data.json?t=' + new Date().getTime(), {
@@ -206,14 +323,19 @@
         cardsBody.innerHTML = '';
 
         if (!data.leads || data.leads.length === 0) {
-          const emptyMsg = '<div class="text-center py-4 text-muted">Keine Daten vorhanden.</div>';
-          tbody.innerHTML = `<tr><td colspan="6" class="text-center py-4 text-muted">Keine Daten vorhanden.</td></tr>`;
-          cardsBody.innerHTML = emptyMsg;
+          const emptyHTML = `<div class="text-center py-5 text-muted"><i class="bi bi-inbox fs-2 d-block mb-2"></i>Keine Leads vorhanden.</div>`;
+          tbody.innerHTML = `<tr><td colspan="6" class="text-center py-5 text-muted"><i class="bi bi-inbox fs-2 d-block mb-2"></i>Keine Leads vorhanden.</td></tr>`;
+          cardsBody.innerHTML = emptyHTML;
+          statTotalLeads.innerText = '0';
+          statTotalMessages.innerText = '0';
           return;
         }
 
+        // Stats Calculation
+        statTotalLeads.innerText = data.leads.length;
+        let messageCount = 0;
+
         data.leads.forEach((lead, index) => {
-          // scraper.js veri yapısıyla birebir eşleme
           const phone = lead["Musteri"] || '-';
           const jobType = lead["Hizmet"] || '-';
           const location = lead["Konum"] || '-';
@@ -222,28 +344,45 @@
           const rawMessage = lead["Mesaj"] || '-';
 
           const cleanedMsg = cleanMessageText(rawMessage);
+          if (cleanedMsg) messageCount++;
 
+          const isPhoneValid = phone !== '-' && !phone.includes('Keine Telefonnummer');
+
+          // Desktop Action Button
           const msgButton = cleanedMsg ? `
-            <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#msg-desktop-${index}">
-              💬 Nachricht
+            <button class="btn btn-sm btn-outline-primary fw-semibold px-3 rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#msg-desktop-${index}">
+              <i class="bi bi-chat-left-text me-1"></i> Nachricht
             </button>
           ` : '<span class="text-muted small">-</span>';
 
+          // Phone Link Formatter
+          const phoneDisplay = isPhoneValid ? `
+            <div class="d-flex align-items-center gap-2">
+              <a href="tel:${phone}" class="fw-bold text-decoration-none text-primary fs-6">
+                ${phone}
+              </a>
+              <button onclick="copyToClipboard('${phone}')" class="btn btn-link btn-sm text-muted p-0" title="Kopieren">
+                <i class="bi bi-copy"></i>
+              </button>
+            </div>
+          ` : `<span class="fw-bold text-slate-700">${phone}</span>`;
+
+          // Table Row
           const row = `
-            <tr>
-              <td><a href="tel:${phone}" class="fw-bold text-decoration-none">${phone}</a></td>
-              <td>${jobType}</td>
-              <td>${location}</td>
+            <tr class="searchable-item">
+              <td>${phoneDisplay}</td>
+              <td><span class="badge-service">${jobType}</span></td>
+              <td><span class="badge-location"><i class="bi bi-geo-alt me-1"></i>${location}</span></td>
               <td class="text-muted small">${ilkGorusme}</td>
               <td class="text-muted small">${sonGorusme}</td>
-              <td>${msgButton}</td>
+              <td class="text-end">${msgButton}</td>
             </tr>
             ${cleanedMsg ? `
-              <tr class="collapse" id="msg-desktop-${index}">
-                <td colspan="6" class="p-3">
-                  <div class="message-box">
-                    <strong class="text-primary small d-block mb-1">💬 Kundennachricht:</strong>
-                    <div class="small text-dark">${cleanedMsg}</div>
+              <tr class="collapse searchable-item" id="msg-desktop-${index}">
+                <td colspan="6" class="p-3 bg-light-subtle">
+                  <div class="chat-bubble">
+                    <div class="fw-bold text-success small mb-1"><i class="bi bi-chat-quote-fill me-1"></i> Kundennachricht:</div>
+                    <div>${cleanedMsg}</div>
                   </div>
                 </td>
               </tr>
@@ -251,40 +390,32 @@
           `;
           tbody.innerHTML += row;
 
-          const mobileMsgHTML = cleanedMsg ? `
-            <div class="message-box mt-2">
-              <strong class="text-primary small d-block mb-1">💬 Nachricht:</strong>
-              <div class="small text-dark">${cleanedMsg}</div>
-            </div>
-          ` : '';
-
+          // Mobile Card View
           const card = `
-            <div class="lead-card searchable-item">
-              <div class="lead-card-header">
+            <div class="mobile-card searchable-item">
+              <div class="d-flex justify-content-between align-items-start mb-2 pb-2 border-bottom">
                 <div>
-                  <a href="tel:${phone}" class="fw-bold fs-6 text-decoration-none text-primary d-block">
-                    📞 ${phone}
-                  </a>
-                  <small class="text-muted">Son: ${sonGorusme}</small>
+                  ${isPhoneValid ? `<a href="tel:${phone}" class="fw-bold fs-6 text-decoration-none text-primary"><i class="bi bi-telephone-fill me-1"></i> ${phone}</a>` : `<span class="fw-bold text-dark">${phone}</span>`}
+                  <div class="small text-muted mt-1"><i class="bi bi-clock me-1"></i>${sonGorusme}</div>
                 </div>
+                <span class="badge-location small"><i class="bi bi-geo-alt me-1"></i>${location}</span>
               </div>
-              <div class="lead-card-row">
-                <span class="lead-card-label">Hizmet:</span>
-                <span class="lead-card-value">${jobType}</span>
+              <div class="d-flex justify-content-between align-items-center my-2">
+                <span class="text-muted small">Hizmet:</span>
+                <span class="badge-service">${jobType}</span>
               </div>
-              <div class="lead-card-row">
-                <span class="lead-card-label">Konum:</span>
-                <span class="lead-card-value">${location}</span>
-              </div>
-              <div class="lead-card-row">
-                <span class="lead-card-label">İlk Görüşme:</span>
-                <span class="lead-card-value small text-muted">${ilkGorusme}</span>
-              </div>
-              ${mobileMsgHTML}
+              ${cleanedMsg ? `
+                <div class="chat-bubble mt-3">
+                  <div class="fw-bold text-success small mb-1"><i class="bi bi-chat-quote-fill me-1"></i> Nachricht:</div>
+                  <div>${cleanedMsg}</div>
+                </div>
+              ` : ''}
             </div>
           `;
           cardsBody.innerHTML += card;
         });
+
+        statTotalMessages.innerText = messageCount;
 
       } catch (err) {
         console.error("Yükleme hatası:", err);
@@ -297,11 +428,14 @@
 
     function startLiveScrape() {
       const btn = document.getElementById('btn-refresh');
+      const icon = document.getElementById('refresh-icon');
       const box = document.getElementById('countdown-box');
       const timerSpan = document.getElementById('timer');
 
       btn.disabled = true;
-      box.style.display = 'flex';
+      icon.classList.add('spin-animation');
+      box.classList.remove('d-none');
+      box.classList.add('d-flex');
 
       let timeLeft = 10;
       timerSpan.innerText = timeLeft;
@@ -312,8 +446,10 @@
 
         if (timeLeft <= 0) {
           clearInterval(countdown);
-          box.style.display = 'none';
+          box.classList.remove('d-flex');
+          box.classList.add('d-none');
           btn.disabled = false;
+          icon.classList.remove('spin-animation');
           loadData();
         }
       }, 1000);
@@ -322,20 +458,28 @@
     function filterTable() {
       const input = document.getElementById('searchInput');
       const filter = input.value.toLowerCase();
-      
-      const rows = document.querySelectorAll('#lead-table-body tr');
-      rows.forEach(row => {
-        const text = row.innerText.toLowerCase();
-        row.style.display = text.includes(filter) ? '' : 'none';
+      const items = document.querySelectorAll('.searchable-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(filter)) {
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
       });
 
-      const cards = document.querySelectorAll('#lead-cards-body .searchable-item');
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(filter) ? '' : 'none';
-      });
+      const filterStat = document.getElementById('stat-filtered-count');
+      if (filter.trim() === '') {
+        filterStat.innerText = 'Alle angezeigt';
+      } else {
+        filterStat.innerText = `${visibleCount} Treffer`;
+      }
     }
 
+    // Init
     loadData();
   </script>
 </body>
