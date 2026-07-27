@@ -1,6 +1,22 @@
 {
-  "updatedAt": "27.7.2026, 14:17:49",
+  "updatedAt": "27.7.2026, 14:34:49",
   "leads": [
+    {
+      "phone": "0660 4445617",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Wird überprüft",
+      "date": "27.07.26 14:27",
+      "messageText": "-"
+    },
+    {
+      "phone": "0664 6129223",
+      "jobType": "Beförderung von Umzugsgut",
+      "location": "Klosterneuburg",
+      "status": "Belastet",
+      "date": "26.07.26 14:18",
+      "messageText": "[Potenzieller Kunde\n0664 6129223]\nGestern um 2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
+    },
     {
       "phone": "0664 4375467",
       "jobType": "Beförderung von Umzugsgut",
@@ -64,14 +80,6 @@
       "status": "Belastet",
       "date": "25.07.26 15:04",
       "messageText": "-"
-    },
-    {
-      "phone": "0664 6129223",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "Klosterneuburg",
-      "status": "Wird überprüft",
-      "date": "26.07.26 14:18",
-      "messageText": "[Potenzieller Kunde\n0664 6129223]\n2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
     },
     {
       "phone": "0676 6803622",
@@ -143,14 +151,6 @@
       "location": "Eisenstadt",
       "status": "Belastet",
       "date": "24.07.26 11:27",
-      "messageText": "-"
-    },
-    {
-      "phone": "0681 10114066",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Belastet",
-      "date": "24.07.26 06:56",
       "messageText": "-"
     }
   ]
