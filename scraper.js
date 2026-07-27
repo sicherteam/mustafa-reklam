@@ -10,7 +10,7 @@ puppeteer.use(StealthPlugin());
 // --- TELEGRAM BİLDİRİM AYARLARI ---
 const TELEGRAM_BOT_TOKEN = '8522620255:AAEXl9-EPWcF5I888W1tBMXneATLF94eV0o';
 const TELEGRAM_CHAT_ID = '446803635';
-const PROJECT_NAME = 'Mustafa Reklam'; // Osman Reklam projesi için burayı "Osman Reklam" yapabilirsin
+const PROJECT_NAME = 'Mustafa Reklam'; // Proje ayrımı için
 
 // Telegram Bildirim Fonksiyonu
 function sendTelegramMessage(lead) {
@@ -189,8 +189,11 @@ function parseCleanMessage(rawText) {
         if (cells.length >= 6) {
           const firstCol = cells[0]?.innerText?.trim() || '';
           
-          // İsmi '-' olsa dahi kabul eder, sadece tablonun başlık satırını atlar
-          if (firstCol !== 'Kunde' && !text.includes('Gebührenstatus') && cells[3]?.innerText) {
+          // --- GELİŞMİŞ FİLTRELEME MANTIĞI ---
+          const isHeader = firstCol === 'Kunde' || text.includes('Gebührenstatus');
+          const isJustIndexNumber = /^\d{1,3}$/.test(firstCol); // "6", "13", "20" gibi yalnız sayısal çöp verileri engeller
+
+          if (!isHeader && !isJustIndexNumber && cells[3]?.innerText) {
             
             const isMessage = /nachricht|message/i.test(text);
             const customerName = firstCol || '-';
@@ -209,6 +212,11 @@ function parseCleanMessage(rawText) {
             } else {
               // 8 sütunlu LSA yapısında Letzte Aktivität 7. indekstedir (cells[7])
               lastActivityDate = cells[7]?.innerText?.trim() || cells[6]?.innerText?.trim() || cells[5]?.innerText?.trim() || '-';
+            }
+
+            // Ekstra Hayalet Satır Kontrolü
+            if (lastActivityDate === '-' && location === '-' && jobType === '-') {
+              return; // Tamamen boş olan hayalet satırları atla
             }
 
             valid.push({
