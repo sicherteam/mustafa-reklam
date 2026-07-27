@@ -1,157 +1,149 @@
 {
-  "updatedAt": "27.7.2026, 19:36:52",
+  "updatedAt": "27.7.2026, 20:10:20",
   "leads": [
     {
-      "phone": "0681 84437048",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0681 84437048",
-      "status": "Wien",
-      "date": "27.07.26 553 PM",
-      "messageText": "-"
+      "Musteri": "0681 84437048",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0681 84437048",
+      "Ilk gorusme": "27.07.26 17:53",
+      "Son gorusme": "27.07.26 17:54",
+      "Mesaj": "-"
     },
     {
-      "phone": "0676 9556177",
-      "jobType": "-",
-      "location": "0676 9556177",
-      "status": "Wien",
-      "date": "27.07.26 251 PM",
-      "messageText": "-"
+      "Musteri": "0676 9556177",
+      "Hizmet": "-",
+      "Konum": "0676 9556177",
+      "Ilk gorusme": "27.07.26 14:51",
+      "Son gorusme": "27.07.26 14:53",
+      "Mesaj": "-"
     },
     {
-      "phone": "0660 4445617",
-      "jobType": "-",
-      "location": "0660 4445617",
-      "status": "Wien",
-      "date": "27.07.26 227 PM",
-      "messageText": "-"
+      "Musteri": "0660 4445617",
+      "Hizmet": "-",
+      "Konum": "0660 4445617",
+      "Ilk gorusme": "27.07.26 14:27",
+      "Son gorusme": "27.07.26 14:28",
+      "Mesaj": "-"
     },
     {
-      "phone": "0664 6129223",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0664 6129223",
-      "status": "Klosterneuburg",
-      "date": "26.07.26 218 PM",
-      "messageText": "[Potenzieller Kunde\n0664 6129223]\nGestern um 2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
+      "Musteri": "0664 6129223",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0664 6129223",
+      "Ilk gorusme": "26.07.26 14:18",
+      "Son gorusme": "27.07.26 14:18",
+      "Mesaj": "[Potenzieller Kunde\n0664 6129223]\nGestern um 2:18 PM\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
     },
     {
-      "phone": "0664 4375467",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0664 4375467",
-      "status": "Wien",
-      "date": "26.07.26 1038 AM",
-      "messageText": "-"
+      "Musteri": "0664 4375467",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0664 4375467",
+      "Ilk gorusme": "26.07.26 10:38",
+      "Son gorusme": "27.07.26 10:45",
+      "Mesaj": "-"
     },
     {
-      "phone": "0660 2211459",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0660 2211459",
-      "status": "Wiener Neustadt",
-      "date": "26.07.26 1032 AM",
-      "messageText": "-"
+      "Musteri": "0660 2211459",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0660 2211459",
+      "Ilk gorusme": "26.07.26 10:32",
+      "Son gorusme": "27.07.26 10:34",
+      "Mesaj": "-"
     },
     {
-      "phone": "0681 81805099",
-      "jobType": "-",
-      "location": "0681 81805099",
-      "status": "Wien",
-      "date": "27.07.26 915 AM",
-      "messageText": "-"
+      "Musteri": "0681 81805099",
+      "Hizmet": "-",
+      "Konum": "0681 81805099",
+      "Ilk gorusme": "27.07.26 09:15",
+      "Son gorusme": "27.07.26 09:16",
+      "Mesaj": "-"
     },
     {
-      "phone": "0676 7222178",
-      "jobType": "-",
-      "location": "0676 7222178",
-      "status": "Niederösterreich",
-      "date": "27.07.26 904 AM",
-      "messageText": "-"
+      "Musteri": "0676 7222178",
+      "Hizmet": "-",
+      "Konum": "0676 7222178",
+      "Ilk gorusme": "27.07.26 09:04",
+      "Son gorusme": "27.07.26 09:04",
+      "Mesaj": "-"
     },
     {
-      "phone": "0681 81963267",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0681 81963267",
-      "status": "Wien",
-      "date": "27.07.26 725 AM",
-      "messageText": "-"
+      "Musteri": "0681 81963267",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0681 81963267",
+      "Ilk gorusme": "27.07.26 07:25",
+      "Son gorusme": "27.07.26 07:29",
+      "Mesaj": "-"
     },
     {
-      "phone": "0664 8487791",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0664 8487791",
-      "status": "Wien",
-      "date": "26.07.26 718 PM",
-      "messageText": "-"
+      "Musteri": "0664 8487791",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0664 8487791",
+      "Ilk gorusme": "26.07.26 19:18",
+      "Son gorusme": "26.07.26 19:19",
+      "Mesaj": "-"
     },
     {
-      "phone": "0664 1011886",
-      "jobType": "-",
-      "location": "0664 1011886",
-      "status": "Sankt Pölten",
-      "date": "26.07.26 327 PM",
-      "messageText": "-"
+      "Musteri": "0664 1011886",
+      "Hizmet": "-",
+      "Konum": "0664 1011886",
+      "Ilk gorusme": "26.07.26 15:27",
+      "Son gorusme": "26.07.26 15:29",
+      "Mesaj": "-"
     },
     {
-      "phone": "0681 20514761",
-      "jobType": "-",
-      "location": "0681 20514761",
-      "status": "Wien",
-      "date": "25.07.26 304 PM",
-      "messageText": "-"
+      "Musteri": "0681 20514761",
+      "Hizmet": "-",
+      "Konum": "0681 20514761",
+      "Ilk gorusme": "25.07.26 15:04",
+      "Son gorusme": "26.07.26 15:06",
+      "Mesaj": "-"
     },
     {
-      "phone": "0676 6803622",
-      "jobType": "-",
-      "location": "0676 6803622",
-      "status": "Korneuburg",
-      "date": "25.07.26 1231 PM",
-      "messageText": "-"
+      "Musteri": "0676 6803622",
+      "Hizmet": "-",
+      "Konum": "0676 6803622",
+      "Ilk gorusme": "25.07.26 12:31",
+      "Son gorusme": "26.07.26 12:35",
+      "Mesaj": "-"
     },
     {
-      "phone": "0664 2446607",
-      "jobType": "-",
-      "location": "0664 2446607",
-      "status": "Oberpullendorf",
-      "date": "17.07.26 507 PM",
-      "messageText": "-"
+      "Musteri": "0664 2446607",
+      "Hizmet": "-",
+      "Konum": "0664 2446607",
+      "Ilk gorusme": "17.07.26 17:07",
+      "Son gorusme": "26.07.26 12:17",
+      "Mesaj": "-"
     },
     {
-      "phone": "0660 1631426",
-      "jobType": "-",
-      "location": "0660 1631426",
-      "status": "Wien",
-      "date": "26.07.26 859 AM",
-      "messageText": "-"
+      "Musteri": "0660 1631426",
+      "Hizmet": "-",
+      "Konum": "0660 1631426",
+      "Ilk gorusme": "26.07.26 08:59",
+      "Son gorusme": "26.07.26 08:59",
+      "Mesaj": "-"
     },
     {
-      "phone": "0664 3374458",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0664 3374458",
-      "status": "Guntramsdorf",
-      "date": "25.07.26 843 AM",
-      "messageText": "[Potenzieller Kunde\n0664 3374458]\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+      "Musteri": "0664 3374458",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0664 3374458",
+      "Ilk gorusme": "25.07.26 08:43",
+      "Son gorusme": "26.07.26 08:43",
+      "Mesaj": "[Potenzieller Kunde\n0664 3374458]\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
     },
     {
-      "phone": "0664 4862365",
-      "jobType": "Beförderung von Umzugsgut",
-      "location": "0664 4862365",
-      "status": "Wien",
-      "date": "24.07.26 353 PM",
-      "messageText": "-"
+      "Musteri": "0664 4862365",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "0664 4862365",
+      "Ilk gorusme": "24.07.26 15:53",
+      "Son gorusme": "25.07.26 15:57",
+      "Mesaj": "-"
     },
     {
-      "phone": "0665 65979575",
-      "jobType": "-",
-      "location": "0665 65979575",
-      "status": "Hollabrunn",
-      "date": "24.07.26 243 PM",
-      "messageText": "-"
-    },
-    {
-      "phone": "0680 2076828",
-      "jobType": "-",
-      "location": "0680 2076828",
-      "status": "Kittsee",
-      "date": "24.07.26 224 PM",
-      "messageText": "-"
+      "Musteri": "0665 65979575",
+      "Hizmet": "-",
+      "Konum": "0665 65979575",
+      "Ilk gorusme": "24.07.26 14:43",
+      "Son gorusme": "25.07.26 14:46",
+      "Mesaj": "-"
     }
   ]
 }
