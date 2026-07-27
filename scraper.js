@@ -21,11 +21,12 @@ function sendTelegramMessage(lead) {
   }
 
   const message = `🔔 *YENİ LSA LEAD!* (${PROJECT_NAME})\n\n` +
-                  `👤 *Müşteri:* ${lead.phone}\n` +
-                  `📍 *Konum:* ${lead.location}\n` +
-                  `💼 *Hizmet:* ${lead.jobType}\n` +
-                  `📅 *Tarih:* ${lead.date}\n` +
-                  `💬 *Mesaj:* ${lead.messageText}`;
+                  `👤 *Müşteri:* ${lead["Musteri"]}\n` +
+                  `📍 *Konum:* ${lead["Konum"]}\n` +
+                  `💼 *Hizmet:* ${lead["Hizmet"]}\n` +
+                  `📅 *İlk Görüşme:* ${lead["Ilk gorusme"]}\n` +
+                  `⏳ *Son Görüşme:* ${lead["Son gorusme"]}\n` +
+                  `💬 *Mesaj:* ${lead["Mesaj"]}`;
 
   const data = JSON.stringify({
     chat_id: TELEGRAM_CHAT_ID,
@@ -58,6 +59,36 @@ function sendTelegramMessage(lead) {
 
   req.write(data);
   req.end();
+}
+
+// Tarihi 24 Saatlik Formata Çeviren Gelişmiş Fonksiyon (Örn: "26.07.26 4:54 PM" veya "26.07.26 454 PM" -> "26.07.26 16:54")
+function parseTo24HourDate(dateStr) {
+  if (!dateStr || dateStr === '-') return '-';
+
+  // 1. Önce "454 PM" gibi iki noktası eksik ifadelerin arasına iki nokta ekle
+  let fixedStr = dateStr.replace(/(\b\d{1,2})(\d{2})\s*(AM|PM)/gi, '$1:$2 $3');
+
+  // 2. Regex ile Tarih, Saat, Dakika ve AM/PM grubunu yakala
+  const regex = /(\d{2}\.\d{2}\.\d{2})\s+(\d{1,2}):(\d{2})\s*(AM|PM)?/i;
+  const match = fixedStr.match(regex);
+
+  if (match) {
+    let [, datePart, hoursStr, minutes, modifier] = match;
+    let hours = parseInt(hoursStr, 10);
+
+    if (modifier) {
+      const isPM = modifier.toUpperCase() === 'PM';
+      const isAM = modifier.toUpperCase() === 'AM';
+
+      if (isPM && hours < 12) hours += 12;
+      if (isAM && hours === 12) hours = 0;
+    }
+
+    const formattedHours = String(hours).padStart(2, '0');
+    return `${datePart} ${formattedHours}:${minutes}`;
+  }
+
+  return dateStr;
 }
 
 // Ham panel metninden MÜŞTERİ BİLGİSİ ve SADECE GERÇEK MESAJI süzen fonksiyon
@@ -204,7 +235,6 @@ function parseCleanMessage(rawText) {
             const isMessage = /nachricht|message/i.test(text);
 
             // 1. MÜŞTERİ / TELEFON
-            // Sayılardan arındırılmış ilk temiz hücellerden müşteri adını al
             let customerName = cleanCellTexts[0] || '-';
             if (/^\d{1,3}$/.test(customerName)) {
               customerName = cleanCellTexts[1] || '-';
@@ -222,25 +252,17 @@ function parseCleanMessage(rawText) {
               location = cleanCellTexts[2] || '-';
             }
 
-            // 4. DURUM (Status)
-            let status = '-';
-            const statusKeywords = ['neu', 'offen', 'gebucht', 'storniert', 'ausgeführt', 'kontaktier', 'anfrage'];
-            const foundStatus = cleanCellTexts.find(t => statusKeywords.some(kw => t.toLowerCase().includes(kw)));
-            if (foundStatus) {
-              status = foundStatus.split('\n')[0].trim();
-            } else {
-              status = cleanCellTexts[3] || '-';
-            }
+            // 4. İKİ AYRI TARİHİ YAKALAMA (Anfrage erhalten & Letzte Aktivität)
+            const dateCells = cleanCellTexts.filter(t => /\d{2}\.\d{2}\.\d{2}/.test(t));
+            let anfrageDate = '-';
+            let letzteDate = '-';
 
-            // 5. TARİH / LETZTE AKTIVITÄT
-            let lastActivityDate = '-';
-            const dateMatchCell = cleanCellTexts.find(t => /\d{2}\.\d{2}\.\d{2}/.test(t) || t.includes('Letzte Aktivität'));
-            
-            if (dateMatchCell) {
-              lastActivityDate = dateMatchCell.replace('Letzte Aktivität', '').replace(':', '').trim();
-            } else {
-              // Dizinin son hücrelerinde tarih arama
-              lastActivityDate = cleanCellTexts[cleanCellTexts.length - 1] || '-';
+            if (dateCells.length >= 2) {
+              anfrageDate = dateCells[0];
+              letzteDate = dateCells[1];
+            } else if (dateCells.length === 1) {
+              anfrageDate = dateCells[0];
+              letzteDate = dateCells[0];
             }
 
             // Hayalet Satır Kontrolü
@@ -253,8 +275,8 @@ function parseCleanMessage(rawText) {
               phone: customerName,
               jobType: jobType,
               location: location,
-              status: status,
-              date: lastActivityDate,
+              anfrageDate: anfrageDate,
+              letzteDate: letzteDate,
               isMessage: isMessage
             });
           }
@@ -267,7 +289,7 @@ function parseCleanMessage(rawText) {
     console.log(`📊 Gerçek Lead Sayısı: ${validRowsIndices.length}`);
 
     if (validRowsIndices.length === 0) {
-      throw new Error("❌ Sayfada hiçbir mesaj bulunamadı! Sayfa tam yüklenmemiş veya Google engellemiş olabilir.");
+      throw new Error("❌ Sayfada hiçbir mesaj bulunamadı! Sayfa tam yüklenmemiş veya Google engelledi olabilir.");
     }
 
     let leads = [];
@@ -328,45 +350,23 @@ function parseCleanMessage(rawText) {
       }
 
       leads.push({
-        phone: item.phone,
-        jobType: item.jobType,
-        location: item.location,
-        status: item.status,
-        date: item.date,
-        messageText: messageText
+        "Musteri": item.phone,
+        "Hizmet": item.jobType,
+        "Konum": item.location,
+        "Ilk gorusme": parseTo24HourDate(item.anfrageDate),
+        "Son gorusme": parseTo24HourDate(item.letzteDate),
+        "Mesaj": messageText
       });
     }
 
-    // Tarih/Saat Formatlama (Viyana Saati)
-    const adjustedLeads = leads.map(lead => {
-      if (lead.date && lead.date.includes(':')) {
-        const match = lead.date.match(/(\d{2})\.(\d{2})\.(\d{2})\s(\d{1,2}):(\d{2})\s?(AM|PM)?/i);
-        if (match) {
-          let [ , day, month, year, hours, minutes, ampm ] = match;
-          hours = parseInt(hours, 10);
-          if (ampm) {
-            if (ampm.toUpperCase() === 'PM' && hours < 12) hours += 12;
-            if (ampm.toUpperCase() === 'AM' && hours === 12) hours = 0;
-          }
-          
-          const dateObj = new Date(2000 + parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), hours, parseInt(minutes, 10));
-          return {
-            ...lead,
-            date: `${String(dateObj.getDate()).padStart(2, '0')}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${String(dateObj.getFullYear()).slice(-2)} ${String(dateObj.getHours()).padStart(2, '0')}:${String(dateObj.getMinutes()).padStart(2, '0')}`
-          };
-        }
-      }
-      return lead;
-    });
-
     const outputData = {
       updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
-      leads: adjustedLeads
+      leads: leads
     };
 
     // Verileri Kaydet
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-    console.log(`🎉 İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
+    console.log(`🎉 İŞLEM TAMAM! Toplam ${leads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
     // --- AKILLI GIT PUSH VE BİLDİRİM ADIMI ---
     try {
@@ -380,11 +380,10 @@ function parseCleanMessage(rawText) {
         execSync('git commit -m "Auto-update data.json [cron] [skip ci]"');
         execSync('git pull --rebase origin main');
         execSync('git push origin main');
-        execSync('git push origin main');
         console.log("✅ GitHub'a başarıyla push edildi!");
 
-        if (adjustedLeads.length > 0) {
-          sendTelegramMessage(adjustedLeads[0]);
+        if (leads.length > 0) {
+          sendTelegramMessage(leads[0]);
         }
       }
     } catch (gitErr) {
