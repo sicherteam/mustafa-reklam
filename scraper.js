@@ -138,29 +138,38 @@ function parseCleanMessage(rawText) {
         const text = row.innerText || '';
         const cells = Array.from(row.querySelectorAll('td, div[role="gridcell"]'));
         
-        if (cells.length >= 4) {
+        if (cells.length >= 6) {
           const firstCol = cells[0]?.innerText?.trim() || '';
           
-          if (firstCol && 
-              firstCol !== 'Kunde' && 
-              !firstCol.includes('Telefon') && 
-              firstCol.length > 2) {
+          // İsmi '-' olsa dahi kabul eder, sadece tablonun başlık satırını atlar
+          if (firstCol !== 'Kunde' && !text.includes('Gebührenstatus') && cells[3]?.innerText) {
             
             const isMessage = /nachricht|message/i.test(text);
+            const customerName = firstCol || '-';
             const jobType = cells[1]?.innerText?.trim() || '-';
             const location = cells[3]?.innerText?.trim() || '-';
             
             let rawStatus = cells[5]?.innerText?.trim() || cells[4]?.innerText?.trim() || '-';
             const status = rawStatus.split('\n')[0].trim();
-            const date = cells[6]?.innerText?.trim() || cells[5]?.innerText?.trim() || '-';
+
+            // DİNAMİK "Letzte Aktivität" TESPİTİ
+            let lastActivityDate = '-';
+            const activityCell = cells.find(c => c.innerText && c.innerText.includes('Letzte Aktivität'));
+
+            if (activityCell) {
+              lastActivityDate = activityCell.innerText.replace('Letzte Aktivität', '').replace(':', '').trim();
+            } else {
+              // 8 sütunlu LSA yapısında Letzte Aktivität 7. indekstedir (cells[7])
+              lastActivityDate = cells[7]?.innerText?.trim() || cells[6]?.innerText?.trim() || cells[5]?.innerText?.trim() || '-';
+            }
 
             valid.push({
               domIndex: idx,
-              phone: firstCol,
+              phone: customerName,
               jobType,
               location,
               status,
-              date,
+              date: lastActivityDate,
               isMessage
             });
           }
@@ -275,14 +284,20 @@ function parseCleanMessage(rawText) {
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
     console.log(`🎉 İŞLEM TAMAM! Toplam ${adjustedLeads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
-    // --- GIT PUSH ADIMI ---
-    console.log("🚀 GitHub'a güncel veriler push ediliyor...");
+    // --- AKILLI GIT PUSH ADIMI ---
     try {
-      execSync('git add data.json');
-      execSync('git commit -m "Auto-update data.json [cron]"');
-      execSync('git pull --rebase origin main');
-      execSync('git push origin main');
-      console.log("✅ GitHub'a başarıyla push edildi!");
+      const gitStatus = execSync('git status --porcelain data.json').toString().trim();
+
+      if (!gitStatus) {
+        console.log("ℹ️ 'data.json' içeriğinde yeni bir değişiklik yok. Git push pas geçildi.");
+      } else {
+        console.log("🚀 'data.json' güncellendi! GitHub'a push ediliyor...");
+        execSync('git add data.json');
+        execSync('git commit -m "Auto-update data.json [cron] [skip ci]"');
+        execSync('git pull --rebase origin main');
+        execSync('git push origin main');
+        console.log("✅ GitHub'a başarıyla push edildi!");
+      }
     } catch (gitErr) {
       console.error("⚠️ Git push hatası:", gitErr.message);
     }
