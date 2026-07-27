@@ -91,7 +91,6 @@ function parseCleanMessage(rawText) {
     .replace(/^\d{2}\.\d{2}\.\d{2}\s+/gi, '')
     .trim();
 
-  // Müşteri bilgisi bulunduysa mesajın başına ekle
   if (customerHeader && chatContent) {
     return `[${customerHeader}]\n${chatContent}`;
   }
@@ -116,9 +115,9 @@ function parseCleanMessage(rawText) {
       console.warn("⚠️ Kilit dosyaları temizlenirken ufak uyarı:", cleanErr.message);
     }
 
-    // 1. TARAYICIYI BAŞLAT (Canlı profil diziniyle)
+    // 1. TARAYICIYI BAŞLAT
     const browser = await puppeteer.launch({
-      headless: "new", // Sunucu arka planında sessiz çalışması için
+      headless: "new",
       executablePath: '/usr/bin/google-chrome',
       userDataDir: userDataPath, 
       args: [
@@ -151,7 +150,6 @@ function parseCleanMessage(rawText) {
     const pageTitle = await page.title();
     console.log("Sayfa Başlığı:", pageTitle);
 
-    // Genişletilmiş hata başlığı kontrolü
     if (
       pageTitle.includes("Anmelden") || 
       pageTitle.includes("Sign in") || 
@@ -183,56 +181,81 @@ function parseCleanMessage(rawText) {
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // 2. AŞAMA: GERÇEK SATIRLARI VE İNDEKSLLERİNİ TESPİT ET
+    // 2. AŞAMA: GERÇEK SATIRLARI VE İÇERİKLERİNİ AKILLI TESPİT ET
     const validRowsIndices = await page.evaluate(() => {
       const allRows = Array.from(document.querySelectorAll('[role="row"], tr'));
       const valid = [];
 
       allRows.forEach((row, idx) => {
         const text = row.innerText || '';
-        const cells = Array.from(row.querySelectorAll('td, div[role="gridcell"]'));
         
-        if (cells.length >= 6) {
-          const firstCol = cells[0]?.innerText?.trim() || '';
+        // Sadece içinde hücre barındıran satırları al
+        const rawCells = Array.from(row.querySelectorAll('td, div[role="gridcell"]'));
+        
+        // ÇÖP AKILLI FİLTRE: İçeriğinde sadece sayı olan (örneğin "2", "4") ilk hücreleri ve boşlukları ele
+        const cleanCellTexts = rawCells
+          .map(c => c.innerText ? c.innerText.trim() : '')
+          .filter(txt => txt.length > 0 && !/^\d{1,3}$/.test(txt));
+
+        if (cleanCellTexts.length >= 3) {
+          const isHeader = text.includes('Gebührenstatus') || text.includes('Kunde') || text.includes('Kundenname');
           
-          // --- GELİŞMİŞ FİLTRELEME MANTIĞI ---
-          const isHeader = firstCol === 'Kunde' || text.includes('Gebührenstatus');
-          const isJustIndexNumber = /^\d{1,3}$/.test(firstCol); // "6", "13", "20" gibi yalnız sayısal çöp verileri engeller
-
-          if (!isHeader && !isJustIndexNumber && cells[3]?.innerText) {
-            
+          if (!isHeader) {
             const isMessage = /nachricht|message/i.test(text);
-            const customerName = firstCol || '-';
-            const jobType = cells[1]?.innerText?.trim() || '-';
-            const location = cells[3]?.innerText?.trim() || '-';
-            
-            let rawStatus = cells[5]?.innerText?.trim() || cells[4]?.innerText?.trim() || '-';
-            const status = rawStatus.split('\n')[0].trim();
 
-            // DİNAMİK "Letzte Aktivität" TESPİTİ
-            let lastActivityDate = '-';
-            const activityCell = cells.find(c => c.innerText && c.innerText.includes('Letzte Aktivität'));
-
-            if (activityCell) {
-              lastActivityDate = activityCell.innerText.replace('Letzte Aktivität', '').replace(':', '').trim();
-            } else {
-              // 8 sütunlu LSA yapısında Letzte Aktivität 7. indekstedir (cells[7])
-              lastActivityDate = cells[7]?.innerText?.trim() || cells[6]?.innerText?.trim() || cells[5]?.innerText?.trim() || '-';
+            // 1. MÜŞTERİ / TELEFON
+            // Sayılardan arındırılmış ilk temiz hücellerden müşteri adını al
+            let customerName = cleanCellTexts[0] || '-';
+            if (/^\d{1,3}$/.test(customerName)) {
+              customerName = cleanCellTexts[1] || '-';
             }
 
-            // Ekstra Hayalet Satır Kontrolü
-            if (lastActivityDate === '-' && location === '-' && jobType === '-') {
-              return; // Tamamen boş olan hayalet satırları atla
+            // 2. HİZMET / JOB TYPE (Örn: Umzug, Entrümpelung vb.)
+            let jobType = cleanCellTexts[1] || '-';
+
+            // 3. KONUM (Avusturya PLZ veya Şehir adı yakalama)
+            let location = '-';
+            const locCell = cleanCellTexts.find(t => /\b(Wien|Graz|Linz|Salzburg|Innsbruck|Klagenfurt|\d{4})\b/i.test(t));
+            if (locCell) {
+              location = locCell;
+            } else {
+              location = cleanCellTexts[2] || '-';
+            }
+
+            // 4. DURUM (Status)
+            let status = '-';
+            const statusKeywords = ['neu', 'offen', 'gebucht', 'storniert', 'ausgeführt', 'kontaktier', 'anfrage'];
+            const foundStatus = cleanCellTexts.find(t => statusKeywords.some(kw => t.toLowerCase().includes(kw)));
+            if (foundStatus) {
+              status = foundStatus.split('\n')[0].trim();
+            } else {
+              status = cleanCellTexts[3] || '-';
+            }
+
+            // 5. TARİH / LETZTE AKTIVITÄT
+            let lastActivityDate = '-';
+            const dateMatchCell = cleanCellTexts.find(t => /\d{2}\.\d{2}\.\d{2}/.test(t) || t.includes('Letzte Aktivität'));
+            
+            if (dateMatchCell) {
+              lastActivityDate = dateMatchCell.replace('Letzte Aktivität', '').replace(':', '').trim();
+            } else {
+              // Dizinin son hücrelerinde tarih arama
+              lastActivityDate = cleanCellTexts[cleanCellTexts.length - 1] || '-';
+            }
+
+            // Hayalet Satır Kontrolü
+            if (customerName === '-' || (location === '-' && jobType === '-')) {
+              return;
             }
 
             valid.push({
               domIndex: idx,
               phone: customerName,
-              jobType,
-              location,
-              status,
+              jobType: jobType,
+              location: location,
+              status: status,
               date: lastActivityDate,
-              isMessage
+              isMessage: isMessage
             });
           }
         }
@@ -243,9 +266,8 @@ function parseCleanMessage(rawText) {
 
     console.log(`📊 Gerçek Lead Sayısı: ${validRowsIndices.length}`);
 
-    // 0 Veri Kontrolü (Koruma Kalkanı)
     if (validRowsIndices.length === 0) {
-      throw new Error("❌ Sayfada hiçbir mesaj bulunamadı! Sayfa tam yüklenmemiş veya Google engellemiş olabilir. Eski verileri korumak için işlem iptal ediliyor.");
+      throw new Error("❌ Sayfada hiçbir mesaj bulunamadı! Sayfa tam yüklenmemiş veya Google engellemiş olabilir.");
     }
 
     let leads = [];
@@ -358,9 +380,9 @@ function parseCleanMessage(rawText) {
         execSync('git commit -m "Auto-update data.json [cron] [skip ci]"');
         execSync('git pull --rebase origin main');
         execSync('git push origin main');
+        execSync('git push origin main');
         console.log("✅ GitHub'a başarıyla push edildi!");
 
-        // 📱 SADECE YENİ DEĞİŞİKLİK VARDISA TELEGRAM BİLDİRİMİ GÖNDER
         if (adjustedLeads.length > 0) {
           sendTelegramMessage(adjustedLeads[0]);
         }
