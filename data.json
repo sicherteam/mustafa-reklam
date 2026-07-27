@@ -1,6 +1,22 @@
 {
-  "updatedAt": "27.7.2026, 08:51:48",
+  "updatedAt": "27.7.2026, 09:17:45",
   "leads": [
+    {
+      "phone": "0681 81805099",
+      "jobType": "-",
+      "location": "Wien",
+      "status": "Nicht belastet",
+      "date": "27.07.26 09:15",
+      "messageText": "-"
+    },
+    {
+      "phone": "0676 7222178",
+      "jobType": "-",
+      "location": "Niederösterreich",
+      "status": "Nicht belastet",
+      "date": "27.07.26 09:04",
+      "messageText": "-"
+    },
     {
       "phone": "0681 81963267",
       "jobType": "Beförderung von Umzugsgut",
@@ -135,22 +151,6 @@
       "location": "Wien",
       "status": "Belastet",
       "date": "24.07.26 06:56",
-      "messageText": "-"
-    },
-    {
-      "phone": "0676 7991290",
-      "jobType": "-",
-      "location": "Wien",
-      "status": "Belastet",
-      "date": "23.07.26 17:09",
-      "messageText": "-"
-    },
-    {
-      "phone": "0664 2043892",
-      "jobType": "-",
-      "location": "Oberwart",
-      "status": "Nicht belastet",
-      "date": "24.07.26 11:43",
       "messageText": "-"
     }
   ]
