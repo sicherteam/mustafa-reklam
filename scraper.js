@@ -215,7 +215,7 @@ function clearChromeLocks() {
                          .split('Audioinhalte')[0]
                          .split('Hier dem Kunden')[0]
                          .replace(/^P\s+|^Potenzieller Kunde\s+|^\d{2}\.\d{2}\.\d{2}\s+/gi, '')
-                         .trim() || "-";
+                         .trim() || "NO MESSAGE";
             }
 
             // Panel Header'ından Gerçek İsim Kurtarma
