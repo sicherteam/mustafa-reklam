@@ -130,6 +130,7 @@ function parseCleanMessage(rawText) {
 }
 
 (async () => {
+  let browser;
   try {
     const userDataPath = '/home/ubuntu/mustafa-reklam/user_data';
 
@@ -147,7 +148,7 @@ function parseCleanMessage(rawText) {
     }
 
     // 1. TARAYICIYI BAŞLAT
-    const browser = await puppeteer.launch({
+    browser = await puppeteer.launch({
       headless: "new",
       executablePath: '/usr/bin/google-chrome',
       userDataDir: userDataPath, 
@@ -368,7 +369,7 @@ function parseCleanMessage(rawText) {
     fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
     console.log(`🎉 İŞLEM TAMAM! Toplam ${leads.length} veri temiz bir şekilde data.json dosyasına yazıldı.`);
 
-    // --- AKILLI GIT PUSH VE BİLDİRİM ADIMI ---
+    // --- AKILLI VE GÜVENLİ GIT PUSH / BİLDİRİM ADIMI ---
     try {
       const gitStatus = execSync('git status --porcelain data.json').toString().trim();
 
@@ -376,10 +377,13 @@ function parseCleanMessage(rawText) {
         console.log("ℹ️ 'data.json' içeriğinde yeni bir değişiklik yok. Git push pas geçildi.");
       } else {
         console.log("🚀 'data.json' güncellendi! GitHub'a push ediliyor...");
+        
+        // Çakışmayı ve rebase kilitlenmesini önleyen güvenli zincir
         execSync('git add data.json');
-        execSync('git commit -m "Auto-update data.json [cron] [skip ci]"');
-        execSync('git pull --rebase origin main');
+        execSync('git commit -m "Auto-update data.json [cron] [skip ci]" || true');
+        execSync('git pull origin main --rebase -X ours');
         execSync('git push origin main');
+        
         console.log("✅ GitHub'a başarıyla push edildi!");
 
         if (leads.length > 0) {
@@ -390,9 +394,10 @@ function parseCleanMessage(rawText) {
       console.error("⚠️ Git push hatası:", gitErr.message);
     }
 
-    await browser.close();
+    if (browser) await browser.close();
   } catch (error) {
     console.error("💥 Scraper hatası:", error.message);
+    if (browser) await browser.close();
     process.exit(1);
   }
 })();
