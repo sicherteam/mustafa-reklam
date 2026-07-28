@@ -10,11 +10,16 @@ puppeteer.use(StealthPlugin());
 // --- CONFIGURATION (MUSTAFA REKLAM) ---
 const CONFIG = {
   projectName: 'Mustafa Reklam',
-  userDataPath: '/home/ubuntu/mustafa-reklam/user_data',
+  userDataPath: path.resolve('/home/ubuntu/mustafa-reklam/user_data'),
   targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
   telegramToken: process.env.TELEGRAM_BOT_TOKEN,
   telegramChatId: process.env.TELEGRAM_CHAT_ID,
 };
+
+// Klasör yoksa otomatik oluştur ve izin sorununu engelle (osman-reklam ile aynı yapı)
+if (!fs.existsSync(CONFIG.userDataPath)) {
+  fs.mkdirSync(CONFIG.userDataPath, { recursive: true });
+}
 
 // Native Fetch API ile Telegram Bildirimi
 async function sendTelegramMessage(lead) {
@@ -86,7 +91,7 @@ function clearChromeLocks() {
     clearChromeLocks();
 
     browser = await puppeteer.launch({
-      headless: "new",
+      headless: true,
       executablePath: '/usr/bin/google-chrome',
       userDataDir: CONFIG.userDataPath,
       args: [
