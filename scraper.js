@@ -16,7 +16,7 @@ const CONFIG = {
   telegramChatId: process.env.TELEGRAM_CHAT_ID,
 };
 
-// Klasör yoksa otomatik oluştur ve izin sorununu engelle (osman-reklam ile aynı yapı)
+// Klasör yoksa otomatik oluştur ve izin sorununu engelle
 if (!fs.existsSync(CONFIG.userDataPath)) {
   fs.mkdirSync(CONFIG.userDataPath, { recursive: true });
 }
@@ -99,8 +99,10 @@ function clearChromeLocks() {
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
         '--disable-blink-features=AutomationControlled',
+        '--profile-directory=Default', // CRITICAL: VNC çerezlerinin okunduğu profil alt klasörü
         '--window-size=1920,1080',
-        '--lang=de-AT,de'
+        '--lang=de-AT,de',
+        '--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
       ]
     });
 
