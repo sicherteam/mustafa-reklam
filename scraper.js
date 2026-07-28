@@ -23,7 +23,7 @@ async function sendTelegramMessage(lead) {
     return;
   }
 
-  const message = `🔔 *YENİ LSA LEAD!* (${CONFIG.projectName})\n\n` +
+  const message = `🔔 *YENİ / GÜNCELLENEN MÜŞTERİ!* (${CONFIG.projectName})\n\n` +
                   `👤 *Müşteri:* ${lead["Musteri"]}\n` +
                   `📍 *Konum:* ${lead["Konum"]}\n` +
                   `💼 *Hizmet:* ${lead["Hizmet"]}\n` +
@@ -215,7 +215,7 @@ function clearChromeLocks() {
                          .split('Audioinhalte')[0]
                          .split('Hier dem Kunden')[0]
                          .replace(/^P\s+|^Potenzieller Kunde\s+|^\d{2}\.\d{2}\.\d{2}\s+/gi, '')
-                         .trim() || "NO MESSAGE";
+                         .trim() || "-";
             }
 
             // Panel Header'ından Gerçek İsim Kurtarma
@@ -256,7 +256,7 @@ function clearChromeLocks() {
       });
     }
 
-    // 3. AŞAMA: SADECE YENİ MÜŞTERİ VARSA KAYDET VE BİLDİRİM GÖNDER
+    // 3. AŞAMA: SADECE LEADS DİZİSİNDEKİ YENİLİK/DEĞİŞİKLİK KONTROLÜ
     let previousLeads = [];
     if (fs.existsSync('data.json')) {
       try {
@@ -267,47 +267,47 @@ function clearChromeLocks() {
       }
     }
 
-    // Var olan listede bulunmayan YENİ müşteri tespiti
-    const newLeads = leads.filter(newLead => {
-      return !previousLeads.some(oldLead => 
-        oldLead["Musteri"] === newLead["Musteri"] &&
-        oldLead["Ilk gorusme"] === newLead["Ilk gorusme"] &&
-        oldLead["Mesaj"] === newLead["Mesaj"]
-      );
-    });
+    // En üstteki 'updatedAt' saat/tarih bilgisi DIŞINDA kalan 'leads' verisini kıyasla
+    const hasChanges = JSON.stringify(leads) !== JSON.stringify(previousLeads);
 
-    console.log(`🔎 İnceleme Tamamlandı. Bulunan YENİ Lead Sayısı: ${newLeads.length}`);
+    if (hasChanges) {
+      // Eski kayıtta aynısı bulunmayan (yeni gelen veya içeriği değişen) lead'leri filtrele
+      const changedOrNewLeads = leads.filter(newLead => {
+        return !previousLeads.some(oldLead => JSON.stringify(oldLead) === JSON.stringify(newLead));
+      });
 
-    if (newLeads.length > 0) {
       const outputData = {
         updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
         leads
       };
 
       fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-      console.log(`🎉 YENİ MÜŞTERİ GELMİŞ! ${newLeads.length} adet yeni lead data.json dosyasına yazıldı.`);
+      console.log(`🎉 YENİLİK TESPİT EDİLDİ! data.json güncellendi.`);
 
       try {
         console.log("⏳ GitHub Pages çakışma önleyici (10sn)...");
         await new Promise(r => setTimeout(r, 10000));
 
         execSync('git add data.json');
-        execSync('git commit -m "Auto-update data.json [new leads] [skip ci]" || true');
+        execSync('git commit -m "Auto-update data.json [leads updated] [skip ci]" || true');
         execSync('git pull origin main --rebase -X ours');
         execSync('git push origin main');
         console.log("✅ GitHub'a başarıyla push edildi!");
 
-        // SADECE YENİ MÜŞTERİLER İÇİN TELEGRAM MESAJI AT
-        for (const newLead of newLeads) {
-          await sendTelegramMessage(newLead);
-          await new Promise(r => setTimeout(r, 1000));
+        // DEĞİŞEN VEYA YENİ GELEN BİLDİRİMLERİ GÖNDER
+        if (changedOrNewLeads.length > 0) {
+          console.log(`📱 ${changedOrNewLeads.length} adet yenilik için Telegram bildirimi gönderiliyor...`);
+          for (const lead of changedOrNewLeads) {
+            await sendTelegramMessage(lead);
+            await new Promise(r => setTimeout(r, 1000));
+          }
         }
 
       } catch (gitErr) {
         console.error("⚠️ Git push veya Telegram hatası:", gitErr.message);
       }
     } else {
-      console.log("ℹ️ Yeni bir müşteri veya değişiklik yok. Telegram bildirimi ve Git push atlandı.");
+      console.log("ℹ️ Müşteri verilerinde (leads) hiçbir değişiklik yok. Git push ve Telegram atlandı.");
     }
 
   } catch (error) {
