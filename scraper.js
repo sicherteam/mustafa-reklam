@@ -5,6 +5,11 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// 1. GÜVENLİK: Otomatik RAM sınırını 512MB olarak kod içinden sabitle
+if (!process.env.NODE_OPTIONS) {
+  process.env.NODE_OPTIONS = '--max-old-space-size=512';
+}
+
 puppeteer.use(StealthPlugin());
 
 // --- CONFIGURATION (MUSTAFA REKLAM) ---
@@ -16,12 +21,12 @@ const CONFIG = {
   telegramChatId: process.env.TELEGRAM_CHAT_ID,
 };
 
-// Klasör yoksa otomatik oluştur ve izin sorununu engelle
+// Klasör yoksa otomatik oluştur
 if (!fs.existsSync(CONFIG.userDataPath)) {
   fs.mkdirSync(CONFIG.userDataPath, { recursive: true });
 }
 
-// Native Fetch API ile Telegram Bildirimi
+// Telegram Bildirimi (Node.js Fetch + Fallback)
 async function sendTelegramMessage(lead) {
   if (!CONFIG.telegramToken || !CONFIG.telegramChatId) {
     console.warn("⚠️ Telegram API bilgileri eksik (.env)");
@@ -98,8 +103,9 @@ function clearChromeLocks() {
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
+        '--disable-gpu',
         '--disable-blink-features=AutomationControlled',
-        '--profile-directory=Default', // CRITICAL: VNC çerezlerinin okunduğu profil alt klasörü
+        '--profile-directory=Default',
         '--window-size=1920,1080',
         '--lang=de-AT,de',
         '--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
@@ -143,16 +149,13 @@ function clearChromeLocks() {
         let customerName = cells[0] || '-';
         const jobType = cells[1] || '-';
 
-        // Google sistem markalarını isim sanmasın
         if (/Google|Lokale Dienstleistungen|Potenzieller Kunde/i.test(customerName)) {
           customerName = '-';
         }
 
-        // GÜVENLİK FİLTRELERİ (Takvim / Sayfa çöplerini temizleme)
         if (/^\d+$/.test(customerName) && /^\d+$/.test(jobType)) return null;
         if (/^\d{1,3}$/.test(customerName)) return null;
 
-        // KONUM TESPİTİ (> 2 karakter kontrolü)
         let location = cells[3] || '-';
         if (!location || location === '-' || location.length <= 2 || location === jobType || /^\+?\d[\d\s-]{6,}$/.test(location)) {
           location = cells.find((t, i) => 
@@ -167,12 +170,8 @@ function clearChromeLocks() {
         }
 
         const dates = cells.filter(t => /\d{2}\.\d{2}\.\d{2}/.test(t));
-
-        // MÜŞTERİ İSMİ '-' İSE VEYA 'NACHRICHT' İSE HER TÜRLÜ TIKLA
         const hasNoCustomerName = !customerName || customerName === '-';
         const isExplicitMessage = /nachricht|message/i.test(row.innerText || '');
-
-        const shouldOpenPanel = isExplicitMessage || hasNoCustomerName;
 
         return {
           domIndex: idx,
@@ -181,7 +180,7 @@ function clearChromeLocks() {
           location,
           anfrageDate: dates[0] || '-',
           letzteDate: dates[1] || dates[0] || '-',
-          isMessage: shouldOpenPanel
+          isMessage: isExplicitMessage || hasNoCustomerName
         };
       }).filter(Boolean);
     });
@@ -206,13 +205,12 @@ function clearChromeLocks() {
             if (row) (row.querySelector('td, div[role="gridcell"]') || row).click();
           }, item.domIndex);
 
-          await new Promise(r => setTimeout(r, 5000));
+          await new Promise(r => setTimeout(r, 4000));
 
           const panelData = await page.evaluate(() => {
             let msg = "-";
             let nameInHeader = null;
 
-            // Chat / Unterhaltung Bloku
             const chatBlock = Array.from(document.querySelectorAll('div, section, article'))
                                   .find(el => (el.innerText || '').includes('Unterhaltung'));
             
@@ -225,7 +223,6 @@ function clearChromeLocks() {
                          .trim() || "-";
             }
 
-            // Panel Header'ından Gerçek İsim Kurtarma
             const headerBar = Array.from(document.querySelectorAll('div, header'))
                                    .find(el => (el.innerText || '').includes('ARCHIVIEREN') || (el.innerText || '').includes('MARKIEREN'));
             if (headerBar) {
@@ -242,8 +239,6 @@ function clearChromeLocks() {
           });
 
           messageText = panelData.msg;
-
-          // İsmi '-' ise ama panel header'ında gerçek isim varsa güncelle
           if ((finalCustomerName === '-' || !finalCustomerName) && panelData.nameInHeader) {
             finalCustomerName = panelData.nameInHeader;
           }
@@ -274,11 +269,9 @@ function clearChromeLocks() {
       }
     }
 
-    // En üstteki 'updatedAt' saat/tarih bilgisi DIŞINDA kalan 'leads' verisini kıyasla
     const hasChanges = JSON.stringify(leads) !== JSON.stringify(previousLeads);
 
     if (hasChanges) {
-      // Eski kayıtta aynısı bulunmayan (yeni gelen veya içeriği değişen) lead'leri filtrele
       const changedOrNewLeads = leads.filter(newLead => {
         return !previousLeads.some(oldLead => JSON.stringify(oldLead) === JSON.stringify(newLead));
       });
@@ -295,13 +288,14 @@ function clearChromeLocks() {
         console.log("⏳ GitHub Pages çakışma önleyici (10sn)...");
         await new Promise(r => setTimeout(r, 10000));
 
+        // Git çakışma önleyici zırh
+        execSync('rm -f .git/index.lock');
         execSync('git add data.json');
         execSync('git commit -m "Auto-update data.json [leads updated] [skip ci]" || true');
         execSync('git pull origin main --rebase -X ours');
         execSync('git push origin main');
         console.log("✅ GitHub'a başarıyla push edildi!");
 
-        // DEĞİŞEN VEYA YENİ GELEN BİLDİRİMLERİ GÖNDER
         if (changedOrNewLeads.length > 0) {
           console.log(`📱 ${changedOrNewLeads.length} adet yenilik için Telegram bildirimi gönderiliyor...`);
           for (const lead of changedOrNewLeads) {
