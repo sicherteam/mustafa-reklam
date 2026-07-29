@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 12:46:38",
+  "updatedAt": "29.7.2026, 14:11:48",
   "leads": [
+    {
+      "Musteri": "0681 81821203",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 10:48",
+      "Son gorusme": "29.07.26 10:50",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0690 20013846",
       "Hizmet": "-",
@@ -23,15 +31,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 09:14",
       "Son gorusme": "29.07.26 09:14",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege)."
-    },
-    {
-      "Musteri": "0681 81821203",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 10:48",
-      "Son gorusme": "29.07.26 08:51",
-      "Mesaj": "-"
+      "Mesaj": "NO MESSAGE"
     },
     {
       "Musteri": "0664 1205477",
@@ -151,7 +151,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 12:47",
       "Son gorusme": "28.07.26 12:47",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 5:51 PM\nWürden sie morgen nachmittags 1 großes Sofa vom 4. Bezirk in eine andere Straße auch im 4. Bezirk bringen können ?"
+      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
     },
     {
       "Musteri": "0660 4445617",
