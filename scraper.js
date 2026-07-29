@@ -81,7 +81,12 @@ function clearChromeLocks() {
 
 // --- MAIN EXECUTION ---
 (async () => {
+  let freshLeads = [];
   let browser;
+
+  // ===================================================
+  // 1. BÖLÜM: TARAYICI İŞLEMLERİ (Sadece Veri Toplama)
+  // ===================================================
   try {
     clearChromeLocks();
 
@@ -95,18 +100,16 @@ function clearChromeLocks() {
         '--disable-dev-shm-usage',
         '--disable-gpu',
         '--disable-blink-features=AutomationControlled',
-        '--window-size=1920,1080',
+        '--window-size=1920,1080', // Standart masaüstü boyutu (Doğal görünüm)
         '--lang=de-AT,de',
 
-        // RAM azaltma
+        // RAM azaltma & Stabilite
         '--disable-background-networking',
         '--disable-background-timer-throttling',
         '--disable-backgrounding-occluded-windows',
         '--disable-renderer-backgrounding',
         '--disable-extensions',
         '--disable-sync',
-
-        // Sunucu ortamı için
         '--no-first-run',
         '--no-default-browser-check',
         '--disable-popup-blocking',
@@ -118,7 +121,10 @@ function clearChromeLocks() {
     await page.setViewport({ width: 1920, height: 1080 });
     page.setDefaultTimeout(60000);
 
-    // Madde 6: Gereksiz Kaynakları Engelleme (Hız ve RAM İyileştirmesi)
+    // Gerçek Kullanıcı İmzası
+    await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
+
+    // Ağır Kaynakları Engelleme (Sadece medya, font ve CSS parçaları)
     await page.setRequestInterception(true);
     page.on('request', (req) => {
       if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
@@ -128,7 +134,7 @@ function clearChromeLocks() {
       }
     });
 
-    console.log("LSA Inbox sayfasına gidiliyor...");
+    console.log("🚀 LSA Inbox sayfasına gidiliyor...");
     await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
 
     const pageTitle = await page.title();
@@ -138,7 +144,7 @@ function clearChromeLocks() {
       throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
-    // Lazy load tetiklemek için smooth scroll
+    // Lazy load tetiklemek için insan tipi yumuşak scroll
     await page.evaluate(async () => {
       for (let i = 0; i < 4; i++) {
         window.scrollBy(0, 300);
@@ -147,7 +153,7 @@ function clearChromeLocks() {
     });
     await new Promise(r => setTimeout(r, 1500));
 
-    // 1. AŞAMA: TABLO VERİLERİNİ HASSAS FİLTRELEME İLE ÇEKME
+    // TABLO VERİLERİNİ HASSAS FİLTRELEME İLE ÇEKME
     const validRows = await page.evaluate(() => {
       const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
 
@@ -202,8 +208,7 @@ function clearChromeLocks() {
       throw new Error("❌ Hiç veri bulunamadı! Sayfa yüklenemedi veya Google yapıyı değiştirdi.");
     }
 
-    // 2. AŞAMA: MESAJ DETAYLARINI ALMA
-    let freshLeads = [];
+    // MESAJ DETAYLARINI ALMA
     for (const item of validRows) {
       let messageText = "-";
       let finalCustomerName = item.phone;
@@ -269,7 +274,25 @@ function clearChromeLocks() {
       });
     }
 
-    // 3. AŞAMA: ESKİ VERİLERİ OKU VE BAYRAKLARI KORU
+  } catch (error) {
+    console.error("💥 Scraper hatası:", error.message);
+    process.exitCode = 1;
+  } finally {
+    // 🔥 EN KRİTİK ADIM: Veri toplandı, Chrome anında kapatılıyor (RAM Tamamen Boşaltıldı)
+    if (browser) {
+      try {
+        console.log("🛑 Tarayıcı kapatılıyor, RAM serbest bırakıldı...");
+        await browser.close();
+      } catch (_) {}
+    }
+  }
+
+  // ===================================================
+  // 2. BÖLÜM: BİLDİRİM VE GİTHUB İŞLEMLERİ (Sadece Node.js)
+  // ===================================================
+  if (freshLeads.length > 0) {
+    console.log("⚙️ Veriler işleniyor (Sunucu yükü sıfır)...");
+    
     let previousLeads = [];
     if (fs.existsSync('data.json')) {
       try {
@@ -298,7 +321,7 @@ function clearChromeLocks() {
 
     if (unsentLeads.length > 0 || leads.length !== previousLeads.length) {
       
-      // Telegram mesajlarını gönder ve başarılı ise bayrağı güncelle
+      // Telegram mesajlarını gönder
       for (const leadToNotify of unsentLeads) {
         const isSuccess = await sendTelegramMessage(leadToNotify);
         if (isSuccess) {
@@ -308,7 +331,7 @@ function clearChromeLocks() {
         await new Promise(r => setTimeout(r, 1000));
       }
 
-      // Madde 1: Dosyayı çift yazmak yerine sadece 1 kere en son güncelle
+      // Dosyaya sadece 1 kere ve en son halini yaz
       const outputData = {
         updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
         leads
@@ -318,7 +341,7 @@ function clearChromeLocks() {
       console.log(`💾 data.json güncellendi ve kaydedildi.`);
 
       try {
-        // Madde 4: Git komutlarına timeout emniyeti eklendi
+        console.log("⏳ GitHub Sync Yapılıyor...");
         execSync('git add data.json', { timeout: 15000 });
         execSync('git commit -m "Auto-update data.json & telegram flags [skip ci]" || true', { timeout: 15000 });
         execSync('git pull origin main --rebase -X ours', { timeout: 20000 });
@@ -330,17 +353,6 @@ function clearChromeLocks() {
       }
     } else {
       console.log("ℹ️ Yeni müşteri veya gönderilmemiş bildirim yok.");
-    }
-
-  } catch (error) {
-    console.error("💥 Scraper hatası:", error.message);
-    process.exitCode = 1;
-  } finally {
-    // Madde 5: Tarayıcı emniyetli kapanış
-    if (browser) {
-      try {
-        await browser.close();
-      } catch (_) {}
     }
   }
 })();
