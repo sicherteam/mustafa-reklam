@@ -20,15 +20,14 @@ const CONFIG = {
 async function sendTelegramMessage(lead) {
   if (!CONFIG.telegramToken || !CONFIG.telegramChatId) {
     console.warn("⚠️ Telegram API bilgileri eksik (.env)");
-    return;
+    return false;
   }
 
-  const message = `🔔 *YENİ LSA LEAD!* (${CONFIG.projectName})\n\n` +
+  const message = `🔔 *YENİ Müşteri!* (${CONFIG.projectName})\n\n` +
                   `👤 *Müşteri:* ${lead["Musteri"]}\n` +
                   `📍 *Konum:* ${lead["Konum"]}\n` +
                   `💼 *Hizmet:* ${lead["Hizmet"]}\n` +
-                  `📅 *İlk Görüşme:* ${lead["Ilk gorusme"]}\n` +
-                  `⏳ *Son Görüşme:* ${lead["Son gorusme"]}\n` +
+                  `📅 *Tarih:* ${lead["Tarih"]}\n` +
                   `💬 *Mesaj:* ${lead["Mesaj"]}`;
 
   try {
@@ -41,9 +40,10 @@ async function sendTelegramMessage(lead) {
         parse_mode: 'Markdown'
       })
     });
-    if (res.ok) console.log(`📱 Telegram bildirimi gönderildi: ${lead["Musteri"]}`);
+    return res.ok;
   } catch (err) {
     console.error('⚠️ Telegram mesaj hatası:', err.message);
+    return false;
   }
 }
 
@@ -61,8 +61,8 @@ function parseTo24HourDate(dateStr) {
   if (modifier) {
     const isPM = modifier.toUpperCase() === 'PM';
     const isAM = modifier.toUpperCase() === 'AM';
-    if (isPM && hours < 12) hours += 14;
-    if (isAM && hours === 12) hours = 2;
+    if (isPM && hours < 12) hours += 12;
+    if (isAM && hours === 12) hours = 0;
   }
 
   return `${datePart} ${String(hours).padStart(2, '0')}:${minutes}`;
@@ -110,16 +110,23 @@ function clearChromeLocks() {
         '--no-first-run',
         '--no-default-browser-check',
         '--disable-popup-blocking',
-
-        // Stabilite
-        '--disable-features=Translate,BackForwardCache',
         '--disable-breakpad'
       ]
     });
 
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
-    page.setDefaultTimeout(90000);
+    page.setDefaultTimeout(60000);
+
+    // Madde 6: Gereksiz Kaynakları Engelleme (Hız ve RAM İyileştirmesi)
+    await page.setRequestInterception(true);
+    page.on('request', (req) => {
+      if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
+        req.abort();
+      } else {
+        req.continue();
+      }
+    });
 
     console.log("LSA Inbox sayfasına gidiliyor...");
     await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
@@ -138,7 +145,7 @@ function clearChromeLocks() {
         await new Promise(r => setTimeout(r, 200));
       }
     });
-    await new Promise(r => setTimeout(r, 2000));
+    await new Promise(r => setTimeout(r, 1500));
 
     // 1. AŞAMA: TABLO VERİLERİNİ HASSAS FİLTRELEME İLE ÇEKME
     const validRows = await page.evaluate(() => {
@@ -154,16 +161,13 @@ function clearChromeLocks() {
         let customerName = cells[0] || '-';
         const jobType = cells[1] || '-';
 
-        // Google sistem markalarını isim sanmasın
         if (/Google|Lokale Dienstleistungen|Potenzieller Kunde/i.test(customerName)) {
           customerName = '-';
         }
 
-        // GÜVENLİK FİLTRELERİ (Takvim / Sayfa çöplerini temizleme)
         if (/^\d+$/.test(customerName) && /^\d+$/.test(jobType)) return null;
         if (/^\d{1,3}$/.test(customerName)) return null;
 
-        // KONUM TESPİTİ (> 2 karakter kontrolü)
         let location = cells[3] || '-';
         if (!location || location === '-' || location.length <= 2 || location === jobType || /^\+?\d[\d\s-]{6,}$/.test(location)) {
           location = cells.find((t, i) => 
@@ -178,12 +182,8 @@ function clearChromeLocks() {
         }
 
         const dates = cells.filter(t => /\d{2}\.\d{2}\.\d{2}/.test(t));
-
-        // MÜŞTERİ İSMİ '-' İSE VEYA 'NACHRICHT' İSE HER TÜRLÜ TIKLA
         const hasNoCustomerName = !customerName || customerName === '-';
         const isExplicitMessage = /nachricht|message/i.test(row.innerText || '');
-
-        const shouldOpenPanel = isExplicitMessage || hasNoCustomerName;
 
         return {
           domIndex: idx,
@@ -191,8 +191,7 @@ function clearChromeLocks() {
           jobType,
           location,
           anfrageDate: dates[0] || '-',
-          letzteDate: dates[1] || dates[0] || '-',
-          isMessage: shouldOpenPanel
+          isMessage: isExplicitMessage || hasNoCustomerName
         };
       }).filter(Boolean);
     });
@@ -203,8 +202,8 @@ function clearChromeLocks() {
       throw new Error("❌ Hiç veri bulunamadı! Sayfa yüklenemedi veya Google yapıyı değiştirdi.");
     }
 
-    // 2. AŞAMA: MESAJ DETAYLARINI VE PANEL VERİLERİNİ ALMA
-    const leads = [];
+    // 2. AŞAMA: MESAJ DETAYLARINI ALMA
+    let freshLeads = [];
     for (const item of validRows) {
       let messageText = "-";
       let finalCustomerName = item.phone;
@@ -217,15 +216,14 @@ function clearChromeLocks() {
             if (row) (row.querySelector('td, div[role="gridcell"]') || row).click();
           }, item.domIndex);
 
-          await new Promise(r => setTimeout(r, 5000));
+          await new Promise(r => setTimeout(r, 3500));
 
           const panelData = await page.evaluate(() => {
             let msg = "-";
             let nameInHeader = null;
 
-            // Chat / Unterhaltung Bloku
             const chatBlock = Array.from(document.querySelectorAll('div, section, article'))
-                                  .find(el => (el.innerText || '').includes('Unterhaltung'));
+                                        .find(el => (el.innerText || '').includes('Unterhaltung'));
             
             if (chatBlock) {
               let text = chatBlock.innerText.split('Unterhaltung').pop();
@@ -236,9 +234,8 @@ function clearChromeLocks() {
                          .trim() || "NO MESSAGE";
             }
 
-            // Panel Header'ından Gerçek İsim Kurtarma
             const headerBar = Array.from(document.querySelectorAll('div, header'))
-                                   .find(el => (el.innerText || '').includes('ARCHIVIEREN') || (el.innerText || '').includes('MARKIEREN'));
+                                     .find(el => (el.innerText || '').includes('ARCHIVIEREN') || (el.innerText || '').includes('MARKIEREN'));
             if (headerBar) {
               const lines = headerBar.innerText.split('\n').map(l => l.trim()).filter(Boolean);
               if (lines.length > 0 && !lines[0].includes('ARCHIVIEREN')) {
@@ -254,7 +251,6 @@ function clearChromeLocks() {
 
           messageText = panelData.msg;
 
-          // İsmi '-' ise ama panel header'ında gerçek isim varsa güncelle
           if ((finalCustomerName === '-' || !finalCustomerName) && panelData.nameInHeader) {
             finalCustomerName = panelData.nameInHeader;
           }
@@ -264,74 +260,87 @@ function clearChromeLocks() {
         }
       }
 
-      leads.push({
+      freshLeads.push({
         "Musteri": finalCustomerName,
         "Hizmet": item.jobType,
         "Konum": item.location,
-        "Ilk gorusme": parseTo24HourDate(item.anfrageDate),
-        "Son gorusme": parseTo24HourDate(item.letzteDate),
+        "Tarih": parseTo24HourDate(item.anfrageDate),
         "Mesaj": messageText
       });
     }
 
-    // 3. AŞAMA: SADECE YENİ MÜŞTERİ VARSA KAYDET VE BİLDİRİM GÖNDER
+    // 3. AŞAMA: ESKİ VERİLERİ OKU VE BAYRAKLARI KORU
     let previousLeads = [];
     if (fs.existsSync('data.json')) {
       try {
         const oldContent = JSON.parse(fs.readFileSync('data.json', 'utf8'));
         previousLeads = oldContent.leads || [];
       } catch (e) {
-        console.warn("⚠️ Eski data.json okunamadı, tümü yeni kabul edilecek:", e.message);
+        console.warn("⚠️ Eski data.json okunamadı:", e.message);
       }
     }
 
-    // Var olan listede bulunmayan YENİ müşteri tespiti
-    const newLeads = leads.filter(newLead => {
-      return !previousLeads.some(oldLead => 
-        oldLead["Musteri"] === newLead["Musteri"] &&
-        oldLead["Ilk gorusme"] === newLead["Ilk gorusme"] &&
-        oldLead["Mesaj"] === newLead["Mesaj"]
+    const leads = freshLeads.map(newLead => {
+      const existing = previousLeads.find(old => 
+        old["Musteri"] === newLead["Musteri"] &&
+        old["Tarih"] === newLead["Tarih"] &&
+        old["Mesaj"] === newLead["Mesaj"]
       );
+      
+      return {
+        ...newLead,
+        telegramSent: existing ? (existing.telegramSent || false) : false
+      };
     });
 
-    console.log(`🔎 İnceleme Tamamlandı. Bulunan YENİ Lead Sayısı: ${newLeads.length}`);
+    const unsentLeads = leads.filter(l => !l.telegramSent);
+    console.log(`🔎 İnceleme Tamamlandı. Bildirim Gitmemiş Yeni Lead Sayısı: ${unsentLeads.length}`);
 
-    if (newLeads.length > 0) {
+    if (unsentLeads.length > 0 || leads.length !== previousLeads.length) {
+      
+      // Telegram mesajlarını gönder ve başarılı ise bayrağı güncelle
+      for (const leadToNotify of unsentLeads) {
+        const isSuccess = await sendTelegramMessage(leadToNotify);
+        if (isSuccess) {
+          leadToNotify.telegramSent = true;
+          console.log(`📱 Telegram bildirimi gönderildi: ${leadToNotify["Musteri"]}`);
+        }
+        await new Promise(r => setTimeout(r, 1000));
+      }
+
+      // Madde 1: Dosyayı çift yazmak yerine sadece 1 kere en son güncelle
       const outputData = {
         updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
         leads
       };
 
       fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-      console.log(`🎉 YENİ MÜŞTERİ GELMİŞ! ${newLeads.length} adet yeni lead data.json dosyasına yazıldı.`);
+      console.log(`💾 data.json güncellendi ve kaydedildi.`);
 
       try {
-        console.log("⏳ GitHub Pages çakışma önleyici (10sn)...");
-        await new Promise(r => setTimeout(r, 10000));
-
-        execSync('git add data.json');
-        execSync('git commit -m "Auto-update data.json [new leads] [skip ci]" || true');
-        execSync('git pull origin main --rebase -X ours');
-        execSync('git push origin main');
-        console.log("✅ GitHub'a başarıyla push edildi!");
-
-        // SADECE YENİ MÜŞTERİLER İÇİN TELEGRAM MESAJI AT
-        for (const newLead of newLeads) {
-          await sendTelegramMessage(newLead);
-          await new Promise(r => setTimeout(r, 1000));
-        }
+        // Madde 4: Git komutlarına timeout emniyeti eklendi
+        execSync('git add data.json', { timeout: 15000 });
+        execSync('git commit -m "Auto-update data.json & telegram flags [skip ci]" || true', { timeout: 15000 });
+        execSync('git pull origin main --rebase -X ours', { timeout: 20000 });
+        execSync('git push origin main', { timeout: 20000 });
+        console.log("✅ Git Push Başarılı!");
 
       } catch (gitErr) {
-        console.error("⚠️ Git push veya Telegram hatası:", gitErr.message);
+        console.error("⚠️ Git push hatası:", gitErr.message);
       }
     } else {
-      console.log("ℹ️ Yeni bir müşteri veya değişiklik yok. Telegram bildirimi ve Git push atlandı.");
+      console.log("ℹ️ Yeni müşteri veya gönderilmemiş bildirim yok.");
     }
 
   } catch (error) {
     console.error("💥 Scraper hatası:", error.message);
     process.exitCode = 1;
   } finally {
-    if (browser) await browser.close();
+    // Madde 5: Tarayıcı emniyetli kapanış
+    if (browser) {
+      try {
+        await browser.close();
+      } catch (_) {}
+    }
   }
 })();
