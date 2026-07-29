@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 12:36:51",
+  "updatedAt": "29.7.2026, 12:46:38",
   "leads": [
+    {
+      "Musteri": "0690 20013846",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 10:35",
+      "Son gorusme": "29.07.26 10:36",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0690 10204872",
       "Hizmet": "-",
@@ -15,7 +23,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 09:14",
       "Son gorusme": "29.07.26 09:14",
-      "Mesaj": "NO MESSAGE"
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege)."
     },
     {
       "Musteri": "0681 81821203",
@@ -55,7 +63,7 @@
       "Konum": "Biedermannsdorf",
       "Ilk gorusme": "29.07.26 07:17",
       "Son gorusme": "29.07.26 07:17",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 8:21 AM\n Eingehender Anruf"
+      "Mesaj": "P\nPotenzieller Kunde\n7:17 AM\nGuten Tag, wir bräuchten eine Übersiedlung von Biedermannsdorf nach Ternitz ! 5 Ikea Kästen 236 x 100x60 mit 5 Türen. MFG Alexandra"
     },
     {
       "Musteri": "0664 75024400",
@@ -111,7 +119,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "27.07.26 17:51",
       "Son gorusme": "28.07.26 17:51",
-      "Mesaj": "P\nPotenzieller Kunde\n6:07 PM\n Eingehender Anruf"
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 5:51 PM\nWürden sie morgen nachmittags 1 großes Sofa vom 4. Bezirk in eine andere Straße auch im 4. Bezirk bringen können ?"
     },
     {
       "Musteri": "0660 3688715",
@@ -143,7 +151,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 12:47",
       "Son gorusme": "28.07.26 12:47",
-      "Mesaj": "P\nPotenzieller Kunde\n6:07 PM\n Eingehender Anruf"
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 5:51 PM\nWürden sie morgen nachmittags 1 großes Sofa vom 4. Bezirk in eine andere Straße auch im 4. Bezirk bringen können ?"
     },
     {
       "Musteri": "0660 4445617",
@@ -152,14 +160,6 @@
       "Ilk gorusme": "27.07.26 12:27",
       "Son gorusme": "28.07.26 12:28",
       "Mesaj": "-"
-    },
-    {
-      "Musteri": "0664 3374458",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Guntramsdorf",
-      "Ilk gorusme": "25.07.26 06:43",
-      "Son gorusme": "28.07.26 10:46",
-      "Mesaj": "P\nPotenzieller Kunde\n6:07 PM\n Eingehender Anruf"
     }
   ]
 }
