@@ -1,165 +1,165 @@
 {
-  "updatedAt": "29.7.2026, 21:45:52",
+  "updatedAt": "29.7.2026, 22:15:02",
   "leads": [
     {
       "Musteri": "0676 4494264",
       "Hizmet": "-",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 20:04",
-      "Son gorusme": "29.07.26 20:10",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 18:04",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0664 3374458",
       "Hizmet": "Beförderung von Umzugsgut",
       "Konum": "Guntramsdorf",
-      "Ilk gorusme": "25.07.26 06:43",
-      "Son gorusme": "29.07.26 16:41",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+      "Tarih": "25.07.26 06:43",
+      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter",
+      "telegramSent": true
     },
     {
       "Musteri": "0660 3688715",
       "Hizmet": "-",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 16:37",
-      "Son gorusme": "29.07.26 16:38",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 14:37",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0676 7771939",
       "Hizmet": "Innerörtlicher Umzug",
       "Konum": "Sankt Pölten",
-      "Ilk gorusme": "29.07.26 16:16",
-      "Son gorusme": "29.07.26 16:16",
-      "Mesaj": "P\nPotenzieller Kunde\n2:16 PM\nHallo, ich benötige in der Woche ab 22.8.ein Übersiedlungsteam. In 3150Wilhelmsburg.Wohnung 2.Stock. Wandverbau 3 Teile, Schreibtisch, gr. Tisch mit 6 Sesseln, 1 Boxspringbett, 5-6 Regale und ca. 10 Kartons. Bitte um einen Kostenvoranschlag und einen Termin bitte!"
+      "Tarih": "29.07.26 14:16",
+      "Mesaj": "P\nPotenzieller Kunde\n2:16 PM\nHallo, ich benötige in der Woche ab 22.8.ein Übersiedlungsteam. In 3150Wilhelmsburg.Wohnung 2.Stock. Wandverbau 3 Teile, Schreibtisch, gr. Tisch mit 6 Sesseln, 1 Boxspringbett, 5-6 Regale und ca. 10 Kartons. Bitte um einen Kostenvoranschlag und einen Termin bitte!",
+      "telegramSent": true
     },
     {
       "Musteri": "0664 3832152",
       "Hizmet": "-",
       "Konum": "Korneuburg",
-      "Ilk gorusme": "28.07.26 15:30",
-      "Son gorusme": "29.07.26 15:34",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 13:30",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0681 81660039",
       "Hizmet": "-",
       "Konum": "Horn",
-      "Ilk gorusme": "29.07.26 15:16",
-      "Son gorusme": "29.07.26 15:20",
-      "Mesaj": "-"
+      "Tarih": "29.07.26 13:16",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0650 6473403",
       "Hizmet": "Innerörtlicher Umzug",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 12:47",
-      "Son gorusme": "29.07.26 12:47",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
+      "Tarih": "28.07.26 12:47",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 12:47 PM\nHallo Umzug vom 7 ten in den 11 ten",
+      "telegramSent": true
     },
     {
       "Musteri": "0681 81821203",
       "Hizmet": "Beförderung von Umzugsgut",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 10:48",
-      "Son gorusme": "29.07.26 10:50",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 10:48",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0690 20013846",
       "Hizmet": "-",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 10:35",
-      "Son gorusme": "29.07.26 10:36",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 10:35",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0690 10204872",
       "Hizmet": "-",
       "Konum": "Wien",
-      "Ilk gorusme": "29.07.26 09:27",
-      "Son gorusme": "29.07.26 09:28",
-      "Mesaj": "-"
+      "Tarih": "29.07.26 09:27",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0664 1972533",
       "Hizmet": "Umzug im Inland",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 09:14",
-      "Son gorusme": "29.07.26 09:14",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege)."
+      "Tarih": "28.07.26 09:14",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege).",
+      "telegramSent": true
     },
     {
       "Musteri": "0664 1205477",
       "Hizmet": "-",
       "Konum": "Tulln an der Donau",
-      "Ilk gorusme": "28.07.26 08:40",
-      "Son gorusme": "29.07.26 08:42",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 08:40",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0650 2717757",
       "Hizmet": "Beförderung von Umzugsgut",
       "Konum": "Wien",
-      "Ilk gorusme": "29.07.26 08:33",
-      "Son gorusme": "29.07.26 08:33",
-      "Mesaj": "-"
+      "Tarih": "29.07.26 08:33",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0650 8354048",
       "Hizmet": "Beförderung von Umzugsgut",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 08:21",
-      "Son gorusme": "29.07.26 08:23",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 08:21",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0660 1920095",
       "Hizmet": "Umzug im Inland",
       "Konum": "Biedermannsdorf",
-      "Ilk gorusme": "29.07.26 07:17",
-      "Son gorusme": "29.07.26 07:17",
-      "Mesaj": "P\nPotenzieller Kunde\n7:17 AM\nGuten Tag, wir bräuchten eine Übersiedlung von Biedermannsdorf nach Ternitz ! 5 Ikea Kästen 236 x 100x60 mit 5 Türen. MFG Alexandra"
+      "Tarih": "29.07.26 07:17",
+      "Mesaj": "P\nPotenzieller Kunde\n7:17 AM\nGuten Tag, wir bräuchten eine Übersiedlung von Biedermannsdorf nach Ternitz ! 5 Ikea Kästen 236 x 100x60 mit 5 Türen. MFG Alexandra",
+      "telegramSent": true
     },
     {
       "Musteri": "0664 75024400",
       "Hizmet": "Beförderung von Umzugsgut",
       "Konum": "Wien",
-      "Ilk gorusme": "29.07.26 07:10",
-      "Son gorusme": "29.07.26 07:11",
-      "Mesaj": "-"
+      "Tarih": "29.07.26 07:10",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0676 6723777",
       "Hizmet": "-",
       "Konum": "Wien",
-      "Ilk gorusme": "21.07.26 16:14",
-      "Son gorusme": "29.07.26 07:09",
-      "Mesaj": "-"
+      "Tarih": "21.07.26 14:14",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0676 884001190",
       "Hizmet": "-",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 06:52",
-      "Son gorusme": "29.07.26 06:54",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 06:52",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0664 3034086",
       "Hizmet": "-",
       "Konum": "Tulln an der Donau",
-      "Ilk gorusme": "29.07.26 05:20",
-      "Son gorusme": "29.07.26 05:24",
-      "Mesaj": "-"
+      "Tarih": "29.07.26 05:20",
+      "Mesaj": "-",
+      "telegramSent": true
     },
     {
       "Musteri": "0660 4225282",
       "Hizmet": "-",
       "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 20:07",
-      "Son gorusme": "28.07.26 20:08",
-      "Mesaj": "-"
+      "Tarih": "28.07.26 18:07",
+      "Mesaj": "-",
+      "telegramSent": true
     }
   ]
 }
