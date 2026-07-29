@@ -313,17 +313,16 @@ function clearChromeLocks() {
     }
 
     const leads = freshLeads.map(newLead => {
-      const existing = previousLeads.find(old => 
-        old["Musteri"] === newLead["Musteri"] &&
-        old["Tarih"] === newLead["Tarih"] &&
-        old["Mesaj"] === newLead["Mesaj"]
-      );
+      // SADECE TARİH ÜZERİNDEN KONTROL (Müşteri ismi veya mesaj değişse bile bildirim tekrarlanmaz)
+      const existing = previousLeads.find(old => old["Tarih"] === newLead["Tarih"]);
       
       return {
         ...newLead,
+        // Eğer daha önce Telegram gönderildiyse bayrağı koru (true yap), gönderilmediyse false tut
         telegramSent: existing ? (existing.telegramSent || false) : false
       };
     });
+
 
     // 🔥 TARİHE GÖRE SIRALAMA (En yeni tarihli mesaj en üstte)
     leads.sort((a, b) => parseDateForSorting(b["Tarih"]) - parseDateForSorting(a["Tarih"]));
