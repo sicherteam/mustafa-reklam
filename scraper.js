@@ -68,6 +68,16 @@ function parseTo24HourDate(dateStr) {
   return `${datePart} ${String(hours).padStart(2, '0')}:${minutes}`;
 }
 
+// Tarih Metnini ("29.07.26 14:30") Sıralama İçin Milisaniyeye Çeviren Fonksiyon
+function parseDateForSorting(dateStr) {
+  if (!dateStr || dateStr === '-') return 0;
+  const match = dateStr.match(/(\d{2})\.(\d{2})\.(\d{2})\s+(\d{2}):(\d{2})/);
+  if (!match) return 0;
+  const [, day, month, year, hour, minute] = match;
+  // 20xx yıl formatına çevirip Timestamp alıyoruz
+  return new Date(`20${year}-${month}-${day}T${hour}:${minute}:00`).getTime();
+}
+
 // Clear Chrome Locks
 function clearChromeLocks() {
   const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket'];
@@ -100,10 +110,9 @@ function clearChromeLocks() {
         '--disable-dev-shm-usage',
         '--disable-gpu',
         '--disable-blink-features=AutomationControlled',
-        '--window-size=1920,1080', // Standart masaüstü boyutu (Doğal görünüm)
+        '--window-size=1920,1080',
         '--lang=de-AT,de',
 
-        // RAM azaltma & Stabilite
         '--disable-background-networking',
         '--disable-background-timer-throttling',
         '--disable-backgrounding-occluded-windows',
@@ -121,10 +130,8 @@ function clearChromeLocks() {
     await page.setViewport({ width: 1920, height: 1080 });
     page.setDefaultTimeout(60000);
 
-    // Gerçek Kullanıcı İmzası
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
-    // Ağır Kaynakları Engelleme (Sadece medya, font ve CSS parçaları)
     await page.setRequestInterception(true);
     page.on('request', (req) => {
       if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
@@ -144,7 +151,6 @@ function clearChromeLocks() {
       throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
-    // Lazy load tetiklemek için insan tipi yumuşak scroll
     await page.evaluate(async () => {
       for (let i = 0; i < 4; i++) {
         window.scrollBy(0, 300);
@@ -153,7 +159,7 @@ function clearChromeLocks() {
     });
     await new Promise(r => setTimeout(r, 1500));
 
-    // TABLO VERİLERİNİ HASSAS FİLTRELEME İLE ÇEKME
+    // TABLO VERİLERİNİ ÇEKME
     const validRows = await page.evaluate(() => {
       const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
 
@@ -278,7 +284,6 @@ function clearChromeLocks() {
     console.error("💥 Scraper hatası:", error.message);
     process.exitCode = 1;
   } finally {
-    // 🔥 EN KRİTİK ADIM: Veri toplandı, Chrome anında kapatılıyor (RAM Tamamen Boşaltıldı)
     if (browser) {
       try {
         console.log("🛑 Tarayıcı kapatılıyor, RAM serbest bırakıldı...");
@@ -288,10 +293,10 @@ function clearChromeLocks() {
   }
 
   // ===================================================
-  // 2. BÖLÜM: BİLDİRİM VE GİTHUB İŞLEMLERİ (Sadece Node.js)
+  // 2. BÖLÜM: BİLDİRİM, SIRALAMA VE GİTHUB İŞLEMLERİ
   // ===================================================
   if (freshLeads.length > 0) {
-    console.log("⚙️ Veriler işleniyor (Sunucu yükü sıfır)...");
+    console.log("⚙️ Veriler işleniyor...");
     
     let previousLeads = [];
     if (fs.existsSync('data.json')) {
@@ -316,6 +321,9 @@ function clearChromeLocks() {
       };
     });
 
+    // 🔥 TARİHE GÖRE SIRALAMA (En yeni tarihli mesaj en üstte)
+    leads.sort((a, b) => parseDateForSorting(b["Tarih"]) - parseDateForSorting(a["Tarih"]));
+
     const unsentLeads = leads.filter(l => !l.telegramSent);
     console.log(`🔎 İnceleme Tamamlandı. Bildirim Gitmemiş Yeni Lead Sayısı: ${unsentLeads.length}`);
 
@@ -331,19 +339,19 @@ function clearChromeLocks() {
         await new Promise(r => setTimeout(r, 1000));
       }
 
-      // Dosyaya sadece 1 kere ve en son halini yaz
+      // Dosyayı sıralanmış şekilde tek seferde kaydet
       const outputData = {
         updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
         leads
       };
 
       fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-      console.log(`💾 data.json güncellendi ve kaydedildi.`);
+      console.log(`💾 data.json tarihe göre sıralandı ve kaydedildi.`);
 
       try {
         console.log("⏳ GitHub Sync Yapılıyor...");
         execSync('git add data.json', { timeout: 15000 });
-        execSync('git commit -m "Auto-update data.json & telegram flags [skip ci]" || true', { timeout: 15000 });
+        execSync('git commit -m "Auto-update & sort data.json [skip ci]" || true', { timeout: 15000 });
         execSync('git pull origin main --rebase -X ours', { timeout: 20000 });
         execSync('git push origin main', { timeout: 20000 });
         console.log("✅ Git Push Başarılı!");
