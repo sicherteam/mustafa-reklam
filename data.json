@@ -1,6 +1,22 @@
 {
-  "updatedAt": "29.7.2026, 16:36:51",
+  "updatedAt": "29.7.2026, 16:45:50",
   "leads": [
+    {
+      "Musteri": "0664 3374458",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Guntramsdorf",
+      "Ilk gorusme": "25.07.26 06:43",
+      "Son gorusme": "29.07.26 16:41",
+      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+    },
+    {
+      "Musteri": "0660 3688715",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 16:37",
+      "Son gorusme": "29.07.26 16:38",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0676 7771939",
       "Hizmet": "Innerörtlicher Umzug",
@@ -95,7 +111,7 @@
       "Konum": "Biedermannsdorf",
       "Ilk gorusme": "29.07.26 07:17",
       "Son gorusme": "29.07.26 07:17",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege)."
+      "Mesaj": "P\nPotenzieller Kunde\n7:17 AM\nGuten Tag, wir bräuchten eine Übersiedlung von Biedermannsdorf nach Ternitz ! 5 Ikea Kästen 236 x 100x60 mit 5 Türen. MFG Alexandra"
     },
     {
       "Musteri": "0664 75024400",
@@ -143,22 +159,6 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 20:07",
       "Son gorusme": "28.07.26 20:08",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "-",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Ilk gorusme": "27.07.26 19:51",
-      "Son gorusme": "28.07.26 19:51",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege)."
-    },
-    {
-      "Musteri": "0660 3688715",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 16:37",
-      "Son gorusme": "28.07.26 16:51",
       "Mesaj": "-"
     }
   ]
