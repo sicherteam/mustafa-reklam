@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 11:25:09",
+  "updatedAt": "29.7.2026, 12:04:13",
   "leads": [
+    {
+      "Musteri": "0690 10204872",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Ilk gorusme": "29.07.26 09:27",
+      "Son gorusme": "29.07.26 09:28",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0664 1972533",
       "Hizmet": "Umzug im Inland",
@@ -152,14 +160,6 @@
       "Ilk gorusme": "25.07.26 06:43",
       "Son gorusme": "28.07.26 10:46",
       "Mesaj": "P\nPotenzieller Kunde\nGestern um 5:51 PM\nWürden sie morgen nachmittags 1 großes Sofa vom 4. Bezirk in eine andere Straße auch im 4. Bezirk bringen können ?"
-    },
-    {
-      "Musteri": "0690 20013846",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 10:35",
-      "Son gorusme": "28.07.26 10:36",
-      "Mesaj": "-"
     }
   ]
 }
