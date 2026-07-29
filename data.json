@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 14:54:44",
+  "updatedAt": "29.7.2026, 15:27:48",
   "leads": [
+    {
+      "Musteri": "0681 81660039",
+      "Hizmet": "-",
+      "Konum": "Horn",
+      "Ilk gorusme": "29.07.26 15:16",
+      "Son gorusme": "29.07.26 15:20",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0650 6473403",
       "Hizmet": "Innerörtlicher Umzug",
@@ -151,14 +159,6 @@
       "Konum": "Wien",
       "Ilk gorusme": "27.07.26 12:51",
       "Son gorusme": "28.07.26 12:53",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0660 4445617",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Ilk gorusme": "27.07.26 12:27",
-      "Son gorusme": "28.07.26 12:28",
       "Mesaj": "-"
     }
   ]
