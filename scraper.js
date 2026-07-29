@@ -93,9 +93,27 @@ function clearChromeLocks() {
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
+        '--disable-gpu',
         '--disable-blink-features=AutomationControlled',
         '--window-size=1920,1080',
-        '--lang=de-AT,de'
+        '--lang=de-AT,de',
+
+        // RAM azaltma
+        '--disable-background-networking',
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding',
+        '--disable-extensions',
+        '--disable-sync',
+
+        // Sunucu ortamı için
+        '--no-first-run',
+        '--no-default-browser-check',
+        '--disable-popup-blocking',
+
+        // Stabilite
+        '--disable-features=Translate,BackForwardCache',
+        '--disable-breakpad'
       ]
     });
 
