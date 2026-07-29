@@ -74,7 +74,6 @@ function parseDateForSorting(dateStr) {
   const match = dateStr.match(/(\d{2})\.(\d{2})\.(\d{2})\s+(\d{2}):(\d{2})/);
   if (!match) return 0;
   const [, day, month, year, hour, minute] = match;
-  // 20xx yıl formatına çevirip Timestamp alıyoruz
   return new Date(`20${year}-${month}-${day}T${hour}:${minute}:00`).getTime();
 }
 
@@ -269,6 +268,11 @@ function clearChromeLocks() {
         } catch (e) {
           console.warn(`[${item.phone}] Mesaj okuma uyarısı:`, e.message);
         }
+      }
+
+      // 🔹 İsimsiz Müşterilere "-" yerine "Müşteri" atama kontrolü
+      if (!finalCustomerName || finalCustomerName.trim() === '-' || finalCustomerName === '') {
+        finalCustomerName = 'Müşteri';
       }
 
       freshLeads.push({
