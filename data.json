@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 16:09:46",
+  "updatedAt": "29.7.2026, 16:18:57",
   "leads": [
+    {
+      "Musteri": "0676 7771939",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Sankt Pölten",
+      "Ilk gorusme": "29.07.26 16:16",
+      "Son gorusme": "29.07.26 16:16",
+      "Mesaj": "P\nPotenzieller Kunde\n2:16 PM\nHallo, ich benötige in der Woche ab 22.8.ein Übersiedlungsteam. In 3150Wilhelmsburg.Wohnung 2.Stock. Wandverbau 3 Teile, Schreibtisch, gr. Tisch mit 6 Sesseln, 1 Boxspringbett, 5-6 Regale und ca. 10 Kartons. Bitte um einen Kostenvoranschlag und einen Termin bitte!"
+    },
     {
       "Musteri": "0664 3832152",
       "Hizmet": "-",
@@ -151,14 +159,6 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 16:37",
       "Son gorusme": "28.07.26 16:51",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0676 9556177",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Ilk gorusme": "27.07.26 12:51",
-      "Son gorusme": "28.07.26 12:53",
       "Mesaj": "-"
     }
   ]
