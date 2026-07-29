@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 10:02:57",
+  "updatedAt": "29.7.2026, 10:25:34",
   "leads": [
+    {
+      "Musteri": "0650 8354048",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 08:21",
+      "Son gorusme": "29.07.26 08:23",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0660 1920095",
       "Hizmet": "Umzug im Inland",
@@ -119,7 +127,7 @@
       "Konum": "Guntramsdorf",
       "Ilk gorusme": "25.07.26 06:43",
       "Son gorusme": "28.07.26 10:46",
-      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
+      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
     },
     {
       "Musteri": "0690 20013846",
@@ -151,15 +159,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 09:14",
       "Son gorusme": "28.07.26 09:14",
-      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
-    },
-    {
-      "Musteri": "0664 1205477",
-      "Hizmet": "-",
-      "Konum": "Tulln an der Donau",
-      "Ilk gorusme": "28.07.26 08:40",
-      "Son gorusme": "28.07.26 08:42",
-      "Mesaj": "-"
+      "Mesaj": "P\nPotenzieller Kunde\n9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege)."
     }
   ]
 }
