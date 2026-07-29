@@ -1,20 +1,20 @@
 {
-  "updatedAt": "29.7.2026, 10:43:29",
+  "updatedAt": "29.7.2026, 10:55:26",
   "leads": [
+    {
+      "Musteri": "0681 81821203",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 10:48",
+      "Son gorusme": "29.07.26 08:51",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0664 1205477",
       "Hizmet": "-",
       "Konum": "Tulln an der Donau",
       "Ilk gorusme": "28.07.26 08:40",
       "Son gorusme": "29.07.26 08:42",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0681 81821203",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 10:48",
-      "Son gorusme": "29.07.26 08:34",
       "Mesaj": "-"
     },
     {
@@ -143,7 +143,7 @@
       "Konum": "Guntramsdorf",
       "Ilk gorusme": "25.07.26 06:43",
       "Son gorusme": "28.07.26 10:46",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
     },
     {
       "Musteri": "0690 20013846",
