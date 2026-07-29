@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 23:09:56",
+  "updatedAt": "29.7.2026, 23:41:16",
   "leads": [
+    {
+      "Musteri": "Müşteri",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wieselburg",
+      "Tarih": "29.07.26 21:01",
+      "Mesaj": "P\nPotenzieller Kunde\n9:01 PM\nHallo. Ich ziehe demnächst von Wieselburg nach Ybbs. Und wollte fragen wieviel es kosten Möbel und Umzugskartons ein und auszuladen, wieder aufzustellen uns zu Transportieren Mag Angelika",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7771939",
       "Hizmet": "Innerörtlicher Umzug",
