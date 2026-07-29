@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 11:01:58",
+  "updatedAt": "29.7.2026, 11:15:58",
   "leads": [
+    {
+      "Musteri": "0664 1972533",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 09:14",
+      "Son gorusme": "29.07.26 09:14",
+      "Mesaj": "NO MESSAGE"
+    },
     {
       "Musteri": "0681 81821203",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -127,7 +135,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 12:47",
       "Son gorusme": "28.07.26 12:47",
-      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 5:51 PM\nWürden sie morgen nachmittags 1 großes Sofa vom 4. Bezirk in eine andere Straße auch im 4. Bezirk bringen können ?"
     },
     {
       "Musteri": "0660 4445617",
@@ -143,7 +151,7 @@
       "Konum": "Guntramsdorf",
       "Ilk gorusme": "25.07.26 06:43",
       "Son gorusme": "28.07.26 10:46",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 5:51 PM\nWürden sie morgen nachmittags 1 großes Sofa vom 4. Bezirk in eine andere Straße auch im 4. Bezirk bringen können ?"
     },
     {
       "Musteri": "0690 20013846",
@@ -151,14 +159,6 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 10:35",
       "Son gorusme": "28.07.26 10:36",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0660 2108612",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 10:20",
-      "Son gorusme": "28.07.26 10:21",
       "Mesaj": "-"
     }
   ]
