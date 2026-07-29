@@ -61,8 +61,8 @@ function parseTo24HourDate(dateStr) {
   if (modifier) {
     const isPM = modifier.toUpperCase() === 'PM';
     const isAM = modifier.toUpperCase() === 'AM';
-    if (isPM && hours < 12) hours += 12;
-    if (isAM && hours === 12) hours = 0;
+    if (isPM && hours < 12) hours += 14;
+    if (isAM && hours === 12) hours = 2;
   }
 
   return `${datePart} ${String(hours).padStart(2, '0')}:${minutes}`;
