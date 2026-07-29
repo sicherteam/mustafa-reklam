@@ -1,6 +1,30 @@
 {
-  "updatedAt": "29.7.2026, 10:33:53",
+  "updatedAt": "29.7.2026, 10:43:29",
   "leads": [
+    {
+      "Musteri": "0664 1205477",
+      "Hizmet": "-",
+      "Konum": "Tulln an der Donau",
+      "Ilk gorusme": "28.07.26 08:40",
+      "Son gorusme": "29.07.26 08:42",
+      "Mesaj": "-"
+    },
+    {
+      "Musteri": "0681 81821203",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 10:48",
+      "Son gorusme": "29.07.26 08:34",
+      "Mesaj": "-"
+    },
+    {
+      "Musteri": "0650 2717757",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Ilk gorusme": "29.07.26 08:33",
+      "Son gorusme": "29.07.26 08:33",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0650 8354048",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -114,20 +138,12 @@
       "Mesaj": "-"
     },
     {
-      "Musteri": "0681 81821203",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 10:48",
-      "Son gorusme": "28.07.26 10:50",
-      "Mesaj": "-"
-    },
-    {
       "Musteri": "0664 3374458",
       "Hizmet": "Beförderung von Umzugsgut",
       "Konum": "Guntramsdorf",
       "Ilk gorusme": "25.07.26 06:43",
       "Son gorusme": "28.07.26 10:46",
-      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
+      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
     },
     {
       "Musteri": "0690 20013846",
@@ -144,22 +160,6 @@
       "Ilk gorusme": "28.07.26 10:20",
       "Son gorusme": "28.07.26 10:21",
       "Mesaj": "-"
-    },
-    {
-      "Musteri": "0660 5901746",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Ilk gorusme": "23.07.26 05:24",
-      "Son gorusme": "28.07.26 09:37",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0664 1972533",
-      "Hizmet": "Umzug im Inland",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 09:14",
-      "Son gorusme": "28.07.26 09:14",
-      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
     }
   ]
 }
