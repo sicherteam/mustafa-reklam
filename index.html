@@ -1,370 +1,326 @@
-require('dotenv').config();
-const puppeteer = require('puppeteer-extra');
-const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
-
-puppeteer.use(StealthPlugin());
-
-// --- CONFIGURATION (MUSTAFA REKLAM) ---
-const CONFIG = {
-  projectName: 'Mustafa Reklam',
-  userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
-  targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
-  telegramToken: process.env.TELEGRAM_BOT_TOKEN,
-  telegramChatId: process.env.TELEGRAM_CHAT_ID,
-};
-
-// Native Fetch API ile Telegram Bildirimi
-async function sendTelegramMessage(lead) {
-  if (!CONFIG.telegramToken || !CONFIG.telegramChatId) {
-    console.warn("⚠️ Telegram API bilgileri eksik (.env)");
-    return false;
-  }
-
-  const message = `🔔 *YENİ Müşteri!* (${CONFIG.projectName})\n\n` +
-                  `👤 *Müşteri:* ${lead["Musteri"]}\n` +
-                  `📍 *Konum:* ${lead["Konum"]}\n` +
-                  `💼 *Hizmet:* ${lead["Hizmet"]}\n` +
-                  `📅 *Tarih:* ${lead["Tarih"]}\n` +
-                  `💬 *Mesaj:* ${lead["Mesaj"]}`;
-
-  try {
-    const res = await fetch(`https://api.telegram.org/bot${CONFIG.telegramToken}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: CONFIG.telegramChatId,
-        text: message,
-        parse_mode: 'Markdown'
-      })
-    });
-    return res.ok;
-  } catch (err) {
-    console.error('⚠️ Telegram mesaj hatası:', err.message);
-    return false;
-  }
-}
-
-// 24-Hour Strict Date Formatter
-function parseTo24HourDate(dateStr) {
-  if (!dateStr || dateStr === '-') return '-';
-
-  const fixedStr = dateStr.replace(/(\b\d{1,2})(\d{2})\s*(AM|PM)/gi, '$1:$2 $3');
-  const match = fixedStr.match(/(\d{2}\.\d{2}\.\d{2})\s+(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
-  if (!match) return dateStr;
-
-  let [, datePart, hoursStr, minutes, modifier] = match;
-  let hours = parseInt(hoursStr, 10);
-
-  if (modifier) {
-    const isPM = modifier.toUpperCase() === 'PM';
-    const isAM = modifier.toUpperCase() === 'AM';
-    if (isPM && hours < 12) hours += 12;
-    if (isAM && hours === 12) hours = 0;
-  }
-
-  return `${datePart} ${String(hours).padStart(2, '0')}:${minutes}`;
-}
-
-// Tarih Metnini ("29.07.26 14:30") Sıralama İçin Milisaniyeye Çeviren Fonksiyon
-function parseDateForSorting(dateStr) {
-  if (!dateStr || dateStr === '-') return 0;
-  const match = dateStr.match(/(\d{2})\.(\d{2})\.(\d{2})\s+(\d{2}):(\d{2})/);
-  if (!match) return 0;
-  const [, day, month, year, hour, minute] = match;
-  return new Date(`20${year}-${month}-${day}T${hour}:${minute}:00`).getTime();
-}
-
-// Clear Chrome Locks
-function clearChromeLocks() {
-  const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket'];
-  locks.forEach(lock => {
-    const lockPath = path.join(CONFIG.userDataPath, lock);
-    if (fs.existsSync(lockPath)) {
-      try { fs.unlinkSync(lockPath); } catch (_) {}
-    }
-  });
-}
-
-// --- MAIN EXECUTION ---
-(async () => {
-  let freshLeads = [];
-  let browser;
-
-  // ===================================================
-  // 1. BÖLÜM: TARAYICI İŞLEMLERİ (Sadece Veri Toplama)
-  // ===================================================
-  try {
-    clearChromeLocks();
-
-    browser = await puppeteer.launch({
-      headless: "new",
-      executablePath: '/usr/bin/google-chrome',
-      userDataDir: CONFIG.userDataPath,
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu',
-        '--disable-blink-features=AutomationControlled',
-        '--window-size=1920,1080',
-        '--lang=de-AT,de',
-
-        '--disable-background-networking',
-        '--disable-background-timer-throttling',
-        '--disable-backgrounding-occluded-windows',
-        '--disable-renderer-backgrounding',
-        '--disable-extensions',
-        '--disable-sync',
-        '--no-first-run',
-        '--no-default-browser-check',
-        '--disable-popup-blocking',
-        '--disable-breakpad'
-      ]
-    });
-
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1920, height: 1080 });
-    page.setDefaultTimeout(60000);
-
-    await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
-
-    await page.setRequestInterception(true);
-    page.on('request', (req) => {
-      if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
-        req.abort();
-      } else {
-        req.continue();
-      }
-    });
-
-    console.log("🚀 LSA Inbox sayfasına gidiliyor...");
-    await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
-
-    const pageTitle = await page.title();
-    console.log("Sayfa Başlığı:", pageTitle);
-
-    if (/Anmelden|Sign in|YouTube|Error|504|Serverfehler/i.test(pageTitle)) {
-      throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUSTAFA REKLAMLAR - LSA Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary-color: #2563eb;
+      --border-color: #e2e8f0;
     }
 
-    await page.evaluate(async () => {
-      for (let i = 0; i < 4; i++) {
-        window.scrollBy(0, 300);
-        await new Promise(r => setTimeout(r, 200));
-      }
-    });
-    await new Promise(r => setTimeout(r, 1500));
-
-    // TABLO VERİLERİNİ ÇEKME
-    const validRows = await page.evaluate(() => {
-      const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
-
-      return rows.map((row, idx) => {
-        const rawCells = Array.from(row.querySelectorAll('td, div[role="gridcell"]'));
-        const cells = rawCells.map(c => c.innerText?.trim() || '').filter(Boolean);
-
-        if (cells.length < 4) return null;
-        if (/Gebührenstatus|Kunde|Kundenname/i.test(row.innerText || '')) return null;
-
-        let customerName = cells[0] || '-';
-        const jobType = cells[1] || '-';
-
-        if (/Google|Lokale Dienstleistungen|Potenzieller Kunde/i.test(customerName)) {
-          customerName = '-';
-        }
-
-        if (/^\d+$/.test(customerName) && /^\d+$/.test(jobType)) return null;
-        if (/^\d{1,3}$/.test(customerName)) return null;
-
-        let location = cells[3] || '-';
-        if (!location || location === '-' || location.length <= 2 || location === jobType || /^\+?\d[\d\s-]{6,}$/.test(location)) {
-          location = cells.find((t, i) => 
-            i > 1 && 
-            t.length > 2 && 
-            t !== customerName && 
-            t !== jobType && 
-            !/^\+?\d[\d\s-]{6,}$/.test(t) && 
-            !/^(Kategorie|Direkte|Telefon|Nachricht|Belastet|Wird)/i.test(t) &&
-            !/\d{2}\.\d{2}\.\d{2}/.test(t)
-          ) || '-';
-        }
-
-        const dates = cells.filter(t => /\d{2}\.\d{2}\.\d{2}/.test(t));
-        const hasNoCustomerName = !customerName || customerName === '-';
-        const isExplicitMessage = /nachricht|message/i.test(row.innerText || '');
-
-        return {
-          domIndex: idx,
-          phone: customerName,
-          jobType,
-          location,
-          anfrageDate: dates[0] || '-',
-          isMessage: isExplicitMessage || hasNoCustomerName
-        };
-      }).filter(Boolean);
-    });
-
-    console.log(`📊 Çekilen Temiz Lead Sayısı: ${validRows.length}`);
-
-    if (validRows.length === 0) {
-      throw new Error("❌ Hiç veri bulunamadı! Sayfa yüklenemedi veya Google yapıyı değiştirdi.");
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      padding: 20px 10px;
     }
 
-    // MESAJ DETAYLARINI ALMA
-    for (const item of validRows) {
-      let messageText = "-";
-      let finalCustomerName = item.phone;
+    .main-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
 
-      if (item.isMessage) {
-        try {
-          await page.evaluate((index) => {
-            const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
-            const row = rows[index];
-            if (row) (row.querySelector('td, div[role="gridcell"]') || row).click();
-          }, item.domIndex);
+    .header-title {
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #1e293b;
+    }
 
-          await new Promise(r => setTimeout(r, 3500));
+    /* Tablo Tasarımı */
+    .table-container {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-          const panelData = await page.evaluate(() => {
-            let msg = "-";
-            let nameInHeader = null;
+    .table {
+      margin-bottom: 0;
+    }
 
-            const chatBlock = Array.from(document.querySelectorAll('div, section, article'))
-                                        .find(el => (el.innerText || '').includes('Unterhaltung'));
-            
-            if (chatBlock) {
-              let text = chatBlock.innerText.split('Unterhaltung').pop();
-              msg = text.split('Wird geladen')[0]
-                         .split('Audioinhalte')[0]
-                         .split('Hier dem Kunden')[0]
-                         .replace(/^P\s+|^Potenzieller Kunde\s+|^\d{2}\.\d{2}\.\d{2}\s+/gi, '')
-                         .trim() || "NO MESSAGE";
-            }
+    .table thead th {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 14px 16px;
+      border: none;
+    }
 
-            const headerBar = Array.from(document.querySelectorAll('div, header'))
-                                     .find(el => (el.innerText || '').includes('ARCHIVIEREN') || (el.innerText || '').includes('MARKIEREN'));
-            if (headerBar) {
-              const lines = headerBar.innerText.split('\n').map(l => l.trim()).filter(Boolean);
-              if (lines.length > 0 && !lines[0].includes('ARCHIVIEREN')) {
-                const candidate = lines[0].split('|')[0].trim();
-                if (!/Google|Lokale|Dienstleistungen|Potenzieller|Anrufer/i.test(candidate)) {
-                  nameInHeader = candidate;
-                }
-              }
-            }
+    .table tbody td {
+      padding: 14px 16px;
+      vertical-align: middle;
+      font-size: 0.925rem;
+      border-bottom-color: #f1f5f9;
+    }
 
-            return { msg, nameInHeader };
-          });
+    /* Mesaj Kutusu Stili */
+    .message-box {
+      background-color: #f1f5f9;
+      border-left: 4px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      white-space: pre-line;
+      word-break: break-word;
+    }
 
-          messageText = panelData.msg;
+    /* MOBİL KART GÖRÜNÜMÜ */
+    @media (max-width: 767.98px) {
+      body { padding: 10px 5px; }
+      .main-card { padding: 1rem !important; border-radius: 12px; }
+      .desktop-table-view { display: none !important; }
+      .mobile-cards-view { display: flex; flex-direction: column; gap: 12px; }
 
-          if ((finalCustomerName === '-' || !finalCustomerName) && panelData.nameInHeader) {
-            finalCustomerName = panelData.nameInHeader;
-          }
+      .lead-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      }
 
-        } catch (e) {
-          console.warn(`[${item.phone}] Mesaj okuma uyarısı:`, e.message);
+      .lead-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 8px;
+        margin-bottom: 10px;
+      }
+
+      .lead-card-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+        font-size: 0.875rem;
+      }
+
+      .lead-card-label { color: var(--text-muted); font-weight: 500; }
+      .lead-card-value { font-weight: 600; color: var(--text-main); text-align: right; }
+    }
+
+    @media (min-width: 768px) {
+      .mobile-cards-view { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container main-card p-4">
+    <!-- Header Alanı -->
+    <div class="row g-3 align-items-center mb-4">
+      <div class="col-12 col-md-6">
+        <h2 class="header-title mb-1 fs-3">MUSTAFA REKLAMLAR</h2>
+        <div class="text-muted small">
+          <i class="bi bi-clock-history me-1"></i><strong>Son Güncelleme:</strong> 
+          <span id="last-update" class="text-primary fw-bold ms-1">Yükleniyor...</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="position-relative">
+          <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control form-control-lg fs-6 ps-5" placeholder="Ara (Müşteri, Konum, Hizmet, Mesaj...)...">
+          <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- MASAÜSTÜ TABLO GÖRÜNÜMÜ -->
+    <div class="table-container desktop-table-view">
+      <table class="table align-middle" id="leadTable">
+        <thead>
+          <tr>
+            <th>Müşteri / Telefon</th>
+            <th>Hizmet</th>
+            <th>Konum</th>
+            <th>Tarih</th>
+            <th class="text-end">Aksiyon</th>
+          </tr>
+        </thead>
+        <tbody id="lead-table-body">
+          <tr><td colspan="5" class="text-center py-4 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>Veriler yükleniyor...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MOBİL KART GÖRÜNÜMÜ -->
+    <div id="lead-cards-body" class="mobile-cards-view">
+      <div class="text-center text-muted py-4"><div class="spinner-border spinner-border-sm me-2"></div>Veriler yükleniyor...</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mesaj Metni Temizleme
+    function cleanMessageText(text) {
+      if (!text || text === '-' || text.trim() === '') return null;
+      
+      let cleaned = text
+        .split('Wird geladen')[0]
+        .split('Audioinhalte')[0]
+        .split('Hier dem Kunden')[0]
+        .replace(/^P\n+/g, '')
+        .trim();
+
+      return cleaned.length > 0 ? cleaned : null;
+    }
+
+    // XSS Koruması
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+
+    async function loadData() {
+      const tbody = document.getElementById('lead-table-body');
+      const cardsBody = document.getElementById('lead-cards-body');
+      const updateSpan = document.getElementById('last-update');
+
+      try {
+        const response = await fetch('./data.json?t=' + Date.now(), { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`HTTP Hata: ${response.status}`);
+
+        const data = await response.json();
+        updateSpan.innerText = escapeHTML(data.updatedAt) || 'Bilinmiyor';
+
+        if (!data.leads || data.leads.length === 0) {
+          const emptyHTML = '<div class="text-center py-4 text-muted">Veri bulunamadı.</div>';
+          tbody.innerHTML = `<tr><td colspan="5" class="text-center py-4 text-muted">Veri bulunamadı.</td></tr>`;
+          cardsBody.innerHTML = emptyHTML;
+          return;
         }
-      }
 
-      // 🔹 İsimsiz Müşterilere "-" yerine "Müşteri" atama kontrolü
-      if (!finalCustomerName || finalCustomerName.trim() === '-' || finalCustomerName === '') {
-        finalCustomerName = 'Müşteri';
-      }
+        let desktopRows = '';
+        let mobileCards = '';
 
-      freshLeads.push({
-        "Musteri": finalCustomerName,
-        "Hizmet": item.jobType,
-        "Konum": item.location,
-        "Tarih": parseTo24HourDate(item.anfrageDate),
-        "Mesaj": messageText
+        data.leads.forEach((lead, index) => {
+          const customer = escapeHTML(lead["Musteri"] || 'Müşteri');
+          const jobType = escapeHTML(lead["Hizmet"] || '-');
+          const location = escapeHTML(lead["Konum"] || '-');
+          const dateStr = escapeHTML(lead["Tarih"] || lead["Ilk gorusme"] || '-');
+          const rawMessage = lead["Mesaj"] || '-';
+
+          const cleanedMsg = cleanMessageText(rawMessage);
+          const escapedCleanedMsg = cleanedMsg ? escapeHTML(cleanedMsg) : null;
+
+          const phoneDisplay = (customer !== '-' && customer !== 'Müşteri')
+            ? `<a href="tel:${customer}" class="fw-bold text-decoration-none text-primary"><i class="bi bi-telephone me-1"></i>${customer}</a>`
+            : `<span class="text-muted fw-bold">${customer}</span>`;
+
+          const msgButton = escapedCleanedMsg ? `
+            <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#msg-desktop-${index}">
+              <i class="bi bi-chat-text me-1"></i>Mesaj
+            </button>
+          ` : '<span class="text-muted small">-</span>';
+
+          // Masaüstü Satırı
+          desktopRows += `
+            <tr class="searchable-row">
+              <td>${phoneDisplay}</td>
+              <td>${jobType}</td>
+              <td><span class="badge bg-light text-dark border">${location}</span></td>
+              <td class="text-muted small"><i class="bi bi-calendar-event me-1"></i>${dateStr}</td>
+              <td class="text-end">${msgButton}</td>
+            </tr>
+            ${escapedCleanedMsg ? `
+              <tr class="collapse" id="msg-desktop-${index}">
+                <td colspan="5" class="p-3 bg-light">
+                  <div class="message-box">
+                    <strong class="text-primary small d-block mb-1"><i class="bi bi-chat-quote me-1"></i>Müşteri Mesajı:</strong>
+                    <div class="small text-dark msg-content">${escapedCleanedMsg}</div>
+                  </div>
+                </td>
+              </tr>
+            ` : ''}
+          `;
+
+          // Mobil Kart Görünümü
+          const mobileMsgHTML = escapedCleanedMsg ? `
+            <div class="message-box mt-2">
+              <strong class="text-primary small d-block mb-1"><i class="bi bi-chat-quote me-1"></i>Mesaj:</strong>
+              <div class="small text-dark">${escapedCleanedMsg}</div>
+            </div>
+          ` : '';
+
+          mobileCards += `
+            <div class="lead-card searchable-card">
+              <div class="lead-card-header">
+                <div>
+                  ${(customer !== '-' && customer !== 'Müşteri') ? `<a href="tel:${customer}" class="fw-bold fs-6 text-decoration-none text-primary d-block"><i class="bi bi-telephone me-1"></i>${customer}</a>` : `<span class="fw-bold text-muted">${customer}</span>`}
+                </div>
+                <span class="badge bg-light text-secondary border small">${dateStr}</span>
+              </div>
+              <div class="lead-card-row">
+                <span class="lead-card-label">Hizmet:</span>
+                <span class="lead-card-value">${jobType}</span>
+              </div>
+              <div class="lead-card-row">
+                <span class="lead-card-label">Konum:</span>
+                <span class="lead-card-value">${location}</span>
+              </div>
+              ${mobileMsgHTML}
+            </div>
+          `;
+        });
+
+        tbody.innerHTML = desktopRows;
+        cardsBody.innerHTML = mobileCards;
+
+      } catch (err) {
+        console.error("Yükleme hatası:", err);
+        updateSpan.innerText = 'Yükleme Hatası';
+        const errorMsg = `Veri okunamadı: ${err.message}`;
+        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-danger py-4">${errorMsg}</td></tr>`;
+        cardsBody.innerHTML = `<div class="text-center text-danger py-4">${errorMsg}</div>`;
+      }
+    }
+
+    // Arama Fonksiyonu
+    function filterTable() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+
+      // Masaüstü Satırları
+      const rows = document.querySelectorAll('#lead-table-body tr.searchable-row');
+      rows.forEach(row => {
+        const nextCollapse = row.nextElementSibling;
+        let fullContent = row.innerText.toLowerCase();
+        
+        if (nextCollapse && nextCollapse.classList.contains('collapse')) {
+          fullContent += " " + nextCollapse.innerText.toLowerCase();
+        }
+
+        const isMatch = fullContent.includes(filter);
+        row.style.display = isMatch ? '' : 'none';
+
+        if (nextCollapse && nextCollapse.classList.contains('collapse') && !isMatch) {
+          nextCollapse.style.display = 'none';
+        }
+      });
+
+      // Mobil Kartlar
+      const cards = document.querySelectorAll('#lead-cards-body .searchable-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? '' : 'none';
       });
     }
 
-  } catch (error) {
-    console.error("💥 Scraper hatası:", error.message);
-    process.exitCode = 1;
-  } finally {
-    if (browser) {
-      try {
-        console.log("🛑 Tarayıcı kapatılıyor, RAM serbest bırakıldı...");
-        await browser.close();
-      } catch (_) {}
-    }
-  }
-
-  // ===================================================
-  // 2. BÖLÜM: BİLDİRİM, SIRALAMA VE GİTHUB İŞLEMLERİ
-  // ===================================================
-  if (freshLeads.length > 0) {
-    console.log("⚙️ Veriler işleniyor...");
-    
-    let previousLeads = [];
-    if (fs.existsSync('data.json')) {
-      try {
-        const oldContent = JSON.parse(fs.readFileSync('data.json', 'utf8'));
-        previousLeads = oldContent.leads || [];
-      } catch (e) {
-        console.warn("⚠️ Eski data.json okunamadı:", e.message);
-      }
-    }
-
-    const leads = freshLeads.map(newLead => {
-      const existing = previousLeads.find(old => 
-        old["Musteri"] === newLead["Musteri"] &&
-        old["Tarih"] === newLead["Tarih"] &&
-        old["Mesaj"] === newLead["Mesaj"]
-      );
-      
-      return {
-        ...newLead,
-        telegramSent: existing ? (existing.telegramSent || false) : false
-      };
-    });
-
-    // 🔥 TARİHE GÖRE SIRALAMA (En yeni tarihli mesaj en üstte)
-    leads.sort((a, b) => parseDateForSorting(b["Tarih"]) - parseDateForSorting(a["Tarih"]));
-
-    const unsentLeads = leads.filter(l => !l.telegramSent);
-    console.log(`🔎 İnceleme Tamamlandı. Bildirim Gitmemiş Yeni Lead Sayısı: ${unsentLeads.length}`);
-
-    if (unsentLeads.length > 0 || leads.length !== previousLeads.length) {
-      
-      // Telegram mesajlarını gönder
-      for (const leadToNotify of unsentLeads) {
-        const isSuccess = await sendTelegramMessage(leadToNotify);
-        if (isSuccess) {
-          leadToNotify.telegramSent = true;
-          console.log(`📱 Telegram bildirimi gönderildi: ${leadToNotify["Musteri"]}`);
-        }
-        await new Promise(r => setTimeout(r, 1000));
-      }
-
-      // Dosyayı sıralanmış şekilde tek seferde kaydet
-      const outputData = {
-        updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
-        leads
-      };
-
-      fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
-      console.log(`💾 data.json tarihe göre sıralandı ve kaydedildi.`);
-
-      try {
-        console.log("⏳ GitHub Sync Yapılıyor...");
-        execSync('git add data.json', { timeout: 15000 });
-        execSync('git commit -m "Auto-update & sort data.json [skip ci]" || true', { timeout: 15000 });
-        execSync('git pull origin main --rebase -X ours', { timeout: 20000 });
-        execSync('git push origin main', { timeout: 20000 });
-        console.log("✅ Git Push Başarılı!");
-
-      } catch (gitErr) {
-        console.error("⚠️ Git push hatası:", gitErr.message);
-      }
-    } else {
-      console.log("ℹ️ Yeni müşteri veya gönderilmemiş bildirim yok.");
-    }
-  }
-})();
+    // Sayfa Yüklendiğinde Başlat
+    loadData();
+  </script>
+</body>
+</html>
