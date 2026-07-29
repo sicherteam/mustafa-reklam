@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 22:45:57",
+  "updatedAt": "29.7.2026, 23:09:56",
   "leads": [
+    {
+      "Musteri": "Müşteri",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wieselburg",
+      "Tarih": "29.07.26 21:01",
+      "Mesaj": "P\nPotenzieller Kunde\n9:01 PM\nHallo. Ich ziehe demnächst von Wieselburg nach Ybbs. Und wollte fragen wieviel es kosten Möbel und Umzugskartons ein und auszuladen, wieder aufzustellen uns zu Transportieren Mag Angelika",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7771939",
       "Hizmet": "Innerörtlicher Umzug",
@@ -38,7 +46,7 @@
       "Hizmet": "Umzug im Inland",
       "Konum": "Biedermannsdorf",
       "Tarih": "29.07.26 07:17",
-      "Mesaj": "P\nPotenzieller Kunde\n7:17 AM\nGuten Tag, wir bräuchten eine Übersiedlung von Biedermannsdorf nach Ternitz ! 5 Ikea Kästen 236 x 100x60 mit 5 Türen. MFG Alexandra",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege).",
       "telegramSent": true
     },
     {
@@ -54,14 +62,6 @@
       "Hizmet": "-",
       "Konum": "Tulln an der Donau",
       "Tarih": "29.07.26 05:20",
-      "Mesaj": "-",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 4225282",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "28.07.26 18:07",
       "Mesaj": "-",
       "telegramSent": true
     },
