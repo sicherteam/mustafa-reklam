@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 14:21:04",
+  "updatedAt": "29.7.2026, 14:54:44",
   "leads": [
+    {
+      "Musteri": "0650 6473403",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 12:47",
+      "Son gorusme": "29.07.26 12:47",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
+    },
     {
       "Musteri": "0681 81821203",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -144,14 +152,6 @@
       "Ilk gorusme": "27.07.26 12:51",
       "Son gorusme": "28.07.26 12:53",
       "Mesaj": "-"
-    },
-    {
-      "Musteri": "0650 6473403",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 12:47",
-      "Son gorusme": "28.07.26 12:47",
-      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
     },
     {
       "Musteri": "0660 4445617",
