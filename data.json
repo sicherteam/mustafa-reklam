@@ -1,6 +1,46 @@
 {
-  "updatedAt": "28.7.2026, 22:24:43",
+  "updatedAt": "29.7.2026, 09:56:03",
   "leads": [
+    {
+      "Musteri": "0660 1920095",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Biedermannsdorf",
+      "Ilk gorusme": "29.07.26 07:17",
+      "Son gorusme": "29.07.26 07:17",
+      "Mesaj": "NO MESSAGE"
+    },
+    {
+      "Musteri": "0664 75024400",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Ilk gorusme": "29.07.26 07:10",
+      "Son gorusme": "29.07.26 07:11",
+      "Mesaj": "-"
+    },
+    {
+      "Musteri": "0676 6723777",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Ilk gorusme": "21.07.26 14:14",
+      "Son gorusme": "29.07.26 07:09",
+      "Mesaj": "-"
+    },
+    {
+      "Musteri": "0676 884001190",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Ilk gorusme": "28.07.26 06:52",
+      "Son gorusme": "29.07.26 06:54",
+      "Mesaj": "-"
+    },
+    {
+      "Musteri": "0664 3034086",
+      "Hizmet": "-",
+      "Konum": "Tulln an der Donau",
+      "Ilk gorusme": "29.07.26 05:20",
+      "Son gorusme": "29.07.26 05:24",
+      "Mesaj": "-"
+    },
     {
       "Musteri": "0676 4494264",
       "Hizmet": "-",
@@ -79,7 +119,7 @@
       "Konum": "Guntramsdorf",
       "Ilk gorusme": "25.07.26 06:43",
       "Son gorusme": "28.07.26 10:46",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter"
+      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
     },
     {
       "Musteri": "0690 20013846",
@@ -111,7 +151,7 @@
       "Konum": "Wien",
       "Ilk gorusme": "28.07.26 09:14",
       "Son gorusme": "28.07.26 09:14",
-      "Mesaj": "P\nPotenzieller Kunde\n9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege)."
+      "Mesaj": "P\nPotenzieller Kunde\n12:47 PM\nHallo Umzug vom 7 ten in den 11 ten"
     },
     {
       "Musteri": "0664 1205477",
@@ -120,46 +160,6 @@
       "Ilk gorusme": "28.07.26 08:40",
       "Son gorusme": "28.07.26 08:42",
       "Mesaj": "-"
-    },
-    {
-      "Musteri": "0650 8354048",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 08:21",
-      "Son gorusme": "28.07.26 08:23",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0676 884001190",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Ilk gorusme": "28.07.26 06:52",
-      "Son gorusme": "28.07.26 06:54",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0681 81963267",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Ilk gorusme": "27.07.26 05:25",
-      "Son gorusme": "28.07.26 05:29",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0681 84437048",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Ilk gorusme": "27.07.26 15:53",
-      "Son gorusme": "27.07.26 15:54",
-      "Mesaj": "-"
-    },
-    {
-      "Musteri": "0664 6129223",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Klosterneuburg",
-      "Ilk gorusme": "26.07.26 12:18",
-      "Son gorusme": "27.07.26 12:18",
-      "Mesaj": "P\nPotenzieller Kunde\n26.07.26\nWir möchten am 7. oder 8. August innerhalb von Klosterneuburg von einem Haus am Sudetendeutschen Platz in ein Haus in der Tulpengasse übersiedeln. Inkl. Abbau, Aufbau und tw. Entsorgung. Ist es daher bitte möglich, dass Sie möglichst rasch für eine Besichtigung und einen KV zu uns kommen? Danke, Petra Roth"
     }
   ]
 }
