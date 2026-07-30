@@ -1,8 +1,9 @@
-const crypto = require('crypto');
-const { execSync } = require('child_process');
+require('dotenv').config();
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-const csvParser = require('csv-parser');
+const fs = require('fs');
+const path = require('path'); // 🟢 Eksik olan modül eklendi
+const { execSync } = require('child_process');
 
 puppeteer.use(StealthPlugin());
 
