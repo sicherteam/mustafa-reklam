@@ -1,6 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { execSync } = require('child_process');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
@@ -22,56 +23,180 @@ const CONFIG = {
 };
 
 // ==========================================
-// 2. GELİŞMİŞ LOGLAMA VE SİSTEM YARDIMCILARI
+// 2. YARDIMCI FONKSİYONLAR
 // ==========================================
-function writeLog(stage, msg, isError = false) {
+function writeLog(msg, isError = false) {
   const timestamp = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
-  const prefix = isError ? '❌ [ERROR]' : 'ℹ️ [INFO]';
-  const formattedMsg = `[${timestamp}] ${prefix} [${stage}] => ${msg}`;
-  if (isError) {
-    console.error(formattedMsg);
-  } else {
-    console.log(formattedMsg);
+  const formattedMsg = `[${timestamp}] ${isError ? '❌ ERROR: ' : 'ℹ️ INFO: '}${msg}`;
+  if (isError) console.error(formattedMsg);
+  else console.log(formattedMsg);
+}
+
+function escapeHTML(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function loadDatabase() {
+  if (!fs.existsSync(CONFIG.dataFilePath)) {
+    return { updatedAt: new Date().toISOString(), leads: [] };
+  }
+  try {
+    return JSON.parse(fs.readFileSync(CONFIG.dataFilePath, 'utf8'));
+  } catch (err) {
+    writeLog(`data.json okunurken hata: ${err.message}`, true);
+    return { updatedAt: new Date().toISOString(), leads: [] };
+  }
+}
+
+function saveDatabaseSafe(data) {
+  const tempPath = `${CONFIG.dataFilePath}.tmp`;
+  data.updatedAt = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
+  fs.writeFileSync(tempPath, JSON.stringify(data, null, 2), 'utf8');
+  fs.renameSync(tempPath, CONFIG.dataFilePath);
+}
+
+function syncToGit() {
+  try {
+    writeLog("Git senkronizasyonu başlatılıyor...");
+    execSync('git add data.json', { cwd: __dirname });
+    execSync('git commit -m "auto: update LSA leads via DiUHNe API [skip ci]"', { cwd: __dirname });
+    execSync('git push origin main', { cwd: __dirname });
+    writeLog("✅ Git'e başarıyla push edildi.");
+  } catch (err) {
+    writeLog(`Git Sync uyarısı: ${err.message}`, true);
   }
 }
 
 function clearChromeLocks() {
-  writeLog('INIT', 'Chrome kilit dosyaları temizleniyor...');
   const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket', 'DevToolsActivePort'];
   locks.forEach(lock => {
     const lockPath = path.join(CONFIG.userDataPath, lock);
     if (fs.existsSync(lockPath)) {
-      try { 
-        fs.unlinkSync(lockPath);
-        writeLog('INIT', `Kilit dosyası silindi: ${lock}`);
-      } catch (e) {
-        writeLog('INIT', `Kilit dosyası silinemedi (${lock}): ${e.message}`, true);
-      }
+      try { fs.unlinkSync(lockPath); } catch (_) {}
     }
   });
 }
 
 // ==========================================
-// 3. ANA MOTOR (DEBUG & INTERCEPTOR)
+// 3. GOOGLE RPC (DiUHNe) DATA PARSER
+// ==========================================
+function extractLeadsFromRpc(rawText) {
+  const leads = [];
+  try {
+    const cleanText = rawText.replace(/^\)\]\}'\s*/, '');
+    
+    // JSON dizisini çözümle
+    let parsedData = [];
+    const lines = cleanText.split('\n');
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      try {
+        const json = JSON.parse(line);
+        if (Array.isArray(json)) parsedData.push(json);
+      } catch (_) {}
+    }
+
+    const fullStr = JSON.stringify(parsedData);
+
+    // DiUHNe içindeki Lead bloklarını yakala (Anfrage ID ve metin dizilimi)
+    // Google LSA, ID'leri genelde 9 haneli string sayı dizileri olarak saklar ("329076350")
+    const idMatches = fullStr.match(/"(\d{9})"/g) || [];
+    const uniqueIds = [...new Set(idMatches.map(id => id.replace(/"/g, '')))];
+
+    for (const anfrageId of uniqueIds) {
+      // Her ID'ye ait metin bloğunu tespit edelim
+      const serviceMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?\\["de","([^"]+)"\\]`));
+      const categoryMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?"([^"]+ Dienst)?"`));
+      
+      // Zaman damgası arayalım
+      const dateMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?,(\\178\\d{13}|179\\d{13}|180\\d{13})`));
+      let formattedDate = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
+      
+      if (dateMatch && dateMatch[1]) {
+        const ms = Math.floor(parseInt(dateMatch[1], 10) / 1000);
+        if (!isNaN(ms)) {
+          formattedDate = new Date(ms).toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
+        }
+      }
+
+      const service = serviceMatch ? serviceMatch[1] : (categoryMatch ? categoryMatch[1] : 'Umzugsdienst');
+
+      leads.push({
+        id: `lsa_${anfrageId}`,
+        anfrageId: anfrageId,
+        Musteri: 'Müşteri (LSA)',
+        Telefon: '-',
+        Hizmet: service,
+        Konum: 'Wien / Österreich',
+        Tarih: formattedDate,
+        Mesaj: `LSA Anfrage-ID: ${anfrageId}`
+      });
+    }
+
+  } catch (err) {
+    writeLog(`RPC Parsing hatası: ${err.message}`, true);
+  }
+  return leads;
+}
+
+// ==========================================
+// 4. TELEGRAM BİLDİRİM
+// ==========================================
+async function sendTelegramMessage(lead, retries = 3) {
+  if (!CONFIG.telegramToken || !CONFIG.telegramChatId || CONFIG.telegramToken === 'YOUR_TELEGRAM_BOT_TOKEN') {
+    writeLog("Telegram konfigürasyonu eksik!", true);
+    return false;
+  }
+
+  const phoneStr = lead["Telefon"] && lead["Telefon"] !== '-' 
+    ? `\n📞 <b>Telefon:</b> <code>${escapeHTML(lead["Telefon"])}</code>` 
+    : '';
+
+  const message = `🔔 <b>YENİ Müşteri!</b> (${escapeHTML(CONFIG.projectName)})\n\n` +
+                  `👤 <b>Müşteri:</b> ${escapeHTML(lead["Musteri"])}${phoneStr}\n` +
+                  `📍 <b>Konum:</b> ${escapeHTML(lead["Konum"])}\n` +
+                  `💼 <b>Hizmet:</b> ${escapeHTML(lead["Hizmet"])}\n` +
+                  `📅 <b>Tarih:</b> ${escapeHTML(lead["Tarih"])}\n` +
+                  `💬 <b>İletişim / ID:</b> ${escapeHTML(lead["Mesaj"])}`;
+
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(`https://api.telegram.org/bot${CONFIG.telegramToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CONFIG.telegramChatId,
+          text: message,
+          parse_mode: 'HTML'
+        })
+      });
+
+      if (res.ok) return true;
+      if (res.status === 429) await new Promise(r => setTimeout(r, 3500 * attempt));
+    } catch (err) {
+      await new Promise(r => setTimeout(r, 2000));
+    }
+  }
+  return false;
+}
+
+// ==========================================
+// 5. ANA MOTOR
 // ==========================================
 async function runLsaCollector() {
-  writeLog('START', '================ PROCESS BAŞLATILDI ================');
-  
   if (fs.existsSync(CONFIG.lockFilePath)) {
-    writeLog('LOCK_CHECK', 'Çalışan başka bir işlem var (bot.lock mevcut). İptal ediliyor.', true);
+    writeLog("Çalışan başka bir işlem var (Lock file mevcut). İptal edildi.");
     return;
   }
 
   fs.writeFileSync(CONFIG.lockFilePath, process.pid.toString());
-  writeLog('LOCK_CHECK', `Lock dosyası oluşturuldu. PID: ${process.pid}`);
-
   let browser;
-  let capturedPayloads = [];
+  let rawRpcPayload = null;
 
   try {
     clearChromeLocks();
 
-    writeLog('BROWSER', 'Puppeteer başlatılıyor...');
     browser = await puppeteer.launch({
       headless: "new",
       executablePath: CONFIG.executablePath,
@@ -88,129 +213,77 @@ async function runLsaCollector() {
         '--no-default-browser-check'
       ]
     });
-    writeLog('BROWSER', 'Puppeteer başarıyla başlatıldı.');
 
     const page = await browser.newPage();
-    writeLog('PAGE', 'Yeni sekme açıldı ve varsayılan ayarlar yapılıyor.');
-    
     await page.setViewport({ width: 1920, height: 1080 });
     page.setDefaultTimeout(60000);
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
-    // --------------------------------------------------
-    // NETWORK TRAFİK DINLEYICI (TAM KONTROL)
-    // --------------------------------------------------
-    writeLog('NETWORK', 'Network dinleyicileri (request/response) aktif ediliyor...');
-
-    page.on('request', req => {
-      const url = req.url();
-      if (url.includes('batchexecute')) {
-        writeLog('NETWORK_REQ', `[batchexecute İSTEĞİ ATILDI] URL: ${url.substring(0, 110)}... Method: ${req.method()}`);
+    // Network Interceptor
+    page.on('response', async (response) => {
+      const url = response.url();
+      if (url.includes('batchexecute') && url.includes('DiUHNe')) {
+        try {
+          rawRpcPayload = await response.text();
+          writeLog("🎯 DiUHNe API yanıtı başarıyla yakalandı.");
+        } catch (_) {}
       }
     });
 
-    page.on('response', async res => {
-      const url = res.url();
-      const status = res.status();
-
-      if (url.includes('batchexecute')) {
-        writeLog('NETWORK_RES', `[batchexecute YANIT GELDİ] Status: ${status} | URL: ${url.substring(0, 110)}...`);
-        
-        if (url.includes('DiUHNe')) {
-          writeLog('TARGET_API', '🎯🎯🎯 Aranan RPC ID (DiUHNe) Yakalandı!');
-          try {
-            const body = await res.text();
-            writeLog('TARGET_API', `Gelen Yanıt Boyutu: ${body.length} Byte`);
-            writeLog('TARGET_API', `Yanıt Önizleme (İlk 300 Karakter): ${body.substring(0, 300).replace(/\r?\n|\r/g, ' ')}`);
-            capturedPayloads.push({ timestamp: new Date().toISOString(), body });
-          } catch (e) {
-            writeLog('TARGET_API', `Yanıt gövdesi (text) okunamadı: ${e.message}`, true);
-          }
-        }
-      }
-    });
-
-    // --------------------------------------------------
-    // NAVİGASYON ADIMI
-    // --------------------------------------------------
-    writeLog('GOTO', `Hedef adrese gidiliyor: ${CONFIG.targetUrl}`);
-    const gotoResponse = await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
-    
-    writeLog('GOTO', `Sayfa yüklendi. HTTP Status Code: ${gotoResponse ? gotoResponse.status() : 'N/A'}`);
+    writeLog("🚀 LSA Inbox sayfasına gidiliyor...");
+    await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
 
     const pageTitle = await page.title();
-    writeLog('DOM_CHECK', `Sayfa Başlığı: "${pageTitle}"`);
+    writeLog(`Sayfa Başlığı: "${pageTitle}"`);
 
     if (/Anmelden|Sign in|YouTube|Error|504|Serverfehler/i.test(pageTitle)) {
-      writeLog('DOM_CHECK', `Oturum kapalı veya engelleme var! Başlık uyuştu: ${pageTitle}`, true);
-      throw new Error(`Oturum açılamadı veya erişim engellendi. Title: ${pageTitle}`);
+      throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
-    // --------------------------------------------------
-    // BUTON ETKİLEŞİMİ VE TETİKLEME
-    // --------------------------------------------------
-    writeLog('WAIT', 'Sayfa bileşenlerinin tam oturması için 3 saniye bekleniyor...');
-    await new Promise(r => setTimeout(r, 3000));
-
-    if (capturedPayloads.length === 0) {
-      writeLog('TRIGGER', 'Sayfa yüklenirken DiUHNe API yanıtı henüz gelmedi. Buton ile tetikleme deneniyor...');
-      
-      try {
-        writeLog('TRIGGER', "'Herunterladen' butonu locator ile aranıyor...");
-        const btn = page.getByText('Herunterladen', { exact: true });
-        
-        if (btn) {
-          writeLog('TRIGGER', "Buton bulundu. Tıklama yapılıyor...");
-          await btn.click();
-          writeLog('TRIGGER', "✅ Tıklama gerçekleşti! Arka plan network yanıtları için 7 saniye bekleniyor...");
-          await new Promise(r => setTimeout(r, 7000));
-        } else {
-          writeLog('TRIGGER', "❌ 'Herunterladen' butonu locator ile bulunamadı!", true);
-        }
-      } catch (e) {
-        writeLog('TRIGGER', `Buton arama/tıklama aşamasında hata: ${e.message}`, true);
-      }
-    } else {
-      writeLog('TRIGGER', 'DiUHNe API yanıtı sayfa açılışında zaten yakalandı! Ekstra tıklama yapılmıyor.');
+    if (!rawRpcPayload) {
+      writeLog("⏳ API yanıtı bekleniyor (3 saniye)...");
+      await new Promise(r => setTimeout(r, 3000));
     }
 
-    // --------------------------------------------------
-    // SONUÇ VE DOSYALAMA
-    // --------------------------------------------------
-    writeLog('SUMMARY', `Toplam yakalanan DiUHNe API Yanıt Sayısı: ${capturedPayloads.length}`);
+    if (!rawRpcPayload) {
+      throw new Error("❌ 'DiUHNe' RPC yanıtı yakalanamadı!");
+    }
 
-    if (capturedPayloads.length > 0) {
-      const debugLogPath = path.join(__dirname, 'last_rpc_response.log');
-      fs.writeFileSync(debugLogPath, capturedPayloads[capturedPayloads.length - 1].body, 'utf8');
-      writeLog('SUMMARY', `✅ En son yakalanan ham API yanıtı diske yazıldı: ${debugLogPath}`);
+    // Lead'leri Çıkar
+    const fetchedLeads = extractLeadsFromRpc(rawRpcPayload);
+    writeLog(`🔎 Toplam ${fetchedLeads.length} potansiyel lead ayrıştırıldı.`);
+
+    const db = loadDatabase();
+    const existingIds = new Set(db.leads.map(l => l.id));
+    let newLeadsAdded = false;
+
+    for (const lead of fetchedLeads) {
+      if (existingIds.has(lead.id)) continue;
+
+      const sent = await sendTelegramMessage(lead);
+      lead.telegramSent = sent;
+
+      db.leads.push(lead);
+      existingIds.add(lead.id);
+      newLeadsAdded = true;
+      writeLog(`✅ Yeni Lead Eklendi ve Bildirildi: ID -> ${lead.id} (${lead.Hizmet})`);
+    }
+
+    if (newLeadsAdded) {
+      saveDatabaseSafe(db);
+      syncToGit();
     } else {
-      writeLog('SUMMARY', '❌ İşlem bitti fakat hiç DiUHNe yanıtı yakalanamadı.', true);
-      
-      // Ekran görüntüsü alarak DOM durumunu görelim
-      const ssPath = path.join(__dirname, 'debug-screen.png');
-      await page.screenshot({ path: ssPath, fullPage: true });
-      writeLog('SUMMARY', `Hata analizi için ekran görüntüsü alındı: ${ssPath}`);
+      writeLog("ℹ️ Yeni bir lead bulunamadı. Veritabanı güncel.");
     }
 
   } catch (err) {
-    writeLog('FATAL', `Kod çalışırken beklenmeyen bir hata fırlattı: ${err.message}`, true);
-    if (err.stack) {
-      writeLog('FATAL_STACK', err.stack, true);
-    }
+    writeLog(`Hata oluştu: ${err.message}`, true);
   } finally {
-    if (browser) {
-      writeLog('CLEANUP', 'Kapanış işlemleri: Tarayıcı kapatılıyor...');
-      await browser.close();
-      writeLog('CLEANUP', 'Tarayıcı kapatıldı.');
-    }
-    
+    if (browser) await browser.close();
     if (fs.existsSync(CONFIG.lockFilePath)) {
-      try { 
-        fs.unlinkSync(CONFIG.lockFilePath);
-        writeLog('CLEANUP', 'Lock dosyası kaldırıldı.');
-      } catch (_) {}
+      try { fs.unlinkSync(CONFIG.lockFilePath); } catch (_) {}
     }
-    writeLog('END', '================ PROCESS TAMAMLANDI ================');
+    writeLog("İşlem tamamlandı, lock kaldırıldı.");
   }
 }
 
