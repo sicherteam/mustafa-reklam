@@ -238,7 +238,21 @@ async function runLsaCollector() {
 
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
-    // Ağ Filtresi (Görselleri Engelleme)
+    // 🔹 GÜNCELLEME 1: YENİ NESİL CHROME İNDİRME İZİNLERİ (Headless: "new" için tam uyum)
+    const client = await page.target().createCDPSession();
+    await client.send('Page.setDownloadBehavior', {
+      behavior: 'allow',
+      downloadPath: CONFIG.downloadPath
+    });
+    // Chrome v115+ için ek indirme yetkisi
+    try {
+      await client.send('Browser.setDownloadBehavior', {
+        behavior: 'allow',
+        downloadPath: CONFIG.downloadPath,
+        eventsEnabled: true
+      });
+    } catch(e) {}
+
     await page.setRequestInterception(true);
     page.on('request', (req) => {
       if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
@@ -271,24 +285,52 @@ async function runLsaCollector() {
       }
     });
 
-    // İndirme İşlemi
+    // 🔹 GÜNCELLEME 2: GERÇEK İNSAN FARESİ SİMÜLASYONU VE KOORDİNAT TIKLAMASI
     writeLog("📥 CSV indirme butonu aranıyor ve sayfanın oturması bekleniyor...");
-    await new Promise(r => setTimeout(r, 3000)); // Google'ın Event Listener'ları yüklemesi için KRİTİK bekleme
+    await new Promise(r => setTimeout(r, 4000)); // Google'ın Event Listener'ları yüklemesi için KRİTİK bekleme
     
     let clicked = false;
     try {
-      // 1. Öncelikle görseldeki spesifik jsname özniteliğine göre native click at (Gerçek fare tıklamasını simüle eder)
-      const btn = await page.$('div[role="button"][jsname="I5dMCd"]');
+      const btnSelector = 'div[role="button"][jsname="I5dMCd"]';
+      await page.waitForSelector(btnSelector, { timeout: 10000 }).catch(() => null);
+      const btn = await page.$(btnSelector);
+
       if (btn) {
-        await btn.click();
-        clicked = true;
-      } else {
-        // 2. Bulamazsa sayfadaki tüm butonları gez ve metni 'HERUNTERLADEN' olana tıkla
+        // 1. Elementi tam ekranın ortasına kaydır
+        await page.evaluate(el => el.scrollIntoView({behavior: 'smooth', block: 'center'}), btn);
+        await new Promise(r => setTimeout(r, 1000));
+
+        // 2. Elementin X ve Y koordinatlarını al
+        const box = await btn.boundingBox();
+        if (box) {
+          const x = box.x + (box.width / 2);
+          const y = box.y + (box.height / 2);
+
+          writeLog(`🖱️ Gerçek fare simülasyonu ile tıklanıyor (X: ${Math.round(x)}, Y: ${Math.round(y)})...`);
+          
+          // 3. İnsan gibi fareyi elementin üzerine sürükle (mouseenter tetiklenir)
+          await page.mouse.move(x, y, { steps: 10 });
+          await new Promise(r => setTimeout(r, 300));
+          
+          // 4. Sol tıkla ve basılı tut (mousedown tetiklenir)
+          await page.mouse.down();
+          await new Promise(r => setTimeout(r, 150)); // 150ms insani basılı tutma süresi
+          
+          // 5. Parmağı fareden çek (mouseup ve click tetiklenir)
+          await page.mouse.up();
+          clicked = true;
+          writeLog("✅ Koordinat bazlı tıklama başarılı.");
+        }
+      }
+
+      // Eğer koordinat bulamazsa Yedek Plan (Standart JS click)
+      if (!clicked) {
+        writeLog("⚠️ Yedek tıklama planına geçiliyor...");
         const buttons = await page.$$('div[role="button"]');
         for (const el of buttons) {
           const text = await page.evaluate(e => e.innerText || e.textContent || '', el);
           if (text.toUpperCase().includes('HERUNTERLADEN')) {
-            await el.click();
+            await page.evaluate(e => e.click(), el);
             clicked = true;
             break;
           }
