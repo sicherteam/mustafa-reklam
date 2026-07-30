@@ -176,9 +176,19 @@ function clearChromeLocks() {
 
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
+    // 🌐 OPTİMİZASYON 1: GELİŞMİŞ AĞ/KAYNAK ENGELLEME
     await page.setRequestInterception(true);
     page.on('request', (req) => {
-      if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
+      const url = req.url().toLowerCase();
+      const resourceType = req.resourceType();
+
+      if (
+        ['image', 'stylesheet', 'font', 'media'].includes(resourceType) ||
+        url.includes('google-analytics') ||
+        url.includes('analytics') ||
+        url.includes('doubleclick') ||
+        url.includes('favicon')
+      ) {
         req.abort();
       } else {
         req.continue();
@@ -282,14 +292,14 @@ function clearChromeLocks() {
         continue;
       }
 
-      // 🔹 ESKİ KAYIT KONTROLÜ (Diskteki data.json Check)
+      // 🚀 OPTİMİZASYON 2: DÖNGÜ BAŞINDA ESKİ KAYIT (TELEFON VEYA MESAJ) KONTROLÜ
       const existingLead = previousLeads.find(old => old.id === currentMd5);
 
       if (existingLead) {
         console.log(`⚡ [SKIP] Eski kayıt (Telefon/Mesaj) atlandı: ${existingLead.Musteri} (${currentMd5})`);
         sessionIds.add(currentMd5);
         freshLeads.push(existingLead);
-        continue;
+        continue; // 🛑 Tıklama yapılmadan doğrudan bir sonraki kayda geçer!
       }
 
       // 2. SADECE YENİ MESAJLI KAYITLAR İÇİN TIKLAMA VE DETAY OKUMA
