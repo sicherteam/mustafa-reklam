@@ -8,10 +8,10 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
 // ==========================================
-// TEST MODU
+// TEST / CANLI MOD AYARLARI
 // ==========================================
-const SKIP_TELEGRAM = true; // Test bittikten sonra 'false' yapın
-const SKIP_GIT_PUSH = true;  // Test bittikten sonra 'false' yapın
+const SKIP_TELEGRAM = true;  // Telegram bildirimleri KAPALI (Canlıya alırken 'false' yapın)
+const SKIP_GIT_PUSH = false; // Git senkronizasyonu AKTİF
 
 // ==========================================
 // 1. YAPILANDIRMA (CONFIG)
@@ -149,7 +149,7 @@ function extractLeadsFromRpc(rawText) {
 // ==========================================
 async function sendTelegramMessage(lead, retries = 3) {
   if (SKIP_TELEGRAM) {
-    writeLog(`⚠️ TEST MODU: Telegram bildirimi atlandı. (Lead ID: ${lead.id})`);
+    writeLog(`⚠️ MOD: Telegram bildirimi atlandı. (Lead ID: ${lead.id})`);
     return true;
   }
 
