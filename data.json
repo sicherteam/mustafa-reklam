@@ -1,6 +1,14 @@
 {
-  "updatedAt": "29.7.2026, 23:41:16",
+  "updatedAt": "30.7.2026, 12:36:47",
   "leads": [
+    {
+      "Musteri": "0676 7774684",
+      "Hizmet": "-",
+      "Konum": "Klosterneuburg",
+      "Tarih": "30.07.26 10:30",
+      "Mesaj": "-",
+      "telegramSent": true
+    },
     {
       "Musteri": "Müşteri",
       "Hizmet": "Umzug im Inland",
@@ -46,7 +54,7 @@
       "Hizmet": "Umzug im Inland",
       "Konum": "Biedermannsdorf",
       "Tarih": "29.07.26 07:17",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege).",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 7:17 AM\nGuten Tag, wir bräuchten eine Übersiedlung von Biedermannsdorf nach Ternitz ! 5 Ikea Kästen 236 x 100x60 mit 5 Türen. MFG Alexandra",
       "telegramSent": true
     },
     {
@@ -118,7 +126,7 @@
       "Hizmet": "Umzug im Inland",
       "Konum": "Wien",
       "Tarih": "28.07.26 09:14",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:14 AM\nSehr geehrte Damen und Herren, ich suche für Freitag, den 31.07.26, ein verlässliches Umzugsunternehmen für eine Einzelfahrt von 1230 Wien (Liesing) nach Felixdorf (Niederösterreich). Folgendes Ladegut muss transportiert werden (1 Fuhr): 1 Sofa, 10 Umzugskartons, 4 IKEA Pax-Schränke (WICHTIG: Die Schränke bleiben komplett aufgebaut, Einlägefächer sowie Türen werden demontiert). Rahmenbedingungen: Startort 1230 Wien, Walter-Jurmann-Gasse 7/14, 2. Stock, ein Personenaufzug ist vorhanden. Zielort 2603 Felixdorf: Einfamilienhaus (direkte Zufahrt und Entladung im Erdgeschoss/Erdwege).",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 12:47 PM\nHallo Umzug vom 7 ten in den 11 ten",
       "telegramSent": true
     },
     {
@@ -134,14 +142,6 @@
       "Hizmet": "Beförderung von Umzugsgut",
       "Konum": "Wien",
       "Tarih": "28.07.26 08:21",
-      "Mesaj": "-",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 884001190",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "28.07.26 06:52",
       "Mesaj": "-",
       "telegramSent": true
     },
