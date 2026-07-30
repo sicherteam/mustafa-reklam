@@ -81,24 +81,43 @@ function clearChromeLocks() {
 }
 
 // ==========================================
-// PARSER (GELEN RPC YANITINI COZUMLEME)
+// PARSER (GOOGLE RPC YANITINI COZUMLEME)
 // ==========================================
 function parseDiUHNePayload(rawText) {
   const leads = [];
   try {
-    // 1. JSON sarmalından kurtul
-    let cleanJsonStr = rawText;
-    if (rawText.startsWith(")]}'\n")) {
-      cleanJsonStr = rawText.substring(5);
+    // 1. Google güvenlik ön ekini temizle
+    let cleanText = rawText.replace(/^\)\]\}'\n/, '').trim();
+
+    // 2. Batchexecute yanıtı çoklu satırlar halinde gelir, "DiUHNe" içeren satırı bul
+    const lines = cleanText.split('\n');
+    let innerPayloadStr = null;
+
+    for (const line of lines) {
+      if (!line.includes('DiUHNe')) continue;
+      
+      const firstBracket = line.indexOf('[');
+      const lastBracket = line.lastIndexOf(']');
+      
+      if (firstBracket !== -1 && lastBracket !== -1 && lastBracket > firstBracket) {
+        try {
+          const chunk = line.substring(firstBracket, lastBracket + 1);
+          const parsedChunk = JSON.parse(chunk);
+          if (Array.isArray(parsedChunk) && parsedChunk[0] && parsedChunk[0][2]) {
+            innerPayloadStr = parsedChunk[0][2];
+            break;
+          }
+        } catch (_) {}
+      }
     }
 
-    const outerParsed = JSON.parse(cleanJsonStr);
-    
-    // Google RPC formatı: [["wrb.fr", "DiUHNe", "PAYLOAD_STRING", ...]]
-    const innerPayloadStr = outerParsed[0][2];
-    const data = JSON.parse(innerPayloadStr);
+    if (!innerPayloadStr) {
+      writeLog("⚠️ 'DiUHNe' iç paketi string içerisinden süzülemedi.", true);
+      return leads;
+    }
 
-    // Lead listesi data[1] altındaki dizidedir
+    // 3. İç veriyi (Lead dizisini) ayrıştır
+    const data = JSON.parse(innerPayloadStr);
     const leadItems = data[1] || [];
 
     for (const item of leadItems) {
@@ -110,7 +129,7 @@ function parseDiUHNePayload(rawText) {
       const leadId = meta[0] || `lsa_${Date.now()}`;
       const timestampMicro = meta[10] || meta[11] || Date.now() * 1000;
       
-      // Hizmet Adını Al
+      // Hizmet Adı
       let serviceName = "Umzugsdienst";
       if (meta[5] && meta[5][6] && meta[5][6][1] && meta[5][6][1][1]) {
         serviceName = meta[5][6][1][1];
@@ -118,19 +137,19 @@ function parseDiUHNePayload(rawText) {
         serviceName = meta[5][7][1];
       }
 
-      // Müşteri Detaylarını Al
+      // Müşteri Detayları
       const realPhone = contact[3] || "-";
       const email = contact[7] || "-";
       const city = (contact[8] && contact[8][1]) ? contact[8][1] : "Wien / Österreich";
       const googleForwardPhone = meta[21] || "-";
 
-      // Tarih Hesapla
+      // Tarih Hesaplama
       const ms = Math.floor(parseInt(timestampMicro, 10) / 1000);
       const formattedDate = !isNaN(ms) 
         ? new Date(ms).toLocaleString('de-AT', { timeZone: 'Europe/Vienna' })
         : new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
 
-      // Müşteri İsmi (Email'den veya varsayılan)
+      // Müşteri İsmi (E-postadan türetme)
       let customerName = "Google LSA Müşterisi";
       if (email !== "-") {
         customerName = email.split('@')[0].replace(/[._]/g, ' ');
