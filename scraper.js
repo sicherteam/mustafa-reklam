@@ -1,16 +1,14 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
 const { execSync } = require('child_process');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-const csvParser = require('csv-parser');
 
 puppeteer.use(StealthPlugin());
 
 // ==========================================
-// 1. KONTROL VE YAPILANDIRMA (CONFIG)
+// 1. YAPILANDIRMA (CONFIG)
 // ==========================================
 const CONFIG = {
   projectName: 'Mustafa Reklam',
@@ -18,184 +16,62 @@ const CONFIG = {
   telegramChatId: process.env.TELEGRAM_CHAT_ID || 'YOUR_TELEGRAM_CHAT_ID',
   dataFilePath: path.join(__dirname, 'data.json'),
   userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
-  downloadPath: '/home/yasin2celik/Downloads',
-  sabitCsvPath: path.resolve(__dirname, 'downloads', 'latest_leads.csv'),
   lockFilePath: path.join(__dirname, 'bot.lock'),
   targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
   executablePath: '/usr/bin/google-chrome'
 };
 
-const GERMAN_MONTHS = {
-  'jan': '01', 'januar': '01', 'feb': '02', 'februar': '02',
-  'mär': '03', 'märz': '03', 'maerz': '03', 'apr': '04', 'april': '04',
-  'mai': '05', 'jun': '06', 'juni': '06', 'jul': '07', 'juli': '07',
-  'aug': '08', 'august': '08', 'sep': '09', 'sept': '09', 'september': '09',
-  'okt': '10', 'oktober': '10', 'nov': '11', 'november': '11', 'dez': '12', 'dezember': '12'
-};
-
 // ==========================================
-// 2. YARDIMCI FONKSİYONLAR
+// 2. GELİŞMİŞ LOGLAMA VE SİSTEM YARDIMCILARI
 // ==========================================
-function writeLog(msg, isError = false) {
+function writeLog(stage, msg, isError = false) {
   const timestamp = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
-  const formattedMsg = `[${timestamp}] ${isError ? '❌ ERROR: ' : 'ℹ️ INFO: '}${msg}`;
-  if (isError) console.error(formattedMsg);
-  else console.log(formattedMsg);
-}
-
-function escapeHTML(str) {
-  if (!str) return '';
-  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-function safeStr(val) {
-  if (val === null || val === undefined) return '';
-  const strVal = String(val).trim();
-  if (['null', 'undefined', 'nan'].includes(strVal.toLowerCase())) return '';
-  return strVal;
-}
-
-function parseCsvDate(dateStr) {
-  const clean = safeStr(dateStr);
-  if (!clean || clean === '-') return '-';
-  const match = clean.match(/(\d{1,2})\.\s*([A-Za-zäöüÄÖÜ]+)\s+(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/);
-  if (match) {
-    const day = match[1].padStart(2, '0');
-    const monthStr = match[2].toLowerCase();
-    const month = GERMAN_MONTHS[monthStr] || '01';
-    const year = match[3].slice(-2);
-    const timePart = match[4] ? ` ${match[4].padStart(2, '0')}:${match[5]}` : '';
-    return `${day}.${month}.${year}${timePart}`;
-  }
-  return clean;
-}
-
-function loadDatabase() {
-  if (!fs.existsSync(CONFIG.dataFilePath)) {
-    return { updatedAt: new Date().toISOString(), leads: [] };
-  }
-  try {
-    return JSON.parse(fs.readFileSync(CONFIG.dataFilePath, 'utf8'));
-  } catch (err) {
-    writeLog(`data.json okunurken hata: ${err.message}`, true);
-    return { updatedAt: new Date().toISOString(), leads: [] };
-  }
-}
-
-function saveDatabaseSafe(data) {
-  const tempPath = `${CONFIG.dataFilePath}.tmp`;
-  data.updatedAt = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
-  fs.writeFileSync(tempPath, JSON.stringify(data, null, 2), 'utf8');
-  fs.renameSync(tempPath, CONFIG.dataFilePath);
-}
-
-function syncToGit() {
-  try {
-    writeLog("Git senkronizasyonu başlatılıyor...");
-    execSync('git add data.json', { cwd: __dirname });
-    execSync('git commit -m "auto: update LSA leads database [skip ci]"', { cwd: __dirname });
-    execSync('git push origin main', { cwd: __dirname });
-    writeLog("✅ Git'e başarıyla push edildi.");
-  } catch (err) {
-    writeLog(`Git Sync uyarısı: ${err.message}`, true);
+  const prefix = isError ? '❌ [ERROR]' : 'ℹ️ [INFO]';
+  const formattedMsg = `[${timestamp}] ${prefix} [${stage}] => ${msg}`;
+  if (isError) {
+    console.error(formattedMsg);
+  } else {
+    console.log(formattedMsg);
   }
 }
 
 function clearChromeLocks() {
+  writeLog('INIT', 'Chrome kilit dosyaları temizleniyor...');
   const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket', 'DevToolsActivePort'];
   locks.forEach(lock => {
     const lockPath = path.join(CONFIG.userDataPath, lock);
     if (fs.existsSync(lockPath)) {
-      try { fs.unlinkSync(lockPath); } catch (_) {}
+      try { 
+        fs.unlinkSync(lockPath);
+        writeLog('INIT', `Kilit dosyası silindi: ${lock}`);
+      } catch (e) {
+        writeLog('INIT', `Kilit dosyası silinemedi (${lock}): ${e.message}`, true);
+      }
     }
   });
 }
 
 // ==========================================
-// 3. TELEGRAM BİLDİRİM
-// ==========================================
-async function sendTelegramMessage(lead, retries = 3) {
-  if (!CONFIG.telegramToken || !CONFIG.telegramChatId || CONFIG.telegramToken === 'YOUR_TELEGRAM_BOT_TOKEN') {
-    writeLog("Telegram konfigürasyonu eksik!", true);
-    return false;
-  }
-
-  const phoneStr = lead["Telefon"] && lead["Telefon"] !== '-' 
-    ? `\n📞 <b>Telefon:</b> <code>${escapeHTML(lead["Telefon"])}</code>` 
-    : '';
-
-  const message = `🔔 <b>YENİ Müşteri!</b> (${escapeHTML(CONFIG.projectName)})\n\n` +
-                  `👤 <b>Müşteri:</b> ${escapeHTML(lead["Musteri"])}${phoneStr}\n` +
-                  `📍 <b>Konum:</b> ${escapeHTML(lead["Konum"])}\n` +
-                  `💼 <b>Hizmet:</b> ${escapeHTML(lead["Hizmet"])}\n` +
-                  `📅 <b>Tarih:</b> ${escapeHTML(lead["Tarih"])}\n` +
-                  `💬 <b>İletişim / Mesaj:</b> ${escapeHTML(lead["Mesaj"])}`;
-
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      const res = await fetch(`https://api.telegram.org/bot${CONFIG.telegramToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CONFIG.telegramChatId,
-          text: message,
-          parse_mode: 'HTML'
-        })
-      });
-
-      if (res.ok) return true;
-      if (res.status === 429) await new Promise(r => setTimeout(r, 3500 * attempt));
-    } catch (err) {
-      await new Promise(r => setTimeout(r, 2000));
-    }
-  }
-  return false;
-}
-
-// ==========================================
-// 4. MESAJ TIKLAMA MANTIGI
-// ==========================================
-async function clickLeadByAnfrageId(page, targetAnfrageId) {
-  return await page.evaluate((anfrageId) => {
-    const rows = Array.from(document.querySelectorAll('tr, [role="row"]'));
-    for (const row of rows) {
-      if (row.innerText && row.innerText.includes(anfrageId)) {
-        const targetElement = row.querySelector('td, [role="gridcell"]') || row;
-        targetElement.dispatchEvent(new MouseEvent('click', { view: window, bubbles: true, cancelable: true }));
-        return true;
-      }
-    }
-    return false;
-  }, targetAnfrageId);
-}
-
-// ==========================================
-// 5. ANA MOTOR
+// 3. ANA MOTOR (DEBUG & INTERCEPTOR)
 // ==========================================
 async function runLsaCollector() {
+  writeLog('START', '================ PROCESS BAŞLATILDI ================');
+  
   if (fs.existsSync(CONFIG.lockFilePath)) {
-    writeLog("Çalışan başka bir işlem var (Lock file mevcut). İptal edildi.");
+    writeLog('LOCK_CHECK', 'Çalışan başka bir işlem var (bot.lock mevcut). İptal ediliyor.', true);
     return;
   }
 
   fs.writeFileSync(CONFIG.lockFilePath, process.pid.toString());
+  writeLog('LOCK_CHECK', `Lock dosyası oluşturuldu. PID: ${process.pid}`);
+
   let browser;
-  let hasNewLeadsAdded = false;
+  let capturedPayloads = [];
 
   try {
-    if (!fs.existsSync(CONFIG.downloadPath)) fs.mkdirSync(CONFIG.downloadPath, { recursive: true });
-    const localDownloads = path.dirname(CONFIG.sabitCsvPath);
-    if (!fs.existsSync(localDownloads)) fs.mkdirSync(localDownloads, { recursive: true });
-
-    // Temizlik
-    fs.readdirSync(CONFIG.downloadPath).forEach(f => {
-      if (f.startsWith('leads-inbox') && f.endsWith('.csv')) {
-        try { fs.unlinkSync(path.join(CONFIG.downloadPath, f)); } catch (_) {}
-      }
-    });
-
     clearChromeLocks();
 
+    writeLog('BROWSER', 'Puppeteer başlatılıyor...');
     browser = await puppeteer.launch({
       headless: "new",
       executablePath: CONFIG.executablePath,
@@ -212,190 +88,129 @@ async function runLsaCollector() {
         '--no-default-browser-check'
       ]
     });
+    writeLog('BROWSER', 'Puppeteer başarıyla başlatıldı.');
 
     const page = await browser.newPage();
+    writeLog('PAGE', 'Yeni sekme açıldı ve varsayılan ayarlar yapılıyor.');
+    
     await page.setViewport({ width: 1920, height: 1080 });
     page.setDefaultTimeout(60000);
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
-    writeLog("🚀 LSA Inbox sayfasına gidiliyor...");
-    await page.goto(CONFIG.targetUrl, { waitUntil: 'domcontentloaded' });
+    // --------------------------------------------------
+    // NETWORK TRAFİK DINLEYICI (TAM KONTROL)
+    // --------------------------------------------------
+    writeLog('NETWORK', 'Network dinleyicileri (request/response) aktif ediliyor...');
 
-    const pageTitle = await page.title();
-    writeLog(`Sayfa Başlığı: ${pageTitle}`);
-
-    if (/Anmelden|Sign in|YouTube|Error|504|Serverfehler/i.test(pageTitle)) {
-      throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
-    }
-
-    // CDP İndirme Protokolü
-    const client = await page.target().createCDPSession();
-    await client.send('Page.setDownloadBehavior', {
-      behavior: 'allow',
-      downloadPath: CONFIG.downloadPath
-    });
-
-    client.on('Browser.downloadWillBegin', event => {
-      writeLog("📥 DOWNLOAD BAŞLADI: " + event.suggestedFilename);
-    });
-
-    client.on('Browser.downloadProgress', event => {
-      writeLog(
-        "📥 DOWNLOAD STATUS: " +
-        event.state +
-        " " +
-        event.receivedBytes
-      );
-    });
-
-    writeLog("📥 CSV indirme butonu aranıyor...");
-    await new Promise(r => setTimeout(r, 5000));
-    
-    let clicked = false;
-    try {
-      // 🎯 PUPPETEER LOCATOR İLE "Herunterladen" BUTONUNU YAKALAMA VE TIKLAMA
-      const btn = page.getByText('Herunterladen', { exact: true });
-
-      if (btn) {
-        writeLog("🎯 'Herunterladen' butonu locator ile bulundu, tıklanıyor...");
-        await btn.click();
-        clicked = true;
-        writeLog("✅ Locator click başarıyla tetiklendi.");
-        await new Promise(r => setTimeout(r, 3000));
+    page.on('request', req => {
+      const url = req.url();
+      if (url.includes('batchexecute')) {
+        writeLog('NETWORK_REQ', `[batchexecute İSTEĞİ ATILDI] URL: ${url.substring(0, 110)}... Method: ${req.method()}`);
       }
-
-      await page.screenshot({
-        path: 'download-after-click.png'
-      });
-      writeLog("📸 'download-after-click.png' kaydedildi.");
-
-    } catch (e) {
-      writeLog(`Tıklama mekanizması hatası: ${e.message}`, true);
-    }
-
-    if (!clicked) throw new Error("❌ 'HERUNTERLADEN' butonu bulunamadı veya tıklanamadı!");
-
-    writeLog("⏳ CSV dosyasının inmesi bekleniyor...");
-    let rawDownloadedFile = null;
-    const startTime = Date.now();
-
-    while (Date.now() - startTime < 15000) {
-      const files = fs.readdirSync(CONFIG.downloadPath);
-      const csvFile = files.find(f =>
-        f.startsWith('leads-inbox') &&
-        f.endsWith('.csv') &&
-        !f.includes('(1)')
-      );
-
-      if (csvFile) {
-        rawDownloadedFile = path.join(CONFIG.downloadPath, csvFile);
-        break;
-      }
-      await new Promise(r => setTimeout(r, 500));
-    }
-
-    if (!rawDownloadedFile) {
-      throw new Error("❌ CSV dosyası indirilemedi (zaman aşıldı).");
-    }
-
-    // Üstüne yazma ve proje içine taşıma mantığı
-    if (fs.existsSync(CONFIG.sabitCsvPath)) fs.unlinkSync(CONFIG.sabitCsvPath);
-    fs.renameSync(rawDownloadedFile, CONFIG.sabitCsvPath);
-    writeLog(`✅ Dosya taşındı ve güncellendi: ${CONFIG.sabitCsvPath}`);
-
-    // Parse Etme
-    const rawRows = [];
-    await new Promise((resolve) => {
-      fs.createReadStream(CONFIG.sabitCsvPath)
-        .pipe(csvParser())
-        .on('data', (row) => rawRows.push(row))
-        .on('end', resolve);
     });
 
-    const db = loadDatabase();
-    const existingIds = new Set(db.leads.map(l => l.id));
+    page.on('response', async res => {
+      const url = res.url();
+      const status = res.status();
 
-    for (const row of rawRows) {
-      const anfrageId = safeStr(row['Anfrage-ID'] || row['ID']);
-      const rawKunde = safeStr(row['Kunde']);
-      const rawHizmet = safeStr(row['Art der Dienstleistung']);
-      const location = safeStr(row['Standort']) || '-';
-      const requestType = safeStr(row['Art der Anfrage']) || 'Anfrage';
-      const formattedDate = parseCsvDate(row['Anfrage erhalten']);
-
-      let customerName = 'Müşteri';
-      let phone = safeStr(row['Telefonnummer'] || row['Telefon']);
-
-      if (rawKunde) {
-        if (/\d{5,}/.test(rawKunde) && (!phone || phone === '-')) phone = rawKunde;
-        else if (!/\d{5,}/.test(rawKunde)) customerName = rawKunde;
-      }
-
-      const service = (rawHizmet && rawHizmet !== '-') ? rawHizmet : '-';
-      const phoneClean = (phone && phone.length > 5) ? phone : '-';
-      const leadId = anfrageId ? `lsa_${anfrageId}` : crypto.createHash('md5').update(`${customerName}_${location}_${formattedDate}`).digest('hex');
-
-      if (existingIds.has(leadId)) continue;
-
-      let messageText = requestType;
-      const isSmsOrNachricht = /SMS|Nachricht|Text/i.test(requestType);
-
-      if (isSmsOrNachricht && anfrageId) {
-        writeLog(`Yeni mesaj tespit edildi. Anfrage-ID (${anfrageId}) tıklanıyor...`);
-        const targetFound = await clickLeadByAnfrageId(page, anfrageId);
+      if (url.includes('batchexecute')) {
+        writeLog('NETWORK_RES', `[batchexecute YANIT GELDİ] Status: ${status} | URL: ${url.substring(0, 110)}...`);
         
-        if (targetFound) {
-          await new Promise(r => setTimeout(r, 2000));
-          const extractedMsg = await page.evaluate(() => {
-            const container = document.querySelector('div[role="dialog"], [class*="Unterhaltung"], div[class*="detail"]');
-            if (!container) return null;
-            const text = container.innerText || '';
-            const match = text.match(/Unterhaltung\n([\s\S]*)/i);
-            return match ? match[1].trim() : text.trim();
-          });
-
-          if (extractedMsg) messageText = extractedMsg;
-
-          await page.evaluate(() => {
-            const backBtn = document.querySelector('button[aria-label*="Zurück"], button[aria-label*="Close"], div[role="button"][aria-label*="Zurück"]');
-            if (backBtn) backBtn.click();
-            else window.history.back();
-          });
-          await new Promise(r => setTimeout(r, 1500));
+        if (url.includes('DiUHNe')) {
+          writeLog('TARGET_API', '🎯🎯🎯 Aranan RPC ID (DiUHNe) Yakalandı!');
+          try {
+            const body = await res.text();
+            writeLog('TARGET_API', `Gelen Yanıt Boyutu: ${body.length} Byte`);
+            writeLog('TARGET_API', `Yanıt Önizleme (İlk 300 Karakter): ${body.substring(0, 300).replace(/\r?\n|\r/g, ' ')}`);
+            capturedPayloads.push({ timestamp: new Date().toISOString(), body });
+          } catch (e) {
+            writeLog('TARGET_API', `Yanıt gövdesi (text) okunamadı: ${e.message}`, true);
+          }
         }
       }
+    });
 
-      const newLead = {
-        id: leadId,
-        Musteri: customerName,
-        Telefon: phoneClean,
-        Hizmet: service,
-        Konum: location,
-        Tarih: formattedDate,
-        Mesaj: messageText,
-        telegramSent: false
-      };
+    // --------------------------------------------------
+    // NAVİGASYON ADIMI
+    // --------------------------------------------------
+    writeLog('GOTO', `Hedef adrese gidiliyor: ${CONFIG.targetUrl}`);
+    const gotoResponse = await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
+    
+    writeLog('GOTO', `Sayfa yüklendi. HTTP Status Code: ${gotoResponse ? gotoResponse.status() : 'N/A'}`);
 
-      const sent = await sendTelegramMessage(newLead);
-      newLead.telegramSent = sent;
+    const pageTitle = await page.title();
+    writeLog('DOM_CHECK', `Sayfa Başlığı: "${pageTitle}"`);
 
-      db.leads.push(newLead);
-      existingIds.add(leadId);
-      saveDatabaseSafe(db);
-      hasNewLeadsAdded = true;
-      writeLog(`✅ Yeni Lead Kaydedildi ve Bildirildi: ID -> ${leadId}`);
+    if (/Anmelden|Sign in|YouTube|Error|504|Serverfehler/i.test(pageTitle)) {
+      writeLog('DOM_CHECK', `Oturum kapalı veya engelleme var! Başlık uyuştu: ${pageTitle}`, true);
+      throw new Error(`Oturum açılamadı veya erişim engellendi. Title: ${pageTitle}`);
     }
 
-    if (hasNewLeadsAdded) syncToGit();
+    // --------------------------------------------------
+    // BUTON ETKİLEŞİMİ VE TETİKLEME
+    // --------------------------------------------------
+    writeLog('WAIT', 'Sayfa bileşenlerinin tam oturması için 3 saniye bekleniyor...');
+    await new Promise(r => setTimeout(r, 3000));
+
+    if (capturedPayloads.length === 0) {
+      writeLog('TRIGGER', 'Sayfa yüklenirken DiUHNe API yanıtı henüz gelmedi. Buton ile tetikleme deneniyor...');
+      
+      try {
+        writeLog('TRIGGER', "'Herunterladen' butonu locator ile aranıyor...");
+        const btn = page.getByText('Herunterladen', { exact: true });
+        
+        if (btn) {
+          writeLog('TRIGGER', "Buton bulundu. Tıklama yapılıyor...");
+          await btn.click();
+          writeLog('TRIGGER', "✅ Tıklama gerçekleşti! Arka plan network yanıtları için 7 saniye bekleniyor...");
+          await new Promise(r => setTimeout(r, 7000));
+        } else {
+          writeLog('TRIGGER', "❌ 'Herunterladen' butonu locator ile bulunamadı!", true);
+        }
+      } catch (e) {
+        writeLog('TRIGGER', `Buton arama/tıklama aşamasında hata: ${e.message}`, true);
+      }
+    } else {
+      writeLog('TRIGGER', 'DiUHNe API yanıtı sayfa açılışında zaten yakalandı! Ekstra tıklama yapılmıyor.');
+    }
+
+    // --------------------------------------------------
+    // SONUÇ VE DOSYALAMA
+    // --------------------------------------------------
+    writeLog('SUMMARY', `Toplam yakalanan DiUHNe API Yanıt Sayısı: ${capturedPayloads.length}`);
+
+    if (capturedPayloads.length > 0) {
+      const debugLogPath = path.join(__dirname, 'last_rpc_response.log');
+      fs.writeFileSync(debugLogPath, capturedPayloads[capturedPayloads.length - 1].body, 'utf8');
+      writeLog('SUMMARY', `✅ En son yakalanan ham API yanıtı diske yazıldı: ${debugLogPath}`);
+    } else {
+      writeLog('SUMMARY', '❌ İşlem bitti fakat hiç DiUHNe yanıtı yakalanamadı.', true);
+      
+      // Ekran görüntüsü alarak DOM durumunu görelim
+      const ssPath = path.join(__dirname, 'debug-screen.png');
+      await page.screenshot({ path: ssPath, fullPage: true });
+      writeLog('SUMMARY', `Hata analizi için ekran görüntüsü alındı: ${ssPath}`);
+    }
 
   } catch (err) {
-    writeLog(`İşlem sırasında beklenmeyen hata: ${err.message}`, true);
-  } finally {
-    if (browser) await browser.close();
-    if (fs.existsSync(CONFIG.lockFilePath)) {
-      try { fs.unlinkSync(CONFIG.lockFilePath); } catch (_) {}
+    writeLog('FATAL', `Kod çalışırken beklenmeyen bir hata fırlattı: ${err.message}`, true);
+    if (err.stack) {
+      writeLog('FATAL_STACK', err.stack, true);
     }
-    writeLog("Döngü tamamlandı, kilit kaldırıldı.");
+  } finally {
+    if (browser) {
+      writeLog('CLEANUP', 'Kapanış işlemleri: Tarayıcı kapatılıyor...');
+      await browser.close();
+      writeLog('CLEANUP', 'Tarayıcı kapatıldı.');
+    }
+    
+    if (fs.existsSync(CONFIG.lockFilePath)) {
+      try { 
+        fs.unlinkSync(CONFIG.lockFilePath);
+        writeLog('CLEANUP', 'Lock dosyası kaldırıldı.');
+      } catch (_) {}
+    }
+    writeLog('END', '================ PROCESS TAMAMLANDI ================');
   }
 }
 
