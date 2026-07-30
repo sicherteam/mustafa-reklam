@@ -105,7 +105,7 @@ function syncToGit() {
 }
 
 function clearChromeLocks() {
-  const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket'];
+  const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket', 'DevToolsActivePort'];
   locks.forEach(lock => {
     const lockPath = path.join(CONFIG.userDataPath, lock);
     if (fs.existsSync(lockPath)) {
@@ -199,12 +199,11 @@ async function runLsaCollector() {
   try {
     if (!fs.existsSync(CONFIG.downloadPath)) fs.mkdirSync(CONFIG.downloadPath, { recursive: true });
 
-    // Düzeltme: Dosyada kalmış olan eski .csv dosyalarını temizle
+    // Eski .csv dosyalarını temizle
     fs.readdirSync(CONFIG.downloadPath).forEach(f => {
       if (f.endsWith('.csv')) fs.unlinkSync(path.join(CONFIG.downloadPath, f));
     });
 
-    // 1. BÖLÜM: TARAYICI İŞLEMLERİ (Robust Initialization)
     clearChromeLocks();
 
     browser = await puppeteer.launch({
@@ -238,13 +237,13 @@ async function runLsaCollector() {
 
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
-    // 🔹 GÜNCELLEME 1: YENİ NESİL CHROME İNDİRME İZİNLERİ (Headless: "new" için tam uyum)
+    // CDP İndirme İzinleri (Tekil tanım)
     const client = await page.target().createCDPSession();
     await client.send('Page.setDownloadBehavior', {
       behavior: 'allow',
       downloadPath: CONFIG.downloadPath
     });
-    // Chrome v115+ için ek indirme yetkisi
+
     try {
       await client.send('Browser.setDownloadBehavior', {
         behavior: 'allow',
@@ -260,12 +259,6 @@ async function runLsaCollector() {
       } else {
         req.continue();
       }
-    });
-
-    const client = await page.target().createCDPSession();
-    await client.send('Page.setDownloadBehavior', {
-      behavior: 'allow',
-      downloadPath: CONFIG.downloadPath
     });
 
     writeLog("🚀 LSA Inbox sayfasına gidiliyor...");
@@ -285,9 +278,8 @@ async function runLsaCollector() {
       }
     });
 
-    // 🔹 GÜNCELLEME 2: GERÇEK İNSAN FARESİ SİMÜLASYONU VE KOORDİNAT TIKLAMASI
     writeLog("📥 CSV indirme butonu aranıyor ve sayfanın oturması bekleniyor...");
-    await new Promise(r => setTimeout(r, 4000)); // Google'ın Event Listener'ları yüklemesi için KRİTİK bekleme
+    await new Promise(r => setTimeout(r, 4000));
     
     let clicked = false;
     try {
@@ -296,11 +288,9 @@ async function runLsaCollector() {
       const btn = await page.$(btnSelector);
 
       if (btn) {
-        // 1. Elementi tam ekranın ortasına kaydır
         await page.evaluate(el => el.scrollIntoView({behavior: 'smooth', block: 'center'}), btn);
         await new Promise(r => setTimeout(r, 1000));
 
-        // 2. Elementin X ve Y koordinatlarını al
         const box = await btn.boundingBox();
         if (box) {
           const x = box.x + (box.width / 2);
@@ -308,22 +298,16 @@ async function runLsaCollector() {
 
           writeLog(`🖱️ Gerçek fare simülasyonu ile tıklanıyor (X: ${Math.round(x)}, Y: ${Math.round(y)})...`);
           
-          // 3. İnsan gibi fareyi elementin üzerine sürükle (mouseenter tetiklenir)
           await page.mouse.move(x, y, { steps: 10 });
           await new Promise(r => setTimeout(r, 300));
-          
-          // 4. Sol tıkla ve basılı tut (mousedown tetiklenir)
           await page.mouse.down();
-          await new Promise(r => setTimeout(r, 150)); // 150ms insani basılı tutma süresi
-          
-          // 5. Parmağı fareden çek (mouseup ve click tetiklenir)
+          await new Promise(r => setTimeout(r, 150));
           await page.mouse.up();
           clicked = true;
           writeLog("✅ Koordinat bazlı tıklama başarılı.");
         }
       }
 
-      // Eğer koordinat bulamazsa Yedek Plan (Standart JS click)
       if (!clicked) {
         writeLog("⚠️ Yedek tıklama planına geçiliyor...");
         const buttons = await page.$$('div[role="button"]');
@@ -342,7 +326,6 @@ async function runLsaCollector() {
 
     if (!clicked) throw new Error("❌ 'HERUNTERLADEN' butonu bulunamadı veya tıklanamadı!");
 
-    // CSV Dosyasının İnməsini Bekle
     writeLog("⏳ CSV dosyasının inmesi bekleniyor...");
     let downloadedFilePath = null;
     const startTime = Date.now();
@@ -362,7 +345,6 @@ async function runLsaCollector() {
 
     writeLog(`✅ CSV İndirildi: ${downloadedFilePath}. Okunuyor...`);
 
-    // CSV Parse
     const rawRows = [];
     await new Promise((resolve) => {
       fs.createReadStream(downloadedFilePath)
@@ -374,7 +356,6 @@ async function runLsaCollector() {
     const db = loadDatabase();
     const existingIds = new Set(db.leads.map(l => l.id));
 
-    // Veri İşleme ve DOM Etkileşimi
     for (const row of rawRows) {
       const anfrageId = safeStr(row['Anfrage-ID'] || row['ID']);
       const rawKunde = safeStr(row['Kunde']);
@@ -427,7 +408,7 @@ async function runLsaCollector() {
           });
           await new Promise(r => setTimeout(r, 1500));
         } else {
-             writeLog(`⚠️ Satır bulunamadı: ${anfrageId}`, true);
+          writeLog(`⚠️ Satır bulunamadı: ${anfrageId}`, true);
         }
       }
 
@@ -452,7 +433,9 @@ async function runLsaCollector() {
       writeLog(`✅ Yeni Lead Kaydedildi ve Bildirildi: ID -> ${leadId}`);
     }
 
-    fs.unlinkSync(downloadedFilePath);
+    if (fs.existsSync(downloadedFilePath)) {
+      fs.unlinkSync(downloadedFilePath);
+    }
 
     if (hasNewLeadsAdded) {
       syncToGit();
@@ -462,7 +445,9 @@ async function runLsaCollector() {
     writeLog(`İşlem sırasında beklenmeyen hata: ${err.message}`, true);
   } finally {
     if (browser) await browser.close();
-    if (fs.existsSync(CONFIG.lockFilePath)) fs.unlinkSync(CONFIG.lockFilePath);
+    if (fs.existsSync(CONFIG.lockFilePath)) {
+      try { fs.unlinkSync(CONFIG.lockFilePath); } catch (_) {}
+    }
     writeLog("Döngü tamamlandı, kilit kaldırıldı.");
   }
 }
