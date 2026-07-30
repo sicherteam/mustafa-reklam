@@ -7,16 +7,19 @@ const { execSync } = require('child_process');
 
 puppeteer.use(StealthPlugin());
 
-// --- CONFIGURATION (MUSTAFA REKLAM) ---
+// ==========================================
+// 1. YAPILANDIRMA (KUSURSUZ EŞLEŞEN PATH'LER)
+// ==========================================
 const CONFIG = {
   projectName: 'Mustafa Reklam',
   userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
   targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
   telegramToken: process.env.TELEGRAM_BOT_TOKEN,
   telegramChatId: process.env.TELEGRAM_CHAT_ID,
+  lockFilePath: path.join(__dirname, 'bot.lock')
 };
 
-// Native Fetch API ile Telegram Bildirimi
+// --- TELEGRAM BİLDİRİMİ ---
 async function sendTelegramMessage(lead) {
   if (!CONFIG.telegramToken || !CONFIG.telegramChatId) {
     console.warn("⚠️ Telegram API bilgileri eksik (.env)");
@@ -47,7 +50,7 @@ async function sendTelegramMessage(lead) {
   }
 }
 
-// 24-Hour Strict Date Formatter
+// --- TARİH DÜZENLEME FONKSİYONLARI ---
 function parseTo24HourDate(dateStr) {
   if (!dateStr || dateStr === '-') return '-';
 
@@ -61,14 +64,13 @@ function parseTo24HourDate(dateStr) {
   if (modifier) {
     const isPM = modifier.toUpperCase() === 'PM';
     const isAM = modifier.toUpperCase() === 'AM';
-    if (isPM && hours < 12) hours += 14;
-    if (isAM && hours === 12) hours = 2;
+    if (isPM && hours < 12) hours += 12;
+    if (isAM && hours === 12) hours = 0;
   }
 
   return `${datePart} ${String(hours).padStart(2, '0')}:${minutes}`;
 }
 
-// Tarih Metnini ("29.07.26 14:30") Sıralama İçin Milisaniyeye Çeviren Fonksiyon
 function parseDateForSorting(dateStr) {
   if (!dateStr || dateStr === '-') return 0;
   const match = dateStr.match(/(\d{2})\.(\d{2})\.(\d{2})\s+(\d{2}):(\d{2})/);
@@ -77,7 +79,6 @@ function parseDateForSorting(dateStr) {
   return new Date(`20${year}-${month}-${day}T${hour}:${minute}:00`).getTime();
 }
 
-// Clear Chrome Locks
 function clearChromeLocks() {
   const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket'];
   locks.forEach(lock => {
@@ -88,14 +89,19 @@ function clearChromeLocks() {
   });
 }
 
-// --- MAIN EXECUTION ---
+// ==========================================
+// 2. ANA ÇALIŞMA AKIŞI
+// ==========================================
 (async () => {
+  if (fs.existsSync(CONFIG.lockFilePath)) {
+    console.log("⚠️ Çalışan başka bir işlem var (bot.lock mevcut). Çıkılıyor.");
+    return;
+  }
+  fs.writeFileSync(CONFIG.lockFilePath, process.pid.toString());
+
   let freshLeads = [];
   let browser;
 
-  // ===================================================
-  // 1. BÖLÜM: TARAYICI İŞLEMLERİ (Sadece Veri Toplama)
-  // ===================================================
   try {
     clearChromeLocks();
 
@@ -111,13 +117,6 @@ function clearChromeLocks() {
         '--disable-blink-features=AutomationControlled',
         '--window-size=1920,1080',
         '--lang=de-AT,de',
-
-        '--disable-background-networking',
-        '--disable-background-timer-throttling',
-        '--disable-backgrounding-occluded-windows',
-        '--disable-renderer-backgrounding',
-        '--disable-extensions',
-        '--disable-sync',
         '--no-first-run',
         '--no-default-browser-check',
         '--disable-popup-blocking',
@@ -233,7 +232,7 @@ function clearChromeLocks() {
             let nameInHeader = null;
 
             const chatBlock = Array.from(document.querySelectorAll('div, section, article'))
-                                        .find(el => (el.innerText || '').includes('Unterhaltung'));
+                                  .find(el => (el.innerText || '').includes('Unterhaltung'));
             
             if (chatBlock) {
               let text = chatBlock.innerText.split('Unterhaltung').pop();
@@ -270,7 +269,6 @@ function clearChromeLocks() {
         }
       }
 
-      // 🔹 İsimsiz Müşterilere "-" yerine "Müşteri" atama kontrolü
       if (!finalCustomerName || finalCustomerName.trim() === '-' || finalCustomerName === '') {
         finalCustomerName = 'Müşteri';
       }
@@ -290,15 +288,18 @@ function clearChromeLocks() {
   } finally {
     if (browser) {
       try {
-        console.log("🛑 Tarayıcı kapatılıyor, RAM serbest bırakıldı...");
+        console.log("🛑 Tarayıcı kapatılıyor...");
         await browser.close();
       } catch (_) {}
     }
+    if (fs.existsSync(CONFIG.lockFilePath)) {
+      fs.unlinkSync(CONFIG.lockFilePath);
+    }
   }
 
-  // ===================================================
-  // 2. BÖLÜM: BİLDİRİM, SIRALAMA VE GİTHUB İŞLEMLERİ
-  // ===================================================
+  // ==========================================
+  // 3. VERİ İŞLEME VE GIT PUSH
+  // ==========================================
   if (freshLeads.length > 0) {
     console.log("⚙️ Veriler işleniyor...");
     
@@ -313,26 +314,19 @@ function clearChromeLocks() {
     }
 
     const leads = freshLeads.map(newLead => {
-      // SADECE TARİH ÜZERİNDEN KONTROL (Müşteri ismi veya mesaj değişse bile bildirim tekrarlanmaz)
       const existing = previousLeads.find(old => old["Tarih"] === newLead["Tarih"]);
-      
       return {
         ...newLead,
-        // Eğer daha önce Telegram gönderildiyse bayrağı koru (true yap), gönderilmediyse false tut
         telegramSent: existing ? (existing.telegramSent || false) : false
       };
     });
 
-
-    // 🔥 TARİHE GÖRE SIRALAMA (En yeni tarihli mesaj en üstte)
     leads.sort((a, b) => parseDateForSorting(b["Tarih"]) - parseDateForSorting(a["Tarih"]));
 
     const unsentLeads = leads.filter(l => !l.telegramSent);
     console.log(`🔎 İnceleme Tamamlandı. Bildirim Gitmemiş Yeni Lead Sayısı: ${unsentLeads.length}`);
 
     if (unsentLeads.length > 0 || leads.length !== previousLeads.length) {
-      
-      // Telegram mesajlarını gönder
       for (const leadToNotify of unsentLeads) {
         const isSuccess = await sendTelegramMessage(leadToNotify);
         if (isSuccess) {
@@ -342,7 +336,6 @@ function clearChromeLocks() {
         await new Promise(r => setTimeout(r, 1000));
       }
 
-      // Dosyayı sıralanmış şekilde tek seferde kaydet
       const outputData = {
         updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
         leads
@@ -358,7 +351,6 @@ function clearChromeLocks() {
         execSync('git pull origin main --rebase -X ours', { timeout: 20000 });
         execSync('git push origin main', { timeout: 20000 });
         console.log("✅ Git Push Başarılı!");
-
       } catch (gitErr) {
         console.error("⚠️ Git push hatası:", gitErr.message);
       }
