@@ -2,3 +2,5 @@ node_modules/
 user_data/
 package-lock.json
 .env
+.chrome_user_data/
+scraper.log
