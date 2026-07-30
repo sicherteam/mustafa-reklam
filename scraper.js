@@ -1,337 +1,369 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-const { execSync } = require('child_process');
+require('dotenv').config();
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-const csvParser = require('csv-parser');
+const fs = require('fs');
+const path = require('path');
+const { execSync } = require('child_process');
 
 puppeteer.use(StealthPlugin());
 
-// ==========================================
-// 1. KONTROL VE YAPILANDIRMA (CONFIG)
-// ==========================================
+// --- CONFIGURATION (MUSTAFA REKLAM) ---
 const CONFIG = {
   projectName: 'Mustafa Reklam',
-  telegramToken: process.env.TELEGRAM_BOT_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN',
-  telegramChatId: process.env.TELEGRAM_CHAT_ID || 'YOUR_TELEGRAM_CHAT_ID',
-  dataFilePath: path.join(__dirname, 'data.json'),
-  userDataDir: path.join(__dirname, '.chrome_user_data'),
-  downloadPath: path.join(__dirname, 'downloads'),
-  lockFilePath: path.join(__dirname, 'bot.lock'),
-  lsaUrl: 'https://ads.google.com/localservices/leads',
-  // Sunucuya indirilen Chrome binary'sinin tam konumu:
-  executablePath: '/home/yasin2celik/.cache/puppeteer/chrome/linux-151.0.7922.47/chrome-linux64/chrome'
+  userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
+  targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
+  telegramToken: process.env.TELEGRAM_BOT_TOKEN,
+  telegramChatId: process.env.TELEGRAM_CHAT_ID,
 };
 
-const GERMAN_MONTHS = {
-  'jan': '01', 'januar': '01', 'feb': '02', 'februar': '02',
-  'mär': '03', 'märz': '03', 'maerz': '03', 'apr': '04', 'april': '04',
-  'mai': '05', 'jun': '06', 'juni': '06', 'jul': '07', 'juli': '07',
-  'aug': '08', 'august': '08', 'sep': '09', 'sept': '09', 'september': '09',
-  'okt': '10', 'oktober': '10', 'nov': '11', 'november': '11', 'dez': '12', 'dezember': '12'
-};
-
-// ==========================================
-// 2. YARDIMCI VE GÜVENLİK FONKSİYONLARI
-// ==========================================
-function writeLog(msg, isError = false) {
-  const timestamp = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
-  const formattedMsg = `[${timestamp}] ${isError ? '❌ ERROR: ' : 'ℹ️ INFO: '}${msg}`;
-  if (isError) console.error(formattedMsg);
-  else console.log(formattedMsg);
-}
-
-function escapeHTML(str) {
-  if (!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
-
-function safeStr(val) {
-  if (val === null || val === undefined) return '';
-  const strVal = String(val).trim();
-  if (['null', 'undefined', 'nan'].includes(strVal.toLowerCase())) return '';
-  return strVal;
-}
-
-function parseCsvDate(dateStr) {
-  const clean = safeStr(dateStr);
-  if (!clean || clean === '-') return '-';
-  const match = clean.match(/(\d{1,2})\.\s*([A-Za-zäöüÄÖÜ]+)\s+(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/);
-  if (match) {
-    const day = match[1].padStart(2, '0');
-    const monthStr = match[2].toLowerCase();
-    const month = GERMAN_MONTHS[monthStr] || '01';
-    const year = match[3].slice(-2);
-    const timePart = match[4] ? ` ${match[4].padStart(2, '0')}:${match[5]}` : '';
-    return `${day}.${month}.${year}${timePart}`;
-  }
-  return clean;
-}
-
-function loadDatabase() {
-  if (!fs.existsSync(CONFIG.dataFilePath)) {
-    return { updatedAt: new Date().toISOString(), leads: [] };
-  }
-  try {
-    const raw = fs.readFileSync(CONFIG.dataFilePath, 'utf8');
-    return JSON.parse(raw);
-  } catch (err) {
-    writeLog(`data.json okunurken hata: ${err.message}`, true);
-    return { updatedAt: new Date().toISOString(), leads: [] };
-  }
-}
-
-function saveDatabaseSafe(data) {
-  const tempPath = `${CONFIG.dataFilePath}.tmp`;
-  data.updatedAt = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
-  fs.writeFileSync(tempPath, JSON.stringify(data, null, 2), 'utf8');
-  fs.renameSync(tempPath, CONFIG.dataFilePath);
-}
-
-function syncToGit() {
-  try {
-    writeLog("Git senkronizasyonu başlatılıyor...");
-    execSync('git add data.json', { cwd: __dirname });
-    execSync('git commit -m "auto: update LSA leads database [skip ci]"', { cwd: __dirname });
-    execSync('git push origin main', { cwd: __dirname });
-    writeLog("✅ Git'e başarıyla push edildi.");
-  } catch (err) {
-    writeLog(`Git Sync uyarısı (Değişiklik olmayabilir): ${err.message}`, true);
-  }
-}
-
-// ==========================================
-// 3. TELEGRAM BİLDİRİM
-// ==========================================
-async function sendTelegramMessage(lead, retries = 3) {
-  if (!CONFIG.telegramToken || !CONFIG.telegramChatId || CONFIG.telegramToken === 'YOUR_TELEGRAM_BOT_TOKEN') {
-    writeLog("Telegram token/chatId eksik veya varsayılan değerde kalmış!", true);
+// Native Fetch API ile Telegram Bildirimi
+async function sendTelegramMessage(lead) {
+  if (!CONFIG.telegramToken || !CONFIG.telegramChatId) {
+    console.warn("⚠️ Telegram API bilgileri eksik (.env)");
     return false;
   }
 
-  const phoneStr = lead["Telefon"] && lead["Telefon"] !== '-' 
-    ? `\n📞 <b>Telefon:</b> <code>${escapeHTML(lead["Telefon"])}</code>` 
-    : '';
+  const message = `🔔 *YENİ Müşteri!* (${CONFIG.projectName})\n\n` +
+                  `👤 *Müşteri:* ${lead["Musteri"]}\n` +
+                  `📍 *Konum:* ${lead["Konum"]}\n` +
+                  `💼 *Hizmet:* ${lead["Hizmet"]}\n` +
+                  `📅 *Tarih:* ${lead["Tarih"]}\n` +
+                  `💬 *Mesaj:* ${lead["Mesaj"]}`;
 
-  const message = `🔔 <b>YENİ Müşteri!</b> (${escapeHTML(CONFIG.projectName)})\n\n` +
-                  `👤 <b>Müşteri:</b> ${escapeHTML(lead["Musteri"])}${phoneStr}\n` +
-                  `📍 <b>Konum:</b> ${escapeHTML(lead["Konum"])}\n` +
-                  `💼 <b>Hizmet:</b> ${escapeHTML(lead["Hizmet"])}\n` +
-                  `📅 <b>Tarih:</b> ${escapeHTML(lead["Tarih"])}\n` +
-                  `💬 <b>İletişim / Mesaj:</b> ${escapeHTML(lead["Mesaj"])}`;
-
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      const res = await fetch(`https://api.telegram.org/bot${CONFIG.telegramToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CONFIG.telegramChatId,
-          text: message,
-          parse_mode: 'HTML'
-        })
-      });
-
-      if (res.ok) return true;
-      if (res.status === 429) {
-        await new Promise(r => setTimeout(r, 3500 * attempt));
-      }
-    } catch (err) {
-      await new Promise(r => setTimeout(r, 2000));
-    }
-  }
-  return false;
-}
-
-// ==========================================
-// 4. KUSURSUZ DOM TIKLAMA (dispatchEvent)
-// ==========================================
-async function clickLeadByAnfrageId(page, targetAnfrageId) {
-  return await page.evaluate((anfrageId) => {
-    const rows = Array.from(document.querySelectorAll('tr, [role="row"]'));
-
-    for (const row of rows) {
-      if (row.innerText && row.innerText.includes(anfrageId)) {
-        const targetElement = row.querySelector('td, [role="gridcell"]') || row;
-
-        const clickEvent = new MouseEvent('click', {
-          view: window,
-          bubbles: true,
-          cancelable: true
-        });
-
-        targetElement.dispatchEvent(clickEvent);
-        return true;
-      }
-    }
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${CONFIG.telegramToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: CONFIG.telegramChatId,
+        text: message,
+        parse_mode: 'Markdown'
+      })
+    });
+    return res.ok;
+  } catch (err) {
+    console.error('⚠️ Telegram mesaj hatası:', err.message);
     return false;
-  }, targetAnfrageId);
+  }
 }
 
-// ==========================================
-// 5. ANA ÇALIŞMA AKIŞI (MAIN ENGINE)
-// ==========================================
-async function runLsaCollector() {
-  if (fs.existsSync(CONFIG.lockFilePath)) {
-    writeLog("Çalışan başka bir işlem var (Lock file mevcut). İptal edildi.");
-    return;
+// 24-Hour Strict Date Formatter
+function parseTo24HourDate(dateStr) {
+  if (!dateStr || dateStr === '-') return '-';
+
+  const fixedStr = dateStr.replace(/(\b\d{1,2})(\d{2})\s*(AM|PM)/gi, '$1:$2 $3');
+  const match = fixedStr.match(/(\d{2}\.\d{2}\.\d{2})\s+(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
+  if (!match) return dateStr;
+
+  let [, datePart, hoursStr, minutes, modifier] = match;
+  let hours = parseInt(hoursStr, 10);
+
+  if (modifier) {
+    const isPM = modifier.toUpperCase() === 'PM';
+    const isAM = modifier.toUpperCase() === 'AM';
+    if (isPM && hours < 12) hours += 14;
+    if (isAM && hours === 12) hours = 2;
   }
 
-  fs.writeFileSync(CONFIG.lockFilePath, process.pid.toString());
+  return `${datePart} ${String(hours).padStart(2, '0')}:${minutes}`;
+}
 
+// Tarih Metnini ("29.07.26 14:30") Sıralama İçin Milisaniyeye Çeviren Fonksiyon
+function parseDateForSorting(dateStr) {
+  if (!dateStr || dateStr === '-') return 0;
+  const match = dateStr.match(/(\d{2})\.(\d{2})\.(\d{2})\s+(\d{2}):(\d{2})/);
+  if (!match) return 0;
+  const [, day, month, year, hour, minute] = match;
+  return new Date(`20${year}-${month}-${day}T${hour}:${minute}:00`).getTime();
+}
+
+// Clear Chrome Locks
+function clearChromeLocks() {
+  const locks = ['SingletonLock', 'SingletonCookie', 'SingletonSocket'];
+  locks.forEach(lock => {
+    const lockPath = path.join(CONFIG.userDataPath, lock);
+    if (fs.existsSync(lockPath)) {
+      try { fs.unlinkSync(lockPath); } catch (_) {}
+    }
+  });
+}
+
+// --- MAIN EXECUTION ---
+(async () => {
+  let freshLeads = [];
   let browser;
-  let hasNewLeadsAdded = false;
 
+  // ===================================================
+  // 1. BÖLÜM: TARAYICI İŞLEMLERİ (Sadece Veri Toplama)
+  // ===================================================
   try {
-    if (!fs.existsSync(CONFIG.downloadPath)) fs.mkdirSync(CONFIG.downloadPath, { recursive: true });
+    clearChromeLocks();
 
     browser = await puppeteer.launch({
-      headless: 'new',
-      executablePath: CONFIG.executablePath,
-      userDataDir: CONFIG.userDataDir,
-      defaultViewport: { width: 1920, height: 1080 },
+      headless: "new",
+      executablePath: '/usr/bin/google-chrome',
+      userDataDir: CONFIG.userDataPath,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
-        '--disable-accelerated-2d-canvas',
+        '--disable-gpu',
+        '--disable-blink-features=AutomationControlled',
+        '--window-size=1920,1080',
+        '--lang=de-AT,de',
+
+        '--disable-background-networking',
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding',
+        '--disable-extensions',
+        '--disable-sync',
         '--no-first-run',
-        '--no-zygote',
-        '--single-process',
-        '--disable-gpu'
+        '--no-default-browser-check',
+        '--disable-popup-blocking',
+        '--disable-breakpad'
       ]
     });
 
     const page = await browser.newPage();
-    const client = await page.target().createCDPSession();
-    await client.send('Page.setDownloadBehavior', {
-      behavior: 'allow',
-      downloadPath: CONFIG.downloadPath
+    await page.setViewport({ width: 1920, height: 1080 });
+    page.setDefaultTimeout(60000);
+
+    await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
+
+    await page.setRequestInterception(true);
+    page.on('request', (req) => {
+      if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
+        req.abort();
+      } else {
+        req.continue();
+      }
     });
 
-    writeLog("LSA Paneline gidiliyor...");
-    await page.goto(CONFIG.lsaUrl, { waitUntil: 'networkidle2', timeout: 60000 });
+    console.log("🚀 LSA Inbox sayfasına gidiliyor...");
+    await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
 
-    writeLog("CSV indirme tetikleniyor...");
-    const downloadBtn = await page.waitForSelector('button[aria-label*="Herunterladen"], button:has-text("HERUNTERLADEN")', { timeout: 15000 }).catch(() => null);
-    
-    if (downloadBtn) {
-      await downloadBtn.click();
-      await new Promise(r => setTimeout(r, 4000));
+    const pageTitle = await page.title();
+    console.log("Sayfa Başlığı:", pageTitle);
+
+    if (/Anmelden|Sign in|YouTube|Error|504|Serverfehler/i.test(pageTitle)) {
+      throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
-    const files = fs.readdirSync(CONFIG.downloadPath).filter(f => f.endsWith('.csv'));
-    if (files.length === 0) {
-      writeLog("İndirilen CSV dosyası bulunamadı!", true);
-      return;
-    }
-    
-    files.sort((a, b) => fs.statSync(path.join(CONFIG.downloadPath, b)).mtime - fs.statSync(path.join(CONFIG.downloadPath, a)).mtime);
-    const latestCsvPath = path.join(CONFIG.downloadPath, files[0]);
+    await page.evaluate(async () => {
+      for (let i = 0; i < 4; i++) {
+        window.scrollBy(0, 300);
+        await new Promise(r => setTimeout(r, 200));
+      }
+    });
+    await new Promise(r => setTimeout(r, 1500));
 
-    const rawRows = [];
-    await new Promise((resolve) => {
-      fs.createReadStream(latestCsvPath)
-        .pipe(csvParser())
-        .on('data', (row) => rawRows.push(row))
-        .on('end', resolve);
+    // TABLO VERİLERİNİ ÇEKME
+    const validRows = await page.evaluate(() => {
+      const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
+
+      return rows.map((row, idx) => {
+        const rawCells = Array.from(row.querySelectorAll('td, div[role="gridcell"]'));
+        const cells = rawCells.map(c => c.innerText?.trim() || '').filter(Boolean);
+
+        if (cells.length < 4) return null;
+        if (/Gebührenstatus|Kunde|Kundenname/i.test(row.innerText || '')) return null;
+
+        let customerName = cells[0] || '-';
+        const jobType = cells[1] || '-';
+
+        if (/Google|Lokale Dienstleistungen|Potenzieller Kunde/i.test(customerName)) {
+          customerName = '-';
+        }
+
+        if (/^\d+$/.test(customerName) && /^\d+$/.test(jobType)) return null;
+        if (/^\d{1,3}$/.test(customerName)) return null;
+
+        let location = cells[3] || '-';
+        if (!location || location === '-' || location.length <= 2 || location === jobType || /^\+?\d[\d\s-]{6,}$/.test(location)) {
+          location = cells.find((t, i) => 
+            i > 1 && 
+            t.length > 2 && 
+            t !== customerName && 
+            t !== jobType && 
+            !/^\+?\d[\d\s-]{6,}$/.test(t) && 
+            !/^(Kategorie|Direkte|Telefon|Nachricht|Belastet|Wird)/i.test(t) &&
+            !/\d{2}\.\d{2}\.\d{2}/.test(t)
+          ) || '-';
+        }
+
+        const dates = cells.filter(t => /\d{2}\.\d{2}\.\d{2}/.test(t));
+        const hasNoCustomerName = !customerName || customerName === '-';
+        const isExplicitMessage = /nachricht|message/i.test(row.innerText || '');
+
+        return {
+          domIndex: idx,
+          phone: customerName,
+          jobType,
+          location,
+          anfrageDate: dates[0] || '-',
+          isMessage: isExplicitMessage || hasNoCustomerName
+        };
+      }).filter(Boolean);
     });
 
-    const db = loadDatabase();
-    const existingIds = new Set(db.leads.map(l => l.id));
+    console.log(`📊 Çekilen Temiz Lead Sayısı: ${validRows.length}`);
 
-    for (const row of rawRows) {
-      const anfrageId = safeStr(row['Anfrage-ID'] || row['ID']);
-      const rawKunde = safeStr(row['Kunde']);
-      const rawHizmet = safeStr(row['Art der Dienstleistung']);
-      const location = safeStr(row['Standort']) || '-';
-      const requestType = safeStr(row['Art der Anfrage']) || 'Anfrage';
-      const formattedDate = parseCsvDate(row['Anfrage erhalten']);
+    if (validRows.length === 0) {
+      throw new Error("❌ Hiç veri bulunamadı! Sayfa yüklenemedi veya Google yapıyı değiştirdi.");
+    }
 
-      let customerName = 'Müşteri';
-      let phone = safeStr(row['Telefonnummer'] || row['Telefon']);
+    // MESAJ DETAYLARINI ALMA
+    for (const item of validRows) {
+      let messageText = "-";
+      let finalCustomerName = item.phone;
 
-      if (rawKunde) {
-        if (/\d{5,}/.test(rawKunde) && (!phone || phone === '-')) {
-          phone = rawKunde;
-        } else if (!/\d{5,}/.test(rawKunde)) {
-          customerName = rawKunde;
+      if (item.isMessage) {
+        try {
+          await page.evaluate((index) => {
+            const rows = Array.from(document.querySelectorAll('[role="row"], tr'));
+            const row = rows[index];
+            if (row) (row.querySelector('td, div[role="gridcell"]') || row).click();
+          }, item.domIndex);
+
+          await new Promise(r => setTimeout(r, 3500));
+
+          const panelData = await page.evaluate(() => {
+            let msg = "-";
+            let nameInHeader = null;
+
+            const chatBlock = Array.from(document.querySelectorAll('div, section, article'))
+                                        .find(el => (el.innerText || '').includes('Unterhaltung'));
+            
+            if (chatBlock) {
+              let text = chatBlock.innerText.split('Unterhaltung').pop();
+              msg = text.split('Wird geladen')[0]
+                         .split('Audioinhalte')[0]
+                         .split('Hier dem Kunden')[0]
+                         .replace(/^P\s+|^Potenzieller Kunde\s+|^\d{2}\.\d{2}\.\d{2}\s+/gi, '')
+                         .trim() || "NO MESSAGE";
+            }
+
+            const headerBar = Array.from(document.querySelectorAll('div, header'))
+                                     .find(el => (el.innerText || '').includes('ARCHIVIEREN') || (el.innerText || '').includes('MARKIEREN'));
+            if (headerBar) {
+              const lines = headerBar.innerText.split('\n').map(l => l.trim()).filter(Boolean);
+              if (lines.length > 0 && !lines[0].includes('ARCHIVIEREN')) {
+                const candidate = lines[0].split('|')[0].trim();
+                if (!/Google|Lokale|Dienstleistungen|Potenzieller|Anrufer/i.test(candidate)) {
+                  nameInHeader = candidate;
+                }
+              }
+            }
+
+            return { msg, nameInHeader };
+          });
+
+          messageText = panelData.msg;
+
+          if ((finalCustomerName === '-' || !finalCustomerName) && panelData.nameInHeader) {
+            finalCustomerName = panelData.nameInHeader;
+          }
+
+        } catch (e) {
+          console.warn(`[${item.phone}] Mesaj okuma uyarısı:`, e.message);
         }
       }
 
-      const service = (rawHizmet && rawHizmet !== '-') ? rawHizmet : '-';
-      const phoneClean = (phone && phone.length > 5) ? phone : '-';
-
-      const leadId = anfrageId ? `lsa_${anfrageId}` : crypto.createHash('md5').update(`${customerName}_${location}_${formattedDate}`).digest('hex');
-
-      if (existingIds.has(leadId)) continue;
-
-      let messageText = requestType;
-      const isSmsOrNachricht = /SMS|Nachricht|Text/i.test(requestType);
-
-      if (isSmsOrNachricht && anfrageId) {
-        writeLog(`Yeni mesaj tespit edildi. Anfrage-ID (${anfrageId}) tıklanıyor...`);
-        const clicked = await clickLeadByAnfrageId(page, anfrageId);
-        
-        if (clicked) {
-          await new Promise(r => setTimeout(r, 1500));
-          const extractedMsg = await page.evaluate(() => {
-            const container = document.querySelector('div[role="dialog"], [class*="Unterhaltung"], div[class*="detail"]');
-            if (!container) return null;
-            const text = container.innerText || '';
-            const match = text.match(/Unterhaltung\n([\s\S]*)/i);
-            return match ? match[1].trim() : text.trim();
-          });
-
-          if (extractedMsg) messageText = extractedMsg;
-
-          await page.evaluate(() => {
-            const backBtn = document.querySelector('button[aria-label*="Zurück"], button[aria-label*="Close"], div[role="button"][aria-label*="Zurück"]');
-            if (backBtn) backBtn.click();
-            else window.history.back();
-          });
-          await new Promise(r => setTimeout(r, 1500));
-        }
+      // 🔹 İsimsiz Müşterilere "-" yerine "Müşteri" atama kontrolü
+      if (!finalCustomerName || finalCustomerName.trim() === '-' || finalCustomerName === '') {
+        finalCustomerName = 'Müşteri';
       }
 
-      const newLead = {
-        id: leadId,
-        Musteri: customerName,
-        Telefon: phoneClean,
-        Hizmet: service,
-        Konum: location,
-        Tarih: formattedDate,
-        Mesaj: messageText,
-        telegramSent: false
+      freshLeads.push({
+        "Musteri": finalCustomerName,
+        "Hizmet": item.jobType,
+        "Konum": item.location,
+        "Tarih": parseTo24HourDate(item.anfrageDate),
+        "Mesaj": messageText
+      });
+    }
+
+  } catch (error) {
+    console.error("💥 Scraper hatası:", error.message);
+    process.exitCode = 1;
+  } finally {
+    if (browser) {
+      try {
+        console.log("🛑 Tarayıcı kapatılıyor, RAM serbest bırakıldı...");
+        await browser.close();
+      } catch (_) {}
+    }
+  }
+
+  // ===================================================
+  // 2. BÖLÜM: BİLDİRİM, SIRALAMA VE GİTHUB İŞLEMLERİ
+  // ===================================================
+  if (freshLeads.length > 0) {
+    console.log("⚙️ Veriler işleniyor...");
+    
+    let previousLeads = [];
+    if (fs.existsSync('data.json')) {
+      try {
+        const oldContent = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+        previousLeads = oldContent.leads || [];
+      } catch (e) {
+        console.warn("⚠️ Eski data.json okunamadı:", e.message);
+      }
+    }
+
+    const leads = freshLeads.map(newLead => {
+      // SADECE TARİH ÜZERİNDEN KONTROL (Müşteri ismi veya mesaj değişse bile bildirim tekrarlanmaz)
+      const existing = previousLeads.find(old => old["Tarih"] === newLead["Tarih"]);
+      
+      return {
+        ...newLead,
+        // Eğer daha önce Telegram gönderildiyse bayrağı koru (true yap), gönderilmediyse false tut
+        telegramSent: existing ? (existing.telegramSent || false) : false
+      };
+    });
+
+
+    // 🔥 TARİHE GÖRE SIRALAMA (En yeni tarihli mesaj en üstte)
+    leads.sort((a, b) => parseDateForSorting(b["Tarih"]) - parseDateForSorting(a["Tarih"]));
+
+    const unsentLeads = leads.filter(l => !l.telegramSent);
+    console.log(`🔎 İnceleme Tamamlandı. Bildirim Gitmemiş Yeni Lead Sayısı: ${unsentLeads.length}`);
+
+    if (unsentLeads.length > 0 || leads.length !== previousLeads.length) {
+      
+      // Telegram mesajlarını gönder
+      for (const leadToNotify of unsentLeads) {
+        const isSuccess = await sendTelegramMessage(leadToNotify);
+        if (isSuccess) {
+          leadToNotify.telegramSent = true;
+          console.log(`📱 Telegram bildirimi gönderildi: ${leadToNotify["Musteri"]}`);
+        }
+        await new Promise(r => setTimeout(r, 1000));
+      }
+
+      // Dosyayı sıralanmış şekilde tek seferde kaydet
+      const outputData = {
+        updatedAt: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
+        leads
       };
 
-      const sent = await sendTelegramMessage(newLead);
-      newLead.telegramSent = sent;
+      fs.writeFileSync('data.json', JSON.stringify(outputData, null, 2));
+      console.log(`💾 data.json tarihe göre sıralandı ve kaydedildi.`);
 
-      db.leads.push(newLead);
-      existingIds.add(leadId);
-      saveDatabaseSafe(db);
-      hasNewLeadsAdded = true;
-      writeLog(`✅ Yeni Lead Kaydedildi ve Bildirildi: ID -> ${leadId}`);
+      try {
+        console.log("⏳ GitHub Sync Yapılıyor...");
+        execSync('git add data.json', { timeout: 15000 });
+        execSync('git commit -m "Auto-update & sort data.json [skip ci]" || true', { timeout: 15000 });
+        execSync('git pull origin main --rebase -X ours', { timeout: 20000 });
+        execSync('git push origin main', { timeout: 20000 });
+        console.log("✅ Git Push Başarılı!");
+
+      } catch (gitErr) {
+        console.error("⚠️ Git push hatası:", gitErr.message);
+      }
+    } else {
+      console.log("ℹ️ Yeni müşteri veya gönderilmemiş bildirim yok.");
     }
-
-    fs.unlinkSync(latestCsvPath);
-
-    if (hasNewLeadsAdded) {
-      syncToGit();
-    }
-
-  } catch (err) {
-    writeLog(`İşlem sırasında beklenmeyen hata: ${err.message}`, true);
-  } finally {
-    if (browser) await browser.close();
-    if (fs.existsSync(CONFIG.lockFilePath)) fs.unlinkSync(CONFIG.lockFilePath);
-    writeLog("Döngü tamamlandı, kilit kaldırıldı.");
   }
-}
-
-runLsaCollector();
+})();
