@@ -19,7 +19,9 @@ const CONFIG = {
   userDataDir: path.join(__dirname, '.chrome_user_data'),
   downloadPath: path.join(__dirname, 'downloads'),
   lockFilePath: path.join(__dirname, 'bot.lock'),
-  lsaUrl: 'https://ads.google.com/localservices/leads'
+  lsaUrl: 'https://ads.google.com/localservices/leads',
+  // Sunucuya indirilen Chrome binary'sinin tam konumu:
+  executablePath: '/home/yasin2celik/.cache/puppeteer/chrome/linux-151.0.7922.47/chrome-linux64/chrome'
 };
 
 const GERMAN_MONTHS = {
@@ -106,8 +108,8 @@ function syncToGit() {
 // 3. TELEGRAM BİLDİRİM
 // ==========================================
 async function sendTelegramMessage(lead, retries = 3) {
-  if (!CONFIG.telegramToken || !CONFIG.telegramChatId) {
-    writeLog("Telegram token/chatId eksik!", true);
+  if (!CONFIG.telegramToken || !CONFIG.telegramChatId || CONFIG.telegramToken === 'YOUR_TELEGRAM_BOT_TOKEN') {
+    writeLog("Telegram token/chatId eksik veya varsayılan değerde kalmış!", true);
     return false;
   }
 
@@ -189,9 +191,15 @@ async function runLsaCollector() {
 
     browser = await puppeteer.launch({
       headless: 'new',
+      executablePath: CONFIG.executablePath, // 🔹 Chrome yolumuz tanımlandı
       userDataDir: CONFIG.userDataDir,
       defaultViewport: { width: 1920, height: 1080 },
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu'
+      ]
     });
 
     const page = await browser.newPage();
