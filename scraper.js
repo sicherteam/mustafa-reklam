@@ -1,9 +1,11 @@
 require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const { execSync } = require('child_process');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-const fs = require('fs');
-const path = require('path'); // 🟢 Eksik olan modül eklendi
-const { execSync } = require('child_process');
+const csvParser = require('csv-parser');
 
 puppeteer.use(StealthPlugin());
 
@@ -270,48 +272,33 @@ async function runLsaCollector() {
     });
 
     // İndirme İşlemi
-    writeLog("📥 CSV indirme tetikleniyor...");
+    writeLog("📥 CSV indirme butonu aranıyor ve sayfanın oturması bekleniyor...");
+    await new Promise(r => setTimeout(r, 3000)); // Google'ın Event Listener'ları yüklemesi için KRİTİK bekleme
     
-    // YENİ: Elementin sayfada render olmasını bekle (Görseldeki class veya jsname)
-    await page.waitForSelector('div[jsname="I5dMCd"], span.RveJvd', { timeout: 15000 }).catch(() => {
-        writeLog("⚠️ İndirme butonu beklenenden yavaş yüklendi, tarama denenecek...");
-    });
-
-    const clicked = await page.evaluate(() => {
-      // Gerçek mouse tıklamasını simüle eden yardımcı fonksiyon
-      function simulateRealClick(element) {
-        const event = new MouseEvent('click', {
-          view: window,
-          bubbles: true,
-          cancelable: true,
-          buttons: 1
-        });
-        element.dispatchEvent(event);
-      }
-
-      // 1. ÖNCELİK: Görseldeki tam element (En kesin yöntem)
-      const specificBtn = document.querySelector('div[role="button"][jsname="I5dMCd"]');
-      if (specificBtn) {
-        simulateRealClick(specificBtn);
-        return true;
-      }
-
-      // 2. YEDEK (Fallback): Görseldeki span class'ını tarayıp ana div'e çıkma
-      const spans = Array.from(document.querySelectorAll('span.RveJvd, span.snByac'));
-      for (const span of spans) {
-        const text = (span.innerText || span.textContent || '').toUpperCase();
-        if (text.includes('HERUNTERLADEN')) {
-          // span'ın içindeysek, en yakın kapsayıcı 'div[role="button"]' elementini bul ve ona tıkla
-          const clickableParent = span.closest('div[role="button"]') || span;
-          simulateRealClick(clickableParent);
-          return true;
+    let clicked = false;
+    try {
+      // 1. Öncelikle görseldeki spesifik jsname özniteliğine göre native click at (Gerçek fare tıklamasını simüle eder)
+      const btn = await page.$('div[role="button"][jsname="I5dMCd"]');
+      if (btn) {
+        await btn.click();
+        clicked = true;
+      } else {
+        // 2. Bulamazsa sayfadaki tüm butonları gez ve metni 'HERUNTERLADEN' olana tıkla
+        const buttons = await page.$$('div[role="button"]');
+        for (const el of buttons) {
+          const text = await page.evaluate(e => e.innerText || e.textContent || '', el);
+          if (text.toUpperCase().includes('HERUNTERLADEN')) {
+            await el.click();
+            clicked = true;
+            break;
+          }
         }
       }
-      
-      return false;
-    });
+    } catch (e) {
+      writeLog(`Tıklama mekanizması hatası: ${e.message}`, true);
+    }
 
-    if (!clicked) throw new Error("❌ 'HERUNTERLADEN' butonu bulunamadı!");
+    if (!clicked) throw new Error("❌ 'HERUNTERLADEN' butonu bulunamadı veya tıklanamadı!");
 
     // CSV Dosyasının İnməsini Bekle
     writeLog("⏳ CSV dosyasının inmesi bekleniyor...");
