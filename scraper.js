@@ -19,7 +19,7 @@ const CONFIG = {
   dataFilePath: path.join(__dirname, 'data.json'),
   userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
   downloadPath: path.resolve(__dirname, 'downloads'),
-  sabitCsvPath: path.resolve(__dirname, 'downloads', 'latest_leads.csv'), // 🎯 Sabit Üzerine Yazılacak Dosya
+  sabitCsvPath: path.resolve(__dirname, 'downloads', 'latest_leads.csv'),
   lockFilePath: path.join(__dirname, 'bot.lock'),
   targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
   executablePath: '/usr/bin/google-chrome'
@@ -34,7 +34,7 @@ const GERMAN_MONTHS = {
 };
 
 // ==========================================
-// 2. YARDIMCI VE GÜVENLİK FONKSİYONLARI
+// 2. YARDIMCI FONKSİYONLAR
 // ==========================================
 function writeLog(msg, isError = false) {
   const timestamp = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
@@ -45,10 +45,7 @@ function writeLog(msg, isError = false) {
 
 function escapeHTML(str) {
   if (!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function safeStr(val) {
@@ -78,8 +75,7 @@ function loadDatabase() {
     return { updatedAt: new Date().toISOString(), leads: [] };
   }
   try {
-    const raw = fs.readFileSync(CONFIG.dataFilePath, 'utf8');
-    return JSON.parse(raw);
+    return JSON.parse(fs.readFileSync(CONFIG.dataFilePath, 'utf8'));
   } catch (err) {
     writeLog(`data.json okunurken hata: ${err.message}`, true);
     return { updatedAt: new Date().toISOString(), leads: [] };
@@ -101,7 +97,7 @@ function syncToGit() {
     execSync('git push origin main', { cwd: __dirname });
     writeLog("✅ Git'e başarıyla push edildi.");
   } catch (err) {
-    writeLog(`Git Sync uyarısı (Değişiklik olmayabilir): ${err.message}`, true);
+    writeLog(`Git Sync uyarısı: ${err.message}`, true);
   }
 }
 
@@ -120,7 +116,7 @@ function clearChromeLocks() {
 // ==========================================
 async function sendTelegramMessage(lead, retries = 3) {
   if (!CONFIG.telegramToken || !CONFIG.telegramChatId || CONFIG.telegramToken === 'YOUR_TELEGRAM_BOT_TOKEN') {
-    writeLog("Telegram token/chatId eksik veya varsayılan değerde kalmış!", true);
+    writeLog("Telegram konfigürasyonu eksik!", true);
     return false;
   }
 
@@ -148,9 +144,7 @@ async function sendTelegramMessage(lead, retries = 3) {
       });
 
       if (res.ok) return true;
-      if (res.status === 429) {
-        await new Promise(r => setTimeout(r, 3500 * attempt));
-      }
+      if (res.status === 429) await new Promise(r => setTimeout(r, 3500 * attempt));
     } catch (err) {
       await new Promise(r => setTimeout(r, 2000));
     }
@@ -159,23 +153,15 @@ async function sendTelegramMessage(lead, retries = 3) {
 }
 
 // ==========================================
-// 4. KUSURSUZ DOM TIKLAMA (dispatchEvent)
+// 4. MESAJ TIKLAMA MANTIGI
 // ==========================================
 async function clickLeadByAnfrageId(page, targetAnfrageId) {
   return await page.evaluate((anfrageId) => {
     const rows = Array.from(document.querySelectorAll('tr, [role="row"]'));
-
     for (const row of rows) {
       if (row.innerText && row.innerText.includes(anfrageId)) {
         const targetElement = row.querySelector('td, [role="gridcell"]') || row;
-
-        const clickEvent = new MouseEvent('click', {
-          view: window,
-          bubbles: true,
-          cancelable: true
-        });
-
-        targetElement.dispatchEvent(clickEvent);
+        targetElement.dispatchEvent(new MouseEvent('click', { view: window, bubbles: true, cancelable: true }));
         return true;
       }
     }
@@ -184,7 +170,7 @@ async function clickLeadByAnfrageId(page, targetAnfrageId) {
 }
 
 // ==========================================
-// 5. ANA ÇALIŞMA AKIŞI (MAIN ENGINE)
+// 5. ANA MOTOR
 // ==========================================
 async function runLsaCollector() {
   if (fs.existsSync(CONFIG.lockFilePath)) {
@@ -193,14 +179,13 @@ async function runLsaCollector() {
   }
 
   fs.writeFileSync(CONFIG.lockFilePath, process.pid.toString());
-
   let browser;
   let hasNewLeadsAdded = false;
 
   try {
     if (!fs.existsSync(CONFIG.downloadPath)) fs.mkdirSync(CONFIG.downloadPath, { recursive: true });
 
-    // İndirme öncesi geçici .crdownload veya ismi farklı kalmış eski dosyaları temizle (latest_leads hariç)
+    // Temizlik
     fs.readdirSync(CONFIG.downloadPath).forEach(f => {
       if (f.endsWith('.csv') && f !== 'latest_leads.csv') {
         fs.unlinkSync(path.join(CONFIG.downloadPath, f));
@@ -229,15 +214,7 @@ async function runLsaCollector() {
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
     page.setDefaultTimeout(60000);
-
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
-
-    // CDP İndirme Davranışını Tanımla
-    const client = await page.target().createCDPSession();
-    await client.send('Page.setDownloadBehavior', {
-      behavior: 'allow',
-      downloadPath: CONFIG.downloadPath
-    });
 
     writeLog("🚀 LSA Inbox sayfasına gidiliyor...");
     await page.goto(CONFIG.targetUrl, { waitUntil: 'domcontentloaded' });
@@ -249,8 +226,15 @@ async function runLsaCollector() {
       throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
-    writeLog("📥 CSV indirme butonu aranıyor ve sayfanın oturması bekleniyor...");
-    await new Promise(r => setTimeout(r, 6000));
+    // 🎯 KRİTİK ADIM 1: Yönlendirme bittikten hemen sonra CDP İndirme Protokolünü Zorla Tekrar Etkinleştir
+    const client = await page.target().createCDPSession();
+    await client.send('Page.setDownloadBehavior', {
+      behavior: 'allow',
+      downloadPath: CONFIG.downloadPath
+    });
+
+    writeLog("📥 CSV indirme butonu aranıyor...");
+    await new Promise(r => setTimeout(r, 5000));
     
     let clicked = false;
     try {
@@ -259,9 +243,16 @@ async function runLsaCollector() {
       const btn = await page.$(btnSelector);
 
       if (btn) {
-        await page.evaluate(el => el.click(), btn);
+        // 🎯 KRİTİK ADIM 2: Donanım/DOM Seviyesinde Mouse Down ve Mouse Up Simülasyonu
+        await page.evaluate(el => {
+          el.scrollIntoView({ behavior: 'instant', block: 'center' });
+          const opts = { bubbles: true, cancelable: true, view: window };
+          el.dispatchEvent(new MouseEvent('mousedown', opts));
+          el.dispatchEvent(new MouseEvent('mouseup', opts));
+          el.dispatchEvent(new MouseEvent('click', opts));
+        }, btn);
         clicked = true;
-        writeLog("✅ JS Click ile indirme tetiklendi.");
+        writeLog("✅ Donanım düzeyinde tıklama olayı (Mousedown/Mouseup/Click) tetiklendi.");
       }
 
       if (!clicked) {
@@ -270,7 +261,10 @@ async function runLsaCollector() {
         for (const el of buttons) {
           const text = await page.evaluate(e => e.innerText || e.textContent || '', el);
           if (text.toUpperCase().includes('HERUNTERLADEN')) {
-            await page.evaluate(e => e.click(), el);
+            await page.evaluate(e => {
+              const opts = { bubbles: true, cancelable: true, view: window };
+              e.dispatchEvent(new MouseEvent('click', opts));
+            }, el);
             clicked = true;
             break;
           }
@@ -286,7 +280,6 @@ async function runLsaCollector() {
     let rawDownloadedFile = null;
     const startTime = Date.now();
 
-    // Yeni gelen indirilen dosyayı tespit et
     while (Date.now() - startTime < 15000) {
       const files = fs.readdirSync(CONFIG.downloadPath);
       const csvFile = files.find(f => f.endsWith('.csv') && f !== 'latest_leads.csv' && !f.endsWith('.crdownload'));
@@ -301,14 +294,12 @@ async function runLsaCollector() {
       throw new Error("❌ CSV dosyası indirilemedi (zaman aşıldı).");
     }
 
-    // 🎯 DOSYAYI SABİT ADLA ÜZERİNE YAZ (OVERWRITE MECHANISM)
-    if (fs.existsSync(CONFIG.sabitCsvPath)) {
-      fs.unlinkSync(CONFIG.sabitCsvPath); // Var olan eski dosyayı sil
-    }
-    fs.renameSync(rawDownloadedFile, CONFIG.sabitCsvPath); // Yeni dosyayı 'latest_leads.csv' yap
+    // Üstüne yazma mantığı
+    if (fs.existsSync(CONFIG.sabitCsvPath)) fs.unlinkSync(CONFIG.sabitCsvPath);
+    fs.renameSync(rawDownloadedFile, CONFIG.sabitCsvPath);
     writeLog(`✅ Dosya güncellendi ve üstüne yazıldı: ${CONFIG.sabitCsvPath}`);
 
-    // CSV Parse (Sabit dosyadan okuma)
+    // Parse Etme
     const rawRows = [];
     await new Promise((resolve) => {
       fs.createReadStream(CONFIG.sabitCsvPath)
@@ -332,16 +323,12 @@ async function runLsaCollector() {
       let phone = safeStr(row['Telefonnummer'] || row['Telefon']);
 
       if (rawKunde) {
-        if (/\d{5,}/.test(rawKunde) && (!phone || phone === '-')) {
-          phone = rawKunde;
-        } else if (!/\d{5,}/.test(rawKunde)) {
-          customerName = rawKunde;
-        }
+        if (/\d{5,}/.test(rawKunde) && (!phone || phone === '-')) phone = rawKunde;
+        else if (!/\d{5,}/.test(rawKunde)) customerName = rawKunde;
       }
 
       const service = (rawHizmet && rawHizmet !== '-') ? rawHizmet : '-';
       const phoneClean = (phone && phone.length > 5) ? phone : '-';
-
       const leadId = anfrageId ? `lsa_${anfrageId}` : crypto.createHash('md5').update(`${customerName}_${location}_${formattedDate}`).digest('hex');
 
       if (existingIds.has(leadId)) continue;
@@ -371,8 +358,6 @@ async function runLsaCollector() {
             else window.history.back();
           });
           await new Promise(r => setTimeout(r, 1500));
-        } else {
-          writeLog(`⚠️ Satır bulunamadı: ${anfrageId}`, true);
         }
       }
 
@@ -397,9 +382,7 @@ async function runLsaCollector() {
       writeLog(`✅ Yeni Lead Kaydedildi ve Bildirildi: ID -> ${leadId}`);
     }
 
-    if (hasNewLeadsAdded) {
-      syncToGit();
-    }
+    if (hasNewLeadsAdded) syncToGit();
 
   } catch (err) {
     writeLog(`İşlem sırasında beklenmeyen hata: ${err.message}`, true);
