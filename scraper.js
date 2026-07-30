@@ -7,7 +7,8 @@ const axios = require('axios');
 
 puppeteer.use(StealthPlugin());
 
-const INBOX_URL = 'https://ads.google.com/aw/servicemads/inbox';
+// Doğrudan verdiğin URL
+const INBOX_URL = 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT';
 const USER_DATA_DIR = '/home/yasin2celik/mustafa-reklam/user_data';
 const CHROME_BINARY = '/usr/bin/google-chrome';
 const DOWNLOAD_DIR = path.resolve(__dirname, 'downloads');
@@ -20,7 +21,7 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
     fs.mkdirSync(DOWNLOAD_DIR, { recursive: true });
   }
 
-  console.log(`[${new Date().toLocaleString()}] ℹ️ INFO: LSA Paneline bağlanılıyor...`);
+  console.log(`[${new Date().toLocaleString()}] ℹ️ INFO: Doğrudan LSA Inbox paneline gidiliyor...`);
 
   const browser = await puppeteer.launch({
     executablePath: CHROME_BINARY,
@@ -46,20 +47,21 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
       downloadPath: DOWNLOAD_DIR,
     });
 
-    console.log("ℹ️ Sayfa yükleniyor...");
-    // Frame kopmalarını önlemek için sadece temel DOM yüklenmesini bekliyoruz
+    // Sayfa yükleme isteği
+    console.log("ℹ️ Sayfa açılıyor...");
     await page.goto(INBOX_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
     
-    // Yönlendirmelerin ve panelin tamamen oturması için sabit bekleme (12 saniye)
-    console.log("ℹ️ Panelin oturması bekleniyor...");
-    await new Promise(r => setTimeout(r, 12000));
+    // Açılır açılmaz panelin öğelerini render etmesi için kısa bekleme
+    console.log("ℹ️ Elementlerin yüklenmesi bekleniyor...");
+    await new Promise(r => setTimeout(r, 8000));
 
-    console.log("ℹ️ 'Herunterladen' butonu taranıyor...");
+    console.log("ℹ️ 'Herunterladen' butonu aranıyor ve tıklanıyor...");
 
-    // Doğrudan ana sayfa context'inde çalıştırıyoruz (Frame takibi yok)
     const downloadSuccess = await page.evaluate(() => {
+      // 1. Öncelik: Tam jsname ve role eşleşmesi
       let btn = document.querySelector('div[role="button"][jsname="I5dMCd"]');
       
+      // 2. Öncelik: Herunterladen içeren herhangi bir buton elementi
       if (!btn) {
         const allElements = Array.from(document.querySelectorAll('div[role="button"], button, a[role="button"]'));
         btn = allElements.find(el => {
@@ -76,15 +78,15 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
     });
 
     if (downloadSuccess) {
-      console.log("✅ 'Herunterladen' butonuna tıklandı! Dosya indiriliyor...");
+      console.log("✅ 'Herunterladen' butonuna basıldı. Dosya indiriliyor...");
       await new Promise(r => setTimeout(r, 6000));
     } else {
-      console.warn("⚠️ Buton bulunamadı, ekran görüntüsü kaydediliyor...");
+      console.warn("⚠️ Buton bulunamadı, ekran görüntüsü kaydediliyor (debug_page.png)...");
       await page.screenshot({ path: 'debug_page.png', fullPage: true });
       throw new Error("Download button not found in DOM");
     }
 
-    // CSV İşleme
+    // İndirilen CSV dosyasını okuma
     const files = fs.readdirSync(DOWNLOAD_DIR).filter(f => f.endsWith('.csv'));
     if (files.length === 0) {
       throw new Error("Klasörde işlenecek CSV dosyası bulunamadı!");
@@ -103,9 +105,9 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
       .pipe(csv())
       .on('data', (data) => results.push(data))
       .on('end', async () => {
-        console.log(`✅ CSV okundu. Toplam Kayıt: ${results.length}`);
+        console.log(`✅ CSV başarıyla işlendi. Toplam Kayıt: ${results.length}`);
         fs.writeFileSync(path.resolve(__dirname, 'data.json'), JSON.stringify(results, null, 2));
-        console.log("💾 data.json güncellendi.");
+        console.log("💾 data.json dosyası güncellendi.");
         await browser.close();
         process.exit(0);
       });
