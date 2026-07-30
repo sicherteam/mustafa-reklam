@@ -226,11 +226,19 @@ async function runLsaCollector() {
       throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
-    // 🎯 KRİTİK ADIM 1: Yönlendirme bittikten hemen sonra CDP İndirme Protokolünü Zorla Tekrar Etkinleştir
+    // CDP İndirme Protokolü
     const client = await page.target().createCDPSession();
     await client.send('Page.setDownloadBehavior', {
       behavior: 'allow',
       downloadPath: CONFIG.downloadPath
+    });
+
+    // 🎯 3. DOWNLOAD EVENT DINLEYICILER
+    client.on('Browser.downloadWillBegin', event => {
+      writeLog("DOWNLOAD BAŞLADI: " + JSON.stringify(event));
+    });
+    client.on('Browser.downloadProgress', event => {
+      writeLog("DOWNLOAD DURUM: " + JSON.stringify(event));
     });
 
     writeLog("📥 CSV indirme butonu aranıyor...");
@@ -243,16 +251,24 @@ async function runLsaCollector() {
       const btn = await page.$(btnSelector);
 
       if (btn) {
-        // 🎯 KRİTİK ADIM 2: Donanım/DOM Seviyesinde Mouse Down ve Mouse Up Simülasyonu
-        await page.evaluate(el => {
-          el.scrollIntoView({ behavior: 'instant', block: 'center' });
-          const opts = { bubbles: true, cancelable: true, view: window };
-          el.dispatchEvent(new MouseEvent('mousedown', opts));
-          el.dispatchEvent(new MouseEvent('mouseup', opts));
-          el.dispatchEvent(new MouseEvent('click', opts));
-        }, btn);
-        clicked = true;
-        writeLog("✅ Donanım düzeyinde tıklama olayı (Mousedown/Mouseup/Click) tetiklendi.");
+        // 🎯 1. GERÇEK BUTON HTML LOGLAMA
+        const btnHtml = await page.evaluate(el => el.outerHTML, btn);
+        writeLog("BUTON HTML: " + btnHtml);
+
+        // 🎯 2. PUPPETEER GERÇEK MOUSE CLICK
+        await btn.evaluate(el => {
+          el.scrollIntoView({ block: 'center' });
+        });
+        const box = await btn.boundingBox();
+        if (box) {
+          await page.mouse.click(
+            box.x + box.width / 2,
+            box.y + box.height / 2
+          );
+
+          clicked = true;
+          writeLog("✅ Gerçek mouse click yapıldı.");
+        }
       }
 
       if (!clicked) {
@@ -261,12 +277,13 @@ async function runLsaCollector() {
         for (const el of buttons) {
           const text = await page.evaluate(e => e.innerText || e.textContent || '', el);
           if (text.toUpperCase().includes('HERUNTERLADEN')) {
-            await page.evaluate(e => {
-              const opts = { bubbles: true, cancelable: true, view: window };
-              e.dispatchEvent(new MouseEvent('click', opts));
-            }, el);
-            clicked = true;
-            break;
+            const box = await el.boundingBox();
+            if (box) {
+              await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+              clicked = true;
+              writeLog("✅ Yedek planda gerçek mouse click yapıldı.");
+              break;
+            }
           }
         }
       }
