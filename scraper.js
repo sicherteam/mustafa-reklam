@@ -18,7 +18,7 @@ const CONFIG = {
   telegramChatId: process.env.TELEGRAM_CHAT_ID || 'YOUR_TELEGRAM_CHAT_ID',
   dataFilePath: path.join(__dirname, 'data.json'),
   userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
-  downloadPath: '/home/yasin2celik/Downloads', // 🎯 DİZİN DEĞİŞTİRİLDİ
+  downloadPath: '/home/yasin2celik/Downloads',
   sabitCsvPath: path.resolve(__dirname, 'downloads', 'latest_leads.csv'),
   lockFilePath: path.join(__dirname, 'bot.lock'),
   targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
@@ -187,7 +187,7 @@ async function runLsaCollector() {
     const localDownloads = path.dirname(CONFIG.sabitCsvPath);
     if (!fs.existsSync(localDownloads)) fs.mkdirSync(localDownloads, { recursive: true });
 
-    // Hedef klasördeki eski leads-inbox dosyalarını temizle
+    // Temizlik
     fs.readdirSync(CONFIG.downloadPath).forEach(f => {
       if (f.startsWith('leads-inbox') && f.endsWith('.csv')) {
         try { fs.unlinkSync(path.join(CONFIG.downloadPath, f)); } catch (_) {}
@@ -253,34 +253,15 @@ async function runLsaCollector() {
     
     let clicked = false;
     try {
-      const btnSelector = 'div[role="button"][jsname="I5dMCd"]';
-      await page.waitForSelector(btnSelector, { timeout: 10000 }).catch(() => null);
-      const btn = await page.$(btnSelector);
+      // 🎯 PUPPETEER LOCATOR İLE "Herunterladen" BUTONUNU YAKALAMA VE TIKLAMA
+      const btn = page.getByText('Herunterladen', { exact: true });
 
       if (btn) {
-        const btnHtml = await page.evaluate(el => el.outerHTML, btn);
-        writeLog("BUTON HTML: " + btnHtml);
-
-        const box = await btn.boundingBox();
-
-        if (box) {
-          await btn.focus();
-
-          await page.mouse.move(
-            box.x + box.width / 2,
-            box.y + box.height / 2,
-            { steps: 10 }
-          );
-
-          await page.mouse.down();
-          await new Promise(r => setTimeout(r, 300));
-          await page.mouse.up();
-
-          await new Promise(r => setTimeout(r, 3000));
-
-          clicked = true;
-          writeLog("✅ Human-like mouse click tamamlandı.");
-        }
+        writeLog("🎯 'Herunterladen' butonu locator ile bulundu, tıklanıyor...");
+        await btn.click();
+        clicked = true;
+        writeLog("✅ Locator click başarıyla tetiklendi.");
+        await new Promise(r => setTimeout(r, 3000));
       }
 
       await page.screenshot({
@@ -298,7 +279,6 @@ async function runLsaCollector() {
     let rawDownloadedFile = null;
     const startTime = Date.now();
 
-    // 🎯 YENİLENMİŞ CSV ARAMA ALGORİTMASI
     while (Date.now() - startTime < 15000) {
       const files = fs.readdirSync(CONFIG.downloadPath);
       const csvFile = files.find(f =>
