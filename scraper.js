@@ -8,12 +8,12 @@ const axios = require('axios');
 puppeteer.use(StealthPlugin());
 
 // --- CONFIGURATION ---
-const INBOX_URL = 'https://ads.google.com/aw/servicemads/inbox'; // Kendi LSA Inbox URL'in
+const INBOX_URL = 'https://ads.google.com/aw/servicemads/inbox';
 const USER_DATA_DIR = '/home/yasin2celik/mustafa-reklam/user_data';
 const CHROME_BINARY = '/usr/bin/google-chrome';
 const DOWNLOAD_DIR = path.resolve(__dirname, 'downloads');
 
-// Telegram Bilgileri (Gerekliyse doldur/kontrol et)
+// Telegram Bilgileri (Gerekliyse doldur)
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '';
 
@@ -56,25 +56,28 @@ async function sendTelegramMessage(text) {
   const page = await browser.newPage();
 
   try {
-    // Puppeteer İndirme Desteğini Aktif Et (CDP)
+    // CDP İndirme İznini Aktif Et
     const client = await page.target().createCDPSession();
     await client.send('Page.setDownloadBehavior', {
       behavior: 'allow',
       downloadPath: DOWNLOAD_DIR,
     });
 
-    // Sayfa Yükleme
-    await page.goto(INBOX_URL, { waitUntil: 'networkidle2', timeout: 60000 });
-    await new Promise(r => setTimeout(r, 5000)); // DOM tam otursun
+    // Sayfaya Yönlendirme (networkidle0 ile arka plan yönlendirmelerinin oturmasını bekle)
+    console.log("ℹ️ Sayfaya gidiliyor ve tam yüklenme bekleniyor...");
+    await page.goto(INBOX_URL, { waitUntil: 'networkidle0', timeout: 90000 });
+    
+    // SPA / iFrame tam oturması için stabilizasyon beklemesi
+    await new Promise(r => setTimeout(r, 10000));
 
     console.log("ℹ️ 'Herunterladen' butonu taranıyor...");
 
-    // 2. Butona Tıklama (Görseldeki div[role="button"][jsname="I5dMCd"] yapısına özel)
-    const downloadSuccess = await page.evaluate(() => {
-      // Öncelik 1: Tam JSNAME ve ROLE eşleşmesi
+    // Detached frame hatasını önlemek için mainFrame() üzerinden doğrudan DOM tetikleme
+    const downloadSuccess = await page.mainFrame().evaluate(() => {
+      // 1. Öncelik: F12'de gördüğümüz nokta atışı jsname ve role eşleşmesi
       let btn = document.querySelector('div[role="button"][jsname="I5dMCd"]');
       
-      // Öncelik 2: Genel role="button" veya button etiketleri içinde 'Herunterladen' arama
+      // 2. Öncelik: İçinde 'Herunterladen' geçen role="button" veya button etiketleri
       if (!btn) {
         const allElements = Array.from(document.querySelectorAll('div[role="button"], button, a[role="button"]'));
         btn = allElements.find(el => {
@@ -91,15 +94,15 @@ async function sendTelegramMessage(text) {
     });
 
     if (downloadSuccess) {
-      console.log("✅ 'Herunterladen' butonuna tıklandı. Dosya indiriliyor...");
-      await new Promise(r => setTimeout(r, 6000)); // İndirme tamamlanma süresi
+      console.log("✅ 'Herunterladen' butonuna başarıyla tıklandı. Dosya indiriliyor...");
+      await new Promise(r => setTimeout(r, 6000)); // Dosyanın diske yazılması için bekle
     } else {
       console.warn("⚠️ 'Herunterladen' butonu bulunamadı! Ekran görüntüsü alınıyor (debug_page.png)...");
       await page.screenshot({ path: 'debug_page.png', fullPage: true });
       throw new Error("Download button not found in DOM");
     }
 
-    // 3. İndirilen CSV Dosyasını Tespit Etme
+    // 3. İndirilen CSV Dosyasını Bulma
     const files = fs.readdirSync(DOWNLOAD_DIR).filter(f => f.endsWith('.csv'));
 
     if (files.length === 0) {
@@ -115,7 +118,7 @@ async function sendTelegramMessage(text) {
     const csvFilePath = path.join(DOWNLOAD_DIR, latestFile);
     console.log(`📄 İşlenen Dosya: ${csvFilePath}`);
 
-    // 4. CSV İçeriğini Okuma ve İşleme
+    // 4. CSV Okuma ve İşleme
     const results = [];
     fs.createReadStream(csvFilePath)
       .pipe(csv())
@@ -123,13 +126,10 @@ async function sendTelegramMessage(text) {
       .on('end', async () => {
         console.log(`✅ CSV başarıyla okundu. Toplam Kayıt: ${results.length}`);
         
-        // Örnek: Verileri data.json dosyasına yazma
+        // Verileri data.json dosyasına yaz
         const dataJsonPath = path.resolve(__dirname, 'data.json');
         fs.writeFileSync(dataJsonPath, JSON.stringify(results, null, 2));
         console.log("💾 Veriler data.json dosyasına kaydedildi.");
-
-        // İşlem bitince indirilen dosyayı temizlemek istersen:
-        // fs.unlinkSync(csvFilePath);
 
         await browser.close();
         process.exit(0);
@@ -137,7 +137,6 @@ async function sendTelegramMessage(text) {
 
   } catch (error) {
     console.error(`[${new Date().toLocaleString()}] ❌ ERROR: Hata: ${error.message}`);
-    // Hata durumunda ekran görüntüsü kaydet
     await page.screenshot({ path: 'error_state.png', fullPage: true }).catch(() => {});
     await browser.close();
     process.exit(1);
