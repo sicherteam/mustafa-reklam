@@ -302,7 +302,7 @@ function clearChromeLocks() {
             if (row) (row.querySelector('td, div[role="gridcell"]') || row).click();
           }, item.domIndex);
 
-          await new Promise(r => setTimeout(r, 3500));
+          await new Promise(r => setTimeout(r, 5000));
 
           const panelData = await page.evaluate(() => {
             let msg = "-";
