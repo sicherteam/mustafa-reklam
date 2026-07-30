@@ -18,7 +18,7 @@ const CONFIG = {
   telegramChatId: process.env.TELEGRAM_CHAT_ID || 'YOUR_TELEGRAM_CHAT_ID',
   dataFilePath: path.join(__dirname, 'data.json'),
   userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
-  downloadPath: path.resolve(__dirname, 'downloads'),
+  downloadPath: '/home/yasin2celik/Downloads', // 🎯 DİZİN DEĞİŞTİRİLDİ
   sabitCsvPath: path.resolve(__dirname, 'downloads', 'latest_leads.csv'),
   lockFilePath: path.join(__dirname, 'bot.lock'),
   targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
@@ -184,11 +184,13 @@ async function runLsaCollector() {
 
   try {
     if (!fs.existsSync(CONFIG.downloadPath)) fs.mkdirSync(CONFIG.downloadPath, { recursive: true });
+    const localDownloads = path.dirname(CONFIG.sabitCsvPath);
+    if (!fs.existsSync(localDownloads)) fs.mkdirSync(localDownloads, { recursive: true });
 
-    // Temizlik
+    // Hedef klasördeki eski leads-inbox dosyalarını temizle
     fs.readdirSync(CONFIG.downloadPath).forEach(f => {
-      if (f.endsWith('.csv') && f !== 'latest_leads.csv') {
-        fs.unlinkSync(path.join(CONFIG.downloadPath, f));
+      if (f.startsWith('leads-inbox') && f.endsWith('.csv')) {
+        try { fs.unlinkSync(path.join(CONFIG.downloadPath, f)); } catch (_) {}
       }
     });
 
@@ -233,7 +235,6 @@ async function runLsaCollector() {
       downloadPath: CONFIG.downloadPath
     });
 
-    // 🎯 2. DOWNLOAD EVENT LISTENERS
     client.on('Browser.downloadWillBegin', event => {
       writeLog("📥 DOWNLOAD BAŞLADI: " + event.suggestedFilename);
     });
@@ -260,7 +261,6 @@ async function runLsaCollector() {
         const btnHtml = await page.evaluate(el => el.outerHTML, btn);
         writeLog("BUTON HTML: " + btnHtml);
 
-        // 🎯 1. HUMAN-LIKE MOUSE CLICK
         const box = await btn.boundingBox();
 
         if (box) {
@@ -283,7 +283,6 @@ async function runLsaCollector() {
         }
       }
 
-      // 🎯 3. SCREENSHOT (Tıklamadan hemen sonra sayfa durumunu kaydet)
       await page.screenshot({
         path: 'download-after-click.png'
       });
@@ -299,9 +298,15 @@ async function runLsaCollector() {
     let rawDownloadedFile = null;
     const startTime = Date.now();
 
+    // 🎯 YENİLENMİŞ CSV ARAMA ALGORİTMASI
     while (Date.now() - startTime < 15000) {
       const files = fs.readdirSync(CONFIG.downloadPath);
-      const csvFile = files.find(f => f.endsWith('.csv') && f !== 'latest_leads.csv' && !f.endsWith('.crdownload'));
+      const csvFile = files.find(f =>
+        f.startsWith('leads-inbox') &&
+        f.endsWith('.csv') &&
+        !f.includes('(1)')
+      );
+
       if (csvFile) {
         rawDownloadedFile = path.join(CONFIG.downloadPath, csvFile);
         break;
@@ -313,10 +318,10 @@ async function runLsaCollector() {
       throw new Error("❌ CSV dosyası indirilemedi (zaman aşıldı).");
     }
 
-    // Üstüne yazma mantığı
+    // Üstüne yazma ve proje içine taşıma mantığı
     if (fs.existsSync(CONFIG.sabitCsvPath)) fs.unlinkSync(CONFIG.sabitCsvPath);
     fs.renameSync(rawDownloadedFile, CONFIG.sabitCsvPath);
-    writeLog(`✅ Dosya güncellendi ve üstüne yazıldı: ${CONFIG.sabitCsvPath}`);
+    writeLog(`✅ Dosya taşındı ve güncellendi: ${CONFIG.sabitCsvPath}`);
 
     // Parse Etme
     const rawRows = [];
