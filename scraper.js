@@ -106,8 +106,21 @@ async function runLsaCollector() {
     await page.goto(CONFIG.lsaUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
     // İndirme işlemini tetikle
-    const downloadBtn = await page.evaluateHandle(() => Array.from(document.querySelectorAll('button')).find(b => b.innerText.includes('HERUNTERLADEN')));
-    if (downloadBtn) { await downloadBtn.click(); await new Promise(r => setTimeout(r, 4000)); }
+    const clicked = await page.evaluate(() => {
+      const buttons = Array.from(document.querySelectorAll('button, div[role="button"], a'));
+      const btn = buttons.find(b => b.innerText && b.innerText.toUpperCase().includes('HERUNTERLADEN'));
+      if (btn) {
+        btn.click();
+        return true;
+      }
+      return false;
+    });
+
+    if (clicked) {
+      await new Promise(r => setTimeout(r, 4000)); // İndirme için bekle
+    } else {
+      writeLog("⚠️ 'HERUNTERLADEN' (İndir) butonu ekranda bulunamadı!", true);
+    }
 
     const files = fs.readdirSync(CONFIG.downloadPath).filter(f => f.endsWith('.csv'));
     files.sort((a, b) => fs.statSync(path.join(CONFIG.downloadPath, b)).mtime - fs.statSync(path.join(CONFIG.downloadPath, a)).mtime);
