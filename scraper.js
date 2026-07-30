@@ -55,7 +55,6 @@ function safeStr(val) {
   return strVal;
 }
 
-// 🔹 DÜZELTME 1: JS Regex indeksi array formatına (match[x]) getirildi
 function parseCsvDate(dateStr) {
   const clean = safeStr(dateStr);
   if (!clean || clean === '-') return '-';
@@ -96,7 +95,7 @@ function syncToGit() {
     writeLog("Git senkronizasyonu başlatılıyor...");
     execSync('git add data.json', { cwd: __dirname });
     execSync('git commit -m "auto: update LSA leads database [skip ci]"', { cwd: __dirname });
-    execSync('git push', { cwd: __dirname });
+    execSync('git push origin main', { cwd: __dirname });
     writeLog("✅ Git'e başarıyla push edildi.");
   } catch (err) {
     writeLog(`Git Sync uyarısı (Değişiklik olmayabilir): ${err.message}`, true);
@@ -104,7 +103,7 @@ function syncToGit() {
 }
 
 // ==========================================
-// 3. TELEGRAM BİLDİRİM (ID Satırı Kaldırıldı)
+// 3. TELEGRAM BİLDİRİM
 // ==========================================
 async function sendTelegramMessage(lead, retries = 3) {
   if (!CONFIG.telegramToken || !CONFIG.telegramChatId) {
@@ -278,7 +277,6 @@ async function runLsaCollector() {
 
           if (extractedMsg) messageText = extractedMsg;
 
-          // 🔹 DÜZELTME 2: Detaydan çıkış ve SPA Trap engeli
           await page.evaluate(() => {
             const backBtn = document.querySelector('button[aria-label*="Zurück"], button[aria-label*="Close"], div[role="button"][aria-label*="Zurück"]');
             if (backBtn) backBtn.click();
