@@ -249,8 +249,8 @@ async function runLsaCollector() {
     }
 
     if (!rawRpcPayload) {
-      writeLog("⏳ API yanıtı bekleniyor (3 saniye)...");
-      await new Promise(r => setTimeout(r, 3000));
+      writeLog("⏳ API yanıtı bekleniyor (5 saniye)...");
+      await new Promise(r => setTimeout(r, 5000));
     }
 
     if (!rawRpcPayload) {
