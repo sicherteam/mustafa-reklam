@@ -191,13 +191,17 @@ async function runLsaCollector() {
 
     browser = await puppeteer.launch({
       headless: 'new',
-      executablePath: CONFIG.executablePath, // 🔹 Chrome yolumuz tanımlandı
+      executablePath: CONFIG.executablePath,
       userDataDir: CONFIG.userDataDir,
       defaultViewport: { width: 1920, height: 1080 },
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process',
         '--disable-gpu'
       ]
     });
