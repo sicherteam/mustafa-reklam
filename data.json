@@ -1,1 +1,199 @@
-
+{
+  "updatedAt": "31.7.2026, 00:06:42",
+  "leads": [
+    {
+      "id": "lsa_1785358863140149",
+      "anfrageId": "1785358863140149",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wien / Österreich",
+      "Tarih": "29.7.2026, 23:01:03",
+      "Mesaj": "LSA Anfrage-ID: 1785358863140149",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785334575364426",
+      "anfrageId": "1785334575364426",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien / Österreich",
+      "Tarih": "29.7.2026, 16:16:15",
+      "Mesaj": "LSA Anfrage-ID: 1785334575364426",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785409772035863",
+      "anfrageId": "1785409772035863",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien / Österreich",
+      "Tarih": "30.7.2026, 13:09:32",
+      "Mesaj": "LSA Anfrage-ID: 1785409772035863",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785309454454628",
+      "anfrageId": "1785309454454628",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wien / Österreich",
+      "Tarih": "29.7.2026, 09:17:34",
+      "Mesaj": "LSA Anfrage-ID: 1785309454454628",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1784961813899594",
+      "anfrageId": "1784961813899594",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien / Österreich",
+      "Tarih": "25.7.2026, 08:43:33",
+      "Mesaj": "LSA Anfrage-ID: 1784961813899594",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785242828127123",
+      "anfrageId": "1785242828127123",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien / Österreich",
+      "Tarih": "28.7.2026, 14:47:08",
+      "Mesaj": "LSA Anfrage-ID: 1785242828127123",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785235687990601",
+      "anfrageId": "1785235687990601",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien / Österreich",
+      "Tarih": "28.7.2026, 12:48:07",
+      "Mesaj": "LSA Anfrage-ID: 1785235687990601",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785230040676067",
+      "anfrageId": "1785230040676067",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wien / Österreich",
+      "Tarih": "28.7.2026, 11:14:00",
+      "Mesaj": "LSA Anfrage-ID: 1785230040676067",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785313993751629",
+      "anfrageId": "1785313993751629",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien / Österreich",
+      "Tarih": "29.7.2026, 10:33:13",
+      "Mesaj": "LSA Anfrage-ID: 1785313993751629",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785226897079920",
+      "anfrageId": "1785226897079920",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien / Österreich",
+      "Tarih": "28.7.2026, 10:21:37",
+      "Mesaj": "LSA Anfrage-ID: 1785226897079920",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_1785309030084262",
+      "anfrageId": "1785309030084262",
+      "Musteri": "Müşteri (LSA)",
+      "Telefon": "-",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien / Österreich",
+      "Tarih": "29.7.2026, 09:10:30",
+      "Mesaj": "LSA Anfrage-ID: 1785309030084262",
+      "telegramSent": true
+    },
+    {
+      "id": "lsa_329076350,328916345,1,2,,1,,,7,,,,,4,,4,,national_move,de,Umzug im Inland,,Umzugsdienst,xcat:service_area_business_mover:de-AT,,,,,1785358863140149,1785445269371048,1785361600789705,,,9999999999,,,4372571150,,,,,180,,,,,1785358869227560,false",
+      "anfrageId": [
+        "329076350",
+        "328916345",
+        1,
+        2,
+        [
+          null,
+          1,
+          null,
+          null,
+          7
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          [
+            4,
+            null,
+            4
+          ],
+          null,
+          [
+            "national_move",
+            [
+              "de",
+              "Umzug im Inland"
+            ]
+          ],
+          [
+            null,
+            "Umzugsdienst",
+            "xcat:service_area_business_mover:de-AT"
+          ]
+        ],
+        null,
+        null,
+        null,
+        null,
+        1785358863140149,
+        1785445269371048,
+        1785361600789705,
+        null,
+        null,
+        9999999999,
+        null,
+        null,
+        "4372571150",
+        null,
+        null,
+        null,
+        null,
+        180,
+        null,
+        null,
+        null,
+        null,
+        1785358869227560,
+        false
+      ],
+      "Musteri": "Google LSA Müşterisi",
+      "Telefon": "-",
+      "Email": "-",
+      "GoogleForwardTel": "-",
+      "Hizmet": "Umzugsdienst",
+      "Konum": "Wien / Österreich",
+      "Tarih": "31.7.2026, 00:06:40",
+      "Mesaj": "LSA Lead ID: 329076350,328916345,1,2,,1,,,7,,,,,4,,4,,national_move,de,Umzug im Inland,,Umzugsdienst,xcat:service_area_business_mover:de-AT,,,,,1785358863140149,1785445269371048,1785361600789705,,,9999999999,,,4372571150,,,,,180,,,,,1785358869227560,false",
+      "telegramSent": true
+    }
+  ]
+}
