@@ -8,10 +8,10 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
 // ==========================================
-// TEST MODU AYARI
+// TEST MODU
 // ==========================================
-const SKIP_TELEGRAM = true; // Telegram gönderimini atlar
-const SKIP_GIT_PUSH = true;  // Git commit/push işlemini atlar
+const SKIP_TELEGRAM = true;
+const SKIP_GIT_PUSH = true;
 
 // ==========================================
 // 1. YAPILANDIRMA (CONFIG)
@@ -37,19 +37,16 @@ function writeLog(msg, isError = false) {
   else console.log(formattedMsg);
 }
 
-function escapeHTML(str) {
-  if (!str) return '';
-  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
 function loadDatabase() {
   if (!fs.existsSync(CONFIG.dataFilePath)) {
     return { updatedAt: new Date().toISOString(), leads: [] };
   }
   try {
-    return JSON.parse(fs.readFileSync(CONFIG.dataFilePath, 'utf8'));
+    const content = fs.readFileSync(CONFIG.dataFilePath, 'utf8').trim();
+    if (!content) return { updatedAt: new Date().toISOString(), leads: [] };
+    return JSON.parse(content);
   } catch (err) {
-    writeLog(`data.json okunurken hata: ${err.message}`, true);
+    writeLog(`data.json okunurken hata alındı, yeni şablon oluşturuluyor: ${err.message}`, true);
     return { updatedAt: new Date().toISOString(), leads: [] };
   }
 }
@@ -59,22 +56,6 @@ function saveDatabaseSafe(data) {
   data.updatedAt = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
   fs.writeFileSync(tempPath, JSON.stringify(data, null, 2), 'utf8');
   fs.renameSync(tempPath, CONFIG.dataFilePath);
-}
-
-function syncToGit() {
-  if (SKIP_GIT_PUSH) {
-    writeLog("⚠️ TEST MODU: Git Sync atlandı.");
-    return;
-  }
-  try {
-    writeLog("Git senkronizasyonu başlatılıyor...");
-    execSync('git add data.json', { cwd: __dirname });
-    execSync('git commit -m "auto: update LSA leads via DiUHNe API [skip ci]"', { cwd: __dirname });
-    execSync('git push origin main', { cwd: __dirname });
-    writeLog("✅ Git'e başarıyla push edildi.");
-  } catch (err) {
-    writeLog(`Git Sync uyarısı: ${err.message}`, true);
-  }
 }
 
 function clearChromeLocks() {
@@ -88,54 +69,71 @@ function clearChromeLocks() {
 }
 
 // ==========================================
-// 3. GOOGLE RPC (DiUHNe) DATA PARSER
+// 3. GOOGLE RPC DECODER & INSPECTOR
 // ==========================================
 function extractLeadsFromRpc(rawText) {
   const leads = [];
   try {
+    // Ham yanıtı debug için kaydedelim
+    fs.writeFileSync(path.join(__dirname, 'debug_rpc.txt'), rawText, 'utf8');
+
     const cleanText = rawText.replace(/^\)\]\}'\s*/, '');
-    
-    let parsedData = [];
+    let parsedJson = null;
+
+    // Satır bazlı arama
     const lines = cleanText.split('\n');
     for (const line of lines) {
       if (!line.trim()) continue;
       try {
         const json = JSON.parse(line);
-        if (Array.isArray(json)) parsedData.push(json);
+        if (Array.isArray(json)) {
+          parsedJson = json;
+          break;
+        }
       } catch (_) {}
     }
 
-    const fullStr = JSON.stringify(parsedData);
+    if (!parsedJson) {
+      writeLog("RPC JSON ayrıştırılamadı.", true);
+      return leads;
+    }
 
-    const idMatches = fullStr.match(/"(\d{9})"/g) || [];
+    const fullStr = JSON.stringify(parsedJson);
+
+    // Bütün tırnak içindeki sayısal string ID'leri yakala (9-16 hane)
+    const idMatches = fullStr.match(/"(\d{8,16})"/g) || [];
     const uniqueIds = [...new Set(idMatches.map(id => id.replace(/"/g, '')))];
 
-    for (const anfrageId of uniqueIds) {
-      const serviceMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?\\["de","([^"]+)"\\]`));
-      const categoryMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?"([^"]+ Dienst)?"`));
-      
-      const dateMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?,(\\178\\d{13}|179\\d{13}|180\\d{13})`));
-      let formattedDate = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
-      
-      if (dateMatch && dateMatch[1]) {
-        const ms = Math.floor(parseInt(dateMatch[1], 10) / 1000);
-        if (!isNaN(ms)) {
-          formattedDate = new Date(ms).toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
+    writeLog(`🔎 Taranan Aday ID Sayısı: ${uniqueIds.length}`);
+
+    // Umzug / Dienst veya LSA özel kelimelerinin geçtiği yerleri süz
+    for (const id of uniqueIds) {
+      if (id.startsWith('178') || id.startsWith('179') || id.startsWith('180')) continue; // Zaman damgalarını ele
+
+      // Bu ID'nin etrafında metin var mı?
+      const idIdx = fullStr.indexOf(id);
+      if (idIdx !== -1) {
+        const snippet = fullStr.substring(Math.max(0, idIdx - 100), Math.min(fullStr.length, idIdx + 300));
+        
+        // Eğer snippet içinde bilinen terimler varsa lead kabul et
+        if (/Umzug|Dienst|national_move|Anfrage|Mover|xcat|de-AT|Wien/i.test(snippet)) {
+          
+          let service = 'Umzugsdienst';
+          const sMatch = snippet.match(/\["de","([^"]+)"\]/);
+          if (sMatch) service = sMatch[1];
+
+          leads.push({
+            id: `lsa_${id}`,
+            anfrageId: id,
+            Musteri: 'Müşteri (LSA)',
+            Telefon: '-',
+            Hizmet: service,
+            Konum: 'Wien / Österreich',
+            Tarih: new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' }),
+            Mesaj: `LSA Anfrage-ID: ${id}`
+          });
         }
       }
-
-      const service = serviceMatch ? serviceMatch[1] : (categoryMatch ? categoryMatch[1] : 'Umzugsdienst');
-
-      leads.push({
-        id: `lsa_${anfrageId}`,
-        anfrageId: anfrageId,
-        Musteri: 'Müşteri (LSA)',
-        Telefon: '-',
-        Hizmet: service,
-        Konum: 'Wien / Österreich',
-        Tarih: formattedDate,
-        Mesaj: `LSA Anfrage-ID: ${anfrageId}`
-      });
     }
 
   } catch (err) {
@@ -145,53 +143,7 @@ function extractLeadsFromRpc(rawText) {
 }
 
 // ==========================================
-// 4. TELEGRAM BİLDİRİM
-// ==========================================
-async function sendTelegramMessage(lead, retries = 3) {
-  if (SKIP_TELEGRAM) {
-    writeLog(`⚠️ TEST MODU: Telegram bildirimi atlandı. (Lead ID: ${lead.id})`);
-    return true;
-  }
-
-  if (!CONFIG.telegramToken || !CONFIG.telegramChatId || CONFIG.telegramToken === 'YOUR_TELEGRAM_BOT_TOKEN') {
-    writeLog("Telegram konfigürasyonu eksik!", true);
-    return false;
-  }
-
-  const phoneStr = lead["Telefon"] && lead["Telefon"] !== '-' 
-    ? `\n📞 <b>Telefon:</b> <code>${escapeHTML(lead["Telefon"])}</code>` 
-    : '';
-
-  const message = `🔔 <b>YENİ Müşteri!</b> (${escapeHTML(CONFIG.projectName)})\n\n` +
-                  `👤 <b>Müşteri:</b> ${escapeHTML(lead["Musteri"])}${phoneStr}\n` +
-                  `📍 <b>Konum:</b> ${escapeHTML(lead["Konum"])}\n` +
-                  `💼 <b>Hizmet:</b> ${escapeHTML(lead["Hizmet"])}\n` +
-                  `📅 <b>Tarih:</b> ${escapeHTML(lead["Tarih"])}\n` +
-                  `💬 <b>İletişim / ID:</b> ${escapeHTML(lead["Mesaj"])}`;
-
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      const res = await fetch(`https://api.telegram.org/bot${CONFIG.telegramToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CONFIG.telegramChatId,
-          text: message,
-          parse_mode: 'HTML'
-        })
-      });
-
-      if (res.ok) return true;
-      if (res.status === 429) await new Promise(r => setTimeout(r, 3500 * attempt));
-    } catch (err) {
-      await new Promise(r => setTimeout(r, 2000));
-    }
-  }
-  return false;
-}
-
-// ==========================================
-// 5. ANA MOTOR
+// 4. ANA MOTOR
 // ==========================================
 async function runLsaCollector() {
   if (fs.existsSync(CONFIG.lockFilePath)) {
@@ -270,9 +222,6 @@ async function runLsaCollector() {
 
       if (existingIds.has(lead.id)) continue;
 
-      const sent = await sendTelegramMessage(lead);
-      lead.telegramSent = sent;
-
       db.leads.push(lead);
       existingIds.add(lead.id);
       newLeadsAdded = true;
@@ -281,10 +230,9 @@ async function runLsaCollector() {
 
     if (newLeadsAdded) {
       saveDatabaseSafe(db);
-      writeLog(`✅ ${db.leads.length} adet lead yeni 'data.json' dosyasına kaydedildi.`);
-      syncToGit();
+      writeLog(`✅ ${db.leads.length} adet lead 'data.json' dosyasına kaydedildi.`);
     } else {
-      writeLog("ℹ️ Yeni bir lead bulunamadı. Veritabanı güncel.");
+      writeLog("ℹ️ Yeni bir lead bulunamadı.");
     }
 
   } catch (err) {
