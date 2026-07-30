@@ -233,12 +233,18 @@ async function runLsaCollector() {
       downloadPath: CONFIG.downloadPath
     });
 
-    // 🎯 3. DOWNLOAD EVENT DINLEYICILER
+    // 🎯 2. DOWNLOAD EVENT LISTENERS
     client.on('Browser.downloadWillBegin', event => {
-      writeLog("DOWNLOAD BAŞLADI: " + JSON.stringify(event));
+      writeLog("📥 DOWNLOAD BAŞLADI: " + event.suggestedFilename);
     });
+
     client.on('Browser.downloadProgress', event => {
-      writeLog("DOWNLOAD DURUM: " + JSON.stringify(event));
+      writeLog(
+        "📥 DOWNLOAD STATUS: " +
+        event.state +
+        " " +
+        event.receivedBytes
+      );
     });
 
     writeLog("📥 CSV indirme butonu aranıyor...");
@@ -251,42 +257,38 @@ async function runLsaCollector() {
       const btn = await page.$(btnSelector);
 
       if (btn) {
-        // 🎯 1. GERÇEK BUTON HTML LOGLAMA
         const btnHtml = await page.evaluate(el => el.outerHTML, btn);
         writeLog("BUTON HTML: " + btnHtml);
 
-        // 🎯 2. PUPPETEER GERÇEK MOUSE CLICK
-        await btn.evaluate(el => {
-          el.scrollIntoView({ block: 'center' });
-        });
+        // 🎯 1. HUMAN-LIKE MOUSE CLICK
         const box = await btn.boundingBox();
+
         if (box) {
-          await page.mouse.click(
+          await btn.focus();
+
+          await page.mouse.move(
             box.x + box.width / 2,
-            box.y + box.height / 2
+            box.y + box.height / 2,
+            { steps: 10 }
           );
 
+          await page.mouse.down();
+          await new Promise(r => setTimeout(r, 300));
+          await page.mouse.up();
+
+          await new Promise(r => setTimeout(r, 3000));
+
           clicked = true;
-          writeLog("✅ Gerçek mouse click yapıldı.");
+          writeLog("✅ Human-like mouse click tamamlandı.");
         }
       }
 
-      if (!clicked) {
-        writeLog("⚠️ Yedek tıklama planına geçiliyor...");
-        const buttons = await page.$$('div[role="button"]');
-        for (const el of buttons) {
-          const text = await page.evaluate(e => e.innerText || e.textContent || '', el);
-          if (text.toUpperCase().includes('HERUNTERLADEN')) {
-            const box = await el.boundingBox();
-            if (box) {
-              await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
-              clicked = true;
-              writeLog("✅ Yedek planda gerçek mouse click yapıldı.");
-              break;
-            }
-          }
-        }
-      }
+      // 🎯 3. SCREENSHOT (Tıklamadan hemen sonra sayfa durumunu kaydet)
+      await page.screenshot({
+        path: 'download-after-click.png'
+      });
+      writeLog("📸 'download-after-click.png' kaydedildi.");
+
     } catch (e) {
       writeLog(`Tıklama mekanizması hatası: ${e.message}`, true);
     }
