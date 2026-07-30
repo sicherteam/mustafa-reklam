@@ -1,6 +1,14 @@
 {
-  "updatedAt": "30.7.2026, 12:46:00",
+  "updatedAt": "30.7.2026, 13:18:48",
   "leads": [
+    {
+      "Musteri": "0676 9472147",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "30.07.26 11:09",
+      "Mesaj": "-",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7774684",
       "Hizmet": "-",
@@ -22,7 +30,7 @@
       "Hizmet": "Innerörtlicher Umzug",
       "Konum": "Sankt Pölten",
       "Tarih": "29.07.26 16:16",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter",
+      "Mesaj": "P\nPotenzieller Kunde\n2:16 PM\nHallo, ich benötige in der Woche ab 22.8.ein Übersiedlungsteam. In 3150Wilhelmsburg.Wohnung 2.Stock. Wandverbau 3 Teile, Schreibtisch, gr. Tisch mit 6 Sesseln, 1 Boxspringbett, 5-6 Regale und ca. 10 Kartons. Bitte um einen Kostenvoranschlag und einen Termin bitte!",
       "telegramSent": true
     },
     {
@@ -102,7 +110,7 @@
       "Hizmet": "Innerörtlicher Umzug",
       "Konum": "Wien",
       "Tarih": "28.07.26 12:47",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 12:47 PM\nHallo Umzug vom 7 ten in den 11 ten",
       "telegramSent": true
     },
     {
@@ -126,7 +134,7 @@
       "Hizmet": "Umzug im Inland",
       "Konum": "Wien",
       "Tarih": "28.07.26 09:14",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter",
+      "Mesaj": "P\nPotenzieller Kunde\nGestern um 12:47 PM\nHallo Umzug vom 7 ten in den 11 ten",
       "telegramSent": true
     },
     {
@@ -151,14 +159,6 @@
       "Konum": "Guntramsdorf",
       "Tarih": "25.07.26 06:43",
       "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 6723777",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "21.07.26 16:14",
-      "Mesaj": "-",
       "telegramSent": true
     }
   ]
