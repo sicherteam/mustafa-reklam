@@ -18,7 +18,8 @@ const CONFIG = {
   telegramChatId: process.env.TELEGRAM_CHAT_ID || 'YOUR_TELEGRAM_CHAT_ID',
   dataFilePath: path.join(__dirname, 'data.json'),
   userDataPath: '/home/yasin2celik/mustafa-reklam/user_data',
-  downloadPath: path.join(__dirname, 'downloads'),
+  downloadPath: path.resolve(__dirname, 'downloads'),
+  sabitCsvPath: path.resolve(__dirname, 'downloads', 'latest_leads.csv'), // 🎯 Sabit Üzerine Yazılacak Dosya
   lockFilePath: path.join(__dirname, 'bot.lock'),
   targetUrl: 'https://ads.google.com/localservices/inbox?cid=4747284491&bid=10999542772&pid=9999999999&euid=3547106212&hl=de-AT&gl=AT',
   executablePath: '/usr/bin/google-chrome'
@@ -199,9 +200,11 @@ async function runLsaCollector() {
   try {
     if (!fs.existsSync(CONFIG.downloadPath)) fs.mkdirSync(CONFIG.downloadPath, { recursive: true });
 
-    // Eski .csv dosyalarını temizle
+    // İndirme öncesi geçici .crdownload veya ismi farklı kalmış eski dosyaları temizle (latest_leads hariç)
     fs.readdirSync(CONFIG.downloadPath).forEach(f => {
-      if (f.endsWith('.csv')) fs.unlinkSync(path.join(CONFIG.downloadPath, f));
+      if (f.endsWith('.csv') && f !== 'latest_leads.csv') {
+        fs.unlinkSync(path.join(CONFIG.downloadPath, f));
+      }
     });
 
     clearChromeLocks();
@@ -218,16 +221,8 @@ async function runLsaCollector() {
         '--disable-blink-features=AutomationControlled',
         '--window-size=1920,1080',
         '--lang=de-AT,de',
-        '--disable-background-networking',
-        '--disable-background-timer-throttling',
-        '--disable-backgrounding-occluded-windows',
-        '--disable-renderer-backgrounding',
-        '--disable-extensions',
-        '--disable-sync',
         '--no-first-run',
-        '--no-default-browser-check',
-        '--disable-popup-blocking',
-        '--disable-breakpad'
+        '--no-default-browser-check'
       ]
     });
 
@@ -237,32 +232,15 @@ async function runLsaCollector() {
 
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
-    // CDP İndirme İzinleri (Tekil tanım)
+    // CDP İndirme Davranışını Tanımla
     const client = await page.target().createCDPSession();
     await client.send('Page.setDownloadBehavior', {
       behavior: 'allow',
       downloadPath: CONFIG.downloadPath
     });
 
-    try {
-      await client.send('Browser.setDownloadBehavior', {
-        behavior: 'allow',
-        downloadPath: CONFIG.downloadPath,
-        eventsEnabled: true
-      });
-    } catch(e) {}
-
-    await page.setRequestInterception(true);
-    page.on('request', (req) => {
-      if (['image', 'stylesheet', 'font', 'media'].includes(req.resourceType())) {
-        req.abort();
-      } else {
-        req.continue();
-      }
-    });
-
     writeLog("🚀 LSA Inbox sayfasına gidiliyor...");
-    await page.goto(CONFIG.targetUrl, { waitUntil: 'networkidle2' });
+    await page.goto(CONFIG.targetUrl, { waitUntil: 'domcontentloaded' });
 
     const pageTitle = await page.title();
     writeLog(`Sayfa Başlığı: ${pageTitle}`);
@@ -271,15 +249,8 @@ async function runLsaCollector() {
       throw new Error(`❌ Oturum açılamadı veya Google engelledi! Başlık: ${pageTitle}`);
     }
 
-    await page.evaluate(async () => {
-      for (let i = 0; i < 4; i++) {
-        window.scrollBy(0, 300);
-        await new Promise(r => setTimeout(r, 200));
-      }
-    });
-
     writeLog("📥 CSV indirme butonu aranıyor ve sayfanın oturması bekleniyor...");
-    await new Promise(r => setTimeout(r, 4000));
+    await new Promise(r => setTimeout(r, 6000));
     
     let clicked = false;
     try {
@@ -288,24 +259,9 @@ async function runLsaCollector() {
       const btn = await page.$(btnSelector);
 
       if (btn) {
-        await page.evaluate(el => el.scrollIntoView({behavior: 'smooth', block: 'center'}), btn);
-        await new Promise(r => setTimeout(r, 1000));
-
-        const box = await btn.boundingBox();
-        if (box) {
-          const x = box.x + (box.width / 2);
-          const y = box.y + (box.height / 2);
-
-          writeLog(`🖱️ Gerçek fare simülasyonu ile tıklanıyor (X: ${Math.round(x)}, Y: ${Math.round(y)})...`);
-          
-          await page.mouse.move(x, y, { steps: 10 });
-          await new Promise(r => setTimeout(r, 300));
-          await page.mouse.down();
-          await new Promise(r => setTimeout(r, 150));
-          await page.mouse.up();
-          clicked = true;
-          writeLog("✅ Koordinat bazlı tıklama başarılı.");
-        }
+        await page.evaluate(el => el.click(), btn);
+        clicked = true;
+        writeLog("✅ JS Click ile indirme tetiklendi.");
       }
 
       if (!clicked) {
@@ -327,27 +283,35 @@ async function runLsaCollector() {
     if (!clicked) throw new Error("❌ 'HERUNTERLADEN' butonu bulunamadı veya tıklanamadı!");
 
     writeLog("⏳ CSV dosyasının inmesi bekleniyor...");
-    let downloadedFilePath = null;
+    let rawDownloadedFile = null;
     const startTime = Date.now();
+
+    // Yeni gelen indirilen dosyayı tespit et
     while (Date.now() - startTime < 15000) {
       const files = fs.readdirSync(CONFIG.downloadPath);
-      const csvFile = files.find(f => f.endsWith('.csv') && !f.endsWith('.crdownload'));
+      const csvFile = files.find(f => f.endsWith('.csv') && f !== 'latest_leads.csv' && !f.endsWith('.crdownload'));
       if (csvFile) {
-        downloadedFilePath = path.join(CONFIG.downloadPath, csvFile);
+        rawDownloadedFile = path.join(CONFIG.downloadPath, csvFile);
         break;
       }
       await new Promise(r => setTimeout(r, 500));
     }
 
-    if (!downloadedFilePath) {
+    if (!rawDownloadedFile) {
       throw new Error("❌ CSV dosyası indirilemedi (zaman aşıldı).");
     }
 
-    writeLog(`✅ CSV İndirildi: ${downloadedFilePath}. Okunuyor...`);
+    // 🎯 DOSYAYI SABİT ADLA ÜZERİNE YAZ (OVERWRITE MECHANISM)
+    if (fs.existsSync(CONFIG.sabitCsvPath)) {
+      fs.unlinkSync(CONFIG.sabitCsvPath); // Var olan eski dosyayı sil
+    }
+    fs.renameSync(rawDownloadedFile, CONFIG.sabitCsvPath); // Yeni dosyayı 'latest_leads.csv' yap
+    writeLog(`✅ Dosya güncellendi ve üstüne yazıldı: ${CONFIG.sabitCsvPath}`);
 
+    // CSV Parse (Sabit dosyadan okuma)
     const rawRows = [];
     await new Promise((resolve) => {
-      fs.createReadStream(downloadedFilePath)
+      fs.createReadStream(CONFIG.sabitCsvPath)
         .pipe(csvParser())
         .on('data', (row) => rawRows.push(row))
         .on('end', resolve);
@@ -431,10 +395,6 @@ async function runLsaCollector() {
       saveDatabaseSafe(db);
       hasNewLeadsAdded = true;
       writeLog(`✅ Yeni Lead Kaydedildi ve Bildirildi: ID -> ${leadId}`);
-    }
-
-    if (fs.existsSync(downloadedFilePath)) {
-      fs.unlinkSync(downloadedFilePath);
     }
 
     if (hasNewLeadsAdded) {
