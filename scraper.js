@@ -1,12 +1,17 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
 const { execSync } = require('child_process');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 
 puppeteer.use(StealthPlugin());
+
+// ==========================================
+// TEST MODU AYARI
+// ==========================================
+const SKIP_TELEGRAM = true; // Telegram gönderimini atlar
+const SKIP_GIT_PUSH = true;  // Git commit/push işlemini atlar
 
 // ==========================================
 // 1. YAPILANDIRMA (CONFIG)
@@ -57,6 +62,10 @@ function saveDatabaseSafe(data) {
 }
 
 function syncToGit() {
+  if (SKIP_GIT_PUSH) {
+    writeLog("⚠️ TEST MODU: Git Sync atlandı.");
+    return;
+  }
   try {
     writeLog("Git senkronizasyonu başlatılıyor...");
     execSync('git add data.json', { cwd: __dirname });
@@ -86,7 +95,6 @@ function extractLeadsFromRpc(rawText) {
   try {
     const cleanText = rawText.replace(/^\)\]\}'\s*/, '');
     
-    // JSON dizisini çözümle
     let parsedData = [];
     const lines = cleanText.split('\n');
     for (const line of lines) {
@@ -99,17 +107,13 @@ function extractLeadsFromRpc(rawText) {
 
     const fullStr = JSON.stringify(parsedData);
 
-    // DiUHNe içindeki Lead bloklarını yakala (Anfrage ID ve metin dizilimi)
-    // Google LSA, ID'leri genelde 9 haneli string sayı dizileri olarak saklar ("329076350")
     const idMatches = fullStr.match(/"(\d{9})"/g) || [];
     const uniqueIds = [...new Set(idMatches.map(id => id.replace(/"/g, '')))];
 
     for (const anfrageId of uniqueIds) {
-      // Her ID'ye ait metin bloğunu tespit edelim
       const serviceMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?\\["de","([^"]+)"\\]`));
       const categoryMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?"([^"]+ Dienst)?"`));
       
-      // Zaman damgası arayalım
       const dateMatch = fullStr.match(new RegExp(`"${anfrageId}"[\\s\\S]*?,(\\178\\d{13}|179\\d{13}|180\\d{13})`));
       let formattedDate = new Date().toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
       
@@ -144,6 +148,11 @@ function extractLeadsFromRpc(rawText) {
 // 4. TELEGRAM BİLDİRİM
 // ==========================================
 async function sendTelegramMessage(lead, retries = 3) {
+  if (SKIP_TELEGRAM) {
+    writeLog(`⚠️ TEST MODU: Telegram bildirimi atlandı. (Lead ID: ${lead.id})`);
+    return true;
+  }
+
   if (!CONFIG.telegramToken || !CONFIG.telegramChatId || CONFIG.telegramToken === 'YOUR_TELEGRAM_BOT_TOKEN') {
     writeLog("Telegram konfigürasyonu eksik!", true);
     return false;
@@ -219,7 +228,6 @@ async function runLsaCollector() {
     page.setDefaultTimeout(60000);
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36');
 
-    // Network Interceptor
     page.on('response', async (response) => {
       const url = response.url();
       if (url.includes('batchexecute') && url.includes('DiUHNe')) {
@@ -249,7 +257,6 @@ async function runLsaCollector() {
       throw new Error("❌ 'DiUHNe' RPC yanıtı yakalanamadı!");
     }
 
-    // Lead'leri Çıkar
     const fetchedLeads = extractLeadsFromRpc(rawRpcPayload);
     writeLog(`🔎 Toplam ${fetchedLeads.length} potansiyel lead ayrıştırıldı.`);
 
@@ -257,7 +264,10 @@ async function runLsaCollector() {
     const existingIds = new Set(db.leads.map(l => l.id));
     let newLeadsAdded = false;
 
+    console.log("\n=================== TESPİT EDİLEN LEADLER ===================");
     for (const lead of fetchedLeads) {
+      console.log(`📌 ID: ${lead.id} | Hizmet: ${lead.Hizmet} | Tarih: ${lead.Tarih}`);
+
       if (existingIds.has(lead.id)) continue;
 
       const sent = await sendTelegramMessage(lead);
@@ -266,11 +276,12 @@ async function runLsaCollector() {
       db.leads.push(lead);
       existingIds.add(lead.id);
       newLeadsAdded = true;
-      writeLog(`✅ Yeni Lead Eklendi ve Bildirildi: ID -> ${lead.id} (${lead.Hizmet})`);
     }
+    console.log("=============================================================\n");
 
     if (newLeadsAdded) {
       saveDatabaseSafe(db);
+      writeLog(`✅ ${db.leads.length} adet lead yeni 'data.json' dosyasına kaydedildi.`);
       syncToGit();
     } else {
       writeLog("ℹ️ Yeni bir lead bulunamadı. Veritabanı güncel.");
