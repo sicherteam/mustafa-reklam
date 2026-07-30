@@ -45,7 +45,6 @@
       color: #1e293b;
     }
 
-    /* Tablo Tasarımı */
     .table-container {
       border: 1px solid var(--border-color);
       border-radius: 12px;
@@ -74,7 +73,6 @@
       border-bottom-color: #f1f5f9;
     }
 
-    /* Mesaj Kutusu Stili */
     .message-box {
       background-color: #f1f5f9;
       border-left: 4px solid var(--primary-color);
@@ -85,7 +83,6 @@
       word-break: break-word;
     }
 
-    /* MOBİL KART GÖRÜNÜMÜ */
     @media (max-width: 767.98px) {
       body { padding: 10px 5px; }
       .main-card { padding: 1rem !important; border-radius: 12px; }
@@ -142,6 +139,20 @@
           <input type="text" id="searchInput" onkeyup="filterTable()" class="form-control form-control-lg fs-6 ps-5" placeholder="Ara (Müşteri, Konum, Hizmet, Mesaj...)...">
           <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
         </div>
+      </div>
+    </div>
+
+    <!-- 🚀 UYGULAMAYI YÜKLE BANNER / BUTONU -->
+    <div id="installAppWrapper" class="mb-4 d-none">
+      <div class="alert alert-primary d-flex align-items-center justify-content-between mb-0 border-0 shadow-sm rounded-3">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-download fs-4 me-3 text-primary"></i>
+          <div>
+            <strong class="d-block text-dark">Uygulamayı Yükle</strong>
+            <small class="text-muted">Ana ekranınıza ekleyip tek tıkla erişin.</small>
+          </div>
+        </div>
+        <button id="btnInstallApp" class="btn btn-primary btn-sm px-3 fw-bold">Yükle</button>
       </div>
     </div>
 
@@ -327,7 +338,35 @@
 
     loadData();
 
-    // 🚀 SERVICE WORKER KAYDI (App Yükleme Desteği)
+    // 🚀 PWA APP YÜKLEME (INSTALL PROMPT) MANTIĞI
+    let deferredPrompt;
+    const installWrapper = document.getElementById('installAppWrapper');
+    const installBtn = document.getElementById('btnInstallApp');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (installWrapper) installWrapper.classList.remove('d-none');
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`Kullanıcı seçimi: ${outcome}`);
+        deferredPrompt = null;
+        installWrapper.classList.add('d-none');
+      });
+    }
+
+    window.addEventListener('appinstalled', () => {
+      console.log('🎉 Uygulama başarıyla yüklendi!');
+      if (installWrapper) installWrapper.classList.add('d-none');
+      deferredPrompt = null;
+    });
+
+    // 🚀 SERVICE WORKER KAYDI (3 satırlık sw.js gerektirir)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW Hata:', err));
