@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 12:51:33",
+  "updatedAt": "31.7.2026, 13:00:44",
   "leads": [
+    {
+      "Musteri": "0665 65691257",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "31.07.26 12:56",
+      "Mesaj": "-",
+      "id": "c86ecfbab59c3c8fbcbf5efea9a629ac",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1840718",
       "Hizmet": "-",
@@ -161,15 +170,6 @@
       "Tarih": "28.07.26 10:40",
       "Mesaj": "-",
       "id": "7a6b387fd06f1c47ba74a626230f8116",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 8354048",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "28.07.26 10:21",
-      "Mesaj": "-",
-      "id": "d4242d72a6f3ea0376fc95def36c53de",
       "telegramSent": true
     },
     {
