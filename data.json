@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 00:31:07",
+  "updatedAt": "31.7.2026, 12:51:33",
   "leads": [
+    {
+      "Musteri": "0664 1840718",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "31.07.26 09:24",
+      "Mesaj": "-",
+      "id": "3fd405fc498248ffe62f6b209abc333e",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 9472147",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -71,15 +80,6 @@
       "Tarih": "29.07.26 09:17",
       "Mesaj": "P\nPotenzieller Kunde\nGestern um 7:17 AM\nGuten Tag, wir bräuchten eine Übersiedlung von Biedermannsdorf nach Ternitz ! 5 Ikea Kästen 236 x 100x60 mit 5 Türen. MFG Alexandra",
       "id": "6bf499f926fda7a385305eee1a2736fa",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 75024400",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "29.07.26 09:10",
-      "Mesaj": "-",
-      "id": "3ca5236c649f6dc956cb96cbebbf546b",
       "telegramSent": true
     },
     {
