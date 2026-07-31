@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 13:00:44",
+  "updatedAt": "31.7.2026, 14:18:32",
   "leads": [
+    {
+      "Musteri": "0680 4433558",
+      "Hizmet": "-",
+      "Konum": "Baden",
+      "Tarih": "31.07.26 14:10",
+      "Mesaj": "-",
+      "id": "949f3e0b0c75e8d8731fd393ee416701",
+      "telegramSent": true
+    },
     {
       "Musteri": "0665 65691257",
       "Hizmet": "-",
@@ -71,15 +80,6 @@
       "Tarih": "29.07.26 11:27",
       "Mesaj": "-",
       "id": "0d1a79f3fc9c315648fe4e2561d55dae",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 2717757",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "29.07.26 10:33",
-      "Mesaj": "-",
-      "id": "a69c8ebf6cc8da3c05e8c3e67be0a3d6",
       "telegramSent": true
     },
     {
