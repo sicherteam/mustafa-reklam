@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 15:27:42",
+  "updatedAt": "31.7.2026, 16:27:42",
   "leads": [
+    {
+      "Musteri": "0677 62660026",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Sankt Pölten",
+      "Tarih": "31.07.26 16:20",
+      "Mesaj": "-",
+      "id": "b679b84ee7191b8541959692c3feef0b",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 87835190",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -161,15 +170,6 @@
       "Tarih": "28.07.26 12:35",
       "Mesaj": "-",
       "id": "05a8f081918c94187ec986da49bb83da",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1972533",
-      "Hizmet": "Umzug im Inland",
-      "Konum": "Wien",
-      "Tarih": "28.07.26 11:14",
-      "Mesaj": "P\nPotenzieller Kunde\n28.07.26\nHallo Umzug vom 7 ten in den 11 ten",
-      "id": "48076eeb2fbf1e2a7ea247269f104a86",
       "telegramSent": true
     },
     {
