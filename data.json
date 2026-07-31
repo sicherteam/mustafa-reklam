@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 14:18:32",
+  "updatedAt": "31.7.2026, 15:27:42",
   "leads": [
+    {
+      "Musteri": "0676 87835190",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Deutsch-Wagram",
+      "Tarih": "31.07.26 15:17",
+      "Mesaj": "-",
+      "id": "af868ca8178fcc98b426a05ea91a94a4",
+      "telegramSent": true
+    },
     {
       "Musteri": "0680 4433558",
       "Hizmet": "-",
@@ -161,15 +170,6 @@
       "Tarih": "28.07.26 11:14",
       "Mesaj": "P\nPotenzieller Kunde\n28.07.26\nHallo Umzug vom 7 ten in den 11 ten",
       "id": "48076eeb2fbf1e2a7ea247269f104a86",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1205477",
-      "Hizmet": "-",
-      "Konum": "Tulln an der Donau",
-      "Tarih": "28.07.26 10:40",
-      "Mesaj": "-",
-      "id": "7a6b387fd06f1c47ba74a626230f8116",
       "telegramSent": true
     },
     {
