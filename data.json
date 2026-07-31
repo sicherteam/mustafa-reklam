@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 18:27:46",
+  "updatedAt": "31.7.2026, 20:54:29",
   "leads": [
+    {
+      "Musteri": "0660 9113932",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "31.07.26 20:51",
+      "Mesaj": "-",
+      "id": "31d8d7e128ec6080987e8b77a50a5c81",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7013018",
       "Hizmet": "-",
@@ -161,15 +170,6 @@
       "Tarih": "28.07.26 15:30",
       "Mesaj": "-",
       "id": "90d2c02fd3908c4cb3442cef7dfeedd3",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 6473403",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Tarih": "28.07.26 14:47",
-      "Mesaj": "P\nPotenzieller Kunde\n28.07.26\nHallo Umzug vom 7 ten in den 11 ten",
-      "id": "3ff2a37d867d5187b88ad7b432c4ddea",
       "telegramSent": true
     },
     {
