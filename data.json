@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 16:54:37",
+  "updatedAt": "31.7.2026, 18:27:46",
   "leads": [
+    {
+      "Musteri": "0676 7013018",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "31.07.26 18:21",
+      "Mesaj": "-",
+      "id": "d4a90307bfd96b3b8e5d153a03744207",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 6174013",
       "Hizmet": "-",
@@ -161,15 +170,6 @@
       "Tarih": "28.07.26 14:47",
       "Mesaj": "P\nPotenzieller Kunde\n28.07.26\nHallo Umzug vom 7 ten in den 11 ten",
       "id": "3ff2a37d867d5187b88ad7b432c4ddea",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 81821203",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "28.07.26 12:48",
-      "Mesaj": "-",
-      "id": "8dbc1cd074670854565aa004fb9639b9",
       "telegramSent": true
     },
     {
