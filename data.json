@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2.8.2026, 11:00:32",
+  "updatedAt": "2.8.2026, 20:27:38",
   "leads": [
+    {
+      "Musteri": "0676 3703485",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "02.08.26 20:18",
+      "Mesaj": "-",
+      "id": "f69349255a70dbf678827fc6e08eae45",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 2829287",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -170,15 +179,6 @@
       "Tarih": "28.07.26 20:04",
       "Mesaj": "-",
       "id": "6efefcb07383c8d84be2238d6a7f6332",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 3374458",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Guntramsdorf",
-      "Tarih": "25.07.26 08:43",
-      "Mesaj": "P\nPotenzieller Kunde\n25.07.26\nAbholen Schreibtisch sehr groß aus 2.Stock abholen und nach Übelbach bei Graz bringen, bitte um Kostenschätzung. BG Walter",
-      "id": "9585b8cb6e309fb57fa6ef6c7dced667",
       "telegramSent": true
     }
   ]
