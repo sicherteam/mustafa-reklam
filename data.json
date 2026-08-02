@@ -1,6 +1,15 @@
 {
-  "updatedAt": "31.7.2026, 21:09:33",
+  "updatedAt": "2.8.2026, 11:00:32",
   "leads": [
+    {
+      "Musteri": "0664 2829287",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Weitra",
+      "Tarih": "02.08.26 10:56",
+      "Mesaj": "-",
+      "id": "5372432418d7016f34af093cb603daf1",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1012104",
       "Hizmet": "-",
@@ -161,15 +170,6 @@
       "Tarih": "28.07.26 20:04",
       "Mesaj": "-",
       "id": "6efefcb07383c8d84be2238d6a7f6332",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 3688715",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "28.07.26 16:37",
-      "Mesaj": "-",
-      "id": "fa803c56680ecd18c8a633947997e76e",
       "telegramSent": true
     },
     {
