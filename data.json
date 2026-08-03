@@ -1,6 +1,15 @@
 {
-  "updatedAt": "3.8.2026, 09:54:40",
+  "updatedAt": "3.8.2026, 10:45:26",
   "leads": [
+    {
+      "Musteri": "0681 20825488",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "03.08.26 10:40",
+      "Mesaj": "-",
+      "id": "966f05e8566845627b75493e46a5f11d",
+      "telegramSent": true
+    },
     {
       "Musteri": "0677 61206999",
       "Hizmet": "-",
@@ -170,15 +179,6 @@
       "Tarih": "29.07.26 15:16",
       "Mesaj": "-",
       "id": "dcdc4b8c90eae64d96ffae6a00ae8dc5",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0690 10204872",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "29.07.26 11:27",
-      "Mesaj": "-",
-      "id": "0d1a79f3fc9c315648fe4e2561d55dae",
       "telegramSent": true
     }
   ]
