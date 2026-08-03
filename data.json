@@ -1,6 +1,15 @@
 {
-  "updatedAt": "3.8.2026, 16:36:33",
+  "updatedAt": "3.8.2026, 19:27:37",
   "leads": [
+    {
+      "Musteri": "0660 7330067",
+      "Hizmet": "-",
+      "Konum": "Melk",
+      "Tarih": "03.08.26 19:14",
+      "Mesaj": "-",
+      "id": "50ca0454899af444a70b6ef0c6a9c21f",
+      "telegramSent": true
+    },
     {
       "Musteri": "0680 2198536",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -170,15 +179,6 @@
       "Tarih": "30.07.26 13:09",
       "Mesaj": "-",
       "id": "66e2a5e1bfffcb0f495ae5d996c46fe1",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 7774684",
-      "Hizmet": "-",
-      "Konum": "Klosterneuburg",
-      "Tarih": "30.07.26 12:30",
-      "Mesaj": "-",
-      "id": "5d43fbb6a6848721169f087301a034ba",
       "telegramSent": true
     }
   ]
