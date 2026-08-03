@@ -1,6 +1,15 @@
 {
-  "updatedAt": "3.8.2026, 19:27:37",
+  "updatedAt": "3.8.2026, 20:18:34",
   "leads": [
+    {
+      "Musteri": "0664 99750936",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "03.08.26 19:58",
+      "Mesaj": "-",
+      "id": "d082628b3930b1f0c38bdcc7ac0cbee9",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 7330067",
       "Hizmet": "-",
@@ -152,15 +161,6 @@
       "Tarih": "31.07.26 14:10",
       "Mesaj": "-",
       "id": "949f3e0b0c75e8d8731fd393ee416701",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0665 65691257",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "31.07.26 12:56",
-      "Mesaj": "-",
-      "id": "c86ecfbab59c3c8fbcbf5efea9a629ac",
       "telegramSent": true
     },
     {
