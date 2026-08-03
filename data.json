@@ -1,6 +1,15 @@
 {
-  "updatedAt": "3.8.2026, 10:45:26",
+  "updatedAt": "3.8.2026, 13:36:33",
   "leads": [
+    {
+      "Musteri": "0650 9779113",
+      "Hizmet": "-",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "03.08.26 13:30",
+      "Mesaj": "-",
+      "id": "880957af094357d82f05e09cd7d6c0e3",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 20825488",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -170,15 +179,6 @@
       "Tarih": "29.07.26 16:16",
       "Mesaj": "P\nPotenzieller Kunde\nGestern um 2:16 PM\nHallo, ich benötige in der Woche ab 22.8.ein Übersiedlungsteam. In 3150Wilhelmsburg.Wohnung 2.Stock. Wandverbau 3 Teile, Schreibtisch, gr. Tisch mit 6 Sesseln, 1 Boxspringbett, 5-6 Regale und ca. 10 Kartons. Bitte um einen Kostenvoranschlag und einen Termin bitte!",
       "id": "88aa58b8ac949e391af8d143ef2684f0",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 81660039",
-      "Hizmet": "-",
-      "Konum": "Horn",
-      "Tarih": "29.07.26 15:16",
-      "Mesaj": "-",
-      "id": "dcdc4b8c90eae64d96ffae6a00ae8dc5",
       "telegramSent": true
     }
   ]
