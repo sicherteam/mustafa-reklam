@@ -1,6 +1,15 @@
 {
-  "updatedAt": "3.8.2026, 13:36:33",
+  "updatedAt": "3.8.2026, 14:09:36",
   "leads": [
+    {
+      "Musteri": "0676 6724947",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "03.08.26 14:00",
+      "Mesaj": "-",
+      "id": "6228677444e98c45726afe0fbeb0ac1a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0650 9779113",
       "Hizmet": "-",
@@ -170,15 +179,6 @@
       "Tarih": "29.07.26 23:01",
       "Mesaj": "P\nPotenzieller Kunde\nGestern um 9:01 PM\nHallo. Ich ziehe demnächst von Wieselburg nach Ybbs. Und wollte fragen wieviel es kosten Möbel und Umzugskartons ein und auszuladen, wieder aufzustellen uns zu Transportieren Mag Angelika",
       "id": "dab0c3850ed614bd56d3d5cb483c1828",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 7771939",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Sankt Pölten",
-      "Tarih": "29.07.26 16:16",
-      "Mesaj": "P\nPotenzieller Kunde\nGestern um 2:16 PM\nHallo, ich benötige in der Woche ab 22.8.ein Übersiedlungsteam. In 3150Wilhelmsburg.Wohnung 2.Stock. Wandverbau 3 Teile, Schreibtisch, gr. Tisch mit 6 Sesseln, 1 Boxspringbett, 5-6 Regale und ca. 10 Kartons. Bitte um einen Kostenvoranschlag und einen Termin bitte!",
-      "id": "88aa58b8ac949e391af8d143ef2684f0",
       "telegramSent": true
     }
   ]
