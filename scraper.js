@@ -316,7 +316,6 @@ function clearChromeLocks() {
 
           const panelData = await page.evaluate(() => {
             let msg = "-";
-            let foundPhone = null;
             let nameInHeader = null;
 
             const chatBlock = Array.from(document.querySelectorAll('div, section, article'))
@@ -331,7 +330,6 @@ function clearChromeLocks() {
                          .trim() || "NO MESSAGE";
             }
 
-            // 🔹 Sol Üst Paneli Okuma (Numara / İsim Ayıklama)
             const headerBar = Array.from(document.querySelectorAll('div, header'))
                                    .find(el => (el.innerText || '').includes('ARCHIVIEREN') || (el.innerText || '').includes('MARKIEREN'));
             if (headerBar) {
@@ -339,29 +337,16 @@ function clearChromeLocks() {
               if (lines.length > 0 && !lines[0].includes('ARCHIVIEREN')) {
                 const candidate = lines[0].split('|')[0].trim();
                 if (!/Google|Lokale|Dienstleistungen|Potenzieller|Anrufer/i.test(candidate)) {
-                  
-                  // Telefon numarası tespiti (+43..., 0660..., vb.)
-                  const isPhone = /^(\+?\d[\d\s\(\)\-]{6,}\d)$/.test(candidate);
-                  if (isPhone) {
-                    foundPhone = candidate;
-                  } else {
-                    nameInHeader = candidate;
-                  }
+                  nameInHeader = candidate;
                 }
               }
             }
 
-            return { msg, foundPhone, nameInHeader };
+            return { msg, nameInHeader };
           });
 
-          // 🔹 Numara bulunduysa mesajın başına ekle
-          if (panelData.foundPhone) {
-            messageText = `[Tel: ${panelData.foundPhone}] ${panelData.msg}`;
-          } else {
-            messageText = panelData.msg;
-          }
+          messageText = panelData.msg;
 
-          // 🔹 İsim boşsa sol üstteki ismi al
           if ((finalCustomerName === '-' || !finalCustomerName) && panelData.nameInHeader) {
             finalCustomerName = panelData.nameInHeader;
           }
@@ -371,7 +356,6 @@ function clearChromeLocks() {
         }
       }
 
-      // 🔹 Hiçbiri yoksa varsayılan 'Müşteri' adını ver
       if (!finalCustomerName || finalCustomerName.trim() === '-' || finalCustomerName === '') {
         finalCustomerName = 'Müşteri';
       }
