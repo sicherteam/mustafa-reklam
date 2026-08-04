@@ -1,6 +1,15 @@
 {
-  "updatedAt": "3.8.2026, 20:18:34",
+  "updatedAt": "4.8.2026, 11:36:48",
   "leads": [
+    {
+      "Musteri": "Andreas Ebner",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Mödling",
+      "Tarih": "04.08.26 11:35",
+      "Mesaj": "A\nAndreas Ebner\n9:35 AM\nhaben sie eine email Adresse das wir anfrage schicken können ? 2340 Mödling Brühlerstrasse 53/Stiege 2 / 3 stk DG Tür 11 Nach Stiege 1 3 Stk DG Tür 11",
+      "id": "e4dbd1dbec9682e1a255398e06665dad",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 99750936",
       "Hizmet": "-",
@@ -170,15 +179,6 @@
       "Tarih": "31.07.26 09:24",
       "Mesaj": "-",
       "id": "3fd405fc498248ffe62f6b209abc333e",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9472147",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "30.07.26 13:09",
-      "Mesaj": "-",
-      "id": "66e2a5e1bfffcb0f495ae5d996c46fe1",
       "telegramSent": true
     }
   ]
