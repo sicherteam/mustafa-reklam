@@ -9,7 +9,7 @@ const crypto = require('crypto');
 puppeteer.use(StealthPlugin());
 
 // --- MOD KONTROLLERİ (AÇ / KAPAT) ---
-const SKIP_TELEGRAM = true; // true yapılırsa Telegram bildirimi atmaz
+const SKIP_TELEGRAM = false; // true yapılırsa Telegram bildirimi atmaz
 const SKIP_GIT_PUSH = false;  // true yapılırsa GitHub'a push yapmaz
 
 // --- CONFIGURATION (MUSTAFA REKLAM) ---
