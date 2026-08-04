@@ -1,5 +1,5 @@
 {
-  "updatedAt": "4.8.2026, 17:11:24",
+  "updatedAt": "4.8.2026, 17:37:52",
   "leads": [
     {
       "Musteri": "0676 6079070",
@@ -8,6 +8,24 @@
       "Tarih": "04.08.26 17:06",
       "Mesaj": "-",
       "id": "35fb83b1d7bf0028aa4eaf753a430266",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "Clara Habeler",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Tarih": "04.08.26 14:55",
+      "Mesaj": "-",
+      "id": "6bd6d50586c6dacff164b5af04e86c50",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "Andreas Ebner",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Mödling",
+      "Tarih": "04.08.26 11:35",
+      "Mesaj": "-",
+      "id": "e4dbd1dbec9682e1a255398e06665dad",
       "telegramSent": true
     },
     {
