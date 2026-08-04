@@ -1,6 +1,15 @@
 {
-  "updatedAt": "4.8.2026, 15:00:53",
+  "updatedAt": "4.8.2026, 17:10:18",
   "leads": [
+    {
+      "Musteri": "0676 6079070",
+      "Hizmet": "-",
+      "Konum": "Trumau",
+      "Tarih": "04.08.26 17:06",
+      "Mesaj": "-",
+      "id": "35fb83b1d7bf0028aa4eaf753a430266",
+      "telegramSent": true
+    },
     {
       "Musteri": "Clara Habeler",
       "Hizmet": "Innerörtlicher Umzug",
@@ -170,15 +179,6 @@
       "Tarih": "31.07.26 14:10",
       "Mesaj": "-",
       "id": "949f3e0b0c75e8d8731fd393ee416701",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1840718",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "31.07.26 09:24",
-      "Mesaj": "-",
-      "id": "3fd405fc498248ffe62f6b209abc333e",
       "telegramSent": true
     }
   ]
