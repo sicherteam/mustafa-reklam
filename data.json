@@ -1,6 +1,15 @@
 {
-  "updatedAt": "4.8.2026, 11:36:48",
+  "updatedAt": "4.8.2026, 15:00:53",
   "leads": [
+    {
+      "Musteri": "Clara Habeler",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Tarih": "04.08.26 14:55",
+      "Mesaj": "C\nClara Habeler\n12:55 PM\nSehr geehrte Damen und Herren, ich möchte einen Möbeltransport anfragen und ersuche Sie um die Übermittlung eines unverbindlichen Angebots. Folgende Möbelstücke sollen transportiert werden: Kasten und Tisch von der Ramperstorffergasse 19, 1050 Wien Bett von der Hartmanngasse 19, 1050 Wien Alle Möbelstücke sollen in die Bonygasse, 1120 Wien transportiert werden. Die Fotos der Möbelstücke habe ich dieser E-Mail beigefügt. An beiden Abholadressen sowie an der Lieferadresse befindet sich ein Lift.",
+      "id": "6bd6d50586c6dacff164b5af04e86c50",
+      "telegramSent": true
+    },
     {
       "Musteri": "Andreas Ebner",
       "Hizmet": "Beförderung von Umzugsgut",
@@ -143,15 +152,6 @@
       "Tarih": "31.07.26 16:43",
       "Mesaj": "-",
       "id": "20f28680893880637d242194c39d7120",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 62660026",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Sankt Pölten",
-      "Tarih": "31.07.26 16:20",
-      "Mesaj": "-",
-      "id": "b679b84ee7191b8541959692c3feef0b",
       "telegramSent": true
     },
     {
