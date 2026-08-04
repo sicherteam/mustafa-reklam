@@ -275,7 +275,7 @@ function clearChromeLocks() {
 
       // 1. Saat Dönüşümü ve Ön-MD5 Üretimi
       const formattedDate = parseTo24HourDate(item.anfrageDate);
-      let tempCustomerName = (!finalCustomerName || finalCustomerName.trim() === '-' || finalCustomerName === '') ? 'Müşteri' : finalCustomerName;
+      let tempCustomerName = (finalCustomerName.trim() === '-' || finalCustomerName === '') ? 'Müşteri' : finalCustomerName;
       
       const tempLead = {
         Musteri: tempCustomerName,
