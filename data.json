@@ -1,5 +1,5 @@
 {
-  "updatedAt": "4.8.2026, 18:24:05",
+  "updatedAt": "4.8.2026, 18:28:09",
   "leads": [
     {
       "Musteri": "0676 6079070",
@@ -9,7 +9,7 @@
       "Tarih": "04.08.26 17:06",
       "Mesaj": "-",
       "id": "35fb83b1d7bf0028aa4eaf753a430266",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "Clara Habeler",
@@ -19,7 +19,7 @@
       "Tarih": "04.08.26 14:55",
       "Mesaj": "C\nClara Habeler\n12:55 PM\nSehr geehrte Damen und Herren, ich möchte einen Möbeltransport anfragen und ersuche Sie um die Übermittlung eines unverbindlichen Angebots. Folgende Möbelstücke sollen transportiert werden: Kasten und Tisch von der Ramperstorffergasse 19, 1050 Wien Bett von der Hartmanngasse 19, 1050 Wien Alle Möbelstücke sollen in die Bonygasse, 1120 Wien transportiert werden. Die Fotos der Möbelstücke habe ich dieser E-Mail beigefügt. An beiden Abholadressen sowie an der Lieferadresse befindet sich ein Lift.",
       "id": "6bd6d50586c6dacff164b5af04e86c50",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "Andreas Ebner",
@@ -29,7 +29,7 @@
       "Tarih": "04.08.26 11:35",
       "Mesaj": "A\nAndreas Ebner\n9:35 AM\nhaben sie eine email Adresse das wir anfrage schicken können ? 2340 Mödling Brühlerstrasse 53/Stiege 2 / 3 stk DG Tür 11 Nach Stiege 1 3 Stk DG Tür 11",
       "id": "e4dbd1dbec9682e1a255398e06665dad",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0664 99750936",
@@ -39,7 +39,7 @@
       "Tarih": "03.08.26 19:58",
       "Mesaj": "-",
       "id": "d082628b3930b1f0c38bdcc7ac0cbee9",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0660 7330067",
@@ -49,7 +49,7 @@
       "Tarih": "03.08.26 19:14",
       "Mesaj": "-",
       "id": "50ca0454899af444a70b6ef0c6a9c21f",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0680 2198536",
@@ -59,7 +59,7 @@
       "Tarih": "03.08.26 16:31",
       "Mesaj": "-",
       "id": "7651f36af31ec87b248f50208386b910",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0676 6724947",
@@ -69,7 +69,7 @@
       "Tarih": "03.08.26 14:00",
       "Mesaj": "-",
       "id": "6228677444e98c45726afe0fbeb0ac1a",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0650 9779113",
@@ -79,7 +79,7 @@
       "Tarih": "03.08.26 13:30",
       "Mesaj": "-",
       "id": "880957af094357d82f05e09cd7d6c0e3",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0681 20825488",
@@ -89,7 +89,7 @@
       "Tarih": "03.08.26 10:40",
       "Mesaj": "-",
       "id": "966f05e8566845627b75493e46a5f11d",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0677 61206999",
@@ -99,7 +99,7 @@
       "Tarih": "03.08.26 09:45",
       "Mesaj": "-",
       "id": "87e1612c8675ed84db817479a5baa6f1",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0681 10510933",
@@ -109,7 +109,7 @@
       "Tarih": "03.08.26 09:22",
       "Mesaj": "-",
       "id": "b0429f133adabda8dbeb5a6a52f8de58",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0676 4495625",
@@ -119,7 +119,7 @@
       "Tarih": "03.08.26 08:34",
       "Mesaj": "-",
       "id": "b62a12a3822d25106d1b0a76cb027d8e",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0676 3703485",
@@ -129,7 +129,7 @@
       "Tarih": "02.08.26 20:18",
       "Mesaj": "-",
       "id": "f69349255a70dbf678827fc6e08eae45",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0664 2829287",
@@ -139,7 +139,7 @@
       "Tarih": "02.08.26 10:56",
       "Mesaj": "-",
       "id": "5372432418d7016f34af093cb603daf1",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0664 1012104",
@@ -149,7 +149,7 @@
       "Tarih": "31.07.26 21:03",
       "Mesaj": "-",
       "id": "ca415ba9e01edc8634d1dc27d596d17f",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0660 9113932",
@@ -159,7 +159,7 @@
       "Tarih": "31.07.26 20:51",
       "Mesaj": "-",
       "id": "31d8d7e128ec6080987e8b77a50a5c81",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0676 7013018",
@@ -169,7 +169,7 @@
       "Tarih": "31.07.26 18:21",
       "Mesaj": "-",
       "id": "d4a90307bfd96b3b8e5d153a03744207",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0676 6174013",
@@ -179,7 +179,7 @@
       "Tarih": "31.07.26 16:43",
       "Mesaj": "-",
       "id": "20f28680893880637d242194c39d7120",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0676 87835190",
@@ -189,7 +189,7 @@
       "Tarih": "31.07.26 15:17",
       "Mesaj": "-",
       "id": "af868ca8178fcc98b426a05ea91a94a4",
-      "telegramSent": false
+      "telegramSent": true
     },
     {
       "Musteri": "0680 4433558",
@@ -199,7 +199,7 @@
       "Tarih": "31.07.26 14:10",
       "Mesaj": "-",
       "id": "949f3e0b0c75e8d8731fd393ee416701",
-      "telegramSent": false
+      "telegramSent": true
     }
   ]
 }
