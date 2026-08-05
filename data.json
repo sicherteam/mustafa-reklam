@@ -1,6 +1,26 @@
 {
-  "updatedAt": "4.8.2026, 18:28:09",
+  "updatedAt": "5.8.2026, 07:18:48",
   "leads": [
+    {
+      "Musteri": "0699 12630191",
+      "Telefon": "0699 12630191",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "05.08.26 07:13",
+      "Mesaj": "P\nPotenzieller Kunde\n5:13 AM\nWir haben telefoniert. Meine Adresse 1080 Wien, Laudongasse 34/1/31. Samstag 17h. Vielen Dank Brigitta Dittrich",
+      "id": "75bcfd374cf7d96b15a1a52d6ba20d23",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0699 12630191",
+      "Telefon": "0699 12630191",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "05.08.26 07:05",
+      "Mesaj": "-",
+      "id": "edccd3d23f438e0aed5bc59f95f48ef3",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 6079070",
       "Telefon": "0676 6079070",
@@ -179,26 +199,6 @@
       "Tarih": "31.07.26 16:43",
       "Mesaj": "-",
       "id": "20f28680893880637d242194c39d7120",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 87835190",
-      "Telefon": "0676 87835190",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Deutsch-Wagram",
-      "Tarih": "31.07.26 15:17",
-      "Mesaj": "-",
-      "id": "af868ca8178fcc98b426a05ea91a94a4",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0680 4433558",
-      "Telefon": "0680 4433558",
-      "Hizmet": "-",
-      "Konum": "Baden",
-      "Tarih": "31.07.26 14:10",
-      "Mesaj": "-",
-      "id": "949f3e0b0c75e8d8731fd393ee416701",
       "telegramSent": true
     }
   ]
