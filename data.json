@@ -1,6 +1,16 @@
 {
-  "updatedAt": "5.8.2026, 12:18:34",
+  "updatedAt": "5.8.2026, 12:45:38",
   "leads": [
+    {
+      "Musteri": "0699 12622125",
+      "Telefon": "0699 12622125",
+      "Hizmet": "-",
+      "Konum": "Schwadorf bei Wien",
+      "Tarih": "05.08.26 12:36",
+      "Mesaj": "-",
+      "id": "dace7ccd7ac693b2a07387c0b67e4243",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 6283710",
       "Telefon": "0676 6283710",
@@ -189,16 +199,6 @@
       "Tarih": "31.07.26 21:03",
       "Mesaj": "-",
       "id": "ca415ba9e01edc8634d1dc27d596d17f",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 9113932",
-      "Telefon": "0660 9113932",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "31.07.26 20:51",
-      "Mesaj": "-",
-      "id": "31d8d7e128ec6080987e8b77a50a5c81",
       "telegramSent": true
     }
   ]
