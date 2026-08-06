@@ -1,6 +1,16 @@
 {
-  "updatedAt": "6.8.2026, 10:36:39",
+  "updatedAt": "6.8.2026, 16:36:37",
   "leads": [
+    {
+      "Musteri": "0660 1049954",
+      "Telefon": "0660 1049954",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "06.08.26 16:31",
+      "Mesaj": "-",
+      "id": "9de159842f98b07c4c65c4ea599fd0f2",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 5205436",
       "Telefon": "0676 5205436",
@@ -189,16 +199,6 @@
       "Tarih": "03.08.26 09:45",
       "Mesaj": "-",
       "id": "87e1612c8675ed84db817479a5baa6f1",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 10510933",
-      "Telefon": "0681 10510933",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "03.08.26 09:22",
-      "Mesaj": "-",
-      "id": "b0429f133adabda8dbeb5a6a52f8de58",
       "telegramSent": true
     }
   ]
