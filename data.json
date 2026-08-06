@@ -1,6 +1,16 @@
 {
-  "updatedAt": "5.8.2026, 15:09:29",
+  "updatedAt": "6.8.2026, 10:36:39",
   "leads": [
+    {
+      "Musteri": "0676 5205436",
+      "Telefon": "0676 5205436",
+      "Hizmet": "-",
+      "Konum": "Eisenstadt",
+      "Tarih": "06.08.26 10:29",
+      "Mesaj": "-",
+      "id": "bb80430dd315276929985d2723470783",
+      "telegramSent": true
+    },
     {
       "Musteri": "0677 63965273",
       "Telefon": "0677 63965273",
@@ -189,16 +199,6 @@
       "Tarih": "03.08.26 09:22",
       "Mesaj": "-",
       "id": "b0429f133adabda8dbeb5a6a52f8de58",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4495625",
-      "Telefon": "0676 4495625",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "03.08.26 08:34",
-      "Mesaj": "-",
-      "id": "b62a12a3822d25106d1b0a76cb027d8e",
       "telegramSent": true
     }
   ]
