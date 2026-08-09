@@ -1,6 +1,16 @@
 {
-  "updatedAt": "9.8.2026, 11:54:34",
+  "updatedAt": "9.8.2026, 19:36:45",
   "leads": [
+    {
+      "Musteri": "0665 65154295",
+      "Telefon": "0665 65154295",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "09.08.26 19:26",
+      "Mesaj": "-",
+      "id": "1596a29cb30dbd6bd3701230807dee32",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1845102",
       "Telefon": "0664 1845102",
@@ -179,16 +189,6 @@
       "Tarih": "04.08.26 17:06",
       "Mesaj": "-",
       "id": "35fb83b1d7bf0028aa4eaf753a430266",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "Clara Habeler",
-      "Telefon": "0660 3624048",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Tarih": "04.08.26 14:55",
-      "Mesaj": "C\nClara Habeler\n12:55 PM\nSehr geehrte Damen und Herren, ich möchte einen Möbeltransport anfragen und ersuche Sie um die Übermittlung eines unverbindlichen Angebots. Folgende Möbelstücke sollen transportiert werden: Kasten und Tisch von der Ramperstorffergasse 19, 1050 Wien Bett von der Hartmanngasse 19, 1050 Wien Alle Möbelstücke sollen in die Bonygasse, 1120 Wien transportiert werden. Die Fotos der Möbelstücke habe ich dieser E-Mail beigefügt. An beiden Abholadressen sowie an der Lieferadresse befindet sich ein Lift.",
-      "id": "6bd6d50586c6dacff164b5af04e86c50",
       "telegramSent": true
     },
     {
