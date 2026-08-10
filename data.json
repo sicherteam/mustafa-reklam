@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.8.2026, 16:45:49",
+  "updatedAt": "10.8.2026, 21:18:34",
   "leads": [
+    {
+      "Musteri": "0681 10203215",
+      "Telefon": "0681 10203215",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "10.08.26 21:16",
+      "Mesaj": "-",
+      "id": "dd0ac89b7573fad0cba23e9dbdcd717e",
+      "telegramSent": true
+    },
     {
       "Musteri": "erika peschke",
       "Telefon": "0699 18149628",
@@ -169,16 +179,6 @@
       "Tarih": "05.08.26 14:16",
       "Mesaj": "-",
       "id": "02376f5af53e1baff59f3c39c5f908bb",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 3588936",
-      "Telefon": "0664 3588936",
-      "Hizmet": "-",
-      "Konum": "Gablitz",
-      "Tarih": "05.08.26 12:48",
-      "Mesaj": "-",
-      "id": "b19d44e5cfd751e9e554d70118aaf08a",
       "telegramSent": true
     },
     {
