@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.8.2026, 16:18:36",
+  "updatedAt": "10.8.2026, 16:45:49",
   "leads": [
+    {
+      "Musteri": "erika peschke",
+      "Telefon": "0699 18149628",
+      "Hizmet": "Sperrmüllentsorgung",
+      "Konum": "Pinkafeld",
+      "Tarih": "10.08.26 16:44",
+      "Mesaj": "e\nerika peschke\n2:44 PM\nIn der neuen Wohnung mußeiniges entsorgt werden. Später ein Umzug( Stiegen wechsel) Am Schluß noch eine Entsorgung Brauche ein Kostenvoranschlag",
+      "id": "082ce2fe4ce8b7a9352a8caac788735b",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 88472593",
       "Telefon": "0664 88472593",
@@ -169,16 +179,6 @@
       "Tarih": "05.08.26 12:48",
       "Mesaj": "-",
       "id": "b19d44e5cfd751e9e554d70118aaf08a",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 12622125",
-      "Telefon": "0699 12622125",
-      "Hizmet": "-",
-      "Konum": "Schwadorf bei Wien",
-      "Tarih": "05.08.26 12:36",
-      "Mesaj": "-",
-      "id": "dace7ccd7ac693b2a07387c0b67e4243",
       "telegramSent": true
     },
     {
