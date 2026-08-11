@@ -1,6 +1,16 @@
 {
-  "updatedAt": "11.8.2026, 08:36:51",
+  "updatedAt": "11.8.2026, 08:45:36",
   "leads": [
+    {
+      "Musteri": "05224 6798919",
+      "Telefon": "05224 6798919",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "11.08.26 08:40",
+      "Mesaj": "-",
+      "id": "e214611fe096a7dfc3d8069cf1db8271",
+      "telegramSent": true
+    },
     {
       "Musteri": "0680 2404585",
       "Telefon": "0680 2404585",
@@ -169,16 +179,6 @@
       "Tarih": "06.08.26 16:31",
       "Mesaj": "-",
       "id": "9de159842f98b07c4c65c4ea599fd0f2",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 63965273",
-      "Telefon": "0677 63965273",
-      "Hizmet": "-",
-      "Konum": "Horn",
-      "Tarih": "05.08.26 14:58",
-      "Mesaj": "-",
-      "id": "28aa907b87559a8ebb55839e4d60d890",
       "telegramSent": true
     },
     {
