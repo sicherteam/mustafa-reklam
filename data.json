@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.8.2026, 21:18:34",
+  "updatedAt": "11.8.2026, 08:36:51",
   "leads": [
+    {
+      "Musteri": "0680 2404585",
+      "Telefon": "0680 2404585",
+      "Hizmet": "-",
+      "Konum": "Neunkirchen",
+      "Tarih": "11.08.26 08:20",
+      "Mesaj": "-",
+      "id": "314a1b3e4a21b25b76c2783157829af0",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 10203215",
       "Telefon": "0681 10203215",
@@ -169,16 +179,6 @@
       "Tarih": "05.08.26 14:58",
       "Mesaj": "-",
       "id": "28aa907b87559a8ebb55839e4d60d890",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 1584136",
-      "Telefon": "0660 1584136",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "05.08.26 14:16",
-      "Mesaj": "-",
-      "id": "02376f5af53e1baff59f3c39c5f908bb",
       "telegramSent": true
     },
     {
