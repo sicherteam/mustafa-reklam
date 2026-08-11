@@ -1,6 +1,26 @@
 {
-  "updatedAt": "11.8.2026, 10:09:29",
+  "updatedAt": "11.8.2026, 10:18:43",
   "leads": [
+    {
+      "Musteri": "0676 5202885",
+      "Telefon": "0676 5202885",
+      "Hizmet": "-",
+      "Konum": "Krems an der Donau",
+      "Tarih": "11.08.26 10:18",
+      "Mesaj": "-",
+      "id": "a478d78f642f7eb6f84863348164ad32",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0676 9145052",
+      "Telefon": "0676 9145052",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Krems an der Donau",
+      "Tarih": "11.08.26 10:10",
+      "Mesaj": "-",
+      "id": "f1a19093eaec5f8e397879a899475746",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 15020773",
       "Telefon": "0699 15020773",
@@ -172,16 +192,6 @@
       "telegramSent": true
     },
     {
-      "Musteri": "0664 3413983",
-      "Telefon": "0664 3413983",
-      "Hizmet": "-",
-      "Konum": "Krems an der Donau",
-      "Tarih": "07.08.26 09:21",
-      "Mesaj": "-",
-      "id": "776486c422e543dcd24535a665389e21",
-      "telegramSent": true
-    },
-    {
       "Musteri": "0660 1049954",
       "Telefon": "0660 1049954",
       "Hizmet": "-",
@@ -189,16 +199,6 @@
       "Tarih": "06.08.26 16:31",
       "Mesaj": "-",
       "id": "9de159842f98b07c4c65c4ea599fd0f2",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9472147",
-      "Telefon": "0676 9472147",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "30.07.26 13:09",
-      "Mesaj": "-",
-      "id": "66e2a5e1bfffcb0f495ae5d996c46fe1",
       "telegramSent": true
     }
   ]
