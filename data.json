@@ -1,6 +1,16 @@
 {
-  "updatedAt": "12.8.2026, 11:45:37",
+  "updatedAt": "12.8.2026, 14:00:36",
   "leads": [
+    {
+      "Musteri": "0650 8446444",
+      "Telefon": "0650 8446444",
+      "Hizmet": "-",
+      "Konum": "Neunkirchen",
+      "Tarih": "12.08.26 13:58",
+      "Mesaj": "-",
+      "id": "12541386c5b0c470d80125dc20f2ca7a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0650 3969063",
       "Telefon": "0650 3969063",
@@ -179,16 +189,6 @@
       "Tarih": "09.08.26 19:26",
       "Mesaj": "-",
       "id": "1596a29cb30dbd6bd3701230807dee32",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1845102",
-      "Telefon": "0664 1845102",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "09.08.26 11:47",
-      "Mesaj": "-",
-      "id": "899614b2fd08f1bef3476649e5178903",
       "telegramSent": true
     },
     {
