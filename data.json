@@ -1,6 +1,16 @@
 {
-  "updatedAt": "13.8.2026, 15:27:33",
+  "updatedAt": "13.8.2026, 17:36:48",
   "leads": [
+    {
+      "Musteri": "0699 81211377",
+      "Telefon": "0699 81211377",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "13.08.26 17:32",
+      "Mesaj": "-",
+      "id": "7e8d4eafcc457bb01e1282a8d26d6afb",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 84631588",
       "Telefon": "0681 84631588",
@@ -189,16 +199,6 @@
       "Tarih": "10.08.26 10:53",
       "Mesaj": "-",
       "id": "8390148a6831a27911061955b8cc0799",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "329076350",
-      "Telefon": "329076350",
-      "Hizmet": "Umzug im Inland",
-      "Konum": "Wieselburg",
-      "Tarih": "29.07.26 23:01",
-      "Mesaj": "P\nPotenzieller Kunde\n29.07.26\nHallo. Ich ziehe demnächst von Wieselburg nach Ybbs. Und wollte fragen wieviel es kosten Möbel und Umzugskartons ein und auszuladen, wieder aufzustellen uns zu Transportieren Mag Angelika",
-      "id": "dab0c3850ed614bd56d3d5cb483c1828",
       "telegramSent": true
     }
   ]
