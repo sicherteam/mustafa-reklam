@@ -1,6 +1,16 @@
 {
-  "updatedAt": "13.8.2026, 14:09:33",
+  "updatedAt": "13.8.2026, 14:46:03",
   "leads": [
+    {
+      "Musteri": "0664 8465209",
+      "Telefon": "0664 8465209",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "13.08.26 14:44",
+      "Mesaj": "-",
+      "id": "1c7e3dfb8c6b1fff8789323cec5d3abc",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 2518836",
       "Telefon": "0660 2518836",
@@ -109,16 +119,6 @@
       "Tarih": "11.08.26 10:50",
       "Mesaj": "-",
       "id": "824801e96923fb70fdfec9cab2a671db",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 5202885",
-      "Telefon": "0676 5202885",
-      "Hizmet": "-",
-      "Konum": "Krems an der Donau",
-      "Tarih": "11.08.26 10:18",
-      "Mesaj": "-",
-      "id": "a478d78f642f7eb6f84863348164ad32",
       "telegramSent": true
     },
     {
