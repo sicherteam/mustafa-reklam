@@ -1,6 +1,16 @@
 {
-  "updatedAt": "13.8.2026, 14:46:03",
+  "updatedAt": "13.8.2026, 15:27:33",
   "leads": [
+    {
+      "Musteri": "0681 84631588",
+      "Telefon": "0681 84631588",
+      "Hizmet": "-",
+      "Konum": "Sankt Pölten",
+      "Tarih": "13.08.26 15:20",
+      "Mesaj": "-",
+      "id": "dc7ba9a744838febdf9175a53492c3da",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 8465209",
       "Telefon": "0664 8465209",
@@ -169,16 +179,6 @@
       "Tarih": "10.08.26 16:15",
       "Mesaj": "-",
       "id": "486dfd07f90601b1b5cf3c621a12b3cc",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 62801457",
-      "Telefon": "0677 62801457",
-      "Hizmet": "-",
-      "Konum": "Baden",
-      "Tarih": "10.08.26 11:22",
-      "Mesaj": "-",
-      "id": "08d559c660c4260f361dd76a93d20a1c",
       "telegramSent": true
     },
     {
