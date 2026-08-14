@@ -1,6 +1,16 @@
 {
-  "updatedAt": "13.8.2026, 20:18:38",
+  "updatedAt": "14.8.2026, 08:18:37",
   "leads": [
+    {
+      "Musteri": "0699 10343885",
+      "Telefon": "0699 10343885",
+      "Hizmet": "-",
+      "Konum": "Gänserndorf",
+      "Tarih": "14.08.26 07:53",
+      "Mesaj": "-",
+      "id": "96e7d32292780c5b6067e26698b5cd81",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 14109342",
       "Telefon": "0699 14109342",
@@ -179,16 +189,6 @@
       "Tarih": "11.08.26 08:20",
       "Mesaj": "-",
       "id": "314a1b3e4a21b25b76c2783157829af0",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "erika peschke",
-      "Telefon": "0699 18149628",
-      "Hizmet": "Sperrmüllentsorgung",
-      "Konum": "Pinkafeld",
-      "Tarih": "10.08.26 16:44",
-      "Mesaj": "e\nerika peschke\n2:44 PM\nIn der neuen Wohnung mußeiniges entsorgt werden. Später ein Umzug( Stiegen wechsel) Am Schluß noch eine Entsorgung Brauche ein Kostenvoranschlag",
-      "id": "082ce2fe4ce8b7a9352a8caac788735b",
       "telegramSent": true
     },
     {
