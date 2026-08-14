@@ -1,6 +1,26 @@
 {
-  "updatedAt": "14.8.2026, 09:18:38",
+  "updatedAt": "14.8.2026, 11:54:43",
   "leads": [
+    {
+      "Musteri": "0676 9226616",
+      "Telefon": "0676 9226616",
+      "Hizmet": "-",
+      "Konum": "Hollabrunn",
+      "Tarih": "14.08.26 10:54",
+      "Mesaj": "-",
+      "id": "d93a1c880f4c4694c5101c520d8b7874",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0664 3253875",
+      "Telefon": "0664 3253875",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "14.08.26 10:46",
+      "Mesaj": "-",
+      "id": "079075a7352fdddc21d8c7e18298808a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0650 9278014",
       "Telefon": "0650 9278014",
@@ -169,26 +189,6 @@
       "Tarih": "11.08.26 10:50",
       "Mesaj": "-",
       "id": "824801e96923fb70fdfec9cab2a671db",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 15020773",
-      "Telefon": "0699 15020773",
-      "Hizmet": "-",
-      "Konum": "Niederösterreich",
-      "Tarih": "11.08.26 10:06",
-      "Mesaj": "-",
-      "id": "a7914569bfe300bcbcf4f2a84cb368b4",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "05224 6798919",
-      "Telefon": "05224 6798919",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "11.08.26 08:40",
-      "Mesaj": "-",
-      "id": "e214611fe096a7dfc3d8069cf1db8271",
       "telegramSent": true
     },
     {
