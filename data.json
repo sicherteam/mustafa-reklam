@@ -1,6 +1,16 @@
 {
-  "updatedAt": "14.8.2026, 14:54:41",
+  "updatedAt": "15.8.2026, 17:54:39",
   "leads": [
+    {
+      "Musteri": "0664 1350094",
+      "Telefon": "0664 1350094",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "15.08.26 17:49",
+      "Mesaj": "-",
+      "id": "0258b833c7283fd5c584a3b07842a6a1",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1076273",
       "Telefon": "0664 1076273",
@@ -179,16 +189,6 @@
       "Tarih": "12.08.26 11:06",
       "Mesaj": "P\nPotenzieller Kunde\n9:06 AM\nSehr geehrte Damen und Herren, Ich möchte bitte ein Kostenvoranschlag für den Umzug. Wir ziehen von 1100 Bezirk nach 1220. Die Wohnung ist 50 Quadratmeter. Möbel Entsorgung Wir haben ein Kleiderschrank mit 3 Schiebetüren zum mitnehmen. Abmontieren und Montieren Umzugsdatum 15.09.2026 Mit freundlichen Grüßen Arjete Ramadani",
       "id": "47a19805565fca5a2038d1497bea9abd",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 8099351",
-      "Telefon": "0660 8099351",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "12.08.26 09:27",
-      "Mesaj": "-",
-      "id": "76fe0404b7cd95f86a42b4cbeab370d4",
       "telegramSent": true
     },
     {
