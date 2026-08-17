@@ -1,6 +1,16 @@
 {
-  "updatedAt": "17.8.2026, 16:54:51",
+  "updatedAt": "17.8.2026, 18:18:39",
   "leads": [
+    {
+      "Musteri": "0664 1941336",
+      "Telefon": "0664 1941336",
+      "Hizmet": "-",
+      "Konum": "Gmünd",
+      "Tarih": "17.08.26 18:10",
+      "Mesaj": "-",
+      "id": "1bd9686c9f16ed0901a293b09c16f8f9",
+      "telegramSent": true
+    },
     {
       "Musteri": "333628903",
       "Telefon": "333628903",
@@ -189,16 +199,6 @@
       "Tarih": "13.08.26 14:05",
       "Mesaj": "-",
       "id": "0dcd46d453183384318a81acedbd0bb5",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 17051518",
-      "Telefon": "0699 17051518",
-      "Hizmet": "-",
-      "Konum": "Sieghartskirchen",
-      "Tarih": "13.08.26 12:35",
-      "Mesaj": "-",
-      "id": "068edba1f089afe21b969e9996140940",
       "telegramSent": true
     }
   ]
