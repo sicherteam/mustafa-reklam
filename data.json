@@ -1,6 +1,26 @@
 {
-  "updatedAt": "17.8.2026, 15:27:42",
+  "updatedAt": "17.8.2026, 16:54:51",
   "leads": [
+    {
+      "Musteri": "333628903",
+      "Telefon": "333628903",
+      "Hizmet": "Internationaler Umzug",
+      "Konum": "Wien",
+      "Tarih": "17.08.26 16:53",
+      "Mesaj": "P\nPotenzieller Kunde\n2:53 PM\nSchönen guten Tag. Ich würde vom 22 Bezirk nach Fischamend übersiedeln. Meine Umzugsfirma hat leider kurzfristig abgesagt,daher würde ich für morgen oder Mi.(eventuell noch Di. Vormittag) eine neue Umzugsfirma benötigen. Hätten Sie so kurzfristig noch Zeit? Und was würde es kosten? LG Anita",
+      "id": "132357ede72c856f1109bb333716b2be",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0664 3566902",
+      "Telefon": "0664 3566902",
+      "Hizmet": "-",
+      "Konum": "Tulln an der Donau",
+      "Tarih": "17.08.26 16:47",
+      "Mesaj": "-",
+      "id": "fe447c888bf2ef5d4f73e0e89c3494f8",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 4686605",
       "Telefon": "0664 4686605",
@@ -179,26 +199,6 @@
       "Tarih": "13.08.26 12:35",
       "Mesaj": "-",
       "id": "068edba1f089afe21b969e9996140940",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 11256800",
-      "Telefon": "0699 11256800",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "12.08.26 17:18",
-      "Mesaj": "-",
-      "id": "8a3041596c94e5cbd7a050692df19cc5",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 2737917",
-      "Telefon": "0660 2737917",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Tarih": "12.08.26 11:06",
-      "Mesaj": "P\nPotenzieller Kunde\n9:06 AM\nSehr geehrte Damen und Herren, Ich möchte bitte ein Kostenvoranschlag für den Umzug. Wir ziehen von 1100 Bezirk nach 1220. Die Wohnung ist 50 Quadratmeter. Möbel Entsorgung Wir haben ein Kleiderschrank mit 3 Schiebetüren zum mitnehmen. Abmontieren und Montieren Umzugsdatum 15.09.2026 Mit freundlichen Grüßen Arjete Ramadani",
-      "id": "47a19805565fca5a2038d1497bea9abd",
       "telegramSent": true
     }
   ]
