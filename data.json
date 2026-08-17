@@ -1,6 +1,16 @@
 {
-  "updatedAt": "17.8.2026, 18:36:36",
+  "updatedAt": "17.8.2026, 19:46:00",
   "leads": [
+    {
+      "Musteri": "333631557",
+      "Telefon": "333631557",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Sankt Pölten",
+      "Tarih": "17.08.26 19:41",
+      "Mesaj": "P\nPotenzieller Kunde\n5:41 PM\nBitte um eine grobe Kostenschätzung eines Umzugs innerhalb von St. Pölten (zwischen den Wohnungen liegen 5 min Fahrzeit). Lift bei beiden vorhanden. Ca. 25-30 Kartons. Möbel werden selbst ab- und aufgebaut. Aktuelle Wohnung hat 53 Quadratmeter (Schlafzimmer, Wohnzimmer, Vorzimmer und Badezimmer). Große Möbel: Boxspringbett, Couch, Couchtisch, Pax-Kleiderschrank, Esstisch inkl. 4 Stühle, Waschmaschine. Telefonisch schwierig erreichbar, gerne per E-Mail. Handelt es sich um einen Stundenpreis oder einen fixen Pauschalpreis, wo keine versteckten Kosten hinzukommen?",
+      "id": "919a9e91443432f08b580694aae2bfa1",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 3556929",
       "Telefon": "0676 3556929",
@@ -189,16 +199,6 @@
       "Tarih": "13.08.26 14:44",
       "Mesaj": "-",
       "id": "1c7e3dfb8c6b1fff8789323cec5d3abc",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 2518836",
-      "Telefon": "0660 2518836",
-      "Hizmet": "-",
-      "Konum": "Mödling",
-      "Tarih": "13.08.26 14:05",
-      "Mesaj": "-",
-      "id": "0dcd46d453183384318a81acedbd0bb5",
       "telegramSent": true
     }
   ]
