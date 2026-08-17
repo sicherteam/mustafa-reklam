@@ -1,6 +1,26 @@
 {
-  "updatedAt": "17.8.2026, 14:36:36",
+  "updatedAt": "17.8.2026, 15:27:42",
   "leads": [
+    {
+      "Musteri": "0664 4686605",
+      "Telefon": "0664 4686605",
+      "Hizmet": "-",
+      "Konum": "Gänserndorf",
+      "Tarih": "17.08.26 15:26",
+      "Mesaj": "-",
+      "id": "4c439e41b44aeee1e7187484dd325b94",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0676 7284233",
+      "Telefon": "0676 7284233",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "17.08.26 15:24",
+      "Mesaj": "-",
+      "id": "58c92544c17b947c7fe435b518f70bd5",
+      "telegramSent": true
+    },
     {
       "Musteri": "0680 5056637",
       "Telefon": "0680 5056637",
@@ -172,16 +192,6 @@
       "telegramSent": true
     },
     {
-      "Musteri": "nicolas schwarz",
-      "Telefon": "0678 7815574",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "12.08.26 15:41",
-      "Mesaj": "n\nnicolas schwarz\n1:41 PM\nSehr geehrte Damen und Herren von Schnellpack, mit diesem Schreiben bewerbe ich mich initiativ bei Ihnen als Aushilfe im Umzugsservice. Mein Name ist Nicolas Schwarz, ich bin 26 Jahre alt und studiere im Master an der Uni Wien. Neben dem Studium suche ich eine körperlich aktive Tätigkeit zum Anpacken – Umzüge passen da perfekt. Ich bin ab sofort einsetzbar, am liebsten schon ab morgen, und zeitlich flexibel: mehrmals pro Woche oder auch spontan als Aushilfe. Ich bin belastbar, zuverlässig und teamfähig. Über ein kurzes Kennenlernen würde ich mich freuen. Viele Grüße Nicolas Schwarz",
-      "id": "ca5f768a0a7e1408b20e68c8d4eb72c6",
-      "telegramSent": true
-    },
-    {
       "Musteri": "0660 2737917",
       "Telefon": "0660 2737917",
       "Hizmet": "Innerörtlicher Umzug",
@@ -189,16 +199,6 @@
       "Tarih": "12.08.26 11:06",
       "Mesaj": "P\nPotenzieller Kunde\n9:06 AM\nSehr geehrte Damen und Herren, Ich möchte bitte ein Kostenvoranschlag für den Umzug. Wir ziehen von 1100 Bezirk nach 1220. Die Wohnung ist 50 Quadratmeter. Möbel Entsorgung Wir haben ein Kleiderschrank mit 3 Schiebetüren zum mitnehmen. Abmontieren und Montieren Umzugsdatum 15.09.2026 Mit freundlichen Grüßen Arjete Ramadani",
       "id": "47a19805565fca5a2038d1497bea9abd",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 8229986",
-      "Telefon": "0650 8229986",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "10.08.26 10:53",
-      "Mesaj": "-",
-      "id": "8390148a6831a27911061955b8cc0799",
       "telegramSent": true
     }
   ]
