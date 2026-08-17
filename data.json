@@ -1,6 +1,16 @@
 {
-  "updatedAt": "15.8.2026, 17:54:39",
+  "updatedAt": "17.8.2026, 09:45:38",
   "leads": [
+    {
+      "Musteri": "0699 19645555",
+      "Telefon": "0699 19645555",
+      "Hizmet": "-",
+      "Konum": "Eisenstadt",
+      "Tarih": "17.08.26 09:37",
+      "Mesaj": "-",
+      "id": "f77180b0f5f460c2111fd4a2fc8428b0",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1350094",
       "Telefon": "0664 1350094",
@@ -169,16 +179,6 @@
       "Tarih": "12.08.26 13:58",
       "Mesaj": "-",
       "id": "12541386c5b0c470d80125dc20f2ca7a",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 3969063",
-      "Telefon": "0650 3969063",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "12.08.26 11:42",
-      "Mesaj": "-",
-      "id": "cf2245fc68455822a3cf3912bcbf6b6a",
       "telegramSent": true
     },
     {
