@@ -1,6 +1,16 @@
 {
-  "updatedAt": "17.8.2026, 18:18:39",
+  "updatedAt": "17.8.2026, 18:36:36",
   "leads": [
+    {
+      "Musteri": "0676 3556929",
+      "Telefon": "0676 3556929",
+      "Hizmet": "-",
+      "Konum": "Baden",
+      "Tarih": "17.08.26 18:29",
+      "Mesaj": "-",
+      "id": "554fa5498be03b187d7be1568ff5e6ee",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1941336",
       "Telefon": "0664 1941336",
@@ -99,16 +109,6 @@
       "Tarih": "14.08.26 14:54",
       "Mesaj": "-",
       "id": "1a6a357c3c534788fd819bb5190d6b2b",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 3049351",
-      "Telefon": "0650 3049351",
-      "Hizmet": "-",
-      "Konum": "Bruck an der Leitha",
-      "Tarih": "14.08.26 13:54",
-      "Mesaj": "-",
-      "id": "1ae5883773e67336d2a188cf950c1807",
       "telegramSent": true
     },
     {
