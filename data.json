@@ -1,6 +1,26 @@
 {
-  "updatedAt": "17.8.2026, 19:46:00",
+  "updatedAt": "17.8.2026, 22:18:55",
   "leads": [
+    {
+      "Musteri": "0660 6703023",
+      "Telefon": "0660 6703023",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "17.08.26 22:10",
+      "Mesaj": "-",
+      "id": "dab43dece1e897af6f80bda89bcb3073",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0650 6212869",
+      "Telefon": "0650 6212869",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Tarih": "17.08.26 22:09",
+      "Mesaj": "P\nPotenzieller Kunde\n8:09 PM\nHallo! Ich bräuchte Hilfe bei 3 Pax Schränken (150cm, 200cm, 200cm) zwei TV Bänken und einem Holztisch. Wieviel würde es denn bei Ihnen kosten? Danke und glg!",
+      "id": "534604e5e19c8ed39cc996c761d53032",
+      "telegramSent": true
+    },
     {
       "Musteri": "333631557",
       "Telefon": "333631557",
@@ -112,16 +132,6 @@
       "telegramSent": true
     },
     {
-      "Musteri": "0664 1076273",
-      "Telefon": "0664 1076273",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "14.08.26 14:54",
-      "Mesaj": "-",
-      "id": "1a6a357c3c534788fd819bb5190d6b2b",
-      "telegramSent": true
-    },
-    {
       "Musteri": "0676 9226616",
       "Telefon": "0676 9226616",
       "Hizmet": "-",
@@ -189,16 +199,6 @@
       "Tarih": "13.08.26 15:20",
       "Mesaj": "-",
       "id": "dc7ba9a744838febdf9175a53492c3da",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 8465209",
-      "Telefon": "0664 8465209",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "13.08.26 14:44",
-      "Mesaj": "-",
-      "id": "1c7e3dfb8c6b1fff8789323cec5d3abc",
       "telegramSent": true
     }
   ]
