@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.8.2026, 10:09:33",
+  "updatedAt": "18.8.2026, 12:09:45",
   "leads": [
+    {
+      "Musteri": "333845445",
+      "Telefon": "333845445",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Ybbs an der Donau",
+      "Tarih": "18.08.26 12:07",
+      "Mesaj": "P\nPotenzieller Kunde\n10:07 AM\nGuten Tag, könnten Sie bitte 2 antike Kleiderschränke (nicht zerlegt) von Weins Wiespoint nach Bad Vöslau Bahnstrsse 36/5 transportieren. In Weins stehen die Schränke ebenerdig und in Bad Vöslau sind sie in den 1. Stock raufzutragen. Wann wäre der Transport möglich und zu welchem Preis? Danke für die Auskunft Hanna Fischer",
+      "id": "b2ef74d5181a36164099427b1acf5fa4",
+      "telegramSent": true
+    },
     {
       "Musteri": "0650 8402326",
       "Telefon": "0650 8402326",
@@ -189,16 +199,6 @@
       "Tarih": "14.08.26 07:53",
       "Mesaj": "-",
       "id": "96e7d32292780c5b6067e26698b5cd81",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 14109342",
-      "Telefon": "0699 14109342",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "13.08.26 20:09",
-      "Mesaj": "-",
-      "id": "fa036e1821e9e03545ba16ede2fd14de",
       "telegramSent": true
     }
   ]
