@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.8.2026, 08:18:41",
+  "updatedAt": "18.8.2026, 10:09:33",
   "leads": [
+    {
+      "Musteri": "0650 8402326",
+      "Telefon": "0650 8402326",
+      "Hizmet": "-",
+      "Konum": "Lassee",
+      "Tarih": "18.08.26 10:01",
+      "Mesaj": "-",
+      "id": "8f6aae3b17fdcbad5f56e4d37eb4a8da",
+      "telegramSent": true
+    },
     {
       "Musteri": "333911872",
       "Telefon": "333911872",
@@ -189,16 +199,6 @@
       "Tarih": "13.08.26 20:09",
       "Mesaj": "-",
       "id": "fa036e1821e9e03545ba16ede2fd14de",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 81211377",
-      "Telefon": "0699 81211377",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "13.08.26 17:32",
-      "Mesaj": "-",
-      "id": "7e8d4eafcc457bb01e1282a8d26d6afb",
       "telegramSent": true
     }
   ]
