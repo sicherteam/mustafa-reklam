@@ -1,6 +1,16 @@
 {
-  "updatedAt": "19.8.2026, 08:54:37",
+  "updatedAt": "19.8.2026, 10:09:34",
   "leads": [
+    {
+      "Musteri": "0699 11031264",
+      "Telefon": "0699 11031264",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "19.08.26 09:59",
+      "Mesaj": "-",
+      "id": "1d44ea90157a6b2c364a2fe1bf290c25",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 5847350",
       "Telefon": "0676 5847350",
@@ -189,16 +199,6 @@
       "Tarih": "15.08.26 17:49",
       "Mesaj": "-",
       "id": "0258b833c7283fd5c584a3b07842a6a1",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9226616",
-      "Telefon": "0676 9226616",
-      "Hizmet": "-",
-      "Konum": "Hollabrunn",
-      "Tarih": "14.08.26 10:54",
-      "Mesaj": "-",
-      "id": "d93a1c880f4c4694c5101c520d8b7874",
       "telegramSent": true
     }
   ]
