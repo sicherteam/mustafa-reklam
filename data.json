@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.8.2026, 17:27:59",
+  "updatedAt": "19.8.2026, 08:54:37",
   "leads": [
+    {
+      "Musteri": "0676 5847350",
+      "Telefon": "0676 5847350",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "19.08.26 08:49",
+      "Mesaj": "-",
+      "id": "1202fc881b22e99cc5f3c284f11d994b",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 20134175",
       "Telefon": "0681 20134175",
@@ -189,16 +199,6 @@
       "Tarih": "14.08.26 10:54",
       "Mesaj": "-",
       "id": "d93a1c880f4c4694c5101c520d8b7874",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 3253875",
-      "Telefon": "0664 3253875",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "14.08.26 10:46",
-      "Mesaj": "-",
-      "id": "079075a7352fdddc21d8c7e18298808a",
       "telegramSent": true
     }
   ]
