@@ -1,6 +1,16 @@
 {
-  "updatedAt": "20.8.2026, 15:27:39",
+  "updatedAt": "20.8.2026, 17:18:43",
   "leads": [
+    {
+      "Musteri": "0650 3821880",
+      "Telefon": "0650 3821880",
+      "Hizmet": "-",
+      "Konum": "Schönkirchen-Reyersdorf",
+      "Tarih": "20.08.26 17:12",
+      "Mesaj": "-",
+      "id": "14d11793ba8f4fb9ed46592cba0baa6a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 2497032",
       "Telefon": "0664 2497032",
@@ -179,16 +189,6 @@
       "Tarih": "17.08.26 18:10",
       "Mesaj": "-",
       "id": "1bd9686c9f16ed0901a293b09c16f8f9",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "333628903",
-      "Telefon": "333628903",
-      "Hizmet": "Internationaler Umzug",
-      "Konum": "Wien",
-      "Tarih": "17.08.26 16:53",
-      "Mesaj": "P\nPotenzieller Kunde\n2:53 PM\nSchönen guten Tag. Ich würde vom 22 Bezirk nach Fischamend übersiedeln. Meine Umzugsfirma hat leider kurzfristig abgesagt,daher würde ich für morgen oder Mi.(eventuell noch Di. Vormittag) eine neue Umzugsfirma benötigen. Hätten Sie so kurzfristig noch Zeit? Und was würde es kosten? LG Anita",
-      "id": "132357ede72c856f1109bb333716b2be",
       "telegramSent": true
     },
     {
