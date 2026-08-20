@@ -1,6 +1,16 @@
 {
-  "updatedAt": "20.8.2026, 17:18:43",
+  "updatedAt": "20.8.2026, 18:09:42",
   "leads": [
+    {
+      "Musteri": "0699 17226358",
+      "Telefon": "0699 17226358",
+      "Hizmet": "-",
+      "Konum": "Burgenland",
+      "Tarih": "20.08.26 18:05",
+      "Mesaj": "-",
+      "id": "f7eeac83a38811c20f3a373429843eea",
+      "telegramSent": true
+    },
     {
       "Musteri": "0650 3821880",
       "Telefon": "0650 3821880",
@@ -179,16 +189,6 @@
       "Tarih": "17.08.26 18:29",
       "Mesaj": "-",
       "id": "554fa5498be03b187d7be1568ff5e6ee",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1941336",
-      "Telefon": "0664 1941336",
-      "Hizmet": "-",
-      "Konum": "Gmünd",
-      "Tarih": "17.08.26 18:10",
-      "Mesaj": "-",
-      "id": "1bd9686c9f16ed0901a293b09c16f8f9",
       "telegramSent": true
     },
     {
