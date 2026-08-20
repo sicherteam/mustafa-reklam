@@ -1,6 +1,16 @@
 {
-  "updatedAt": "20.8.2026, 09:54:48",
+  "updatedAt": "20.8.2026, 11:27:43",
   "leads": [
+    {
+      "Musteri": "0664 88468856",
+      "Telefon": "0664 88468856",
+      "Hizmet": "-",
+      "Konum": "Hollabrunn",
+      "Tarih": "20.08.26 11:14",
+      "Mesaj": "-",
+      "id": "eb71315d9043adaf2ab97dd9647281fe",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 6037526",
       "Telefon": "0676 6037526",
@@ -179,16 +189,6 @@
       "Tarih": "17.08.26 15:24",
       "Mesaj": "-",
       "id": "58c92544c17b947c7fe435b518f70bd5",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0680 5056637",
-      "Telefon": "0680 5056637",
-      "Hizmet": "-",
-      "Konum": "Eisenstadt",
-      "Tarih": "17.08.26 14:31",
-      "Mesaj": "-",
-      "id": "fbdad699ad4e0e6c14d9165a8354bd35",
       "telegramSent": true
     },
     {
