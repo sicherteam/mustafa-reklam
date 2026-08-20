@@ -1,5 +1,5 @@
 {
-  "updatedAt": "20.8.2026, 09:27:46",
+  "updatedAt": "20.8.2026, 09:54:48",
   "leads": [
     {
       "Musteri": "0676 6037526",
@@ -69,16 +69,6 @@
       "Tarih": "18.08.26 17:25",
       "Mesaj": "-",
       "id": "87a02e15be6072292a06add40afdae6b",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 64895374",
-      "Telefon": "0677 64895374",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "18.08.26 13:37",
-      "Mesaj": "-",
-      "id": "b1476d2965701e95e2211fb31b4bc3a7",
       "telegramSent": true
     },
     {
@@ -199,6 +189,16 @@
       "Tarih": "17.08.26 14:31",
       "Mesaj": "-",
       "id": "fbdad699ad4e0e6c14d9165a8354bd35",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0699 17051518",
+      "Telefon": "0699 17051518",
+      "Hizmet": "-",
+      "Konum": "Sieghartskirchen",
+      "Tarih": "13.08.26 12:35",
+      "Mesaj": "-",
+      "id": "068edba1f089afe21b969e9996140940",
       "telegramSent": true
     }
   ]
