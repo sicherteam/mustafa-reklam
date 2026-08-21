@@ -1,6 +1,16 @@
 {
-  "updatedAt": "21.8.2026, 15:27:46",
+  "updatedAt": "21.8.2026, 22:45:42",
   "leads": [
+    {
+      "Musteri": "0676 4305654",
+      "Telefon": "0676 4305654",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "21.08.26 22:44",
+      "Mesaj": "P\nPotenzieller Kunde\n8:44 PM\nMorgen Samstag um ca. 15 uhr 1 oder 2 mann plus event. Lastenauto für Umzug. Bitte Preis für 2 Mann inkl LKW für 5 Stunden. 1040 nach Lager in gerasdorf. Danke",
+      "id": "465b0bc9a08fb92d34b4366b7ac17f7e",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 5644945",
       "Telefon": "0676 5644945",
@@ -179,16 +189,6 @@
       "Tarih": "17.08.26 22:10",
       "Mesaj": "-",
       "id": "dab43dece1e897af6f80bda89bcb3073",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 6212869",
-      "Telefon": "0650 6212869",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Tarih": "17.08.26 22:09",
-      "Mesaj": "P\nPotenzieller Kunde\n8:09 PM\nHallo! Ich bräuchte Hilfe bei 3 Pax Schränken (150cm, 200cm, 200cm) zwei TV Bänken und einem Holztisch. Wieviel würde es denn bei Ihnen kosten? Danke und glg!",
-      "id": "534604e5e19c8ed39cc996c761d53032",
       "telegramSent": true
     },
     {
