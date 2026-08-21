@@ -1,6 +1,16 @@
 {
-  "updatedAt": "21.8.2026, 14:27:36",
+  "updatedAt": "21.8.2026, 15:27:46",
   "leads": [
+    {
+      "Musteri": "0676 5644945",
+      "Telefon": "0676 5644945",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Baden",
+      "Tarih": "21.08.26 15:25",
+      "Mesaj": "P\nPotenzieller Kunde\n1:25 PM\nEs geht im den Transport von einem großen Kühlschrank von einem Lagercontainer in 2751 Matzendorf-Hölles zum neuen Lagerort: 2524 Teesdorf Gewerbepark B.",
+      "id": "98303c7af623dd616bad836b020a3182",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 10094010",
       "Telefon": "0699 10094010",
@@ -179,16 +189,6 @@
       "Tarih": "17.08.26 22:09",
       "Mesaj": "P\nPotenzieller Kunde\n8:09 PM\nHallo! Ich bräuchte Hilfe bei 3 Pax Schränken (150cm, 200cm, 200cm) zwei TV Bänken und einem Holztisch. Wieviel würde es denn bei Ihnen kosten? Danke und glg!",
       "id": "534604e5e19c8ed39cc996c761d53032",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "333631557",
-      "Telefon": "333631557",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Sankt Pölten",
-      "Tarih": "17.08.26 19:41",
-      "Mesaj": "P\nPotenzieller Kunde\n5:41 PM\nBitte um eine grobe Kostenschätzung eines Umzugs innerhalb von St. Pölten (zwischen den Wohnungen liegen 5 min Fahrzeit). Lift bei beiden vorhanden. Ca. 25-30 Kartons. Möbel werden selbst ab- und aufgebaut. Aktuelle Wohnung hat 53 Quadratmeter (Schlafzimmer, Wohnzimmer, Vorzimmer und Badezimmer). Große Möbel: Boxspringbett, Couch, Couchtisch, Pax-Kleiderschrank, Esstisch inkl. 4 Stühle, Waschmaschine. Telefonisch schwierig erreichbar, gerne per E-Mail. Handelt es sich um einen Stundenpreis oder einen fixen Pauschalpreis, wo keine versteckten Kosten hinzukommen?",
-      "id": "919a9e91443432f08b580694aae2bfa1",
       "telegramSent": true
     },
     {
