@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.8.2026, 14:18:42",
+  "updatedAt": "22.8.2026, 17:54:46",
   "leads": [
+    {
+      "Musteri": "0176 36393065",
+      "Telefon": "0176 36393065",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "22.08.26 17:51",
+      "Mesaj": "-",
+      "id": "a80b4cbc391285a5d90e40fd3ce216cf",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 5966074",
       "Telefon": "0660 5966074",
@@ -179,16 +189,6 @@
       "Tarih": "18.08.26 10:01",
       "Mesaj": "-",
       "id": "8f6aae3b17fdcbad5f56e4d37eb4a8da",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "333911872",
-      "Telefon": "333911872",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "18.08.26 08:15",
-      "Mesaj": "P\nPotenzieller Kunde\n6:15 AM\nHallo brauche einen kostenvorschlag für meinen Umzug aus den 15ten ind den 23ten Bezirk.. ein 6 türiger Kleiderschrank viel garderobe ein Tisch 2 Stühle ein tv ein Einzelbett..viele Schuhe alles abmontieren...aus den 15ten in den 23..wieder montieren..wie bekomme Ich einen schriftlichen Kosten Vorschlag für das ma 40 und erst dann wird die Übersiedlung statt finden wenn das ma 40 die übersiedlungskosten übernimmt..mfg Frau Tunjic",
-      "id": "4c879b3b49eb91e6aafd032b6074179e",
       "telegramSent": true
     },
     {
