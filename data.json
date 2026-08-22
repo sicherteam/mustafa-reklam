@@ -1,6 +1,16 @@
 {
-  "updatedAt": "21.8.2026, 22:45:42",
+  "updatedAt": "22.8.2026, 14:18:42",
   "leads": [
+    {
+      "Musteri": "0660 5966074",
+      "Telefon": "0660 5966074",
+      "Hizmet": "-",
+      "Konum": "Biberbach",
+      "Tarih": "22.08.26 14:08",
+      "Mesaj": "-",
+      "id": "0f73d1716c5b0c204ceeeb46844b886e",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4305654",
       "Telefon": "0676 4305654",
@@ -179,16 +189,6 @@
       "Tarih": "18.08.26 08:15",
       "Mesaj": "P\nPotenzieller Kunde\n6:15 AM\nHallo brauche einen kostenvorschlag für meinen Umzug aus den 15ten ind den 23ten Bezirk.. ein 6 türiger Kleiderschrank viel garderobe ein Tisch 2 Stühle ein tv ein Einzelbett..viele Schuhe alles abmontieren...aus den 15ten in den 23..wieder montieren..wie bekomme Ich einen schriftlichen Kosten Vorschlag für das ma 40 und erst dann wird die Übersiedlung statt finden wenn das ma 40 die übersiedlungskosten übernimmt..mfg Frau Tunjic",
       "id": "4c879b3b49eb91e6aafd032b6074179e",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 6703023",
-      "Telefon": "0660 6703023",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "17.08.26 22:10",
-      "Mesaj": "-",
-      "id": "dab43dece1e897af6f80bda89bcb3073",
       "telegramSent": true
     },
     {
