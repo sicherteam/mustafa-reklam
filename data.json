@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.8.2026, 17:54:46",
+  "updatedAt": "23.8.2026, 18:09:35",
   "leads": [
+    {
+      "Musteri": "0660 1747962",
+      "Telefon": "0660 1747962",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "23.08.26 18:01",
+      "Mesaj": "-",
+      "id": "f5fe895e09ca05744c6d13adca238348",
+      "telegramSent": true
+    },
     {
       "Musteri": "0176 36393065",
       "Telefon": "0176 36393065",
@@ -179,16 +189,6 @@
       "Tarih": "18.08.26 12:07",
       "Mesaj": "P\nPotenzieller Kunde\n10:07 AM\nGuten Tag, könnten Sie bitte 2 antike Kleiderschränke (nicht zerlegt) von Weins Wiespoint nach Bad Vöslau Bahnstrsse 36/5 transportieren. In Weins stehen die Schränke ebenerdig und in Bad Vöslau sind sie in den 1. Stock raufzutragen. Wann wäre der Transport möglich und zu welchem Preis? Danke für die Auskunft Hanna Fischer",
       "id": "b2ef74d5181a36164099427b1acf5fa4",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 8402326",
-      "Telefon": "0650 8402326",
-      "Hizmet": "-",
-      "Konum": "Lassee",
-      "Tarih": "18.08.26 10:01",
-      "Mesaj": "-",
-      "id": "8f6aae3b17fdcbad5f56e4d37eb4a8da",
       "telegramSent": true
     },
     {
