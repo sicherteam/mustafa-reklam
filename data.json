@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.8.2026, 09:54:51",
+  "updatedAt": "24.8.2026, 10:27:40",
   "leads": [
+    {
+      "Musteri": "0664 3812206",
+      "Telefon": "0664 3812206",
+      "Hizmet": "-",
+      "Konum": "Ternitz",
+      "Tarih": "24.08.26 10:14",
+      "Mesaj": "-",
+      "id": "cafc4db8561031b071c1779dc8f776ad",
+      "telegramSent": true
+    },
     {
       "Musteri": "0677 61463432",
       "Telefon": "0677 61463432",
@@ -179,16 +189,6 @@
       "Tarih": "19.08.26 08:49",
       "Mesaj": "-",
       "id": "1202fc881b22e99cc5f3c284f11d994b",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 20134175",
-      "Telefon": "0681 20134175",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "18.08.26 17:25",
-      "Mesaj": "-",
-      "id": "87a02e15be6072292a06add40afdae6b",
       "telegramSent": true
     },
     {
