@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.8.2026, 10:54:45",
+  "updatedAt": "24.8.2026, 12:09:41",
   "leads": [
+    {
+      "Musteri": "Pavel Alexandra-Giulia",
+      "Telefon": "0670 2082103",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Sankt Pölten",
+      "Tarih": "24.08.26 11:57",
+      "Mesaj": "P\nPavel Alexandra-Giulia\n9:57 AM\nS. g. Damen u. Herren! Bitte übermitteln Sie mir ehest möglich einen Kostenvoranschlag auf den Namen: Pavel Alexandra Guilia, Maria Emhart-Straße 6/622, 3100 St. Pölten, für die Kosten einer Übersiedelung einer 56m² großen Mietwohnung im 2. Stock, kein Lift vorhanden. Es betrifft Arbeitstisch, 3 Kommoden, Esstisch + 6 Sessel, Kleiderschrank 1,4 m breite, Regal 1m breite und 1,5 m hoch, 2 kleine Schränke, Waschmaschine, Couchtisch, Liege, 1 Teppich, 15 Stk Umzugskartons. Soll übersiedelt werden in neue Wohnung im 1. Stock mit Lift. Übersiedelung im St. Pöltner Stadtgebiet. Herzlichen Dank!",
+      "id": "e211e7761dd6202ed191aa54152fbd37",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 11585878",
       "Telefon": "0699 11585878",
@@ -189,16 +199,6 @@
       "Tarih": "19.08.26 09:59",
       "Mesaj": "-",
       "id": "1d44ea90157a6b2c364a2fe1bf290c25",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 17051518",
-      "Telefon": "0699 17051518",
-      "Hizmet": "-",
-      "Konum": "Sieghartskirchen",
-      "Tarih": "13.08.26 12:35",
-      "Mesaj": "-",
-      "id": "068edba1f089afe21b969e9996140940",
       "telegramSent": true
     }
   ]
