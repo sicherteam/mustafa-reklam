@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.8.2026, 10:27:40",
+  "updatedAt": "24.8.2026, 10:54:45",
   "leads": [
+    {
+      "Musteri": "0699 11585878",
+      "Telefon": "0699 11585878",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "24.08.26 10:38",
+      "Mesaj": "-",
+      "id": "29568820979eb8502a2152e223d9fabd",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 3812206",
       "Telefon": "0664 3812206",
@@ -179,16 +189,6 @@
       "Tarih": "19.08.26 09:59",
       "Mesaj": "-",
       "id": "1d44ea90157a6b2c364a2fe1bf290c25",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 5847350",
-      "Telefon": "0676 5847350",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "19.08.26 08:49",
-      "Mesaj": "-",
-      "id": "1202fc881b22e99cc5f3c284f11d994b",
       "telegramSent": true
     },
     {
