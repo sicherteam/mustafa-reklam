@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.8.2026, 12:09:41",
+  "updatedAt": "24.8.2026, 15:36:44",
   "leads": [
+    {
+      "Musteri": "0664 1404016",
+      "Telefon": "0664 1404016",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "24.08.26 15:25",
+      "Mesaj": "-",
+      "id": "23570de40a5993077ee1a38cfa6530ca",
+      "telegramSent": true
+    },
     {
       "Musteri": "Pavel Alexandra-Giulia",
       "Telefon": "0670 2082103",
@@ -189,16 +199,6 @@
       "Tarih": "19.08.26 15:16",
       "Mesaj": "-",
       "id": "c8c8b5294a080fb80fa8d1322563c650",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 11031264",
-      "Telefon": "0699 11031264",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "19.08.26 09:59",
-      "Mesaj": "-",
-      "id": "1d44ea90157a6b2c364a2fe1bf290c25",
       "telegramSent": true
     }
   ]
