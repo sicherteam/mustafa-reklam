@@ -1,6 +1,16 @@
 {
-  "updatedAt": "25.8.2026, 10:36:34",
+  "updatedAt": "25.8.2026, 11:09:42",
   "leads": [
+    {
+      "Musteri": "0664 1815115",
+      "Telefon": "0664 1815115",
+      "Hizmet": "-",
+      "Konum": "Purkersdorf",
+      "Tarih": "25.08.26 10:46",
+      "Mesaj": "-",
+      "id": "cde73f9e772bc273d1d05b29d9fe9186",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 3404228",
       "Telefon": "0664 3404228",
@@ -189,16 +199,6 @@
       "Tarih": "20.08.26 09:17",
       "Mesaj": "-",
       "id": "e613a17594217f88c74c17bea1790324",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 11116018",
-      "Telefon": "0699 11116018",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Oberpullendorf",
-      "Tarih": "19.08.26 19:07",
-      "Mesaj": "P\nPotenzieller Kunde\n5:07 PM\nHallo! Ich habe vor in Klagenfurt eine Küche zu kaufen. Die Küche ist 3,6 m lang und 2,20 hoch. Es gehört noch eine Kücheninsel dazu, 220x130. Die Küche muss man in Klagenfurt auseinander bauen. Und nachher nach Steinberg – Dörfl liefern. Ich wollte wissen was mir das kostet.",
-      "id": "0f0746eb9bebf2e4abe459d94800b8b1",
       "telegramSent": true
     }
   ]
