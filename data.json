@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.8.2026, 15:36:44",
+  "updatedAt": "25.8.2026, 10:36:34",
   "leads": [
+    {
+      "Musteri": "0664 3404228",
+      "Telefon": "0664 3404228",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "25.08.26 10:15",
+      "Mesaj": "-",
+      "id": "c901b2a886a9d704567c94c623a12cd7",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1404016",
       "Telefon": "0664 1404016",
@@ -189,16 +199,6 @@
       "Tarih": "19.08.26 19:07",
       "Mesaj": "P\nPotenzieller Kunde\n5:07 PM\nHallo! Ich habe vor in Klagenfurt eine Küche zu kaufen. Die Küche ist 3,6 m lang und 2,20 hoch. Es gehört noch eine Kücheninsel dazu, 220x130. Die Küche muss man in Klagenfurt auseinander bauen. Und nachher nach Steinberg – Dörfl liefern. Ich wollte wissen was mir das kostet.",
       "id": "0f0746eb9bebf2e4abe459d94800b8b1",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 61399337",
-      "Telefon": "0677 61399337",
-      "Hizmet": "-",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "19.08.26 15:16",
-      "Mesaj": "-",
-      "id": "c8c8b5294a080fb80fa8d1322563c650",
       "telegramSent": true
     }
   ]
