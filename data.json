@@ -1,6 +1,16 @@
 {
-  "updatedAt": "25.8.2026, 11:09:42",
+  "updatedAt": "25.8.2026, 11:36:39",
   "leads": [
+    {
+      "Musteri": "0650 5374539",
+      "Telefon": "0650 5374539",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "25.08.26 11:29",
+      "Mesaj": "-",
+      "id": "dc07de45ad9d8d11c32f5de4cbab544d",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1815115",
       "Telefon": "0664 1815115",
@@ -189,16 +199,6 @@
       "Tarih": "20.08.26 11:14",
       "Mesaj": "-",
       "id": "eb71315d9043adaf2ab97dd9647281fe",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 6037526",
-      "Telefon": "0676 6037526",
-      "Hizmet": "-",
-      "Konum": "Mistelbach",
-      "Tarih": "20.08.26 09:17",
-      "Mesaj": "-",
-      "id": "e613a17594217f88c74c17bea1790324",
       "telegramSent": true
     }
   ]
