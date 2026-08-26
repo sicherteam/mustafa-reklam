@@ -1,6 +1,16 @@
 {
-  "updatedAt": "25.8.2026, 17:00:42",
+  "updatedAt": "26.8.2026, 11:00:36",
   "leads": [
+    {
+      "Musteri": "0664 7923761",
+      "Telefon": "0664 7923761",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "26.08.26 10:53",
+      "Mesaj": "-",
+      "id": "0d5155171cc3097bd165ed30f6e3ed17",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 81773286",
       "Telefon": "0681 81773286",
@@ -189,16 +199,6 @@
       "Tarih": "20.08.26 17:12",
       "Mesaj": "-",
       "id": "14d11793ba8f4fb9ed46592cba0baa6a",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 2497032",
-      "Telefon": "0664 2497032",
-      "Hizmet": "-",
-      "Konum": "Mistelbach",
-      "Tarih": "20.08.26 15:18",
-      "Mesaj": "-",
-      "id": "df407d15d5e3bcae2e7b6c0fd892e91f",
       "telegramSent": true
     }
   ]
