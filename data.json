@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.8.2026, 14:36:33",
+  "updatedAt": "26.8.2026, 17:18:37",
   "leads": [
+    {
+      "Musteri": "0660 4751655",
+      "Telefon": "0660 4751655",
+      "Hizmet": "-",
+      "Konum": "Forchtenstein",
+      "Tarih": "26.08.26 17:14",
+      "Mesaj": "-",
+      "id": "377cc788780ba0471b2be911ea976538",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 10005949",
       "Telefon": "0699 10005949",
@@ -189,16 +199,6 @@
       "Tarih": "21.08.26 22:44",
       "Mesaj": "P\nPotenzieller Kunde\n8:44 PM\nMorgen Samstag um ca. 15 uhr 1 oder 2 mann plus event. Lastenauto für Umzug. Bitte Preis für 2 Mann inkl LKW für 5 Stunden. 1040 nach Lager in gerasdorf. Danke",
       "id": "465b0bc9a08fb92d34b4366b7ac17f7e",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 5644945",
-      "Telefon": "0676 5644945",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Baden",
-      "Tarih": "21.08.26 15:25",
-      "Mesaj": "P\nPotenzieller Kunde\n1:25 PM\nEs geht im den Transport von einem großen Kühlschrank von einem Lagercontainer in 2751 Matzendorf-Hölles zum neuen Lagerort: 2524 Teesdorf Gewerbepark B.",
-      "id": "98303c7af623dd616bad836b020a3182",
       "telegramSent": true
     }
   ]
