@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.8.2026, 11:00:36",
+  "updatedAt": "26.8.2026, 12:09:35",
   "leads": [
+    {
+      "Musteri": "0660 2740777",
+      "Telefon": "0660 2740777",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "26.08.26 12:06",
+      "Mesaj": "-",
+      "id": "ce5a286e05b60b0034c6b6dfc7239d46",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 7923761",
       "Telefon": "0664 7923761",
@@ -189,16 +199,6 @@
       "Tarih": "20.08.26 18:05",
       "Mesaj": "-",
       "id": "f7eeac83a38811c20f3a373429843eea",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 3821880",
-      "Telefon": "0650 3821880",
-      "Hizmet": "-",
-      "Konum": "Schönkirchen-Reyersdorf",
-      "Tarih": "20.08.26 17:12",
-      "Mesaj": "-",
-      "id": "14d11793ba8f4fb9ed46592cba0baa6a",
       "telegramSent": true
     }
   ]
