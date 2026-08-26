@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.8.2026, 13:18:45",
+  "updatedAt": "26.8.2026, 14:36:33",
   "leads": [
+    {
+      "Musteri": "0699 10005949",
+      "Telefon": "0699 10005949",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "26.08.26 14:30",
+      "Mesaj": "-",
+      "id": "5f4213d640b5894e71301692b50a8e51",
+      "telegramSent": true
+    },
     {
       "Musteri": "Karin Rolly",
       "Telefon": "335332997",
@@ -189,16 +199,6 @@
       "Tarih": "21.08.26 15:25",
       "Mesaj": "P\nPotenzieller Kunde\n1:25 PM\nEs geht im den Transport von einem großen Kühlschrank von einem Lagercontainer in 2751 Matzendorf-Hölles zum neuen Lagerort: 2524 Teesdorf Gewerbepark B.",
       "id": "98303c7af623dd616bad836b020a3182",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 10094010",
-      "Telefon": "0699 10094010",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "21.08.26 14:23",
-      "Mesaj": "-",
-      "id": "3955e4ca18bf0937b7b520849cf95a43",
       "telegramSent": true
     }
   ]
