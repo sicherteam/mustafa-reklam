@@ -1,6 +1,16 @@
 {
-  "updatedAt": "27.8.2026, 08:09:39",
+  "updatedAt": "27.8.2026, 10:18:36",
   "leads": [
+    {
+      "Musteri": "0699 19050660",
+      "Telefon": "0699 19050660",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "27.08.26 10:13",
+      "Mesaj": "-",
+      "id": "e17fbf782235e82d2ce9a01a4b9d3578",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 9218226",
       "Telefon": "0664 9218226",
@@ -189,16 +199,6 @@
       "Tarih": "22.08.26 17:51",
       "Mesaj": "-",
       "id": "a80b4cbc391285a5d90e40fd3ce216cf",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 5966074",
-      "Telefon": "0660 5966074",
-      "Hizmet": "-",
-      "Konum": "Biberbach",
-      "Tarih": "22.08.26 14:08",
-      "Mesaj": "-",
-      "id": "0f73d1716c5b0c204ceeeb46844b886e",
       "telegramSent": true
     }
   ]
