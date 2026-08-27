@@ -1,6 +1,16 @@
 {
-  "updatedAt": "27.8.2026, 14:09:38",
+  "updatedAt": "27.8.2026, 17:36:41",
   "leads": [
+    {
+      "Musteri": "0664 5351906",
+      "Telefon": "0664 5351906",
+      "Hizmet": "-",
+      "Konum": "Hollabrunn",
+      "Tarih": "27.08.26 17:24",
+      "Mesaj": "-",
+      "id": "836e001e33531f8095c085cb6414b53a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 11516318",
       "Telefon": "0699 11516318",
@@ -189,16 +199,6 @@
       "Tarih": "24.08.26 10:14",
       "Mesaj": "-",
       "id": "cafc4db8561031b071c1779dc8f776ad",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 61463432",
-      "Telefon": "0677 61463432",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "24.08.26 09:46",
-      "Mesaj": "-",
-      "id": "ebb573801f958cce6fc8efe7bf1a8fcc",
       "telegramSent": true
     }
   ]
