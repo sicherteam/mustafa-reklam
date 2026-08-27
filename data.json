@@ -1,6 +1,16 @@
 {
-  "updatedAt": "27.8.2026, 10:18:36",
+  "updatedAt": "27.8.2026, 11:00:34",
   "leads": [
+    {
+      "Musteri": "0664 99667798",
+      "Telefon": "0664 99667798",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "27.08.26 10:51",
+      "Mesaj": "-",
+      "id": "5d1640f82b0b5ff30810604ad1867fe4",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 19050660",
       "Telefon": "0699 19050660",
@@ -189,16 +199,6 @@
       "Tarih": "23.08.26 18:01",
       "Mesaj": "-",
       "id": "f5fe895e09ca05744c6d13adca238348",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0176 36393065",
-      "Telefon": "0176 36393065",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "22.08.26 17:51",
-      "Mesaj": "-",
-      "id": "a80b4cbc391285a5d90e40fd3ce216cf",
       "telegramSent": true
     }
   ]
