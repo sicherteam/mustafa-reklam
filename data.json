@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.8.2026, 17:18:37",
+  "updatedAt": "27.8.2026, 08:09:39",
   "leads": [
+    {
+      "Musteri": "0664 9218226",
+      "Telefon": "0664 9218226",
+      "Hizmet": "-",
+      "Konum": "Loosdorf",
+      "Tarih": "27.08.26 08:07",
+      "Mesaj": "-",
+      "id": "2fd74b3c8d271ac8ba057c2454946ae4",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 4751655",
       "Telefon": "0660 4751655",
@@ -189,16 +199,6 @@
       "Tarih": "22.08.26 14:08",
       "Mesaj": "-",
       "id": "0f73d1716c5b0c204ceeeb46844b886e",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4305654",
-      "Telefon": "0676 4305654",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "21.08.26 22:44",
-      "Mesaj": "P\nPotenzieller Kunde\n8:44 PM\nMorgen Samstag um ca. 15 uhr 1 oder 2 mann plus event. Lastenauto für Umzug. Bitte Preis für 2 Mann inkl LKW für 5 Stunden. 1040 nach Lager in gerasdorf. Danke",
-      "id": "465b0bc9a08fb92d34b4366b7ac17f7e",
       "telegramSent": true
     }
   ]
