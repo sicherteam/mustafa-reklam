@@ -1,6 +1,16 @@
 {
-  "updatedAt": "29.8.2026, 11:45:45",
+  "updatedAt": "29.8.2026, 12:00:31",
   "leads": [
+    {
+      "Musteri": "0660 2233690",
+      "Telefon": "0660 2233690",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "29.08.26 11:52",
+      "Mesaj": "-",
+      "id": "e5ce5be7a5b551ad6991ad579157ebe0",
+      "telegramSent": true
+    },
     {
       "Musteri": "Gina Martin-Williams",
       "Telefon": "0664 1164230",
@@ -189,16 +199,6 @@
       "Tarih": "25.08.26 16:01",
       "Mesaj": "-",
       "id": "788e8878c68e3c9545a0a6b8fc67d757",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 5374539",
-      "Telefon": "0650 5374539",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "25.08.26 11:29",
-      "Mesaj": "-",
-      "id": "dc07de45ad9d8d11c32f5de4cbab544d",
       "telegramSent": true
     }
   ]
