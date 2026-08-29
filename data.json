@@ -1,6 +1,16 @@
 {
-  "updatedAt": "28.8.2026, 16:18:33",
+  "updatedAt": "29.8.2026, 08:00:31",
   "leads": [
+    {
+      "Musteri": "0660 1944283",
+      "Telefon": "0660 1944283",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "29.08.26 07:53",
+      "Mesaj": "-",
+      "id": "9224a49a7145a3fd9f95b604fff68c59",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 3241600",
       "Telefon": "0676 3241600",
@@ -189,16 +199,6 @@
       "Tarih": "25.08.26 10:15",
       "Mesaj": "-",
       "id": "c901b2a886a9d704567c94c623a12cd7",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1404016",
-      "Telefon": "0664 1404016",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "24.08.26 15:25",
-      "Mesaj": "-",
-      "id": "23570de40a5993077ee1a38cfa6530ca",
       "telegramSent": true
     }
   ]
