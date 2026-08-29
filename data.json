@@ -1,6 +1,16 @@
 {
-  "updatedAt": "29.8.2026, 10:09:34",
+  "updatedAt": "29.8.2026, 11:45:45",
   "leads": [
+    {
+      "Musteri": "Gina Martin-Williams",
+      "Telefon": "0664 1164230",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Eisenstadt",
+      "Tarih": "29.08.26 11:37",
+      "Mesaj": "G\nGina Martin-Williams\n9:37 AM\nkostenvoranschlag für umzug von Hornstein nach eisenstadt",
+      "id": "75ba7cff295cd373594432614162d540",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 9500058",
       "Telefon": "0676 9500058",
@@ -189,16 +199,6 @@
       "Tarih": "25.08.26 11:29",
       "Mesaj": "-",
       "id": "dc07de45ad9d8d11c32f5de4cbab544d",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1815115",
-      "Telefon": "0664 1815115",
-      "Hizmet": "-",
-      "Konum": "Purkersdorf",
-      "Tarih": "25.08.26 10:46",
-      "Mesaj": "-",
-      "id": "cde73f9e772bc273d1d05b29d9fe9186",
       "telegramSent": true
     }
   ]
