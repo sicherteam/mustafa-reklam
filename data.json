@@ -1,6 +1,16 @@
 {
-  "updatedAt": "30.8.2026, 15:27:44",
+  "updatedAt": "30.8.2026, 15:37:05",
   "leads": [
+    {
+      "Musteri": "0664 5277680",
+      "Telefon": "0664 5277680",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Amstetten",
+      "Tarih": "30.08.26 15:35",
+      "Mesaj": "NO MESSAGE",
+      "id": "b8191636c6fbca32c365200e8f7e2fbc",
+      "telegramSent": true
+    },
     {
       "Musteri": "0670 3572761",
       "Telefon": "0670 3572761",
@@ -189,16 +199,6 @@
       "Tarih": "26.08.26 13:17",
       "Mesaj": "K\nKarin Rolly\n11:17 AM\nHätte bitte gerne einen Kostenvoranschlag für die Übersiedelung von Schwadorf nach Schwechat im Dezember",
       "id": "9014f197b7619b8f056eec8b13c3b32f",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 2740777",
-      "Telefon": "0660 2740777",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "26.08.26 12:06",
-      "Mesaj": "-",
-      "id": "ce5a286e05b60b0034c6b6dfc7239d46",
       "telegramSent": true
     }
   ]
