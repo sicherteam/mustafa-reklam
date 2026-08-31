@@ -1,6 +1,16 @@
 {
-  "updatedAt": "31.8.2026, 08:56:07",
+  "updatedAt": "31.8.2026, 11:18:35",
   "leads": [
+    {
+      "Musteri": "0660 5958199",
+      "Telefon": "0660 5958199",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "31.08.26 11:06",
+      "Mesaj": "-",
+      "id": "27475738c9c9a6c45d41b8050dfa3c70",
+      "telegramSent": true
+    },
     {
       "Musteri": "0667 8893068",
       "Telefon": "0667 8893068",
@@ -179,16 +189,6 @@
       "Tarih": "27.08.26 10:13",
       "Mesaj": "-",
       "id": "e17fbf782235e82d2ce9a01a4b9d3578",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 9218226",
-      "Telefon": "0664 9218226",
-      "Hizmet": "-",
-      "Konum": "Loosdorf",
-      "Tarih": "27.08.26 08:07",
-      "Mesaj": "-",
-      "id": "2fd74b3c8d271ac8ba057c2454946ae4",
       "telegramSent": true
     },
     {
