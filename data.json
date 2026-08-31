@@ -1,6 +1,16 @@
 {
-  "updatedAt": "30.8.2026, 15:37:05",
+  "updatedAt": "31.8.2026, 08:56:07",
   "leads": [
+    {
+      "Musteri": "0667 8893068",
+      "Telefon": "0667 8893068",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Mistelbach",
+      "Tarih": "31.08.26 08:54",
+      "Mesaj": "-",
+      "id": "61ba3bc00f2e5c80f22a872517a04831",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 5277680",
       "Telefon": "0664 5277680",
@@ -179,16 +189,6 @@
       "Tarih": "27.08.26 08:07",
       "Mesaj": "-",
       "id": "2fd74b3c8d271ac8ba057c2454946ae4",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 4751655",
-      "Telefon": "0660 4751655",
-      "Hizmet": "-",
-      "Konum": "Forchtenstein",
-      "Tarih": "26.08.26 17:14",
-      "Mesaj": "-",
-      "id": "377cc788780ba0471b2be911ea976538",
       "telegramSent": true
     },
     {
