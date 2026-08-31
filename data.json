@@ -1,5 +1,5 @@
 {
-  "updatedAt": "31.8.2026, 16:00:31",
+  "updatedAt": "31.8.2026, 17:09:31",
   "leads": [
     {
       "Musteri": "0664 3031878",
@@ -182,16 +182,6 @@
       "telegramSent": true
     },
     {
-      "Musteri": "0699 11516318",
-      "Telefon": "0699 11516318",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "27.08.26 14:01",
-      "Mesaj": "-",
-      "id": "21934327ce9643a0ad22e78d188c90f7",
-      "telegramSent": true
-    },
-    {
       "Musteri": "Karin Rolly",
       "Telefon": "335332997",
       "Hizmet": "Umzug im Inland",
@@ -199,6 +189,16 @@
       "Tarih": "26.08.26 13:17",
       "Mesaj": "K\nKarin Rolly\n11:17 AM\nHätte bitte gerne einen Kostenvoranschlag für die Übersiedelung von Schwadorf nach Schwechat im Dezember",
       "id": "9014f197b7619b8f056eec8b13c3b32f",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0681 20134175",
+      "Telefon": "0681 20134175",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "18.08.26 17:25",
+      "Mesaj": "-",
+      "id": "87a02e15be6072292a06add40afdae6b",
       "telegramSent": true
     }
   ]
