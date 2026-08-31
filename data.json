@@ -1,6 +1,16 @@
 {
-  "updatedAt": "31.8.2026, 14:45:39",
+  "updatedAt": "31.8.2026, 16:00:31",
   "leads": [
+    {
+      "Musteri": "0664 3031878",
+      "Telefon": "0664 3031878",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Zwettl",
+      "Tarih": "31.08.26 15:54",
+      "Mesaj": "-",
+      "id": "8323e6cbe22fd7906ac34d6c54eeeacc",
+      "telegramSent": true
+    },
     {
       "Musteri": "336237896",
       "Telefon": "336237896",
@@ -179,16 +189,6 @@
       "Tarih": "27.08.26 14:01",
       "Mesaj": "-",
       "id": "21934327ce9643a0ad22e78d188c90f7",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 1240797",
-      "Telefon": "0660 1240797",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "27.08.26 11:13",
-      "Mesaj": "-",
-      "id": "1def3b43c1d1199484c1fc0cb975c552",
       "telegramSent": true
     },
     {
