@@ -1,6 +1,16 @@
 {
-  "updatedAt": "31.8.2026, 11:18:35",
+  "updatedAt": "31.8.2026, 14:45:39",
   "leads": [
+    {
+      "Musteri": "336237896",
+      "Telefon": "336237896",
+      "Hizmet": "-",
+      "Konum": "Korneuburg",
+      "Tarih": "31.08.26 14:36",
+      "Mesaj": "P\nPotenzieller Kunde\n12:36 PM\nSehr geehrte Damen und Herren, Wir planen einen Zu- und Umbau in Korneuburg. Dafür müssen wir das Wohnzimmer und die Küche abbauen, in einem Lager aufbewahren und wenn es fertig ist wieder aufbauen. Die Küche würde sich ein bisschen verändern, müsste aber auch wieder aufgebaut werden. Machen Sie dies auch? Wenn ja, mit welchen Kosten müssten wir rechnen und (ab) wann wäre das von Ihnen aus möglich? Mit freundlichen Grüßen Silke Fuchs",
+      "id": "06e096edb4a71016d08ab2dbb9719694",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 5958199",
       "Telefon": "0660 5958199",
@@ -179,16 +189,6 @@
       "Tarih": "27.08.26 11:13",
       "Mesaj": "-",
       "id": "1def3b43c1d1199484c1fc0cb975c552",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 19050660",
-      "Telefon": "0699 19050660",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "27.08.26 10:13",
-      "Mesaj": "-",
-      "id": "e17fbf782235e82d2ce9a01a4b9d3578",
       "telegramSent": true
     },
     {
