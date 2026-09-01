@@ -1,6 +1,26 @@
 {
-  "updatedAt": "1.9.2026, 11:36:48",
+  "updatedAt": "1.9.2026, 12:27:48",
   "leads": [
+    {
+      "Musteri": "0660 4015888",
+      "Telefon": "0660 4015888",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "01.09.26 12:20",
+      "Mesaj": "-",
+      "id": "a7e996ad19e3b62f496cff3693aefe87",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0664 1683029",
+      "Telefon": "0664 1683029",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "01.09.26 12:11",
+      "Mesaj": "-",
+      "id": "fb2e51cae13041b001d77ee56a4c02fb",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 3545743",
       "Telefon": "0660 3545743",
@@ -159,26 +179,6 @@
       "Tarih": "28.08.26 16:07",
       "Mesaj": "-",
       "id": "ccb4ce5230d1680fd491104e28635a3c",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 7708651",
-      "Telefon": "0676 7708651",
-      "Hizmet": "-",
-      "Konum": "Neunkirchen",
-      "Tarih": "28.08.26 12:08",
-      "Mesaj": "-",
-      "id": "f01b004c32347a7b09a226f77c55ca90",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "335793410",
-      "Telefon": "335793410",
-      "Hizmet": "Sperrmüllentsorgung",
-      "Konum": "Wien",
-      "Tarih": "28.08.26 10:09",
-      "Mesaj": "P\nPotenzieller Kunde\n8:09 AM\nWir benötigen den Abtransport von 1,7m³ Erde bzw. Grasnarbe (17,3m², 10cm tief). Wir werden den Aushub selbst in Säcken vorbereiten (ca. 40 Säcken). Dann müssten diese nur weggetragen (durch die Wohnung) und auf einer Deponie im 21. Bezirk abtransportiert werden. Wir wohnen in 1170 Bezirk.",
-      "id": "0e5d3bcff0e67223d5e3507721fe24c7",
       "telegramSent": true
     },
     {
