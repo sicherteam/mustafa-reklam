@@ -1,6 +1,16 @@
 {
-  "updatedAt": "1.9.2026, 18:09:43",
+  "updatedAt": "2.9.2026, 06:18:35",
   "leads": [
+    {
+      "Musteri": "337190614",
+      "Telefon": "337190614",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Baden",
+      "Tarih": "02.09.26 06:18",
+      "Mesaj": "P\nPotenzieller Kunde\n4:18 AM\nIch möchte mich nur erkundigen, was es kosten würde, eine Eckbank, einen Esstisch und Kleinigkeiten nach 3874 Litschau zu überstellen? Herzlichen Dank!",
+      "id": "476acd760d116cf7715e45d6eb101ab8",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 12062068",
       "Telefon": "0699 12062068",
@@ -179,16 +189,6 @@
       "Tarih": "29.08.26 09:56",
       "Mesaj": "-",
       "id": "25d11652f682358e7a6783d65bc6db99",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 1944283",
-      "Telefon": "0660 1944283",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "29.08.26 07:53",
-      "Mesaj": "-",
-      "id": "9224a49a7145a3fd9f95b604fff68c59",
       "telegramSent": true
     },
     {
