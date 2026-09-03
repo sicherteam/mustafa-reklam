@@ -1,6 +1,16 @@
 {
-  "updatedAt": "3.9.2026, 14:00:38",
+  "updatedAt": "3.9.2026, 18:18:37",
   "leads": [
+    {
+      "Musteri": "0664 73417031",
+      "Telefon": "0664 73417031",
+      "Hizmet": "-",
+      "Konum": "Sankt Pölten",
+      "Tarih": "03.09.26 18:15",
+      "Mesaj": "-",
+      "id": "7cd4f16d9cc4be761f973a228622db86",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 6388113",
       "Telefon": "0664 6388113",
@@ -149,16 +159,6 @@
       "Tarih": "31.08.26 11:06",
       "Mesaj": "-",
       "id": "27475738c9c9a6c45d41b8050dfa3c70",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0667 8893068",
-      "Telefon": "0667 8893068",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Mistelbach",
-      "Tarih": "31.08.26 08:54",
-      "Mesaj": "-",
-      "id": "61ba3bc00f2e5c80f22a872517a04831",
       "telegramSent": true
     },
     {
