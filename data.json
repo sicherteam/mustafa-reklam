@@ -1,6 +1,16 @@
 {
-  "updatedAt": "3.9.2026, 18:18:37",
+  "updatedAt": "3.9.2026, 21:09:40",
   "leads": [
+    {
+      "Musteri": "0664 2375524",
+      "Telefon": "0664 2375524",
+      "Hizmet": "Internationaler Umzug",
+      "Konum": "Leopoldsdorf im Marchfeld",
+      "Tarih": "03.09.26 21:02",
+      "Mesaj": "P\nPotenzieller Kunde\n7:02 PM\nHallo. Wir würden von leopoldsdorf im marchfeld, nach Deutschland ziehen wollen. Es wurde fast der gesamte Wohnungsinhalt mitkommen. Wir haben wie jz Preise gesagt bekommen. Die nicht gerade angenehm waren. Wir würden alles selber packen und die Möbel zerlegen. Und auch wieder selber aufbauen. Wir würden nur Lkw und Fahrer benötigen.",
+      "id": "a01ee8a4406cf8c9c8c37c66413bc9f0",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 73417031",
       "Telefon": "0664 73417031",
@@ -179,16 +189,6 @@
       "Tarih": "30.08.26 15:24",
       "Mesaj": "P\nPotenzieller Kunde\n1:24 PM\nÜbersiedlung von Möbel und Gartengeräten etc. von 7162 Tadten nach 7511 Kleinbachselten. Fotos der Sachen mit Beschreibung können wir schicken",
       "id": "2669d99a88528cb26b2a7c83ae38c144",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "Otto Pfersmann",
-      "Telefon": "336570697",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "30.08.26 15:14",
-      "Mesaj": "O\nOtto Pfersmann\n1:14 PM\nEs geht um die Sendung eines Kleiderständers, der etwa 2 m hoch und etwa 40 cm breit ist von Wien nach Paris mit Einpacken. Derzeitiger Standort 1040 Wien, Lieferadresse 75016 Paris. Es geht also nur um ein Stück, nicht um einen gesamten Umzug. Am besten wäre natürlich, wenn dieser Kleiderständer im Rahmen einer größeren Sendung irgendwann mitgenommen werden könnte.",
-      "id": "6c5f1a6ffd6a6552a46d1dd982a60d11",
       "telegramSent": true
     },
     {
