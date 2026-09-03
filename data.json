@@ -1,6 +1,16 @@
 {
-  "updatedAt": "3.9.2026, 10:27:33",
+  "updatedAt": "3.9.2026, 14:00:38",
   "leads": [
+    {
+      "Musteri": "0664 6388113",
+      "Telefon": "0664 6388113",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "03.09.26 13:54",
+      "Mesaj": "-",
+      "id": "cf7771547f917789fd27e809fbc519d1",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 81212858",
       "Telefon": "0681 81212858",
@@ -179,16 +189,6 @@
       "Tarih": "30.08.26 15:14",
       "Mesaj": "O\nOtto Pfersmann\n1:14 PM\nEs geht um die Sendung eines Kleiderständers, der etwa 2 m hoch und etwa 40 cm breit ist von Wien nach Paris mit Einpacken. Derzeitiger Standort 1040 Wien, Lieferadresse 75016 Paris. Es geht also nur um ein Stück, nicht um einen gesamten Umzug. Am besten wäre natürlich, wenn dieser Kleiderständer im Rahmen einer größeren Sendung irgendwann mitgenommen werden könnte.",
       "id": "6c5f1a6ffd6a6552a46d1dd982a60d11",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9216178",
-      "Telefon": "0676 9216178",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "29.08.26 16:46",
-      "Mesaj": "P\nPotenzieller Kunde\n2:46 PM\nWas würde es kosten eine Couch von Schwechat nach Wiener Neustadt zu bringen",
-      "id": "a0212d153cc030d8c7d194d26cb839fe",
       "telegramSent": true
     },
     {
