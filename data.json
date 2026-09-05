@@ -1,6 +1,16 @@
 {
-  "updatedAt": "4.9.2026, 18:09:39",
+  "updatedAt": "5.9.2026, 21:54:35",
   "leads": [
+    {
+      "Musteri": "337694972",
+      "Telefon": "337694972",
+      "Hizmet": "Andere Dienstleistung",
+      "Konum": "Wien",
+      "Tarih": "05.09.26 21:49",
+      "Mesaj": "P\nPotenzieller Kunde\n7:49 PM\nGuten Tag, ich würde gerne anfragen, wie viel der Transport einer Couch vom 18. Bezirk in den 3. Bezirk kosten würde. Die Couch ist in zwei Teile zerlegbar: • Teil 1: ca. 2,10 × 1,10 m • Teil 2: ca. 2,20 × 1,10 m Aufgestellt ist die Couch insgesamt ca. 3,20 m lang und 2,20 m tief (L-Form). Am Zielort müsste die Couch eventuell in den 4. Stock getragen werden, leider gibt es dort keinen Lift. Könnten Sie mir bitte einen ungefähren Preis bzw. ein Angebot für Transport inkl. Tragen nennen? Vielen Dank!",
+      "id": "2efbf085783b5bed641945840a13e9f2",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1397896",
       "Telefon": "0664 1397896",
@@ -159,16 +169,6 @@
       "Tarih": "01.09.26 11:25",
       "Mesaj": "-",
       "id": "0ffba1a5ebf0a1b94093cbdb8738568d",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 3031878",
-      "Telefon": "0664 3031878",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Zwettl",
-      "Tarih": "31.08.26 15:54",
-      "Mesaj": "-",
-      "id": "8323e6cbe22fd7906ac34d6c54eeeacc",
       "telegramSent": true
     },
     {
