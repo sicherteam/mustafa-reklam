@@ -1,6 +1,16 @@
 {
-  "updatedAt": "7.9.2026, 14:45:35",
+  "updatedAt": "7.9.2026, 15:36:29",
   "leads": [
+    {
+      "Musteri": "0690 10305873",
+      "Telefon": "0690 10305873",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "07.09.26 15:26",
+      "Mesaj": "-",
+      "id": "4bf58757e2d7ce74c1f4343f0f5df410",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4536642",
       "Telefon": "0676 4536642",
@@ -189,16 +199,6 @@
       "Tarih": "01.09.26 12:20",
       "Mesaj": "-",
       "id": "a7e996ad19e3b62f496cff3693aefe87",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1683029",
-      "Telefon": "0664 1683029",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "01.09.26 12:11",
-      "Mesaj": "-",
-      "id": "fb2e51cae13041b001d77ee56a4c02fb",
       "telegramSent": true
     }
   ]
