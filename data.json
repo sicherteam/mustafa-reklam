@@ -1,6 +1,16 @@
 {
-  "updatedAt": "7.9.2026, 13:45:33",
+  "updatedAt": "7.9.2026, 14:45:35",
   "leads": [
+    {
+      "Musteri": "0676 4536642",
+      "Telefon": "0676 4536642",
+      "Hizmet": "-",
+      "Konum": "Biberbach",
+      "Tarih": "07.09.26 14:37",
+      "Mesaj": "-",
+      "id": "eb8ab273be8867050e35cf62d677c963",
+      "telegramSent": true
+    },
     {
       "Musteri": "337833605",
       "Telefon": "337833605",
@@ -189,16 +199,6 @@
       "Tarih": "01.09.26 12:11",
       "Mesaj": "-",
       "id": "fb2e51cae13041b001d77ee56a4c02fb",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 3545743",
-      "Telefon": "0660 3545743",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "01.09.26 11:25",
-      "Mesaj": "-",
-      "id": "0ffba1a5ebf0a1b94093cbdb8738568d",
       "telegramSent": true
     }
   ]
