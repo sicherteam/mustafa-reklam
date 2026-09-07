@@ -1,6 +1,16 @@
 {
-  "updatedAt": "6.9.2026, 22:18:52",
+  "updatedAt": "7.9.2026, 12:45:30",
   "leads": [
+    {
+      "Musteri": "0650 3124373",
+      "Telefon": "0650 3124373",
+      "Hizmet": "-",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "07.09.26 12:29",
+      "Mesaj": "-",
+      "id": "ec8438f7d6e905bec739d4f87b2e4ffa",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 10734442",
       "Telefon": "0699 10734442",
@@ -189,16 +199,6 @@
       "Tarih": "01.09.26 11:25",
       "Mesaj": "-",
       "id": "0ffba1a5ebf0a1b94093cbdb8738568d",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "336237896",
-      "Telefon": "336237896",
-      "Hizmet": "-",
-      "Konum": "Korneuburg",
-      "Tarih": "31.08.26 14:36",
-      "Mesaj": "P\nPotenzieller Kunde\n12:36 PM\nSehr geehrte Damen und Herren, Wir planen einen Zu- und Umbau in Korneuburg. Dafür müssen wir das Wohnzimmer und die Küche abbauen, in einem Lager aufbewahren und wenn es fertig ist wieder aufbauen. Die Küche würde sich ein bisschen verändern, müsste aber auch wieder aufgebaut werden. Machen Sie dies auch? Wenn ja, mit welchen Kosten müssten wir rechnen und (ab) wann wäre das von Ihnen aus möglich? Mit freundlichen Grüßen Silke Fuchs",
-      "id": "06e096edb4a71016d08ab2dbb9719694",
       "telegramSent": true
     }
   ]
