@@ -1,6 +1,16 @@
 {
-  "updatedAt": "8.9.2026, 11:27:35",
+  "updatedAt": "8.9.2026, 13:27:42",
   "leads": [
+    {
+      "Musteri": "Marianna Starovska",
+      "Telefon": "0664 1939464",
+      "Hizmet": "Andere Dienstleistung",
+      "Konum": "Sankt Pölten",
+      "Tarih": "08.09.26 13:22",
+      "Mesaj": "M\nMarianna Starovska\n11:22 AM\nHallo, ich möchte ein Boxspringbett mit 140kg bei Möbelix in St. Pölten abholen lassen und nach Statzendorf PLZ 3125 zu bringen. Die Wohnung befindet sich im 1. Stock und es gibt kein Lift. Weiter wäre ein Hochbett abzubauen und zuentsorgen sowie das neue Bett aufzubauen. Wären Sie da interessiert?",
+      "id": "ad9c6909f1fcf50a6639641fd509ea59",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7637596",
       "Telefon": "0676 7637596",
@@ -189,16 +199,6 @@
       "Tarih": "02.09.26 11:11",
       "Mesaj": "-",
       "id": "a5e61e8f8aab6c8b110ac0b3f80a17a2",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "337190614",
-      "Telefon": "337190614",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Baden",
-      "Tarih": "02.09.26 06:18",
-      "Mesaj": "P\nPotenzieller Kunde\n4:18 AM\nIch möchte mich nur erkundigen, was es kosten würde, eine Eckbank, einen Esstisch und Kleinigkeiten nach 3874 Litschau zu überstellen? Herzlichen Dank!",
-      "id": "476acd760d116cf7715e45d6eb101ab8",
       "telegramSent": true
     }
   ]
