@@ -1,6 +1,16 @@
 {
-  "updatedAt": "9.9.2026, 15:36:33",
+  "updatedAt": "9.9.2026, 15:45:34",
   "leads": [
+    {
+      "Musteri": "Patricia Gattinger",
+      "Telefon": "338775106",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Krems",
+      "Tarih": "09.09.26 15:38",
+      "Mesaj": "P\nPatricia Gattinger\n1:38 PM\nSehr geehrte Damen und Herren, da mein Partner und ich umziehen werden, benötigen wir jemanden der uns dabei behilflich sein könnte (Möbel ggf. zerlegen, transportieren und ggf. wieder zusammenbauen). Wir wollten daher anfragen bezüglich eines Termines zur genauen Besprechung bzw. einer ungefähren Preisvorstellung. Mit freundlichen Grüßen, Gattinger & Pfurner",
+      "id": "7b8d8c4733c9d31d23de602b5a6bd365",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 3666384",
       "Telefon": "0660 3666384",
@@ -189,16 +199,6 @@
       "Tarih": "03.09.26 13:54",
       "Mesaj": "-",
       "id": "cf7771547f917789fd27e809fbc519d1",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 81212858",
-      "Telefon": "0681 81212858",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "03.09.26 10:16",
-      "Mesaj": "-",
-      "id": "6382791c61c2b82bf251c0b374104c6d",
       "telegramSent": true
     }
   ]
