@@ -1,6 +1,16 @@
 {
-  "updatedAt": "8.9.2026, 13:27:42",
+  "updatedAt": "9.9.2026, 14:18:37",
   "leads": [
+    {
+      "Musteri": "0670 6508030",
+      "Telefon": "0670 6508030",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "09.09.26 14:13",
+      "Mesaj": "-",
+      "id": "e9a2c2545f4386e681e5850f7d8b7baf",
+      "telegramSent": true
+    },
     {
       "Musteri": "Marianna Starovska",
       "Telefon": "0664 1939464",
@@ -189,16 +199,6 @@
       "Tarih": "02.09.26 15:46",
       "Mesaj": "-",
       "id": "af28b005ad9bc47ee6ee3e545806c041",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 61993997",
-      "Telefon": "0677 61993997",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "02.09.26 11:11",
-      "Mesaj": "-",
-      "id": "a5e61e8f8aab6c8b110ac0b3f80a17a2",
       "telegramSent": true
     }
   ]
