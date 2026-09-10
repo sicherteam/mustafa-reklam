@@ -1,6 +1,16 @@
 {
-  "updatedAt": "9.9.2026, 15:45:34",
+  "updatedAt": "10.9.2026, 10:18:52",
   "leads": [
+    {
+      "Musteri": "0664 4086700",
+      "Telefon": "0664 4086700",
+      "Hizmet": "-",
+      "Konum": "Tulln an der Donau",
+      "Tarih": "10.09.26 10:07",
+      "Mesaj": "-",
+      "id": "67a5473eefd30c9ccfb57a1af6d07aaf",
+      "telegramSent": true
+    },
     {
       "Musteri": "Patricia Gattinger",
       "Telefon": "338775106",
@@ -189,16 +199,6 @@
       "Tarih": "03.09.26 18:15",
       "Mesaj": "-",
       "id": "7cd4f16d9cc4be761f973a228622db86",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 6388113",
-      "Telefon": "0664 6388113",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "03.09.26 13:54",
-      "Mesaj": "-",
-      "id": "cf7771547f917789fd27e809fbc519d1",
       "telegramSent": true
     }
   ]
