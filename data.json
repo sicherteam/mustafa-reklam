@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.9.2026, 13:18:45",
+  "updatedAt": "10.9.2026, 16:27:31",
   "leads": [
+    {
+      "Musteri": "0650 3755246",
+      "Telefon": "0650 3755246",
+      "Hizmet": "-",
+      "Konum": "Sankt Pölten",
+      "Tarih": "10.09.26 16:19",
+      "Mesaj": "-",
+      "id": "c836b452a9440adfb86ce19a13157b25",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 4667001",
       "Telefon": "0664 4667001",
@@ -189,16 +199,6 @@
       "Tarih": "04.09.26 11:43",
       "Mesaj": "-",
       "id": "b85a9644aa6ec4ec0efb02bb4e172343",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 2375524",
-      "Telefon": "0664 2375524",
-      "Hizmet": "Internationaler Umzug",
-      "Konum": "Leopoldsdorf im Marchfeld",
-      "Tarih": "03.09.26 21:02",
-      "Mesaj": "P\nPotenzieller Kunde\n7:02 PM\nHallo. Wir würden von leopoldsdorf im marchfeld, nach Deutschland ziehen wollen. Es wurde fast der gesamte Wohnungsinhalt mitkommen. Wir haben wie jz Preise gesagt bekommen. Die nicht gerade angenehm waren. Wir würden alles selber packen und die Möbel zerlegen. Und auch wieder selber aufbauen. Wir würden nur Lkw und Fahrer benötigen.",
-      "id": "a01ee8a4406cf8c9c8c37c66413bc9f0",
       "telegramSent": true
     }
   ]
