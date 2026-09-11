@@ -1,6 +1,16 @@
 {
-  "updatedAt": "11.9.2026, 10:54:33",
+  "updatedAt": "11.9.2026, 15:45:40",
   "leads": [
+    {
+      "Musteri": "0676 7701469",
+      "Telefon": "0676 7701469",
+      "Hizmet": "-",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "11.09.26 15:36",
+      "Mesaj": "-",
+      "id": "cd128e4b064f3181a5db15d973da51bb",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 5450906",
       "Telefon": "0660 5450906",
@@ -189,16 +199,6 @@
       "Tarih": "06.09.26 14:14",
       "Mesaj": "-",
       "id": "c2b62500ae5de8d35777616ff8cfa969",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "337694972",
-      "Telefon": "337694972",
-      "Hizmet": "Andere Dienstleistung",
-      "Konum": "Wien",
-      "Tarih": "05.09.26 21:49",
-      "Mesaj": "P\nPotenzieller Kunde\n7:49 PM\nGuten Tag, ich würde gerne anfragen, wie viel der Transport einer Couch vom 18. Bezirk in den 3. Bezirk kosten würde. Die Couch ist in zwei Teile zerlegbar: • Teil 1: ca. 2,10 × 1,10 m • Teil 2: ca. 2,20 × 1,10 m Aufgestellt ist die Couch insgesamt ca. 3,20 m lang und 2,20 m tief (L-Form). Am Zielort müsste die Couch eventuell in den 4. Stock getragen werden, leider gibt es dort keinen Lift. Könnten Sie mir bitte einen ungefähren Preis bzw. ein Angebot für Transport inkl. Tragen nennen? Vielen Dank!",
-      "id": "2efbf085783b5bed641945840a13e9f2",
       "telegramSent": true
     }
   ]
