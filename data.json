@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.9.2026, 18:18:38",
+  "updatedAt": "11.9.2026, 10:54:33",
   "leads": [
+    {
+      "Musteri": "0660 5450906",
+      "Telefon": "0660 5450906",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "11.09.26 10:38",
+      "Mesaj": "-",
+      "id": "e0f6c51117f13dcea7e4d9b76a86ec42",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 5104213",
       "Telefon": "0664 5104213",
@@ -189,16 +199,6 @@
       "Tarih": "05.09.26 21:49",
       "Mesaj": "P\nPotenzieller Kunde\n7:49 PM\nGuten Tag, ich würde gerne anfragen, wie viel der Transport einer Couch vom 18. Bezirk in den 3. Bezirk kosten würde. Die Couch ist in zwei Teile zerlegbar: • Teil 1: ca. 2,10 × 1,10 m • Teil 2: ca. 2,20 × 1,10 m Aufgestellt ist die Couch insgesamt ca. 3,20 m lang und 2,20 m tief (L-Form). Am Zielort müsste die Couch eventuell in den 4. Stock getragen werden, leider gibt es dort keinen Lift. Könnten Sie mir bitte einen ungefähren Preis bzw. ein Angebot für Transport inkl. Tragen nennen? Vielen Dank!",
       "id": "2efbf085783b5bed641945840a13e9f2",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1397896",
-      "Telefon": "0664 1397896",
-      "Hizmet": "Umzug im Inland",
-      "Konum": "Lanzendorf",
-      "Tarih": "04.09.26 18:04",
-      "Mesaj": "P\nPotenzieller Kunde\n4:04 PM\nIch müsste am 11.09 aus meiner Wohnung ich habe ein grosses Bett 1 kommode kleidung Küchengeräte und ein Klimagerät zum einpacken die neue bleibe ist 700 Meter entfernt wieviel würde das ungefähr kosten mit einpacken ?",
-      "id": "0198a646233e9cd63098fd7e20d83bdb",
       "telegramSent": true
     }
   ]
