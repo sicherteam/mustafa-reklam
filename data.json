@@ -1,6 +1,16 @@
 {
-  "updatedAt": "12.9.2026, 09:37:23",
+  "updatedAt": "12.9.2026, 18:09:41",
   "leads": [
+    {
+      "Musteri": "0678 1213185",
+      "Telefon": "0678 1213185",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "12.09.26 18:00",
+      "Mesaj": "P\nPotenzieller Kunde\n4:00 PM\nHallo, Ich hätte gerne eine Wohnwand abgebaut und transportiert von Korneuburg nach Wien 1020 in den ersten Stock. 18.-20.09 wäre gut. lg",
+      "id": "f4897e1f11a015313f65505b45cadc77",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 5555546",
       "Telefon": "0660 5555546",
@@ -189,16 +199,6 @@
       "Tarih": "07.09.26 12:29",
       "Mesaj": "-",
       "id": "ec8438f7d6e905bec739d4f87b2e4ffa",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9783332",
-      "Telefon": "0676 9783332",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "06.09.26 14:14",
-      "Mesaj": "-",
-      "id": "c2b62500ae5de8d35777616ff8cfa969",
       "telegramSent": true
     }
   ]
