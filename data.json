@@ -1,6 +1,16 @@
 {
-  "updatedAt": "14.9.2026, 12:54:43",
+  "updatedAt": "14.9.2026, 17:54:29",
   "leads": [
+    {
+      "Musteri": "0676 9214591",
+      "Telefon": "0676 9214591",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "14.09.26 17:48",
+      "Mesaj": "-",
+      "id": "4bf553217083ef50da7ea547e1051531",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 3808408",
       "Telefon": "0664 3808408",
@@ -179,16 +189,6 @@
       "Tarih": "07.09.26 19:14",
       "Mesaj": "-",
       "id": "1c7cd2fc30256d00a3028b8ebaad07f4",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1810056",
-      "Telefon": "0664 1810056",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "07.09.26 16:36",
-      "Mesaj": "-",
-      "id": "78edfcf8a6d55df1c91d3551de48582c",
       "telegramSent": true
     },
     {
