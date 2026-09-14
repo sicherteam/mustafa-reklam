@@ -1,6 +1,16 @@
 {
-  "updatedAt": "13.9.2026, 13:18:44",
+  "updatedAt": "14.9.2026, 10:18:40",
   "leads": [
+    {
+      "Musteri": "Richard Wolczecki",
+      "Telefon": "0699 014146868",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "14.09.26 10:10",
+      "Mesaj": "R\nRichard Wolczecki\n8:10 AM\nHallo, ich ersuche um einen Rückruf bezüglich eines Umzugs im Oktober von 1140, Diesterweggasse 3 nach 1120, Böckhgasse 2-4. Ich nehme an, Sie werden sich für den Kostenvoranschlag meine aktuelle Wohnung ansehen wollen und stehe Ihnen diesbezüglich gerne zur Verfügung.",
+      "id": "d92377b6fcb8f9a32f15b6209ec43694",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4226315",
       "Telefon": "0676 4226315",
@@ -179,16 +189,6 @@
       "Tarih": "07.09.26 15:26",
       "Mesaj": "-",
       "id": "4bf58757e2d7ce74c1f4343f0f5df410",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4536642",
-      "Telefon": "0676 4536642",
-      "Hizmet": "-",
-      "Konum": "Biberbach",
-      "Tarih": "07.09.26 14:37",
-      "Mesaj": "-",
-      "id": "eb8ab273be8867050e35cf62d677c963",
       "telegramSent": true
     },
     {
