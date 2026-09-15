@@ -1,6 +1,16 @@
 {
-  "updatedAt": "15.9.2026, 12:18:36",
+  "updatedAt": "15.9.2026, 13:54:56",
   "leads": [
+    {
+      "Musteri": "0676 88591208",
+      "Telefon": "0676 88591208",
+      "Hizmet": "-",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "15.09.26 13:49",
+      "Mesaj": "-",
+      "id": "b0275b99c71ec16c52b35b8d7db836e2",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 5540184",
       "Telefon": "0676 5540184",
@@ -169,16 +179,6 @@
       "Tarih": "09.09.26 15:38",
       "Mesaj": "P\nPatricia Gattinger\n1:38 PM\nSehr geehrte Damen und Herren, da mein Partner und ich umziehen werden, benötigen wir jemanden der uns dabei behilflich sein könnte (Möbel ggf. zerlegen, transportieren und ggf. wieder zusammenbauen). Wir wollten daher anfragen bezüglich eines Termines zur genauen Besprechung bzw. einer ungefähren Preisvorstellung. Mit freundlichen Grüßen, Gattinger & Pfurner",
       "id": "7b8d8c4733c9d31d23de602b5a6bd365",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 3666384",
-      "Telefon": "0660 3666384",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "09.09.26 15:29",
-      "Mesaj": "-",
-      "id": "830dd558bd52b8596b28df7d4af1f8d2",
       "telegramSent": true
     },
     {
