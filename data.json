@@ -1,6 +1,16 @@
 {
-  "updatedAt": "16.9.2026, 10:37:06",
+  "updatedAt": "16.9.2026, 12:09:37",
   "leads": [
+    {
+      "Musteri": "0650 9523840",
+      "Telefon": "0650 9523840",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "16.09.26 11:58",
+      "Mesaj": "-",
+      "id": "06311b0586e38d5ee781781e715ff90a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 81809195",
       "Telefon": "0699 81809195",
@@ -179,16 +189,6 @@
       "Tarih": "10.09.26 13:12",
       "Mesaj": "P\nPotenzieller Kunde\n11:12 AM\nWir bräuchten einen KV für Umzug Ab- und Aufbau, von 7000 Eisenstadt nach 7082 Donnerskirchen in der ersten oder zweiten Oktoberwoche. Schlafzimmer, Wohnzimmer Eßtisch mit Sessel, 2 Schreibtische, 3 antike Möbelstücke, im Keller 2 Fichtenkästen und 3 Fichtenkasterl. Wir wohnen in einer Genossenschaftswohnung im 3.Stock mit Aufzug und in Donnerskirchen im Privathaus im ersten Stock. Alles ausgeräumt. Mit freundlichen Grüßen Brigitte Roser",
       "id": "38246b5fe5d04f98afe8ede8928c5537",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 4086700",
-      "Telefon": "0664 4086700",
-      "Hizmet": "-",
-      "Konum": "Tulln an der Donau",
-      "Tarih": "10.09.26 10:07",
-      "Mesaj": "-",
-      "id": "67a5473eefd30c9ccfb57a1af6d07aaf",
       "telegramSent": true
     },
     {
