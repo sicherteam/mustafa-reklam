@@ -1,6 +1,16 @@
 {
-  "updatedAt": "16.9.2026, 14:18:46",
+  "updatedAt": "16.9.2026, 22:18:45",
   "leads": [
+    {
+      "Musteri": "340406811",
+      "Telefon": "340406811",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Eisenstadt",
+      "Tarih": "16.09.26 22:16",
+      "Mesaj": "P\nPotenzieller Kunde\n8:16 PM\nHallo, ich bräuchte für die erste Oktoberwoche Hilfe um ein Doppelbett(Boxspringbett) und 2 Relaxsessel, alles aus Leder, von Purbach nach Eisenstadt zu bringen. In Purbach wären die Sachen vom 2. Stock runterzutragen, in Eisenstadt ist alles barrierefrei und mit Lift. Das Bett sollte auch wieder zusammengestellt werden. Haben Sie Kapazitäten, wenn ja, was wäre der Preis? MfG Elisabeth Puhr",
+      "id": "c3457e7ba690f62104b835fe528508f0",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 848567208",
       "Telefon": "0676 848567208",
@@ -169,16 +179,6 @@
       "Tarih": "11.09.26 10:38",
       "Mesaj": "-",
       "id": "e0f6c51117f13dcea7e4d9b76a86ec42",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 5104213",
-      "Telefon": "0664 5104213",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "10.09.26 18:09",
-      "Mesaj": "-",
-      "id": "0c5c0158f818b568371948210ccde8f8",
       "telegramSent": true
     },
     {
