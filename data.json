@@ -1,6 +1,16 @@
 {
-  "updatedAt": "16.9.2026, 12:09:37",
+  "updatedAt": "16.9.2026, 14:18:46",
   "leads": [
+    {
+      "Musteri": "0676 848567208",
+      "Telefon": "0676 848567208",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Ebreichsdorf",
+      "Tarih": "16.09.26 14:08",
+      "Mesaj": "-",
+      "id": "2219b174a886cb219278b9477662c074",
+      "telegramSent": true
+    },
     {
       "Musteri": "0650 9523840",
       "Telefon": "0650 9523840",
@@ -169,16 +179,6 @@
       "Tarih": "10.09.26 18:09",
       "Mesaj": "-",
       "id": "0c5c0158f818b568371948210ccde8f8",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 3755246",
-      "Telefon": "0650 3755246",
-      "Hizmet": "-",
-      "Konum": "Sankt Pölten",
-      "Tarih": "10.09.26 16:19",
-      "Mesaj": "-",
-      "id": "c836b452a9440adfb86ce19a13157b25",
       "telegramSent": true
     },
     {
