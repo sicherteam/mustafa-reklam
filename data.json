@@ -1,6 +1,16 @@
 {
-  "updatedAt": "17.9.2026, 19:27:43",
+  "updatedAt": "17.9.2026, 20:27:35",
   "leads": [
+    {
+      "Musteri": "0676 4303343",
+      "Telefon": "0676 4303343",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "17.09.26 20:18",
+      "Mesaj": "-",
+      "id": "19fad1916ae41d7910bbe3b8a9695c6f",
+      "telegramSent": true
+    },
     {
       "Musteri": "0677 62128808",
       "Telefon": "0677 62128808",
@@ -179,16 +189,6 @@
       "Tarih": "13.09.26 11:22",
       "Mesaj": "-",
       "id": "c1235b631f75607be69b735992c29388",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0678 1213185",
-      "Telefon": "0678 1213185",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "12.09.26 18:00",
-      "Mesaj": "P\nPotenzieller Kunde\n4:00 PM\nHallo, Ich hätte gerne eine Wohnwand abgebaut und transportiert von Korneuburg nach Wien 1020 in den ersten Stock. 18.-20.09 wäre gut. lg",
-      "id": "f4897e1f11a015313f65505b45cadc77",
       "telegramSent": true
     },
     {
