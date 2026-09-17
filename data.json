@@ -1,6 +1,16 @@
 {
-  "updatedAt": "17.9.2026, 08:09:36",
+  "updatedAt": "17.9.2026, 15:18:29",
   "leads": [
+    {
+      "Musteri": "0660 5097512",
+      "Telefon": "0660 5097512",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "17.09.26 15:15",
+      "Mesaj": "-",
+      "id": "32b33525f731c59e31797b22ec06cfec",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7576179",
       "Telefon": "0676 7576179",
@@ -169,16 +179,6 @@
       "Tarih": "12.09.26 18:00",
       "Mesaj": "P\nPotenzieller Kunde\n4:00 PM\nHallo, Ich hätte gerne eine Wohnwand abgebaut und transportiert von Korneuburg nach Wien 1020 in den ersten Stock. 18.-20.09 wäre gut. lg",
       "id": "f4897e1f11a015313f65505b45cadc77",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 7701469",
-      "Telefon": "0676 7701469",
-      "Hizmet": "-",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "11.09.26 15:36",
-      "Mesaj": "-",
-      "id": "cd128e4b064f3181a5db15d973da51bb",
       "telegramSent": true
     },
     {
