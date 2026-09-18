@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.9.2026, 16:54:37",
+  "updatedAt": "18.9.2026, 20:09:39",
   "leads": [
+    {
+      "Musteri": "340528022",
+      "Telefon": "340528022",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Hollabrunn",
+      "Tarih": "18.09.26 20:03",
+      "Mesaj": "P\nPotenzieller Kunde\n6:03 PM\nAm besten wäre so schnell wie möglich,muss Ende des Monats aus dem Haus sein.es müssten2 Ortschaften weiter Transportiert werden. Da ich aktuell Schwanger bin kann ich nicht alles meinen Mann allein machen lassen,da er arbeiten auch noch muss. Es handelt sich um normale haushaltssachen und paar möbel",
+      "id": "dc231cab4364773775cb338226ba28d1",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 4283968",
       "Telefon": "0664 4283968",
@@ -179,16 +189,6 @@
       "Tarih": "14.09.26 12:50",
       "Mesaj": "P\nPotenzieller Kunde\n10:50 AM\nSehr geehrte Damen und Herren, ich ersuche um ein unverbindliches Angebot für einen Möbeltransport von Pöchlarn nach Mauer bei Melk. Es sollen ausschließlich Möbel transportiert werden. Der Umzug ist voraussichtlich für den 26.09.2026 oder alternativ am 03.10.2026 geplant. Bitte teilen Sie mir mit: Ob an einem dieser Termine Kapazitäten verfügbar sind Die voraussichtlichen Gesamtkosten Ob das Angebot als Pauschalpreis erstellt werden kann Die Anzahl der eingesetzten Mitarbeiter Ob eine Besichtigung vorab erforderlich ist. Mit freundlichen Grüßen Janine Haibl",
       "id": "2941c4fe7a21e9ffb75220e66a3046ce",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "Richard Wolczecki",
-      "Telefon": "0699 014146868",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "14.09.26 10:10",
-      "Mesaj": "R\nRichard Wolczecki\n8:10 AM\nHallo, ich ersuche um einen Rückruf bezüglich eines Umzugs im Oktober von 1140, Diesterweggasse 3 nach 1120, Böckhgasse 2-4. Ich nehme an, Sie werden sich für den Kostenvoranschlag meine aktuelle Wohnung ansehen wollen und stehe Ihnen diesbezüglich gerne zur Verfügung.",
-      "id": "d92377b6fcb8f9a32f15b6209ec43694",
       "telegramSent": true
     },
     {
