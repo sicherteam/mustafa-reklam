@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.9.2026, 08:18:36",
+  "updatedAt": "18.9.2026, 11:09:41",
   "leads": [
+    {
+      "Musteri": "0665 65940433",
+      "Telefon": "0665 65940433",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Mistelbach",
+      "Tarih": "18.09.26 11:02",
+      "Mesaj": "P\nPotenzieller Kunde\n9:02 AM\nHallo, liebes Umzugsteam, ich würde etwas Hilfe bei einem Umzug von 2263 Waidendorf nach 7444 Mannersdorf an der Rabnitz /Oberpullendorf (von Niederösterreich ins Burgenland) benötigen. Ich habe ca. 162 Bananen Kartons, wobei ich hoffe, dass es nicht so viele werden und einige Möbelstücke. (Ikea Ektorp 2er Bank, 3 Sesseln, 5 leicht tragbare Holzregale,) Eine Regentonne mit kleinen Bäumen und ein Maurerwandl mit Pflanzen,ein paar Blumentöpfe. Ich bitte Sie höflich um einen unverbindlichen Kostenvoranschlag - mit und Ohne - Möbel (nur Kartons und Pflanze und einmal Kartons, Pflanzen und Möbeln.",
+      "id": "33ea8a5ce45b6a0229f10f7226a91708",
+      "telegramSent": true
+    },
     {
       "Musteri": "0667 3311855",
       "Telefon": "0667 3311855",
@@ -179,16 +189,6 @@
       "Tarih": "14.09.26 10:10",
       "Mesaj": "R\nRichard Wolczecki\n8:10 AM\nHallo, ich ersuche um einen Rückruf bezüglich eines Umzugs im Oktober von 1140, Diesterweggasse 3 nach 1120, Böckhgasse 2-4. Ich nehme an, Sie werden sich für den Kostenvoranschlag meine aktuelle Wohnung ansehen wollen und stehe Ihnen diesbezüglich gerne zur Verfügung.",
       "id": "d92377b6fcb8f9a32f15b6209ec43694",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4226315",
-      "Telefon": "0676 4226315",
-      "Hizmet": "Internationaler Umzug",
-      "Konum": "Wien",
-      "Tarih": "13.09.26 13:16",
-      "Mesaj": "NO MESSAGE",
-      "id": "9621d667c62bc23e394aa610a60fcf72",
       "telegramSent": true
     },
     {
