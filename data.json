@@ -1,6 +1,16 @@
 {
-  "updatedAt": "17.9.2026, 20:27:35",
+  "updatedAt": "18.9.2026, 08:18:36",
   "leads": [
+    {
+      "Musteri": "0667 3311855",
+      "Telefon": "0667 3311855",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "18.09.26 08:16",
+      "Mesaj": "-",
+      "id": "39fbe4d43f128412392563d51dbd1432",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4303343",
       "Telefon": "0676 4303343",
@@ -179,16 +189,6 @@
       "Tarih": "13.09.26 13:16",
       "Mesaj": "NO MESSAGE",
       "id": "9621d667c62bc23e394aa610a60fcf72",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 1606270",
-      "Telefon": "0660 1606270",
-      "Hizmet": "-",
-      "Konum": "Zwettl",
-      "Tarih": "13.09.26 11:22",
-      "Mesaj": "-",
-      "id": "c1235b631f75607be69b735992c29388",
       "telegramSent": true
     },
     {
