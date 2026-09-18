@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.9.2026, 11:09:41",
+  "updatedAt": "18.9.2026, 16:54:37",
   "leads": [
+    {
+      "Musteri": "0664 4283968",
+      "Telefon": "0664 4283968",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "18.09.26 16:49",
+      "Mesaj": "-",
+      "id": "85ffce778d563fed91d9aac343b01f9e",
+      "telegramSent": true
+    },
     {
       "Musteri": "0665 65940433",
       "Telefon": "0665 65940433",
@@ -159,16 +169,6 @@
       "Tarih": "14.09.26 19:03",
       "Mesaj": "-",
       "id": "30fcb4e6f99461f0286be65748d4900b",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9214591",
-      "Telefon": "0676 9214591",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "14.09.26 17:48",
-      "Mesaj": "-",
-      "id": "4bf553217083ef50da7ea547e1051531",
       "telegramSent": true
     },
     {
