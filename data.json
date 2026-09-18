@@ -1,6 +1,26 @@
 {
-  "updatedAt": "18.9.2026, 21:09:35",
+  "updatedAt": "18.9.2026, 21:18:41",
   "leads": [
+    {
+      "Musteri": "0660 7747803",
+      "Telefon": "0660 7747803",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "18.09.26 21:03",
+      "Mesaj": "-",
+      "id": "196ebcabd08cc033e3101aa3662af24f",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "340528022",
+      "Telefon": "340528022",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Hollabrunn",
+      "Tarih": "18.09.26 20:03",
+      "Mesaj": "P\nPotenzieller Kunde\n6:03 PM\nAm besten wäre so schnell wie möglich,muss Ende des Monats aus dem Haus sein.es müssten2 Ortschaften weiter Transportiert werden. Da ich aktuell Schwanger bin kann ich nicht alles meinen Mann allein machen lassen,da er arbeiten auch noch muss. Es handelt sich um normale haushaltssachen und paar möbel",
+      "id": "dc231cab4364773775cb338226ba28d1",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 4283968",
       "Telefon": "0664 4283968",
