@@ -1,6 +1,16 @@
 {
-  "updatedAt": "20.9.2026, 10:54:35",
+  "updatedAt": "20.9.2026, 17:09:37",
   "leads": [
+    {
+      "Musteri": "0660 2275022",
+      "Telefon": "0660 2275022",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "20.09.26 17:00",
+      "Mesaj": "P\nPotenzieller Kunde\n3:00 PM\nHallo. Brauchen mitarbeiter?",
+      "id": "078669eb2e4bb713336009cb6ab2a9ae",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 5620075",
       "Telefon": "0676 5620075",
@@ -189,16 +199,6 @@
       "Tarih": "14.09.26 19:03",
       "Mesaj": "-",
       "id": "30fcb4e6f99461f0286be65748d4900b",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 3124373",
-      "Telefon": "0650 3124373",
-      "Hizmet": "-",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "07.09.26 12:29",
-      "Mesaj": "-",
-      "id": "ec8438f7d6e905bec739d4f87b2e4ffa",
       "telegramSent": true
     }
   ]
