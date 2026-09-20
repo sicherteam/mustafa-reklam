@@ -1,6 +1,16 @@
 {
-  "updatedAt": "19.9.2026, 11:09:33",
+  "updatedAt": "20.9.2026, 10:54:35",
   "leads": [
+    {
+      "Musteri": "0676 5620075",
+      "Telefon": "0676 5620075",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "20.09.26 10:52",
+      "Mesaj": "-",
+      "id": "f143229347ef3ecd1bf1164c78efab8c",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 6840564",
       "Telefon": "0676 6840564",
@@ -159,16 +169,6 @@
       "Tarih": "15.09.26 16:18",
       "Mesaj": "-",
       "id": "2ec40514170a3c5460f5e6aa31dd11d4",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 88591208",
-      "Telefon": "0676 88591208",
-      "Hizmet": "-",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "15.09.26 13:49",
-      "Mesaj": "-",
-      "id": "b0275b99c71ec16c52b35b8d7db836e2",
       "telegramSent": true
     },
     {
