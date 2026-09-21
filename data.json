@@ -1,6 +1,16 @@
 {
-  "updatedAt": "21.9.2026, 12:36:50",
+  "updatedAt": "21.9.2026, 20:45:40",
   "leads": [
+    {
+      "Musteri": "0681 81373255",
+      "Telefon": "0681 81373255",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "21.09.26 20:37",
+      "Mesaj": "P\nPotenzieller Kunde\n6:37 PM\nSehr geehrte Damen und Herren, ich müsste am 12. oder 13.10. übersiedeln und hätte gerne ein unverbindliches Angebot von Ihnen. Auszugsadresse: Martinstraße 19/38, 1180 Wien – 50m², 3. Stock mit Lift (3-Personen-Lift, 19 Stufen bis zum Lift) Einzugsadresse: Huglgasse 28/64, 1150 Wien – Dachgeschoss, Lift ebenerdig (3-Personen-Lift) Es handelt sich um reinen Transport, keine Montage/Demontage nötig. Ich packe alle Kartons selbst. Zu transportieren sind: kein Bett, kein Kleiderschrank, eine Waschmaschine, 6x Ivar-Regal, ein 3er-Sofa mit Hocker, zwei Matratzen, ein Walkingpad, ein Esstisch mit",
+      "id": "1c6d77e071d46b044f2d72d4bcc6336a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0650 9582419",
       "Telefon": "0650 9582419",
@@ -149,16 +159,6 @@
       "Tarih": "17.09.26 08:03",
       "Mesaj": "-",
       "id": "f4d099495c8fc627f2ee58c90ca98e4f",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 2004677",
-      "Telefon": "0650 2004677",
-      "Hizmet": "-",
-      "Konum": "Ebreichsdorf",
-      "Tarih": "17.09.26 07:53",
-      "Mesaj": "-",
-      "id": "b92621849d66aebe1a125e3b39ab5f42",
       "telegramSent": true
     },
     {
