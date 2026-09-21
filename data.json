@@ -1,6 +1,16 @@
 {
-  "updatedAt": "20.9.2026, 17:09:37",
+  "updatedAt": "21.9.2026, 08:45:37",
   "leads": [
+    {
+      "Musteri": "0664 5466669",
+      "Telefon": "0664 5466669",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wien",
+      "Tarih": "21.09.26 08:40",
+      "Mesaj": "-",
+      "id": "0a6f3cb02f962b4bfbf5565d85cbfb8d",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 2275022",
       "Telefon": "0660 2275022",
@@ -169,16 +179,6 @@
       "Tarih": "16.09.26 10:33",
       "Mesaj": "-",
       "id": "76cbd2a7a7c07a97b8f0b1d7e7882294",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 19459840",
-      "Telefon": "0699 19459840",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Neusiedl am See",
-      "Tarih": "15.09.26 16:18",
-      "Mesaj": "-",
-      "id": "2ec40514170a3c5460f5e6aa31dd11d4",
       "telegramSent": true
     },
     {
