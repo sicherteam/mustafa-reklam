@@ -1,6 +1,16 @@
 {
-  "updatedAt": "21.9.2026, 20:45:40",
+  "updatedAt": "22.9.2026, 09:09:37",
   "leads": [
+    {
+      "Musteri": "0681 10306192",
+      "Telefon": "0681 10306192",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "22.09.26 09:02",
+      "Mesaj": "-",
+      "id": "6568f65b58b286f0182e33a844fb20b0",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 81373255",
       "Telefon": "0681 81373255",
@@ -189,16 +199,6 @@
       "Tarih": "16.09.26 11:58",
       "Mesaj": "-",
       "id": "06311b0586e38d5ee781781e715ff90a",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 81809195",
-      "Telefon": "0699 81809195",
-      "Hizmet": "-",
-      "Konum": "Neusiedl am See",
-      "Tarih": "16.09.26 10:33",
-      "Mesaj": "-",
-      "id": "76cbd2a7a7c07a97b8f0b1d7e7882294",
       "telegramSent": true
     }
   ]
