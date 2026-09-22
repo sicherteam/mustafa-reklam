@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.9.2026, 13:18:42",
+  "updatedAt": "22.9.2026, 16:00:37",
   "leads": [
+    {
+      "Musteri": "0664 9206728",
+      "Telefon": "0664 9206728",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "22.09.26 15:57",
+      "Mesaj": "-",
+      "id": "63acd44d0971d0afd8bc60f673cc46b6",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 2448393",
       "Telefon": "0664 2448393",
@@ -169,16 +179,6 @@
       "Tarih": "17.09.26 19:25",
       "Mesaj": "-",
       "id": "e15b78a0904cb4a4ab9892f60e79bad7",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 5097512",
-      "Telefon": "0660 5097512",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "17.09.26 15:15",
-      "Mesaj": "-",
-      "id": "32b33525f731c59e31797b22ec06cfec",
       "telegramSent": true
     },
     {
