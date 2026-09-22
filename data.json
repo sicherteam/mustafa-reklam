@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.9.2026, 16:00:37",
+  "updatedAt": "22.9.2026, 17:27:40",
   "leads": [
+    {
+      "Musteri": "0699 15298988",
+      "Telefon": "0699 15298988",
+      "Hizmet": "-",
+      "Konum": "Eisenstadt-Umgebung",
+      "Tarih": "22.09.26 17:19",
+      "Mesaj": "-",
+      "id": "aff0ae3fdbbdeabd1b06d5b7db74a64b",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 9206728",
       "Telefon": "0664 9206728",
@@ -159,16 +169,6 @@
       "Tarih": "18.09.26 08:16",
       "Mesaj": "-",
       "id": "39fbe4d43f128412392563d51dbd1432",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4303343",
-      "Telefon": "0676 4303343",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "17.09.26 20:18",
-      "Mesaj": "-",
-      "id": "19fad1916ae41d7910bbe3b8a9695c6f",
       "telegramSent": true
     },
     {
