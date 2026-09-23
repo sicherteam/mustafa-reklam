@@ -1,6 +1,16 @@
 {
-  "updatedAt": "23.9.2026, 17:09:40",
+  "updatedAt": "23.9.2026, 18:18:40",
   "leads": [
+    {
+      "Musteri": "0680 2332621",
+      "Telefon": "0680 2332621",
+      "Hizmet": "-",
+      "Konum": "Mödling",
+      "Tarih": "23.09.26 18:03",
+      "Mesaj": "-",
+      "id": "2e445e2d267516c57b7534b7043104b2",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 88455981",
       "Telefon": "0664 88455981",
@@ -189,16 +199,6 @@
       "Tarih": "18.09.26 20:03",
       "Mesaj": "P\nPotenzieller Kunde\n6:03 PM\nAm besten wäre so schnell wie möglich,muss Ende des Monats aus dem Haus sein.es müssten2 Ortschaften weiter Transportiert werden. Da ich aktuell Schwanger bin kann ich nicht alles meinen Mann allein machen lassen,da er arbeiten auch noch muss. Es handelt sich um normale haushaltssachen und paar möbel",
       "id": "dc231cab4364773775cb338226ba28d1",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 4283968",
-      "Telefon": "0664 4283968",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "18.09.26 16:49",
-      "Mesaj": "-",
-      "id": "85ffce778d563fed91d9aac343b01f9e",
       "telegramSent": true
     }
   ]
