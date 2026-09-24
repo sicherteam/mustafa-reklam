@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.9.2026, 09:45:37",
+  "updatedAt": "24.9.2026, 10:27:33",
   "leads": [
+    {
+      "Musteri": "0660 2647201",
+      "Telefon": "0660 2647201",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "24.09.26 10:21",
+      "Mesaj": "-",
+      "id": "5a0edad6597f29ef0a7fee20e43b0d63",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 5436425",
       "Telefon": "0664 5436425",
@@ -179,16 +189,6 @@
       "Tarih": "20.09.26 17:00",
       "Mesaj": "P\nPotenzieller Kunde\n3:00 PM\nHallo. Brauchen mitarbeiter?",
       "id": "078669eb2e4bb713336009cb6ab2a9ae",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 5620075",
-      "Telefon": "0676 5620075",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "20.09.26 10:52",
-      "Mesaj": "-",
-      "id": "f143229347ef3ecd1bf1164c78efab8c",
       "telegramSent": true
     },
     {
