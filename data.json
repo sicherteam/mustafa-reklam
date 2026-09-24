@@ -1,6 +1,16 @@
 {
-  "updatedAt": "23.9.2026, 18:18:40",
+  "updatedAt": "24.9.2026, 09:45:37",
   "leads": [
+    {
+      "Musteri": "0664 5436425",
+      "Telefon": "0664 5436425",
+      "Hizmet": "-",
+      "Konum": "Güssing",
+      "Tarih": "24.09.26 09:36",
+      "Mesaj": "-",
+      "id": "ba92f79aaec7054e532a3c9465c16d81",
+      "telegramSent": true
+    },
     {
       "Musteri": "0680 2332621",
       "Telefon": "0680 2332621",
@@ -189,16 +199,6 @@
       "Tarih": "19.09.26 11:05",
       "Mesaj": "-",
       "id": "6565dc098dc24e65e0b0bf786e44b97e",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "340528022",
-      "Telefon": "340528022",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Hollabrunn",
-      "Tarih": "18.09.26 20:03",
-      "Mesaj": "P\nPotenzieller Kunde\n6:03 PM\nAm besten wäre so schnell wie möglich,muss Ende des Monats aus dem Haus sein.es müssten2 Ortschaften weiter Transportiert werden. Da ich aktuell Schwanger bin kann ich nicht alles meinen Mann allein machen lassen,da er arbeiten auch noch muss. Es handelt sich um normale haushaltssachen und paar möbel",
-      "id": "dc231cab4364773775cb338226ba28d1",
       "telegramSent": true
     }
   ]
