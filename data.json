@@ -1,6 +1,16 @@
 {
-  "updatedAt": "25.9.2026, 15:36:45",
+  "updatedAt": "25.9.2026, 21:27:34",
   "leads": [
+    {
+      "Musteri": "0677 61267950",
+      "Telefon": "0677 61267950",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Oberwaltersdorf",
+      "Tarih": "25.09.26 21:25",
+      "Mesaj": "P\nPotenzieller Kunde\n7:25 PM\nEin Schmiedeeisenes Tor mit 90 x 190cm soll von Oberwaltersdorf nach Mattersburg geführt werden.",
+      "id": "ca9f0fe24280999a93c821706dc88141",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 1404094",
       "Telefon": "0660 1404094",
@@ -189,16 +199,6 @@
       "Tarih": "21.09.26 20:37",
       "Mesaj": "P\nPotenzieller Kunde\n6:37 PM\nSehr geehrte Damen und Herren, ich müsste am 12. oder 13.10. übersiedeln und hätte gerne ein unverbindliches Angebot von Ihnen. Auszugsadresse: Martinstraße 19/38, 1180 Wien – 50m², 3. Stock mit Lift (3-Personen-Lift, 19 Stufen bis zum Lift) Einzugsadresse: Huglgasse 28/64, 1150 Wien – Dachgeschoss, Lift ebenerdig (3-Personen-Lift) Es handelt sich um reinen Transport, keine Montage/Demontage nötig. Ich packe alle Kartons selbst. Zu transportieren sind: kein Bett, kein Kleiderschrank, eine Waschmaschine, 6x Ivar-Regal, ein 3er-Sofa mit Hocker, zwei Matratzen, ein Walkingpad, ein Esstisch mit",
       "id": "1c6d77e071d46b044f2d72d4bcc6336a",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 9582419",
-      "Telefon": "0650 9582419",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Tarih": "21.09.26 12:33",
-      "Mesaj": "P\nPotenzieller Kunde\n10:33 AM\nUmzug vom 22. in den 21 Bezirk, 15 Minuten Fahrt 4 Zimmer Wohnung (im EG) auf 3 Zimmer Wohnung (im 5ten Liftstock) inkl Gewerbefläche im Erdgeschoss. Zwei Personen Haushalt Am 27.10.26",
-      "id": "758bd13c621c01eaf9328bfd021e4d3d",
       "telegramSent": true
     }
   ]
