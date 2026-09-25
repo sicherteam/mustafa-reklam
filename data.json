@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.9.2026, 12:45:55",
+  "updatedAt": "25.9.2026, 10:45:48",
   "leads": [
+    {
+      "Musteri": "0676 4450305",
+      "Telefon": "0676 4450305",
+      "Hizmet": "-",
+      "Konum": "Guntersdorf",
+      "Tarih": "25.09.26 10:43",
+      "Mesaj": "-",
+      "id": "a85b66648b403daa9257b5880e89bcb8",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 2740777",
       "Telefon": "0660 2740777",
@@ -189,16 +199,6 @@
       "Tarih": "21.09.26 08:40",
       "Mesaj": "-",
       "id": "0a6f3cb02f962b4bfbf5565d85cbfb8d",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 2275022",
-      "Telefon": "0660 2275022",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "20.09.26 17:00",
-      "Mesaj": "P\nPotenzieller Kunde\n3:00 PM\nHallo. Brauchen mitarbeiter?",
-      "id": "078669eb2e4bb713336009cb6ab2a9ae",
       "telegramSent": true
     }
   ]
