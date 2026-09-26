@@ -1,6 +1,16 @@
 {
-  "updatedAt": "25.9.2026, 21:27:34",
+  "updatedAt": "26.9.2026, 06:45:41",
   "leads": [
+    {
+      "Musteri": "0699 18192171",
+      "Telefon": "0699 18192171",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "26.09.26 06:41",
+      "Mesaj": "P\nPotenzieller Kunde\n4:41 AM\nLiebes Team, ich brauche Hilfe beim Umzug. 30.10. ist Wohnungsübergabe. Es geht vom 18. in den 22. Bezirk. Können Sie mir einen Kostenvoranschlag machen? Meine Adresse: Währunger Gürtel 21 Top 201, 1180 Wien. Am Montag wäre ich ab 16 Uhr zuhause. Mit freundlichen Grüßen Corinna Peloschek",
+      "id": "2a8acea752b42d35497edcf2a54cb4e3",
+      "telegramSent": true
+    },
     {
       "Musteri": "0677 61267950",
       "Telefon": "0677 61267950",
@@ -139,16 +149,6 @@
       "Tarih": "23.09.26 08:44",
       "Mesaj": "-",
       "id": "bbbe293b79e30fae468c8280887df813",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 15298988",
-      "Telefon": "0699 15298988",
-      "Hizmet": "-",
-      "Konum": "Eisenstadt-Umgebung",
-      "Tarih": "22.09.26 17:19",
-      "Mesaj": "-",
-      "id": "aff0ae3fdbbdeabd1b06d5b7db74a64b",
       "telegramSent": true
     },
     {
