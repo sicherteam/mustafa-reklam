@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.9.2026, 06:45:41",
+  "updatedAt": "26.9.2026, 07:54:43",
   "leads": [
+    {
+      "Musteri": "0676 3712048",
+      "Telefon": "0676 3712048",
+      "Hizmet": "-",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "26.09.26 07:46",
+      "Mesaj": "P\nPotenzieller Kunde\n5:46 AM\nGuten Morgen! Bräuchte für Montag eine Umzug. MfG Maria",
+      "id": "dfaa05b7ebb95e77aae77e6540037344",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 18192171",
       "Telefon": "0699 18192171",
@@ -189,16 +199,6 @@
       "Tarih": "22.09.26 09:02",
       "Mesaj": "-",
       "id": "6568f65b58b286f0182e33a844fb20b0",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 81373255",
-      "Telefon": "0681 81373255",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "21.09.26 20:37",
-      "Mesaj": "P\nPotenzieller Kunde\n6:37 PM\nSehr geehrte Damen und Herren, ich müsste am 12. oder 13.10. übersiedeln und hätte gerne ein unverbindliches Angebot von Ihnen. Auszugsadresse: Martinstraße 19/38, 1180 Wien – 50m², 3. Stock mit Lift (3-Personen-Lift, 19 Stufen bis zum Lift) Einzugsadresse: Huglgasse 28/64, 1150 Wien – Dachgeschoss, Lift ebenerdig (3-Personen-Lift) Es handelt sich um reinen Transport, keine Montage/Demontage nötig. Ich packe alle Kartons selbst. Zu transportieren sind: kein Bett, kein Kleiderschrank, eine Waschmaschine, 6x Ivar-Regal, ein 3er-Sofa mit Hocker, zwei Matratzen, ein Walkingpad, ein Esstisch mit",
-      "id": "1c6d77e071d46b044f2d72d4bcc6336a",
       "telegramSent": true
     }
   ]
