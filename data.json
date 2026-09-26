@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.9.2026, 07:54:43",
+  "updatedAt": "26.9.2026, 14:00:36",
   "leads": [
+    {
+      "Musteri": "Sandra Labedzki",
+      "Telefon": "0699 12449126",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Tarih": "26.09.26 13:57",
+      "Mesaj": "S\nSandra Labedzki\n11:57 AM\nUmzug von Wien 14 nach Wien 10 geht nur um ca 5 Möbelstücke von 1. Stock mit Lift in Haus",
+      "id": "85f2b415124d1e65efbafc9fdcb26767",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 3712048",
       "Telefon": "0676 3712048",
@@ -189,16 +199,6 @@
       "Tarih": "22.09.26 11:07",
       "Mesaj": "-",
       "id": "9467ba935524bc04b0e9c11105cafae2",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 10306192",
-      "Telefon": "0681 10306192",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "22.09.26 09:02",
-      "Mesaj": "-",
-      "id": "6568f65b58b286f0182e33a844fb20b0",
       "telegramSent": true
     }
   ]
