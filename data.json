@@ -1,6 +1,16 @@
 {
-  "updatedAt": "28.9.2026, 12:09:41",
+  "updatedAt": "28.9.2026, 16:18:43",
   "leads": [
+    {
+      "Musteri": "0660 8561032",
+      "Telefon": "0660 8561032",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Brunn am Gebirge",
+      "Tarih": "28.09.26 16:12",
+      "Mesaj": "-",
+      "id": "f26f200f8f75b91bcbd862ed65d419e1",
+      "telegramSent": true
+    },
     {
       "Musteri": "342608269",
       "Telefon": "342608269",
@@ -179,16 +189,6 @@
       "Tarih": "24.09.26 09:36",
       "Mesaj": "-",
       "id": "ba92f79aaec7054e532a3c9465c16d81",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0680 2332621",
-      "Telefon": "0680 2332621",
-      "Hizmet": "-",
-      "Konum": "Mödling",
-      "Tarih": "23.09.26 18:03",
-      "Mesaj": "-",
-      "id": "2e445e2d267516c57b7534b7043104b2",
       "telegramSent": true
     },
     {
