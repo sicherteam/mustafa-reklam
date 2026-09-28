@@ -1,6 +1,16 @@
 {
-  "updatedAt": "28.9.2026, 16:18:43",
+  "updatedAt": "28.9.2026, 18:18:55",
   "leads": [
+    {
+      "Musteri": "0650 6331718",
+      "Telefon": "0650 6331718",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Mattersburg",
+      "Tarih": "28.09.26 18:12",
+      "Mesaj": "P\nPotenzieller Kunde\n4:12 PM\nEine Joka Schlafliege 2.12x98 ca 90 kg N Von Wiener Neustadt nach Hirm 7024 Abholen und zustellen Bitte um Preisangabe",
+      "id": "dc4f40617f5a8a4136bf63639f1326fc",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 8561032",
       "Telefon": "0660 8561032",
@@ -179,16 +189,6 @@
       "Tarih": "24.09.26 10:21",
       "Mesaj": "-",
       "id": "5a0edad6597f29ef0a7fee20e43b0d63",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 5436425",
-      "Telefon": "0664 5436425",
-      "Hizmet": "-",
-      "Konum": "Güssing",
-      "Tarih": "24.09.26 09:36",
-      "Mesaj": "-",
-      "id": "ba92f79aaec7054e532a3c9465c16d81",
       "telegramSent": true
     },
     {
