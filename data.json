@@ -1,6 +1,16 @@
 {
-  "updatedAt": "28.9.2026, 06:45:33",
+  "updatedAt": "28.9.2026, 08:45:38",
   "leads": [
+    {
+      "Musteri": "0664 1470200",
+      "Telefon": "0664 1470200",
+      "Hizmet": "-",
+      "Konum": "Sankt Pölten",
+      "Tarih": "28.09.26 08:37",
+      "Mesaj": "-",
+      "id": "e6a9ee47c238b75037718f52dcfe423a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 4753491",
       "Telefon": "0664 4753491",
@@ -189,16 +199,6 @@
       "Tarih": "23.09.26 11:57",
       "Mesaj": "-",
       "id": "8d5112aab67c0a84f92509136df0dc47",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 82337510",
-      "Telefon": "0676 82337510",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "23.09.26 10:47",
-      "Mesaj": "-",
-      "id": "51f68670d5730b2c24dbd84889e306b5",
       "telegramSent": true
     }
   ]
