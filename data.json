@@ -1,6 +1,16 @@
 {
-  "updatedAt": "28.9.2026, 08:45:38",
+  "updatedAt": "28.9.2026, 10:45:48",
   "leads": [
+    {
+      "Musteri": "Daniela Vodrazka",
+      "Telefon": "0699 19730221",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Hollabrunn",
+      "Tarih": "28.09.26 10:45",
+      "Mesaj": "D\nDaniela Vodrazka\n8:45 AM\nHallo, ich benötige einen Transport von hauptsächlich Topfpflanzen, Erde und ein paar Brettern von 2022 Schalladorf nach 2170 Walterskirchen bei Poysdorf, bevorzugt am Mo., 5.10.2026",
+      "id": "071edff5b55cf2fce63db7eba58dff76",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 1470200",
       "Telefon": "0664 1470200",
@@ -189,16 +199,6 @@
       "Tarih": "23.09.26 14:54",
       "Mesaj": "-",
       "id": "1176d210747e7fb4b30e1274cea137cb",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 6347744",
-      "Telefon": "0676 6347744",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Ternitz",
-      "Tarih": "23.09.26 11:57",
-      "Mesaj": "-",
-      "id": "8d5112aab67c0a84f92509136df0dc47",
       "telegramSent": true
     }
   ]
