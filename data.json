@@ -1,5 +1,5 @@
 {
-  "updatedAt": "29.9.2026, 10:45:41",
+  "updatedAt": "30.9.2026, 09:36:38",
   "leads": [
     {
       "Musteri": "0664 3615964",
@@ -192,13 +192,13 @@
       "telegramSent": true
     },
     {
-      "Musteri": "0676 3682044",
-      "Telefon": "0676 3682044",
+      "Musteri": "0664 88455981",
+      "Telefon": "0664 88455981",
       "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "25.09.26 11:22",
+      "Konum": "Stockerau",
+      "Tarih": "23.09.26 16:57",
       "Mesaj": "-",
-      "id": "53acaeb96e7a9bf54b7169a503a34d0a",
+      "id": "fed07ab872ee13d1d16d4445e98be2ef",
       "telegramSent": true
     }
   ]
