@@ -1,6 +1,16 @@
 {
-  "updatedAt": "30.9.2026, 11:36:33",
+  "updatedAt": "30.9.2026, 15:00:37",
   "leads": [
+    {
+      "Musteri": "0660 4385800",
+      "Telefon": "0660 4385800",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "30.09.26 14:53",
+      "Mesaj": "-",
+      "id": "64e977174f56b6da85ea31a60a6a438c",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 5212363",
       "Telefon": "0664 5212363",
@@ -179,16 +189,6 @@
       "Tarih": "26.09.26 06:41",
       "Mesaj": "P\nPotenzieller Kunde\n4:41 AM\nLiebes Team, ich brauche Hilfe beim Umzug. 30.10. ist Wohnungsübergabe. Es geht vom 18. in den 22. Bezirk. Können Sie mir einen Kostenvoranschlag machen? Meine Adresse: Währunger Gürtel 21 Top 201, 1180 Wien. Am Montag wäre ich ab 16 Uhr zuhause. Mit freundlichen Grüßen Corinna Peloschek",
       "id": "2a8acea752b42d35497edcf2a54cb4e3",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 61267950",
-      "Telefon": "0677 61267950",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Oberwaltersdorf",
-      "Tarih": "25.09.26 21:25",
-      "Mesaj": "P\nPotenzieller Kunde\n7:25 PM\nEin Schmiedeeisenes Tor mit 90 x 190cm soll von Oberwaltersdorf nach Mattersburg geführt werden.",
-      "id": "ca9f0fe24280999a93c821706dc88141",
       "telegramSent": true
     },
     {
