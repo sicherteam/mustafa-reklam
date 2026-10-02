@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2.10.2026, 10:18:42",
+  "updatedAt": "2.10.2026, 16:54:39",
   "leads": [
+    {
+      "Musteri": "0681 10830035",
+      "Telefon": "0681 10830035",
+      "Hizmet": "-",
+      "Konum": "Güssing",
+      "Tarih": "02.10.26 16:49",
+      "Mesaj": "-",
+      "id": "f73734606ac350f1a8f1812c027dc07d",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4814000",
       "Telefon": "0676 4814000",
@@ -109,16 +119,6 @@
       "Tarih": "28.09.26 18:12",
       "Mesaj": "P\nPotenzieller Kunde\n4:12 PM\nEine Joka Schlafliege 2.12x98 ca 90 kg N Von Wiener Neustadt nach Hirm 7024 Abholen und zustellen Bitte um Preisangabe",
       "id": "dc4f40617f5a8a4136bf63639f1326fc",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 8561032",
-      "Telefon": "0660 8561032",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Brunn am Gebirge",
-      "Tarih": "28.09.26 16:12",
-      "Mesaj": "-",
-      "id": "f26f200f8f75b91bcbd862ed65d419e1",
       "telegramSent": true
     },
     {
