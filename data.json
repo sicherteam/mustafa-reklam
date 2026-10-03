@@ -1,6 +1,16 @@
 {
-  "updatedAt": "3.10.2026, 17:18:46",
+  "updatedAt": "3.10.2026, 17:27:38",
   "leads": [
+    {
+      "Musteri": "0660 6526161",
+      "Telefon": "0660 6526161",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Mistelbach",
+      "Tarih": "03.10.26 17:17",
+      "Mesaj": "-",
+      "id": "fbba62f73f7b862c5829b977955d594b",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 17257574",
       "Telefon": "0699 17257574",
@@ -169,16 +179,6 @@
       "Tarih": "28.09.26 10:45",
       "Mesaj": "D\nDaniela Vodrazka\n8:45 AM\nHallo, ich benötige einen Transport von hauptsächlich Topfpflanzen, Erde und ein paar Brettern von 2022 Schalladorf nach 2170 Walterskirchen bei Poysdorf, bevorzugt am Mo., 5.10.2026",
       "id": "071edff5b55cf2fce63db7eba58dff76",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1470200",
-      "Telefon": "0664 1470200",
-      "Hizmet": "-",
-      "Konum": "Sankt Pölten",
-      "Tarih": "28.09.26 08:37",
-      "Mesaj": "-",
-      "id": "e6a9ee47c238b75037718f52dcfe423a",
       "telegramSent": true
     },
     {
