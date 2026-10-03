@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2.10.2026, 16:54:39",
+  "updatedAt": "3.10.2026, 07:45:45",
   "leads": [
+    {
+      "Musteri": "0699 10963660",
+      "Telefon": "0699 10963660",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "03.10.26 07:40",
+      "Mesaj": "-",
+      "id": "26948e8ce063f54b8133c09a12f6ae27",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 10830035",
       "Telefon": "0681 10830035",
@@ -169,16 +179,6 @@
       "Tarih": "27.09.26 20:43",
       "Mesaj": "-",
       "id": "e4411b9cb0bbd4312935d77858d18f10",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 4251649",
-      "Telefon": "0660 4251649",
-      "Hizmet": "-",
-      "Konum": "Amstetten",
-      "Tarih": "27.09.26 20:05",
-      "Mesaj": "-",
-      "id": "8547ce1ec363e5ee5168e7e9b6092a73",
       "telegramSent": true
     },
     {
