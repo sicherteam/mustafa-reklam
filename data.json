@@ -1,6 +1,16 @@
 {
-  "updatedAt": "3.10.2026, 17:27:38",
+  "updatedAt": "4.10.2026, 15:27:36",
   "leads": [
+    {
+      "Musteri": "0650 9066626",
+      "Telefon": "0650 9066626",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "04.10.26 15:21",
+      "Mesaj": "-",
+      "id": "28aa0f896315dc8a44f350212ae49493",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 6526161",
       "Telefon": "0660 6526161",
@@ -169,16 +179,6 @@
       "Tarih": "28.09.26 12:05",
       "Mesaj": "P\nPotenzieller Kunde\n10:05 AM\nUmzug von Deutsch-Wagram nach Angern an der March",
       "id": "a6ae548e9b1765b9c5917110ae550f39",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "Daniela Vodrazka",
-      "Telefon": "0699 19730221",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Hollabrunn",
-      "Tarih": "28.09.26 10:45",
-      "Mesaj": "D\nDaniela Vodrazka\n8:45 AM\nHallo, ich benötige einen Transport von hauptsächlich Topfpflanzen, Erde und ein paar Brettern von 2022 Schalladorf nach 2170 Walterskirchen bei Poysdorf, bevorzugt am Mo., 5.10.2026",
-      "id": "071edff5b55cf2fce63db7eba58dff76",
       "telegramSent": true
     },
     {
