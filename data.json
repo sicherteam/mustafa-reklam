@@ -1,6 +1,16 @@
 {
-  "updatedAt": "6.10.2026, 08:09:45",
+  "updatedAt": "6.10.2026, 08:55:57",
   "leads": [
+    {
+      "Musteri": "0664 93211687",
+      "Telefon": "0664 93211687",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "06.10.26 08:50",
+      "Mesaj": "-",
+      "id": "078bc209d404892fefc8d813e46081e3",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 12477125",
       "Telefon": "0699 12477125",
@@ -179,16 +189,6 @@
       "Tarih": "29.09.26 09:35",
       "Mesaj": "-",
       "id": "15503eb1683650fb4dbe9b21fecaf152",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 88455981",
-      "Telefon": "0664 88455981",
-      "Hizmet": "-",
-      "Konum": "Stockerau",
-      "Tarih": "23.09.26 16:57",
-      "Mesaj": "-",
-      "id": "fed07ab872ee13d1d16d4445e98be2ef",
       "telegramSent": true
     },
     {
