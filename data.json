@@ -1,6 +1,16 @@
 {
-  "updatedAt": "6.10.2026, 08:55:57",
+  "updatedAt": "6.10.2026, 21:45:37",
   "leads": [
+    {
+      "Musteri": "0699 11368710",
+      "Telefon": "0699 11368710",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "06.10.26 21:39",
+      "Mesaj": "-",
+      "id": "affd67d4f21ee368b3253665ba974268",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 93211687",
       "Telefon": "0664 93211687",
@@ -179,16 +189,6 @@
       "Tarih": "29.09.26 10:02",
       "Mesaj": "-",
       "id": "7c40aa85ad048ced8fd02124164c54bd",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 4234034",
-      "Telefon": "0650 4234034",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "29.09.26 09:35",
-      "Mesaj": "-",
-      "id": "15503eb1683650fb4dbe9b21fecaf152",
       "telegramSent": true
     },
     {
