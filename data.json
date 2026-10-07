@@ -1,6 +1,16 @@
 {
-  "updatedAt": "7.10.2026, 10:45:56",
+  "updatedAt": "7.10.2026, 13:09:32",
   "leads": [
+    {
+      "Musteri": "0676 4802022",
+      "Telefon": "0676 4802022",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "07.10.26 13:05",
+      "Mesaj": "-",
+      "id": "1ac62e99c6a4af972f4d20d117ea373f",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 3628595",
       "Telefon": "0676 3628595",
@@ -189,16 +199,6 @@
       "Tarih": "30.09.26 09:53",
       "Mesaj": "-",
       "id": "44ec7ed6fa9d8f0905907c777cbae539",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1908275",
-      "Telefon": "0664 1908275",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "23.09.26 08:44",
-      "Mesaj": "-",
-      "id": "bbbe293b79e30fae468c8280887df813",
       "telegramSent": true
     }
   ]
