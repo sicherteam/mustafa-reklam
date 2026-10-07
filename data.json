@@ -1,6 +1,16 @@
 {
-  "updatedAt": "7.10.2026, 08:18:36",
+  "updatedAt": "7.10.2026, 10:45:56",
   "leads": [
+    {
+      "Musteri": "0676 3628595",
+      "Telefon": "0676 3628595",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Baden",
+      "Tarih": "07.10.26 10:37",
+      "Mesaj": "-",
+      "id": "ec55a222a8d73253ef09c4cf1ec5d930",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7602460",
       "Telefon": "0676 7602460",
@@ -179,16 +189,6 @@
       "Tarih": "30.09.26 09:53",
       "Mesaj": "-",
       "id": "44ec7ed6fa9d8f0905907c777cbae539",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 3615964",
-      "Telefon": "0664 3615964",
-      "Hizmet": "-",
-      "Konum": "Himberg bei Wien",
-      "Tarih": "29.09.26 10:40",
-      "Mesaj": "-",
-      "id": "ec2042f5696816d84e13f1c28aefd365",
       "telegramSent": true
     },
     {
