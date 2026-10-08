@@ -1,6 +1,16 @@
 {
-  "updatedAt": "7.10.2026, 18:37:04",
+  "updatedAt": "8.10.2026, 14:09:38",
   "leads": [
+    {
+      "Musteri": "0699 10702432",
+      "Telefon": "0699 10702432",
+      "Hizmet": "-",
+      "Konum": "Mistelbach",
+      "Tarih": "08.10.26 14:01",
+      "Mesaj": "-",
+      "id": "629517bf8cf12cab1a322b58ad2abebe",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 9054706",
       "Telefon": "0676 9054706",
@@ -189,16 +199,6 @@
       "Tarih": "30.09.26 14:53",
       "Mesaj": "-",
       "id": "64e977174f56b6da85ea31a60a6a438c",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 5212363",
-      "Telefon": "0664 5212363",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Perchtoldsdorf",
-      "Tarih": "30.09.26 11:30",
-      "Mesaj": "-",
-      "id": "ff0eb14d9454ece47b0ad10de4f28c97",
       "telegramSent": true
     }
   ]
