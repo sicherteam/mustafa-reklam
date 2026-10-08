@@ -1,6 +1,16 @@
 {
-  "updatedAt": "8.10.2026, 14:09:38",
+  "updatedAt": "8.10.2026, 19:18:39",
   "leads": [
+    {
+      "Musteri": "0677 61476223",
+      "Telefon": "0677 61476223",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "08.10.26 19:09",
+      "Mesaj": "-",
+      "id": "90303bd9a25db5b2b123ca65f6cdfd1d",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 10702432",
       "Telefon": "0699 10702432",
@@ -189,16 +199,6 @@
       "Tarih": "01.10.26 13:44",
       "Mesaj": "-",
       "id": "709c1ab237655221a69a04e6b8e6f762",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 4385800",
-      "Telefon": "0660 4385800",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "30.09.26 14:53",
-      "Mesaj": "-",
-      "id": "64e977174f56b6da85ea31a60a6a438c",
       "telegramSent": true
     }
   ]
