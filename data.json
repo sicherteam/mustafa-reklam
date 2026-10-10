@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.10.2026, 10:45:37",
+  "updatedAt": "10.10.2026, 15:45:50",
   "leads": [
+    {
+      "Musteri": "Viktor Schiffer",
+      "Telefon": "0670 1967777",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Eisenstadt",
+      "Tarih": "10.10.26 15:37",
+      "Mesaj": "V\nViktor Schiffer\n1:37 PM\nmitte ende oktober umzug innerhalb eisenstadt",
+      "id": "5a779905a3e6f8b726bd80ce7e40ba1b",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 4031956",
       "Telefon": "0664 4031956",
@@ -189,16 +199,6 @@
       "Tarih": "03.10.26 17:17",
       "Mesaj": "-",
       "id": "fbba62f73f7b862c5829b977955d594b",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 17257574",
-      "Telefon": "0699 17257574",
-      "Hizmet": "-",
-      "Konum": "Hollabrunn",
-      "Tarih": "03.10.26 17:09",
-      "Mesaj": "-",
-      "id": "1f3a28221cd6695c05a105dea3f78c1c",
       "telegramSent": true
     }
   ]
