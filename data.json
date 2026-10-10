@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.10.2026, 15:45:50",
+  "updatedAt": "10.10.2026, 16:00:33",
   "leads": [
+    {
+      "Musteri": "0664 3810474",
+      "Telefon": "0664 3810474",
+      "Hizmet": "-",
+      "Konum": "Maria Enzersdorf",
+      "Tarih": "10.10.26 15:56",
+      "Mesaj": "-",
+      "id": "a0e90be4d53161b966cf642c75eb5b85",
+      "telegramSent": true
+    },
     {
       "Musteri": "Viktor Schiffer",
       "Telefon": "0670 1967777",
@@ -189,16 +199,6 @@
       "Tarih": "04.10.26 15:21",
       "Mesaj": "-",
       "id": "28aa0f896315dc8a44f350212ae49493",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 6526161",
-      "Telefon": "0660 6526161",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Mistelbach",
-      "Tarih": "03.10.26 17:17",
-      "Mesaj": "-",
-      "id": "fbba62f73f7b862c5829b977955d594b",
       "telegramSent": true
     }
   ]
