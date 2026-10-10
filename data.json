@@ -1,6 +1,16 @@
 {
-  "updatedAt": "10.10.2026, 16:00:33",
+  "updatedAt": "10.10.2026, 20:00:33",
   "leads": [
+    {
+      "Musteri": "0660 5552830",
+      "Telefon": "0660 5552830",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "10.10.26 19:56",
+      "Mesaj": "-",
+      "id": "b023ca370e9ebbb965cee8a68bffea4d",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 3810474",
       "Telefon": "0664 3810474",
@@ -189,16 +199,6 @@
       "Tarih": "05.10.26 12:35",
       "Mesaj": "-",
       "id": "d4b8bbbb69c536c00acb61d126f2ff78",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 9066626",
-      "Telefon": "0650 9066626",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "04.10.26 15:21",
-      "Mesaj": "-",
-      "id": "28aa0f896315dc8a44f350212ae49493",
       "telegramSent": true
     }
   ]
