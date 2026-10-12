@@ -1,6 +1,16 @@
 {
-  "updatedAt": "12.10.2026, 06:27:48",
+  "updatedAt": "12.10.2026, 13:27:39",
   "leads": [
+    {
+      "Musteri": "0699 13445599",
+      "Telefon": "0699 13445599",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "12.10.26 13:21",
+      "Mesaj": "-",
+      "id": "26f76e6c02c783b09719c82a1f1ce7fc",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 5805183",
       "Telefon": "0664 5805183",
@@ -189,16 +199,6 @@
       "Tarih": "06.10.26 08:50",
       "Mesaj": "-",
       "id": "078bc209d404892fefc8d813e46081e3",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 12477125",
-      "Telefon": "0699 12477125",
-      "Hizmet": "-",
-      "Konum": "Hollabrunn",
-      "Tarih": "06.10.26 07:58",
-      "Mesaj": "-",
-      "id": "314abd9ce4665cdd196fd858943a7817",
       "telegramSent": true
     }
   ]
