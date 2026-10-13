@@ -1,6 +1,16 @@
 {
-  "updatedAt": "12.10.2026, 15:54:43",
+  "updatedAt": "13.10.2026, 08:27:35",
   "leads": [
+    {
+      "Musteri": "0664 3358570",
+      "Telefon": "0664 3358570",
+      "Hizmet": "-",
+      "Konum": "Eisenstadt",
+      "Tarih": "13.10.26 08:24",
+      "Mesaj": "-",
+      "id": "879e53ab9e43961e6ecd2065de1b0925",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 5371111",
       "Telefon": "0660 5371111",
@@ -189,16 +199,6 @@
       "Tarih": "07.10.26 10:37",
       "Mesaj": "-",
       "id": "ec55a222a8d73253ef09c4cf1ec5d930",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 7602460",
-      "Telefon": "0676 7602460",
-      "Hizmet": "-",
-      "Konum": "Wiener Neustadt",
-      "Tarih": "07.10.26 08:14",
-      "Mesaj": "-",
-      "id": "7e4c7b37da761e44afb1b49c1de380a1",
       "telegramSent": true
     }
   ]
