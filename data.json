@@ -1,6 +1,26 @@
 {
-  "updatedAt": "14.10.2026, 11:18:50",
+  "updatedAt": "15.10.2026, 19:27:56",
   "leads": [
+    {
+      "Musteri": "0676 9348644",
+      "Telefon": "0676 9348644",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "15.10.26 19:23",
+      "Mesaj": "-",
+      "id": "dcda50d4e5c41eb2961173c19e3ed0ff",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0650 6544455",
+      "Telefon": "0650 6544455",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Baden",
+      "Tarih": "15.10.26 19:19",
+      "Mesaj": "NO MESSAGE",
+      "id": "c881661c9258b902e5fd6674c77f77a8",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 19423367",
       "Telefon": "0699 19423367",
@@ -132,16 +152,6 @@
       "telegramSent": true
     },
     {
-      "Musteri": "0664 73871051",
-      "Telefon": "0664 73871051",
-      "Hizmet": "-",
-      "Konum": "Brunn am Gebirge",
-      "Tarih": "09.10.26 14:11",
-      "Mesaj": "-",
-      "id": "10757bc9e47d0bb804a3ed8dc7bc22c3",
-      "telegramSent": true
-    },
-    {
       "Musteri": "0664 2338619",
       "Telefon": "0664 2338619",
       "Hizmet": "-",
@@ -189,16 +199,6 @@
       "Tarih": "08.10.26 19:09",
       "Mesaj": "-",
       "id": "90303bd9a25db5b2b123ca65f6cdfd1d",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9054706",
-      "Telefon": "0676 9054706",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "07.10.26 18:29",
-      "Mesaj": "-",
-      "id": "982ed71d90840ac2ca54fb666d3743d4",
       "telegramSent": true
     }
   ]
