@@ -1,6 +1,16 @@
 {
-  "updatedAt": "15.10.2026, 19:27:56",
+  "updatedAt": "17.10.2026, 15:27:59",
   "leads": [
+    {
+      "Musteri": "0660 4531410",
+      "Telefon": "0660 4531410",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Tarih": "17.10.26 15:23",
+      "Mesaj": "P\nPotenzieller Kunde\n1:23 PM\nHallo! Ich muas nächste woche unziehen, können Sie meine wohnung besichtigen und mir ein Preisangebot machen? Vielen Dank, Liliane Wahl",
+      "id": "479eb296eb4595c7cdd354cc5f1bb949",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 9348644",
       "Telefon": "0676 9348644",
@@ -189,16 +199,6 @@
       "Tarih": "08.10.26 23:04",
       "Mesaj": "P\nPotenzieller Kunde\n9:04 PM\nHallo, ich möchte gerne einen Umzug anfragen und würde gerne wissen, mit welchen Kosten ich rechnen muss. Umzug von der Dietrichgasse (1. Stock, Lift) in die Ehamgasse (2. Stock, kein Lift). Zu transportieren sind ca. 10 Kartons, ein zerlegter PAX-Schrank, eine Kommode, ein runder Esstisch (ca. 120 cm), 5 Stühle und ein Boxspringbett. Könnten Sie mir dafür bitte einen Preis nennen? Vielen Dank! Freundliche Grüße Sabrina Boch",
       "id": "007c9098f614677e5d12ddfecb390298",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 61476223",
-      "Telefon": "0677 61476223",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "08.10.26 19:09",
-      "Mesaj": "-",
-      "id": "90303bd9a25db5b2b123ca65f6cdfd1d",
       "telegramSent": true
     }
   ]
