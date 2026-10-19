@@ -1,6 +1,16 @@
 {
-  "updatedAt": "18.10.2026, 12:36:33",
+  "updatedAt": "19.10.2026, 08:37:00",
   "leads": [
+    {
+      "Musteri": "346847326",
+      "Telefon": "346847326",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Eisenstadt-Umgebung",
+      "Tarih": "19.10.26 08:27",
+      "Mesaj": "P\nPotenzieller Kunde\n6:27 AM\nFernseher 2-2.5m Länge (genaue Maße folgen ) aus 5 Stock Austria Campus Wien 1020 . Nach Steinbrunn . Abholung Mittwoch (21.10) 17:00. bitte um Angebot",
+      "id": "a3889178da90336214fad3bb1f5d43c5",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 9620147",
       "Telefon": "0676 9620147",
@@ -189,16 +199,6 @@
       "Tarih": "10.10.26 15:37",
       "Mesaj": "V\nViktor Schiffer\n1:37 PM\nmitte ende oktober umzug innerhalb eisenstadt",
       "id": "5a779905a3e6f8b726bd80ce7e40ba1b",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 4031956",
-      "Telefon": "0664 4031956",
-      "Hizmet": "-",
-      "Konum": "Tulln an der Donau",
-      "Tarih": "10.10.26 10:39",
-      "Mesaj": "-",
-      "id": "ddff3495236fb69f116e6bb4c5bcd47e",
       "telegramSent": true
     }
   ]
