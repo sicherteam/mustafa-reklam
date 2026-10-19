@@ -1,6 +1,16 @@
 {
-  "updatedAt": "19.10.2026, 08:37:00",
+  "updatedAt": "19.10.2026, 09:55:06",
   "leads": [
+    {
+      "Musteri": "0660 4802206",
+      "Telefon": "0660 4802206",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "19.10.26 09:44",
+      "Mesaj": "-",
+      "id": "1ea839abee6f35ee64642ce9fc9c6dc0",
+      "telegramSent": true
+    },
     {
       "Musteri": "346847326",
       "Telefon": "346847326",
@@ -189,16 +199,6 @@
       "Tarih": "10.10.26 15:56",
       "Mesaj": "-",
       "id": "a0e90be4d53161b966cf642c75eb5b85",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "Viktor Schiffer",
-      "Telefon": "0670 1967777",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Eisenstadt",
-      "Tarih": "10.10.26 15:37",
-      "Mesaj": "V\nViktor Schiffer\n1:37 PM\nmitte ende oktober umzug innerhalb eisenstadt",
-      "id": "5a779905a3e6f8b726bd80ce7e40ba1b",
       "telegramSent": true
     }
   ]
