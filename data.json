@@ -1,6 +1,26 @@
 {
-  "updatedAt": "19.10.2026, 16:55:32",
+  "updatedAt": "20.10.2026, 12:10:01",
   "leads": [
+    {
+      "Musteri": "0664 93107525",
+      "Telefon": "0664 93107525",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "20.10.26 12:08",
+      "Mesaj": "P\nPotenzieller Kunde\n10:08 AM\nIch möchte mein kasten von mir daheim Possingergasse 39-41 4/4 1160 Wien Richtung Arndtstraße 4-6 1120 Wien Zur Mama Transportieren wie viel würde es mir kosten da bräuchte ich 2mann dafür",
+      "id": "93d948fbce1d80f47c89a9ba4750c1c7",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0664 93107525",
+      "Telefon": "0664 93107525",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "20.10.26 12:00",
+      "Mesaj": "-",
+      "id": "bc6fd4cdf74b027d041e0e2a1251866a",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 8413112",
       "Telefon": "0664 8413112",
@@ -179,26 +199,6 @@
       "Tarih": "12.10.26 13:34",
       "Mesaj": "-",
       "id": "67831a1630faa2210808d84c48b99e4f",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 13445599",
-      "Telefon": "0699 13445599",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "12.10.26 13:21",
-      "Mesaj": "-",
-      "id": "26f76e6c02c783b09719c82a1f1ce7fc",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 5805183",
-      "Telefon": "0664 5805183",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Neusiedl am See",
-      "Tarih": "12.10.26 06:22",
-      "Mesaj": "-",
-      "id": "2994f64be9c201741ef82065d5b17ad3",
       "telegramSent": true
     }
   ]
