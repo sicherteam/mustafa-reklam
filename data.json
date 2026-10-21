@@ -1,6 +1,16 @@
 {
-  "updatedAt": "21.10.2026, 12:36:55",
+  "updatedAt": "21.10.2026, 13:54:37",
   "leads": [
+    {
+      "Musteri": "0677 62533204",
+      "Telefon": "0677 62533204",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "21.10.26 13:46",
+      "Mesaj": "-",
+      "id": "4a32210f93d0b7501c4256a2762cb71f",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 838447697",
       "Telefon": "0676 838447697",
@@ -189,16 +199,6 @@
       "Tarih": "14.10.26 09:00",
       "Mesaj": "-",
       "id": "ddb94f9f7a3270fd7c42467e1e013a4a",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4986335",
-      "Telefon": "0676 4986335",
-      "Hizmet": "-",
-      "Konum": "Sankt Pölten",
-      "Tarih": "13.10.26 09:25",
-      "Mesaj": "-",
-      "id": "92a10a58d79f2bf9b9490682aab860f4",
       "telegramSent": true
     }
   ]
