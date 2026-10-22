@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.10.2026, 08:37:01",
+  "updatedAt": "22.10.2026, 08:46:11",
   "leads": [
+    {
+      "Musteri": "Müşteri",
+      "Telefon": null,
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Gießhübl",
+      "Tarih": "22.10.26 08:38",
+      "Mesaj": "-",
+      "id": "3d4ad74728ff0fbba5cda5e1443bddbb",
+      "telegramSent": true
+    },
     {
       "Musteri": "0665 67283084",
       "Telefon": "0665 67283084",
@@ -179,16 +189,6 @@
       "Tarih": "17.10.26 15:23",
       "Mesaj": "P\nPotenzieller Kunde\n1:23 PM\nHallo! Ich muas nächste woche unziehen, können Sie meine wohnung besichtigen und mir ein Preisangebot machen? Vielen Dank, Liliane Wahl",
       "id": "479eb296eb4595c7cdd354cc5f1bb949",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9348644",
-      "Telefon": "0676 9348644",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "15.10.26 19:23",
-      "Mesaj": "-",
-      "id": "dcda50d4e5c41eb2961173c19e3ed0ff",
       "telegramSent": true
     },
     {
