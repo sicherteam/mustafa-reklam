@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.10.2026, 08:46:11",
+  "updatedAt": "22.10.2026, 12:18:48",
   "leads": [
+    {
+      "Musteri": "0676 6954036",
+      "Telefon": "0676 6954036",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wolkersdorf im Weinviertel",
+      "Tarih": "22.10.26 12:13",
+      "Mesaj": "-",
+      "id": "bd40a902f3eabd6e0b6bd129ca7ab9bd",
+      "telegramSent": true
+    },
     {
       "Musteri": "Müşteri",
       "Telefon": null,
@@ -189,16 +199,6 @@
       "Tarih": "17.10.26 15:23",
       "Mesaj": "P\nPotenzieller Kunde\n1:23 PM\nHallo! Ich muas nächste woche unziehen, können Sie meine wohnung besichtigen und mir ein Preisangebot machen? Vielen Dank, Liliane Wahl",
       "id": "479eb296eb4595c7cdd354cc5f1bb949",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0650 6544455",
-      "Telefon": "0650 6544455",
-      "Hizmet": "Umzug im Inland",
-      "Konum": "Baden",
-      "Tarih": "15.10.26 19:19",
-      "Mesaj": "NO MESSAGE",
-      "id": "c881661c9258b902e5fd6674c77f77a8",
       "telegramSent": true
     }
   ]
