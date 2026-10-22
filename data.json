@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.10.2026, 13:09:37",
+  "updatedAt": "22.10.2026, 16:09:47",
   "leads": [
+    {
+      "Musteri": "0699 17128485",
+      "Telefon": "0699 17128485",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Mödling",
+      "Tarih": "22.10.26 16:02",
+      "Mesaj": "P\nPotenzieller Kunde\n2:02 PM\nUmzug",
+      "id": "0eabe64f86d73790c222b05c43ebf1c5",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 17128485",
       "Telefon": "0699 17128485",
@@ -169,16 +179,6 @@
       "Tarih": "18.10.26 12:30",
       "Mesaj": "-",
       "id": "9e9dc3f916428d7b9e0e447500eb7345",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0681 10337360",
-      "Telefon": "0681 10337360",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "18.10.26 10:03",
-      "Mesaj": "-",
-      "id": "4cf870ed8b64bea492170ddf2a5164a3",
       "telegramSent": true
     },
     {
