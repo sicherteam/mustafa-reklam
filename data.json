@@ -1,6 +1,16 @@
 {
-  "updatedAt": "21.10.2026, 17:45:54",
+  "updatedAt": "22.10.2026, 08:37:01",
   "leads": [
+    {
+      "Musteri": "0665 67283084",
+      "Telefon": "0665 67283084",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "22.10.26 08:31",
+      "Mesaj": "-",
+      "id": "4e90de4ffd45e2c961f7979aa131b818",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 3287486",
       "Telefon": "0660 3287486",
@@ -189,16 +199,6 @@
       "Tarih": "15.10.26 19:19",
       "Mesaj": "NO MESSAGE",
       "id": "c881661c9258b902e5fd6674c77f77a8",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 19423367",
-      "Telefon": "0699 19423367",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Wien",
-      "Tarih": "14.10.26 11:13",
-      "Mesaj": "P\nPotenzieller Kunde\n9:13 AM\nHallo ihr habt so gute Rezessionen, darum hier meine Anfrage! Umzug geplant am Montag 2.11. ab 12 Uhr! Umzug in Wien vom 2. Franz-Hochedlinger-Gasse 30-32 5. Stock ohne Lift (nur ein paar kleine Möbel und ein Plattenregal, hauptsächlich Schachteln) und Lilienbrunngasse 5, 4. Stock mit Lift (da nur Schachteln und Kleidung) und das ganze dann in den 22. Erich-Fried-Weg 1 3. Stock mit Lift. 3 Möbelpacker wären ideal, wegen dem 5. Stock! Bitte im ein Angebot! Danke LG Petra",
-      "id": "017d3de3e8de978b429b924f2b577d7a",
       "telegramSent": true
     }
   ]
