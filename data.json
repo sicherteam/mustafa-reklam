@@ -1,6 +1,16 @@
 {
-  "updatedAt": "22.10.2026, 12:18:48",
+  "updatedAt": "22.10.2026, 13:09:37",
   "leads": [
+    {
+      "Musteri": "0699 17128485",
+      "Telefon": "0699 17128485",
+      "Hizmet": "-",
+      "Konum": "Mödling",
+      "Tarih": "22.10.26 13:00",
+      "Mesaj": "-",
+      "id": "269a598e18058753aa3906c16ea9e462",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 6954036",
       "Telefon": "0676 6954036",
@@ -169,16 +179,6 @@
       "Tarih": "18.10.26 10:03",
       "Mesaj": "-",
       "id": "4cf870ed8b64bea492170ddf2a5164a3",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0680 1121531",
-      "Telefon": "0680 1121531",
-      "Hizmet": "-",
-      "Konum": "Sankt Pölten",
-      "Tarih": "17.10.26 19:45",
-      "Mesaj": "-",
-      "id": "9b07202eb34bedc748e2d30166c0c38d",
       "telegramSent": true
     },
     {
