@@ -1,6 +1,16 @@
 {
-  "updatedAt": "23.10.2026, 09:28:09",
+  "updatedAt": "23.10.2026, 13:18:53",
   "leads": [
+    {
+      "Musteri": "0664 2626001",
+      "Telefon": "0664 2626001",
+      "Hizmet": "-",
+      "Konum": "Sankt Pölten",
+      "Tarih": "23.10.26 13:15",
+      "Mesaj": "-",
+      "id": "1d7f22f50ba60a0a80a9d46e3cd67893",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4915036",
       "Telefon": "0676 4915036",
@@ -189,16 +199,6 @@
       "Tarih": "18.10.26 12:30",
       "Mesaj": "-",
       "id": "9e9dc3f916428d7b9e0e447500eb7345",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 3515983",
-      "Telefon": "0664 3515983",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "17.10.26 17:50",
-      "Mesaj": "-",
-      "id": "e8e42c12cb41461af631b8032dea1f32",
       "telegramSent": true
     }
   ]
