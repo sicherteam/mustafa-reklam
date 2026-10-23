@@ -1,6 +1,16 @@
 {
-  "updatedAt": "23.10.2026, 13:18:53",
+  "updatedAt": "23.10.2026, 14:45:50",
   "leads": [
+    {
+      "Musteri": "0664 5457782",
+      "Telefon": "0664 5457782",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "23.10.26 14:38",
+      "Mesaj": "-",
+      "id": "8791f08aaee3cd5382bd87125918a442",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 2626001",
       "Telefon": "0664 2626001",
@@ -189,16 +199,6 @@
       "Tarih": "19.10.26 08:27",
       "Mesaj": "P\nPotenzieller Kunde\n6:27 AM\nFernseher 2-2.5m Länge (genaue Maße folgen ) aus 5 Stock Austria Campus Wien 1020 . Nach Steinbrunn . Abholung Mittwoch (21.10) 17:00. bitte um Angebot",
       "id": "a3889178da90336214fad3bb1f5d43c5",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 9620147",
-      "Telefon": "0676 9620147",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "18.10.26 12:30",
-      "Mesaj": "-",
-      "id": "9e9dc3f916428d7b9e0e447500eb7345",
       "telegramSent": true
     }
   ]
