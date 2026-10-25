@@ -1,6 +1,16 @@
 {
-  "updatedAt": "24.10.2026, 08:27:41",
+  "updatedAt": "25.10.2026, 08:37:01",
   "leads": [
+    {
+      "Musteri": "0681 20618419",
+      "Telefon": "0681 20618419",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Neusiedl am See",
+      "Tarih": "25.10.26 09:27",
+      "Mesaj": "P\nPotenzieller Kunde\n7:27 AM\nGuten Tag, Bitte um ein Angebot für Übersiedlung 70 m2 Wohnung 1 Stock. 7100 Neusiedl nach 2473 Potzneusiedl,Erdgeschoss. 9.11 Umzugsdatum Vielen Dank. Elisabeth Linster",
+      "id": "7d8b475941f0237d6a524de981a6f3e5",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 73505649",
       "Telefon": "0664 73505649",
@@ -189,16 +199,6 @@
       "Tarih": "19.10.26 10:03",
       "Mesaj": "-",
       "id": "9e1e8bdd78647bdb67571aa49fe09cc7",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 4802206",
-      "Telefon": "0660 4802206",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "19.10.26 09:44",
-      "Mesaj": "-",
-      "id": "1ea839abee6f35ee64642ce9fc9c6dc0",
       "telegramSent": true
     }
   ]
