@@ -1,6 +1,16 @@
 {
-  "updatedAt": "25.10.2026, 08:37:01",
+  "updatedAt": "25.10.2026, 11:09:39",
   "leads": [
+    {
+      "Musteri": "0676 7126714",
+      "Telefon": "0676 7126714",
+      "Hizmet": "-",
+      "Konum": "Sankt Pölten",
+      "Tarih": "25.10.26 12:03",
+      "Mesaj": "-",
+      "id": "9f456ef66a7eb9d88f0564e40ef60741",
+      "telegramSent": true
+    },
     {
       "Musteri": "0681 20618419",
       "Telefon": "0681 20618419",
@@ -189,16 +199,6 @@
       "Tarih": "19.10.26 15:40",
       "Mesaj": "M\nMirko Dominkovic\n1:40 PM\nHallo...3 möbel müssten nach 1050 wien, transportiert werden, 2 möbel sind altdeutsche möbel zum entsorgen",
       "id": "3be3b2558ee99b707cedcb61aff665a6",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 16472198",
-      "Telefon": "0699 16472198",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "19.10.26 10:03",
-      "Mesaj": "-",
-      "id": "9e1e8bdd78647bdb67571aa49fe09cc7",
       "telegramSent": true
     }
   ]
