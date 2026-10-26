@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.10.2026, 10:18:43",
+  "updatedAt": "26.10.2026, 12:00:48",
   "leads": [
+    {
+      "Musteri": "0664 1536192",
+      "Telefon": "0664 1536192",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Perchtoldsdorf",
+      "Tarih": "26.10.26 12:59",
+      "Mesaj": "P\nPotenzieller Kunde\n10:59 AM\nHallo! Ich würde am kommenden Mittwoch Nachmittag Hilfe benötigen beim Übersiedeln, ca 15-20 Umzugskartons, sowie ein TV Gerät, ein Bett, ein Computer mit Drucker, sowie 2 Regale. Von Perchtoldsdorf Brunnerbergstraße nach Perchtoldsdorf Stuttgarterstrasse. Können sie mir bitte ein Angebot machen, falls sie verfügbar sind? Vielen Dank! Mit freundlichen Grüßen, Horst Rockmann",
+      "id": "36fcd9d3eb602a48171051df73c99159",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4295672",
       "Telefon": "0676 4295672",
@@ -139,16 +149,6 @@
       "Tarih": "22.10.26 08:38",
       "Mesaj": "-",
       "id": "3d4ad74728ff0fbba5cda5e1443bddbb",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0665 67283084",
-      "Telefon": "0665 67283084",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "22.10.26 08:31",
-      "Mesaj": "-",
-      "id": "4e90de4ffd45e2c961f7979aa131b818",
       "telegramSent": true
     },
     {
