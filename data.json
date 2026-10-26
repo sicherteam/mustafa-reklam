@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.10.2026, 18:09:53",
+  "updatedAt": "26.10.2026, 19:36:46",
   "leads": [
+    {
+      "Musteri": "0676 5404859",
+      "Telefon": "0676 5404859",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "26.10.26 20:35",
+      "Mesaj": "P\nPotenzieller Kunde\n6:35 PM\nHi 25m2 Studenten Zimmer. Umzug von Breitenseer Straße Penzing in Biedergasse Döbling. Wunsch Termin Samstag 14 November. Bitte um Angebot:)",
+      "id": "1bc5f687fb3c5ba85b3f67de042ca174",
+      "telegramSent": true
+    },
     {
       "Musteri": "0680 1463880",
       "Telefon": "0680 1463880",
@@ -189,16 +199,6 @@
       "Tarih": "21.10.26 13:46",
       "Mesaj": "-",
       "id": "4a32210f93d0b7501c4256a2762cb71f",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 838447697",
-      "Telefon": "0676 838447697",
-      "Hizmet": "-",
-      "Konum": "Sankt Pölten",
-      "Tarih": "21.10.26 12:24",
-      "Mesaj": "-",
-      "id": "e4f35c5920ca1ce2e0fe86b3211ca793",
       "telegramSent": true
     }
   ]
