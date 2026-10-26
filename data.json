@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.10.2026, 14:27:59",
+  "updatedAt": "26.10.2026, 18:09:53",
   "leads": [
+    {
+      "Musteri": "0680 1463880",
+      "Telefon": "0680 1463880",
+      "Hizmet": "Umzug im Inland",
+      "Konum": "Wien",
+      "Tarih": "26.10.26 19:07",
+      "Mesaj": "P\nPotenzieller Kunde\n5:07 PM\nHallo! wir planen einen Umzug vom 22. Wiener Gemeindebezirk nach Himberg und würden uns über eine unverbindliche Kostenschätzung von Ihnen freuen. Wir haben ein paar größere Möbelstücke (ein Bett, ein Sofa, einen Tisch mit Sesseln, einen Schuhschrank und eine Vitrine), den Großteil machen aber Umzugskartons aus, insgesamt rechnen wir mit ungefähr 50 Kartons. Die aktuelle Wohnung befindet sich im 4. Stock und verfügt über einen Lift. Die neue Wohnung liegt im 1. Stock und ist nur über das Stiegenhaus erreichbar. Liebe Grüße, Isabella Schwarz",
+      "id": "be35d5b5a9a9fa38f3679e488126e199",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 7868018",
       "Telefon": "0676 7868018",
@@ -189,16 +199,6 @@
       "Tarih": "21.10.26 12:24",
       "Mesaj": "-",
       "id": "e4f35c5920ca1ce2e0fe86b3211ca793",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 18041140",
-      "Telefon": "0699 18041140",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Baden",
-      "Tarih": "21.10.26 11:56",
-      "Mesaj": "-",
-      "id": "18264f3b3e7ab0952d24df87ed1c24f1",
       "telegramSent": true
     }
   ]
