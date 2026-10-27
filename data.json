@@ -1,6 +1,16 @@
 {
-  "updatedAt": "26.10.2026, 19:36:46",
+  "updatedAt": "27.10.2026, 09:09:45",
   "leads": [
+    {
+      "Musteri": "0699 18180038",
+      "Telefon": "0699 18180038",
+      "Hizmet": "-",
+      "Konum": "Puchberg am Schneeberg",
+      "Tarih": "27.10.26 09:58",
+      "Mesaj": "-",
+      "id": "72a3c1ded2b8ddcb2559683d6538ec11",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 5404859",
       "Telefon": "0676 5404859",
@@ -189,16 +199,6 @@
       "Tarih": "21.10.26 17:43",
       "Mesaj": "-",
       "id": "4843f1568d3d2989f98326bf1d13d86e",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0677 62533204",
-      "Telefon": "0677 62533204",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "21.10.26 13:46",
-      "Mesaj": "-",
-      "id": "4a32210f93d0b7501c4256a2762cb71f",
       "telegramSent": true
     }
   ]
