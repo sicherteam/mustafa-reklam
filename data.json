@@ -1,6 +1,56 @@
 {
-  "updatedAt": "27.10.2026, 09:27:36",
+  "updatedAt": "27.10.2026, 16:20:51",
   "leads": [
+    {
+      "Musteri": "0664 2273919",
+      "Telefon": "0664 2273919",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Wien",
+      "Tarih": "27.10.26 16:56",
+      "Mesaj": "NO MESSAGE",
+      "id": "3d314bbae1e30548c4430103b312cb2b",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0660 8189201",
+      "Telefon": "0660 8189201",
+      "Hizmet": "-",
+      "Konum": "Gloggnitz",
+      "Tarih": "27.10.26 15:21",
+      "Mesaj": "-",
+      "id": "9d1552820ac739ac2f830e872a5385c5",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0650 7230722",
+      "Telefon": "0650 7230722",
+      "Hizmet": "-",
+      "Konum": "Wien",
+      "Tarih": "27.10.26 13:23",
+      "Mesaj": "-",
+      "id": "1ee2a256548ee12535cbcd3178b0aa1c",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0664 1294928",
+      "Telefon": "0664 1294928",
+      "Hizmet": "-",
+      "Konum": "Bezirk Sankt Pölten-Land",
+      "Tarih": "27.10.26 11:50",
+      "Mesaj": "-",
+      "id": "6b0fc19c27dc8b58b15142426f1697bb",
+      "telegramSent": true
+    },
+    {
+      "Musteri": "0676 7012211",
+      "Telefon": "0676 7012211",
+      "Hizmet": "-",
+      "Konum": "Bezirk Sankt Pölten-Land",
+      "Tarih": "27.10.26 11:07",
+      "Mesaj": "-",
+      "id": "48aa47988a929da6feaacd0a6d22d304",
+      "telegramSent": true
+    },
     {
       "Musteri": "0676 4201551",
       "Telefon": "0676 4201551",
@@ -149,56 +199,6 @@
       "Tarih": "23.10.26 13:15",
       "Mesaj": "-",
       "id": "1d7f22f50ba60a0a80a9d46e3cd67893",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4915036",
-      "Telefon": "0676 4915036",
-      "Hizmet": "-",
-      "Konum": "Wien",
-      "Tarih": "23.10.26 09:17",
-      "Mesaj": "-",
-      "id": "96c41be4f72d615a95f219a51d2b6995",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 17128485",
-      "Telefon": "0699 17128485",
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Mödling",
-      "Tarih": "22.10.26 16:02",
-      "Mesaj": "P\nPotenzieller Kunde\n2:02 PM\nUmzug",
-      "id": "0eabe64f86d73790c222b05c43ebf1c5",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0699 17128485",
-      "Telefon": "0699 17128485",
-      "Hizmet": "-",
-      "Konum": "Mödling",
-      "Tarih": "22.10.26 13:00",
-      "Mesaj": "-",
-      "id": "269a598e18058753aa3906c16ea9e462",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 6954036",
-      "Telefon": "0676 6954036",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wolkersdorf im Weinviertel",
-      "Tarih": "22.10.26 12:13",
-      "Mesaj": "-",
-      "id": "bd40a902f3eabd6e0b6bd129ca7ab9bd",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "Müşteri",
-      "Telefon": null,
-      "Hizmet": "Innerörtlicher Umzug",
-      "Konum": "Gießhübl",
-      "Tarih": "22.10.26 08:38",
-      "Mesaj": "-",
-      "id": "3d4ad74728ff0fbba5cda5e1443bddbb",
       "telegramSent": true
     }
   ]
