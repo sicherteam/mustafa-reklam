@@ -1,6 +1,16 @@
 {
-  "updatedAt": "27.10.2026, 16:20:51",
+  "updatedAt": "28.10.2026, 09:02:34",
   "leads": [
+    {
+      "Musteri": "0677 64761799",
+      "Telefon": "0677 64761799",
+      "Hizmet": "-",
+      "Konum": "Purkersdorf",
+      "Tarih": "28.10.26 09:36",
+      "Mesaj": "-",
+      "id": "fa3f777cde43142771b68445ffc4189e",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 2273919",
       "Telefon": "0664 2273919",
@@ -189,16 +199,6 @@
       "Tarih": "23.10.26 14:38",
       "Mesaj": "-",
       "id": "8791f08aaee3cd5382bd87125918a442",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 2626001",
-      "Telefon": "0664 2626001",
-      "Hizmet": "-",
-      "Konum": "Sankt Pölten",
-      "Tarih": "23.10.26 13:15",
-      "Mesaj": "-",
-      "id": "1d7f22f50ba60a0a80a9d46e3cd67893",
       "telegramSent": true
     }
   ]
