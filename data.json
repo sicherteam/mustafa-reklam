@@ -1,6 +1,16 @@
 {
-  "updatedAt": "28.10.2026, 11:48:46",
+  "updatedAt": "28.10.2026, 18:03:36",
   "leads": [
+    {
+      "Musteri": "348744180",
+      "Telefon": "348744180",
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Riedlingsdorf",
+      "Tarih": "28.10.26 18:44",
+      "Mesaj": "NO MESSAGE",
+      "id": "6bdf37f263fd3bcba20e6ab663516951",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 73626317",
       "Telefon": "0664 73626317",
@@ -189,16 +199,6 @@
       "Tarih": "25.10.26 09:27",
       "Mesaj": "P\nPotenzieller Kunde\n7:27 AM\nGuten Tag, Bitte um ein Angebot für Übersiedlung 70 m2 Wohnung 1 Stock. 7100 Neusiedl nach 2473 Potzneusiedl,Erdgeschoss. 9.11 Umzugsdatum Vielen Dank. Elisabeth Linster",
       "id": "7d8b475941f0237d6a524de981a6f3e5",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 73505649",
-      "Telefon": "0664 73505649",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Reichenau an der Rax",
-      "Tarih": "24.10.26 08:15",
-      "Mesaj": "-",
-      "id": "116dcac0f5176015237c09d6f7b32ea3",
       "telegramSent": true
     }
   ]
