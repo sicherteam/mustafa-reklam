@@ -1,6 +1,16 @@
 {
-  "updatedAt": "29.10.2026, 10:45:37",
+  "updatedAt": "29.10.2026, 14:18:54",
   "leads": [
+    {
+      "Musteri": "0664 2010519",
+      "Telefon": "0664 2010519",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "29.10.26 15:10",
+      "Mesaj": "-",
+      "id": "6bc2c7a96ba3c81e0a1ee768fdf815d9",
+      "telegramSent": true
+    },
     {
       "Musteri": "0660 6503668",
       "Telefon": "0660 6503668",
@@ -189,16 +199,6 @@
       "Tarih": "26.10.26 09:43",
       "Mesaj": "P\nPotenzieller Kunde\n7:43 AM\nGuten Tag, ich würde gerne einen Kostenvoranschlag bekommen. Ich würde hilfe benötigen für 2 Kinderbetten, 1 Jugendbett (140x200), 1 Boxspringbett, 2 Würfelregale, 1 Couch und 1 Waschmaschine. Wenn möglich das Jugendbett ab und auf bauen. Von 3382 Loosdorf nach 3250 Wieselburg. DI-FR (27.10.-30.10) ist der Zeitraum. Mfg",
       "id": "813c4ec62fd33446c3f142c4cf3e43df",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0660 4998673",
-      "Telefon": "0660 4998673",
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Niederösterreich",
-      "Tarih": "25.10.26 16:58",
-      "Mesaj": "P\nPotenzieller Kunde\n2:58 PM\nWieviel kostet ein Umzug? Kemmelbach nach Ybbs/Donau - ca. 8 Autominuten. Von Haus in Wohnung 3. Stock. Kleiner Luft vorhanden. Waschmaschine, Trockner, Matratzen, Bettgestell, Relax-Sessel 2er. Beförderung von Umzugsgut und Tragen in die Wohnung. Ende November wäre gut.",
-      "id": "7a0f0f8951850519224794dc15cb7c94",
       "telegramSent": true
     }
   ]
