@@ -37,7 +37,7 @@ jobs:
           GOOGLE_ADS_DEVELOPER_TOKEN: ${{ secrets.GOOGLE_ADS_DEVELOPER_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          SKIP_TELEGRAM: ${{ secrets.SKIP_TELEGRAM || 'true' }}
+          SKIP_TELEGRAM: ${{ secrets.SKIP_TELEGRAM || 'false' }}
           LOOKBACK_DAYS: '120'
           DATA_PATH: 'data.json'
         run: node scraper-api.js
