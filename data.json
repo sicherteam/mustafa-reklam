@@ -1,6 +1,16 @@
 {
-  "updatedAt": "29.10.2026, 14:45:43",
+  "updatedAt": "29.10.2026, 14:54:37",
   "leads": [
+    {
+      "Musteri": "0665 65692109",
+      "Telefon": "0665 65692109",
+      "Hizmet": "-",
+      "Konum": "Niederösterreich",
+      "Tarih": "29.10.26 15:48",
+      "Mesaj": "P\nPotenzieller Kunde\n1:48 PM\nKönnten Sie bitte eine alte Tankzapfsäule in Niederösterreich in Zwettl abholen und dann am 14.11.26 in Weyer zustellen? Könnten Sie bitte den Verkäufer bei der Abholung in Bar Euro 50 geben? Ich würde ihn bei der Zustellung am 14.11.26 in bar Euro 50 für den Verkäufer zurück geben und die transportkosten bei meiner Bank an Sie überweisen? Aber bitte unbedingt die Tankzapfsäule in den 2 Stock hinauftragen und auf einer Platte darauf stellen in der Wohnung in Weyer...!!! Die Tankzapfsäule hat ca:.450 kg und es gibt bei mir in Weyer leider keinen lift...!!!!",
+      "id": "c4253a99f83bae8ff4c66a25a05ef92e",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 13563720",
       "Telefon": "0699 13563720",
@@ -119,16 +129,6 @@
       "Tarih": "27.10.26 13:23",
       "Mesaj": "-",
       "id": "1ee2a256548ee12535cbcd3178b0aa1c",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0664 1294928",
-      "Telefon": "0664 1294928",
-      "Hizmet": "-",
-      "Konum": "Bezirk Sankt Pölten-Land",
-      "Tarih": "27.10.26 11:50",
-      "Mesaj": "-",
-      "id": "6b0fc19c27dc8b58b15142426f1697bb",
       "telegramSent": true
     },
     {
