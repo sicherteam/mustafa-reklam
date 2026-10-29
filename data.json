@@ -1,6 +1,16 @@
 {
-  "updatedAt": "29.10.2026, 14:18:54",
+  "updatedAt": "29.10.2026, 14:45:43",
   "leads": [
+    {
+      "Musteri": "0699 13563720",
+      "Telefon": "0699 13563720",
+      "Hizmet": "-",
+      "Konum": "Sieghartskirchen",
+      "Tarih": "29.10.26 15:34",
+      "Mesaj": "-",
+      "id": "c5436c83815109c2958453b687403630",
+      "telegramSent": true
+    },
     {
       "Musteri": "0664 2010519",
       "Telefon": "0664 2010519",
@@ -189,16 +199,6 @@
       "Tarih": "26.10.26 12:59",
       "Mesaj": "P\nPotenzieller Kunde\n10:59 AM\nHallo! Ich würde am kommenden Mittwoch Nachmittag Hilfe benötigen beim Übersiedeln, ca 15-20 Umzugskartons, sowie ein TV Gerät, ein Bett, ein Computer mit Drucker, sowie 2 Regale. Von Perchtoldsdorf Brunnerbergstraße nach Perchtoldsdorf Stuttgarterstrasse. Können sie mir bitte ein Angebot machen, falls sie verfügbar sind? Vielen Dank! Mit freundlichen Grüßen, Horst Rockmann",
       "id": "36fcd9d3eb602a48171051df73c99159",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "348187095",
-      "Telefon": "348187095",
-      "Hizmet": "-",
-      "Konum": "Melk",
-      "Tarih": "26.10.26 09:43",
-      "Mesaj": "P\nPotenzieller Kunde\n7:43 AM\nGuten Tag, ich würde gerne einen Kostenvoranschlag bekommen. Ich würde hilfe benötigen für 2 Kinderbetten, 1 Jugendbett (140x200), 1 Boxspringbett, 2 Würfelregale, 1 Couch und 1 Waschmaschine. Wenn möglich das Jugendbett ab und auf bauen. Von 3382 Loosdorf nach 3250 Wieselburg. DI-FR (27.10.-30.10) ist der Zeitraum. Mfg",
-      "id": "813c4ec62fd33446c3f142c4cf3e43df",
       "telegramSent": true
     }
   ]
