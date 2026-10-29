@@ -1,6 +1,16 @@
 {
-  "updatedAt": "28.10.2026, 19:18:42",
+  "updatedAt": "29.10.2026, 10:00:40",
   "leads": [
+    {
+      "Musteri": "0664 1163431",
+      "Telefon": "0664 1163431",
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Oberwart",
+      "Tarih": "29.10.26 10:55",
+      "Mesaj": "-",
+      "id": "0ea2331a9d9b9ed4018d5cc6f8ca1e47",
+      "telegramSent": true
+    },
     {
       "Musteri": "0699 10473059",
       "Telefon": "0699 10473059",
@@ -159,16 +169,6 @@
       "Tarih": "26.10.26 12:59",
       "Mesaj": "P\nPotenzieller Kunde\n10:59 AM\nHallo! Ich würde am kommenden Mittwoch Nachmittag Hilfe benötigen beim Übersiedeln, ca 15-20 Umzugskartons, sowie ein TV Gerät, ein Bett, ein Computer mit Drucker, sowie 2 Regale. Von Perchtoldsdorf Brunnerbergstraße nach Perchtoldsdorf Stuttgarterstrasse. Können sie mir bitte ein Angebot machen, falls sie verfügbar sind? Vielen Dank! Mit freundlichen Grüßen, Horst Rockmann",
       "id": "36fcd9d3eb602a48171051df73c99159",
-      "telegramSent": true
-    },
-    {
-      "Musteri": "0676 4295672",
-      "Telefon": "0676 4295672",
-      "Hizmet": "-",
-      "Konum": "Krems an der Donau",
-      "Tarih": "26.10.26 11:11",
-      "Mesaj": "-",
-      "id": "aa96e1f72565da35449f50cd9adce1e5",
       "telegramSent": true
     },
     {
