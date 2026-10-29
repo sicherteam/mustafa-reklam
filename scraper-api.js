@@ -20,7 +20,7 @@ const DATA_PATH = path.resolve(process.env.DATA_PATH || 'data.json');
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS || 120);
 const SKIP_TELEGRAM = process.env.SKIP_TELEGRAM === 'true' || BOOTSTRAP || DRY_RUN;
 const GIT_PUSH = process.env.GIT_PUSH === 'true' && !DRY_RUN;
-const PROJECT = 'Mustafa Reklam';
+const PROJECT = process.env.PROJECT_NAME || 'Mustafa Reklam';
 
 function required(key) { const val = process.env[key]; if (!val) throw new Error(`Missing ${key}`); return val; }
 function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
@@ -121,7 +121,12 @@ function atomicWrite(value) {
 
 async function sendTelegram(lead) {
   const token = required('TELEGRAM_BOT_TOKEN');
-  const chatId = required('TELEGRAM_CHAT_ID');
+  const chatIds = [
+    process.env.TELEGRAM_CHAT_ID,
+    process.env.TELEGRAM_CHAT_ID_2,
+  ].filter(Boolean);
+  if (!chatIds.length) throw new Error('Missing TELEGRAM_CHAT_ID');
+
   const format = (key, label) => `<b>${label}:</b> ${htmlEscape(lead[key])}`;
   const message = [
     `🔔 <b>YENİ Müşteri!</b> (${htmlEscape(PROJECT)})`,
@@ -132,11 +137,22 @@ async function sendTelegram(lead) {
     format('Tarih', 'Tarih'),
     format('Mesaj', 'Mesaj'),
   ].join('\n');
-  const result = await requestJson(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text: message.slice(0, 4000), parse_mode: 'HTML' }),
-  });
-  return result.ok === true;
+
+  let anySuccess = false;
+  for (const rawId of chatIds) {
+    for (const chatId of rawId.split(',').map(s => s.trim()).filter(Boolean)) {
+      try {
+        const result = await requestJson(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: chatId, text: message.slice(0, 4000), parse_mode: 'HTML' }),
+        });
+        if (result.ok === true) anySuccess = true;
+      } catch (err) {
+        console.error(`Telegram send failed to ${chatId}: ${err.message}`);
+      }
+    }
+  }
+  return anySuccess;
 }
 
 async function check(token) {

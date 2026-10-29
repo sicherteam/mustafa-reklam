@@ -2,9 +2,9 @@ name: LSA Lead API Sync Automation
 
 on:
   schedule:
-    # Her 10 dakikada bir otomatik senkronizasyon
-    - cron: '*/10 * * * *'
-  workflow_dispatch: # GitHub Actions arayüzünden manuel tetikleme
+    # Her 15 dakikada bir otomatik senkronizasyon (yedek emniyet kemeri)
+    - cron: '*/15 * * * *'
+  workflow_dispatch: # Anlık tetikleme (Gmail Apps Script veya manuel)
 
 permissions:
   contents: write
@@ -37,6 +37,8 @@ jobs:
           GOOGLE_ADS_DEVELOPER_TOKEN: ${{ secrets.GOOGLE_ADS_DEVELOPER_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID_2: ${{ secrets.TELEGRAM_CHAT_ID_2 }}
+          PROJECT_NAME: ${{ secrets.PROJECT_NAME || 'Mustafa Reklam' }}
           SKIP_TELEGRAM: ${{ secrets.SKIP_TELEGRAM || 'false' }}
           LOOKBACK_DAYS: '120'
           DATA_PATH: 'data.json'
