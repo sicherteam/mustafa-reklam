@@ -1,6 +1,34 @@
 {
-  "updatedAt": "30.10.2026, 02:58:15",
+  "updatedAt": "30.10.2026, 09:30:25",
   "leads": [
+    {
+      "id": "lsa:4889362380:349031730",
+      "Musteri": "+4366475129099",
+      "Telefon": "+4366475129099",
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "30.10.2026 09:17",
+      "Mesaj": "-",
+      "telegramSent": true,
+      "googleLeadId": "349031730",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349031730",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:4889362380:348738149",
+      "Musteri": "+436644721920",
+      "Telefon": "+436644721920",
+      "Hizmet": "moving_transportation",
+      "Konum": "-",
+      "Tarih": "30.10.2026 08:48",
+      "Mesaj": "Hallo. Was würde ein Umzug von Großpetersdorf nach Kohfidisch kosten? Hauptsächlich Kleinwerkzeug und ein wenig Gewand.",
+      "telegramSent": true,
+      "googleLeadId": "348738149",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/348738149",
+      "leadType": "MESSAGE",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:348559766",
       "Musteri": "+4366565692109",
