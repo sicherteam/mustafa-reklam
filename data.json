@@ -1,6 +1,48 @@
 {
-  "updatedAt": "30.10.2026, 09:30:25",
+  "updatedAt": "30.10.2026, 16:21:44",
   "leads": [
+    {
+      "id": "lsa:4889362380:348739829",
+      "Musteri": "Müşteri",
+      "Telefon": null,
+      "Hizmet": "national_move",
+      "Konum": "-",
+      "Tarih": "30.10.2026 11:54",
+      "Mesaj": "Hallo ich würde nächstes Jahr umziehen und wollte mal fragen was es kosten wird ein Bett , Couch und Kommode innerhalb Wien um zu siedeln .",
+      "telegramSent": true,
+      "googleLeadId": "348739829",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/348739829",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
+    {
+      "id": "lsa:4889362380:349037664",
+      "Musteri": "+436602763633",
+      "Telefon": "+436602763633",
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "30.10.2026 11:15",
+      "Mesaj": "-",
+      "telegramSent": true,
+      "googleLeadId": "349037664",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349037664",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:4889362380:349037526",
+      "Musteri": "+436509462277",
+      "Telefon": "+436509462277",
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "30.10.2026 11:11",
+      "Mesaj": "-",
+      "telegramSent": true,
+      "googleLeadId": "349037526",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349037526",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:349031730",
       "Musteri": "+4366475129099",
