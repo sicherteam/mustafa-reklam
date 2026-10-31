@@ -1,6 +1,31 @@
 {
-  "updatedAt": "31.10.2026, 05:42:36",
+  "updatedAt": "31.10.2026, 10:02:31",
   "leads": [
+    {
+      "id": "lsa:4889362380:349207272",
+      "Musteri": "Kunde",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "national_move",
+      "Konum": "Wien",
+      "Tarih": "31.10.2026 07:08",
+      "Mesaj": "Der Umzug sollte Mitte Dezember stattfinden. Es sollen das Schlafzimmer, Teile des Schrankraums (Paxkästen von IKEA - 6 Stück), Esstisch und Stühle, das Büro, 1 Rudergerät, Bücher und Bekleidung verfrachtet werden.",
+      "conversations": [
+        {
+          "id": "3409540167",
+          "date": "2026-10-31 07:08:57.501779",
+          "time": "07:08",
+          "text": "Der Umzug sollte Mitte Dezember stattfinden. Es sollen das Schlafzimmer, Teile des Schrankraums (Paxkästen von IKEA - 6 Stück), Esstisch und Stühle, das Büro, 1 Rudergerät, Bücher und Bekleidung verfrachtet werden."
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3409540167",
+      "telegramSent": true,
+      "googleLeadId": "349207272",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349207272",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:349135260",
       "Musteri": "+436641277506",
