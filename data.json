@@ -1,6 +1,24 @@
 {
-  "updatedAt": "31.10.2026, 10:20:09",
+  "updatedAt": "31.10.2026, 12:32:53",
   "leads": [
+    {
+      "id": "lsa:4889362380:349218480",
+      "Musteri": "+436769059653",
+      "Telefon": "+436769059653",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "31.10.2026 12:25",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "349218480",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349218480",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:349207272",
       "Musteri": "Kunde",
