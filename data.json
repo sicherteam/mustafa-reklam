@@ -1,6 +1,24 @@
 {
-  "updatedAt": "31.10.2026, 14:44:52",
+  "updatedAt": "31.10.2026, 15:34:52",
   "leads": [
+    {
+      "id": "lsa:4889362380:349211986",
+      "Musteri": "+436641919210",
+      "Telefon": "+436641919210",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Wien",
+      "Tarih": "31.10.2026 15:33",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "349211986",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349211986",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:348927746",
       "Musteri": "+436606658635",
@@ -17,7 +35,8 @@
       "googleLeadId": "348927746",
       "googleLeadResource": "customers/4889362380/localServicesLeads/348927746",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:349218480",
