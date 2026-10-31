@@ -1,5 +1,5 @@
 {
-  "updatedAt": "31.10.2026, 15:34:52",
+  "updatedAt": "31.10.2026, 16:22:37",
   "leads": [
     {
       "id": "lsa:4889362380:349211986",
@@ -17,7 +17,8 @@
       "googleLeadId": "349211986",
       "googleLeadResource": "customers/4889362380/localServicesLeads/349211986",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:348927746",
