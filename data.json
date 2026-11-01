@@ -1,6 +1,24 @@
 {
-  "updatedAt": "1.11.2026, 15:39:43",
+  "updatedAt": "1.11.2026, 15:55:53",
   "leads": [
+    {
+      "id": "lsa:4889362380:349329366",
+      "Musteri": "+4366493211687",
+      "Telefon": "+4366493211687",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "01.11.2026 15:54",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "349329366",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349329366",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:349012406",
       "Musteri": "+436769365845",
