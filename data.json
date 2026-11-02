@@ -1,6 +1,31 @@
 {
-  "updatedAt": "2.11.2026, 10:26:42",
+  "updatedAt": "2.11.2026, 12:06:54",
   "leads": [
+    {
+      "id": "lsa:4889362380:349384381",
+      "Musteri": "+436645314732",
+      "Telefon": "+436645314732",
+      "Telefon2": null,
+      "Hizmet": "international_move",
+      "Konum": "Niederösterreich (2026)",
+      "Tarih": "02.11.2026 12:05",
+      "Mesaj": "Hallo! Mein Vater zieht voraussichtlich ab 1.12 2026 ins betreute Wohnen. Von 7562 zahling in ca. 8km entfernte königsdorf. Bitte um Rückmeldung. .",
+      "conversations": [
+        {
+          "id": "3410200819",
+          "date": "2026-11-02 12:05:36.958653",
+          "time": "12:05",
+          "text": "Hallo! Mein Vater zieht voraussichtlich ab 1.12 2026 ins betreute Wohnen. Von 7562 zahling in ca. 8km entfernte königsdorf. Bitte um Rückmeldung. ."
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3410200819",
+      "telegramSent": true,
+      "googleLeadId": "349384381",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349384381",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:349329366",
       "Musteri": "+4366493211687",
