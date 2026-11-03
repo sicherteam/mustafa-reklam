@@ -56,6 +56,14 @@ jobs:
           DATA_PATH: 'data.json'
         run: node scraper-lsa-web.js
 
+      - name: Upload Screenshot on Error
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-debug
+          path: error_screenshot.png
+          if-no-files-found: ignore
+
       - name: Google Ads API Senkronizasyonunu Çalıştır
         env:
           GOOGLE_ADS_CUSTOMER_ID: ${{ secrets.GOOGLE_ADS_CUSTOMER_ID || '4889362380' }}
