@@ -1,6 +1,31 @@
 {
-  "updatedAt": "3.11.2026, 12:09:52",
+  "updatedAt": "3.11.2026, 12:21:54",
   "leads": [
+    {
+      "id": "lsa:4889362380:349358345",
+      "Musteri": "Stefan Guczogi",
+      "Telefon": "+436643816650",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Wien",
+      "Tarih": "03.11.2026 12:21",
+      "Mesaj": "Piano vom Dachgeschoss ins EG tragen. Meierhofgasse 6 7453 Steinberg-Dörfl",
+      "conversations": [
+        {
+          "id": "3410664841",
+          "date": "2026-11-03 12:21:14.867192",
+          "time": "12:21",
+          "text": "Piano vom Dachgeschoss ins EG tragen. Meierhofgasse 6 7453 Steinberg-Dörfl"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3410664841",
+      "telegramSent": true,
+      "googleLeadId": "349358345",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349358345",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:349697130",
       "Musteri": "+4367761174354",
@@ -542,7 +567,7 @@
       ],
       "conversationCount": 2,
       "lastConversationId": "3410329377",
-      "isMessageUpdate": true
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:348650386",
