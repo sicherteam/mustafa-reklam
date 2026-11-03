@@ -1,5 +1,5 @@
 {
-  "updatedAt": "3.11.2026, 11:57:58",
+  "updatedAt": "3.11.2026, 12:09:52",
   "leads": [
     {
       "id": "lsa:4889362380:349697130",
@@ -17,7 +17,8 @@
       "googleLeadId": "349697130",
       "googleLeadResource": "customers/4889362380/localServicesLeads/349697130",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:349662112",
@@ -518,7 +519,7 @@
       "Hizmet": "local_move",
       "Konum": "Wien",
       "Tarih": "28.10.2026 17:44",
-      "Mesaj": "Hallo, ich ziehe von Riedlingsdorf nach Pinkafeld.Geplant Ende November Anfang Dezember.Wohnung jetzt 75 m2 2ter Stock ohne Lift neue Wohnung 5 stufen zur Wohnung.Möbel sind: einige Kasterl. .Schachtel Anzahl ca 30-40 geschätzt Keine grossen Kästen keine Betten, keine Couch.Keine Küche. Bitte um einen Kostenvoranschlag.Danke. Lg Susanne Wais",
+      "Mesaj": "Hallo, ich ziehe von Riedlingsdorf nach Pinkafeld.Geplant Ende November Anfang Dezember.Wohnung jetzt 75 m2 2ter Stock ohne Lift neue Wohnung 5 stufen zur Wohnung.Möbel sind: einige Kasterl. .Schachtel Anzahl ca 30-40 geschätzt Keine grossen Kästen keine Betten, keine Couch.Keine Küche. Bitte um einen Kostenvoranschlag.Danke. Lg Susanne Wais\n\nVon den Regalen sind es 7 ,\n2 andere etwas größere Regale 1 Schreibtisch ca 1.80 lang 1\neckschreibtisch, 1 Waschmaschine welche in den 2ten Stock gehört.\n1 Wz- Tisch.\nIm Kellerabteil der alten Wohnung ca 5 kisten und einige Bretter\n\nVon meinem/meiner Galaxy gesendet\n\n-------- Ursprüngliche Nachricht --------\nVon:",
       "telegramSent": true,
       "googleLeadId": "348744180",
       "googleLeadResource": "customers/4889362380/localServicesLeads/348744180",
@@ -531,11 +532,17 @@
           "date": "2026-10-28 17:44:06.811754",
           "time": "17:44",
           "text": "Hallo, ich ziehe von Riedlingsdorf nach Pinkafeld.Geplant Ende November Anfang Dezember.Wohnung jetzt 75 m2 2ter Stock ohne Lift neue Wohnung 5 stufen zur Wohnung.Möbel sind: einige Kasterl. .Schachtel Anzahl ca 30-40 geschätzt Keine grossen Kästen keine Betten, keine Couch.Keine Küche. Bitte um einen Kostenvoranschlag.Danke. Lg Susanne Wais"
+        },
+        {
+          "id": "3410329377",
+          "date": "2026-11-03 12:08:40.154",
+          "time": "12:08",
+          "text": "Von den Regalen sind es 7 ,\n2 andere etwas größere Regale 1 Schreibtisch ca 1.80 lang 1\neckschreibtisch, 1 Waschmaschine welche in den 2ten Stock gehört.\n1 Wz- Tisch.\nIm Kellerabteil der alten Wohnung ca 5 kisten und einige Bretter\n\nVon meinem/meiner Galaxy gesendet\n\n-------- Ursprüngliche Nachricht --------\nVon:"
         }
       ],
-      "conversationCount": 1,
-      "lastConversationId": "3409070455",
-      "isMessageUpdate": false
+      "conversationCount": 2,
+      "lastConversationId": "3410329377",
+      "isMessageUpdate": true
     },
     {
       "id": "lsa:4889362380:348650386",
