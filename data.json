@@ -1,6 +1,24 @@
 {
-  "updatedAt": "3.11.2026, 12:21:54",
+  "updatedAt": "3.11.2026, 13:18:55",
   "leads": [
+    {
+      "id": "lsa:4889362380:349703151",
+      "Musteri": "+4367761472917",
+      "Telefon": "+4367761472917",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "03.11.2026 13:15",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "349703151",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349703151",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:349358345",
       "Musteri": "Stefan Guczogi",
@@ -24,7 +42,8 @@
       "googleLeadId": "349358345",
       "googleLeadResource": "customers/4889362380/localServicesLeads/349358345",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:349697130",
