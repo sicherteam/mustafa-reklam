@@ -1,5 +1,5 @@
 {
-  "updatedAt": "4.11.2026, 17:46:33",
+  "updatedAt": "4.11.2026, 22:13:18",
   "leads": [
     {
       "id": "lsa:4889362380:349982224",
@@ -7,7 +7,7 @@
       "Telefon": "+436642801872",
       "Telefon2": null,
       "Hizmet": "xcat:service_area_business_mover",
-      "Konum": "-",
+      "Konum": "Oberwart",
       "Tarih": "04.11.2026 17:42",
       "Mesaj": "-",
       "conversations": [],
@@ -17,7 +17,8 @@
       "googleLeadId": "349982224",
       "googleLeadResource": "customers/4889362380/localServicesLeads/349982224",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350028204",
