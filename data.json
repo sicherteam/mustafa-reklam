@@ -1,13 +1,31 @@
 {
-  "updatedAt": "4.11.2026, 17:43:38",
+  "updatedAt": "4.11.2026, 17:46:33",
   "leads": [
+    {
+      "id": "lsa:4889362380:349982224",
+      "Musteri": "+436642801872",
+      "Telefon": "+436642801872",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "04.11.2026 17:42",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "349982224",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/349982224",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350028204",
       "Musteri": "+436764276386",
       "Telefon": "+436764276386",
       "Telefon2": null,
       "Hizmet": "xcat:service_area_business_mover",
-      "Konum": "-",
+      "Konum": "Amstetten",
       "Tarih": "04.11.2026 17:40",
       "Mesaj": "-",
       "conversations": [],
@@ -17,7 +35,8 @@
       "googleLeadId": "350028204",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350028204",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:349703151",
@@ -11206,6 +11225,23 @@
       "googleLeadId": "350028204",
       "leadType": "PHONE_CALL",
       "leadStatus": "Nicht belastet"
+    },
+    {
+      "id": "lsa:web:4889362380:349982224",
+      "Musteri": "0664 2801872",
+      "Telefon": "0664 2801872",
+      "Telefon2": null,
+      "Hizmet": "-",
+      "Konum": "Oberwart",
+      "Tarih": "04.11.26 4:42 PM",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "349982224",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "Wird überprüft\nhelp_outline"
     }
   ]
 }
