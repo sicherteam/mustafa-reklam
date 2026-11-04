@@ -1,6 +1,31 @@
 {
-  "updatedAt": "4.11.2026, 22:13:18",
+  "updatedAt": "4.11.2026, 22:26:01",
   "leads": [
+    {
+      "id": "lsa:4889362380:350070688",
+      "Musteri": "+436601373579",
+      "Telefon": "+436601373579",
+      "Telefon2": null,
+      "Hizmet": "local_move",
+      "Konum": "Krems",
+      "Tarih": "04.11.2026 22:18",
+      "Mesaj": "Hallo würde mich gerne über die Preise informieren meine Möbel müssten abgebaut (Krems an der Donau) und transportiert werden nach Herzogenburg.",
+      "conversations": [
+        {
+          "id": "3411009123",
+          "date": "2026-11-04 22:18:45.568936",
+          "time": "22:18",
+          "text": "Hallo würde mich gerne über die Preise informieren meine Möbel müssten abgebaut (Krems an der Donau) und transportiert werden nach Herzogenburg."
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3411009123",
+      "telegramSent": true,
+      "googleLeadId": "350070688",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350070688",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:349982224",
       "Musteri": "+436642801872",
@@ -11209,6 +11234,23 @@
       "googleLeadResource": "customers/4889362380/localServicesLeads/322173476",
       "leadType": "PHONE_CALL",
       "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:web:4889362380:350070688",
+      "Musteri": "0660 1373579",
+      "Telefon": "0660 1373579",
+      "Telefon2": null,
+      "Hizmet": "Innerörtlicher Umzug",
+      "Konum": "Krems an der Donau",
+      "Tarih": "04.11.26 9:18 PM",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350070688",
+      "leadType": "MESSAGE",
+      "leadStatus": "Wird überprüft\nhelp_outline"
     },
     {
       "id": "lsa:web:4889362380:350028204",
