@@ -1,22 +1,23 @@
 {
-  "updatedAt": "5.11.2026, 21:13:18",
+  "updatedAt": "5.11.2026, 23:30:04",
   "leads": [
     {
-      "id": "lsa:web:4889362380:350293237",
-      "Musteri": "0676 6822892",
-      "Telefon": "0676 6822892",
+      "id": "lsa:4889362380:350293237",
+      "Musteri": "+436766822892",
+      "Telefon": "+436766822892",
       "Telefon2": null,
-      "Hizmet": "Beförderung von Umzugsgut",
-      "Konum": "Wien",
-      "Tarih": "05.11.26 8:08 PM",
+      "Hizmet": "moving_transportation",
+      "Konum": "-",
+      "Tarih": "05.11.2026 21:08",
       "Mesaj": "-",
       "conversations": [],
       "conversationCount": 0,
       "lastConversationId": null,
       "telegramSent": true,
       "googleLeadId": "350293237",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350293237",
       "leadType": "PHONE_CALL",
-      "leadStatus": "Wird überprüft\nhelp_outline"
+      "leadStatus": "ACTIVE"
     },
     {
       "id": "lsa:4889362380:350174046",
@@ -60,7 +61,7 @@
       "googleLeadId": "350070688",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350070688",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW",
+      "leadStatus": "ACTIVE",
       "isMessageUpdate": false
     },
     {
@@ -11271,6 +11272,23 @@
       "googleLeadResource": "customers/4889362380/localServicesLeads/322173476",
       "leadType": "PHONE_CALL",
       "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:web:4889362380:350293237",
+      "Musteri": "0676 6822892",
+      "Telefon": "0676 6822892",
+      "Telefon2": null,
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "05.11.26 8:08 PM",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350293237",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "Wird überprüft\nhelp_outline"
     },
     {
       "id": "lsa:web:4889362380:350174046",
