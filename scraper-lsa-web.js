@@ -59,6 +59,13 @@ function generateTOTP(secret, timeStep = 30) {
   return code.toString().padStart(6, '0');
 }
 
+function cleanStatus(str) {
+  return String(str || '')
+    .replace(/help_outline/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function htmlEscape(value) {
   return String(value ?? '-').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -80,7 +87,7 @@ async function sendTelegram(lead) {
     return;
   }
 
-  const isMsg = lead.art?.toLowerCase().includes('nachricht') || lead.art?.toLowerCase().includes('sms');
+  const isMsg = lead.art?.toLowerCase().includes('nachricht') || lead.art?.toLowerCase().includes('sms') || lead.leadType === 'MESSAGE';
   const header = isMsg
     ? `💬 <b>NEUER Kunde (Nachricht)!</b> (${htmlEscape(PROJECT)})`
     : `📞 <b>NEUER Kunde (Tel)!</b> (${htmlEscape(PROJECT)})`;
@@ -94,11 +101,30 @@ async function sendTelegram(lead) {
   if (lead.jobtyp && lead.jobtyp !== '-') {
     lines.push(`<b>Dienstleistung:</b> ${htmlEscape(lead.jobtyp)}`);
   }
-  if (lead.status && lead.status !== '-') {
-    lines.push(`<b>Status:</b> ${htmlEscape(lead.status)}`);
+  const statusClean = cleanStatus(lead.status);
+  if (statusClean && statusClean !== '-') {
+    lines.push(`<b>Status:</b> ${htmlEscape(statusClean)}`);
   }
-  if (lead.leadId) {
-    lines.push(`\n<code>#LSA-${CUSTOMER_ID}-${lead.leadId}</code>`);
+
+  // Include message content if present
+  const convs = lead.conversations || [];
+  if (convs.length === 1) {
+    const c = convs[0];
+    const timeStr = c.time ? ` ${c.time}` : '';
+    lines.push(`\n<b>Nachricht:${timeStr}</b>\n${htmlEscape(c.text)}`);
+  } else if (convs.length > 1) {
+    for (let i = 0; i < convs.length; i++) {
+      const c = convs[i];
+      const timeStr = c.time ? ` ${c.time}` : '';
+      lines.push(`\n<b>Nachricht ${i + 1}:${timeStr}</b>\n${htmlEscape(c.text)}`);
+    }
+  } else if (lead.mesaj && lead.mesaj !== '-') {
+    lines.push(`\n<b>Nachricht:</b>\n${htmlEscape(lead.mesaj)}`);
+  }
+
+  // ONLY output #LSA tag for Nachricht (messages), NEVER for Tel (calls)!
+  if (isMsg && lead.leadId) {
+    lines.push(`\n💬 <i>Antworten = Nachricht an Kunden</i> · <code>#LSA-${CUSTOMER_ID}-${lead.leadId}</code>`);
   }
 
   const text = lines.join('\n');
@@ -408,27 +434,82 @@ async function run() {
       console.log('Detected verification screen! Transitioning to "Anfragen" (inbox)...');
       await page.screenshot({ path: 'step_verification_screen.png' }).catch(() => {});
 
-      // 1. Try clicking hamburger menu in top-left
-      const menuBtn = page.locator('button[aria-label*="menü" i], button[aria-label*="menu" i], button:has(mat-icon), button:has(svg), header button, .mat-icon-button').first();
-      if (await menuBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
-        console.log('Clicking hamburger menu...');
-        await menuBtn.click();
-        await page.waitForTimeout(2000);
-        await page.screenshot({ path: 'step_menu_opened.png' }).catch(() => {});
+      // 1. Click hamburger menu in top-left (☰)
+      console.log('Clicking hamburger menu (☰)...');
+      const menuSelectors = [
+        'button[aria-label*="menü" i]',
+        'button[aria-label*="menu" i]',
+        '[role="button"][aria-label*="menü" i]',
+        '[role="button"][aria-label*="menu" i]',
+        'material-button.menu-button',
+        'material-button:has(material-icon[icon="menu"])',
+        'material-button:has-text("menu")',
+        'button:has-text("menu")',
+        '[icon="menu"]',
+        'material-icon:has-text("menu")',
+        'i:has-text("menu")',
+        '.material-icons:has-text("menu")'
+      ];
+
+      let menuClicked = false;
+      for (const sel of menuSelectors) {
+        const el = page.locator(sel).first();
+        if (await el.isVisible({ timeout: 1000 }).catch(() => false)) {
+          console.log(`Clicking menu button with selector: ${sel}`);
+          await el.click().catch(() => {});
+          menuClicked = true;
+          break;
+        }
       }
 
-      // 2. Click "Anfragen"
-      const anfragenItem = page.locator('a:has-text("Anfragen"), [role="menuitem"]:has-text("Anfragen"), div[role="link"]:has-text("Anfragen"), button:has-text("Anfragen"), span:has-text("Anfragen")').first();
-      if (await anfragenItem.isVisible({ timeout: 4000 }).catch(() => false)) {
-        console.log('Clicking "Anfragen" item from side menu...');
-        await anfragenItem.click();
-        await page.waitForTimeout(4000);
-      } else {
-        console.log('Menu item not visible directly, navigating to INBOX_URL...');
-        await page.goto(INBOX_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+      if (!menuClicked) {
+        console.log('Clicking hamburger icon by coordinate (32, 32)...');
+        await page.mouse.click(32, 32);
       }
-      console.log('Current URL after navigating from verification:', page.url());
-      await page.screenshot({ path: 'step_after_anfragen.png' }).catch(() => {});
+
+      await page.waitForTimeout(2000);
+      await page.screenshot({ path: 'step_menu_opened.png' }).catch(() => {});
+
+      // 2. Click "Anfragen" in sidebar menu
+      console.log('Looking for "Anfragen" in sidebar menu...');
+      const anfragenSelectors = [
+        'a:has-text("Anfragen")',
+        'button:has-text("Anfragen")',
+        '[role="menuitem"]:has-text("Anfragen")',
+        '[role="link"]:has-text("Anfragen")',
+        'material-select-item:has-text("Anfragen")',
+        'material-list-item:has-text("Anfragen")',
+        'div:has-text("Anfragen")'
+      ];
+
+      let anfragenClicked = false;
+      for (const sel of anfragenSelectors) {
+        const item = page.locator(sel).last();
+        if (await item.isVisible({ timeout: 1500 }).catch(() => false)) {
+          console.log(`Clicking Anfragen with selector: ${sel}`);
+          await item.click().catch(() => {});
+          anfragenClicked = true;
+          break;
+        }
+      }
+
+      if (!anfragenClicked) {
+        console.log('Trying getByText for Anfragen...');
+        const textItem = page.getByText('Anfragen', { exact: true }).first();
+        if (await textItem.isVisible({ timeout: 2000 }).catch(() => false)) {
+          await textItem.click().catch(() => {});
+          anfragenClicked = true;
+        }
+      }
+
+      if (!anfragenClicked) {
+        console.log('Clicking Anfragen by coordinate (80, 80)...');
+        await page.mouse.click(80, 80);
+      }
+
+      await page.waitForTimeout(5000);
+      await page.screenshot({ path: 'step_inbox_loaded.png' }).catch(() => {});
+      console.log('Current URL after Anfragen click:', page.url());
     }
 
     // Wait for the table to render
@@ -525,18 +606,27 @@ async function run() {
         }
         // If telegram wasn't sent yet, send it with the real location!
         if (!matched.telegramSent) {
-          console.log(`Sending pending Telegram alert for ${matched.Musteri || matched.Telefon} with Ort: ${matched.Konum}`);
-          await sendTelegram({
-            kunde: matched.Musteri || matched.Telefon,
-            standort: matched.Konum,
-            datum: matched.Tarih,
-            jobtyp: matched.Hizmet,
-            status: matched.leadStatus,
-            art: matched.leadType === 'MESSAGE' ? 'Nachricht' : 'Telefon',
-            leadId: matched.googleLeadId
-          });
-          matched.telegramSent = true;
-          updatedCount++;
+          const isMessageLead = (matched.leadType === 'MESSAGE' || lead.art?.toLowerCase().includes('nachricht'));
+          const hasMessageContent = matched.Mesaj && matched.Mesaj !== '-' && matched.Mesaj.trim().length > 0;
+          
+          if (isMessageLead && !hasMessageContent) {
+            console.log(`Holding Telegram alert for ${matched.Musteri || matched.Telefon} until scraper-api fetches message text.`);
+          } else {
+            console.log(`Sending pending Telegram alert for ${matched.Musteri || matched.Telefon} with Ort: ${matched.Konum}`);
+            await sendTelegram({
+              kunde: matched.Musteri || matched.Telefon,
+              standort: matched.Konum,
+              datum: matched.Tarih,
+              jobtyp: matched.Hizmet,
+              status: cleanStatus(matched.leadStatus || lead.status),
+              art: isMessageLead ? 'Nachricht' : 'Telefon',
+              leadId: matched.googleLeadId || lead.leadId,
+              mesaj: matched.Mesaj,
+              conversations: matched.conversations
+            });
+            matched.telegramSent = true;
+            updatedCount++;
+          }
         }
       } else {
         // Brand new lead found from web inbox
@@ -559,9 +649,16 @@ async function run() {
           leadStatus: lead.status || 'ACTIVE'
         };
 
-        // Send Telegram immediately
-        await sendTelegram(lead);
-        newLeadObj.telegramSent = true;
+        const isMsgLead = lead.art?.toLowerCase().includes('nachricht');
+        if (!isMsgLead) {
+          await sendTelegram({
+            ...lead,
+            status: cleanStatus(lead.status)
+          });
+          newLeadObj.telegramSent = true;
+        } else {
+          console.log(`Holding Telegram alert for new message lead ${lead.kunde} until scraper-api fetches text.`);
+        }
         existingLeads.unshift(newLeadObj);
         newCount++;
       }
