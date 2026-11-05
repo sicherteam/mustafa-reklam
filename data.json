@@ -1,6 +1,24 @@
 {
-  "updatedAt": "5.11.2026, 02:32:34",
+  "updatedAt": "5.11.2026, 08:27:09",
   "leads": [
+    {
+      "id": "lsa:4889362380:350174046",
+      "Musteri": "+436644510031",
+      "Telefon": "+436644510031",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "05.11.2026 08:23",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350174046",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350174046",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350070688",
       "Musteri": "+436601373579",
@@ -313,7 +331,7 @@
       "Telefon": null,
       "Telefon2": null,
       "Hizmet": "national_move",
-      "Konum": "Wien",
+      "Konum": "Forchtenstein",
       "Tarih": "31.10.2026 07:08",
       "Mesaj": "Der Umzug sollte Mitte Dezember stattfinden. Es sollen das Schlafzimmer, Teile des Schrankraums (Paxkästen von IKEA - 6 Stück), Esstisch und Stühle, das Büro, 1 Rudergerät, Bücher und Bekleidung verfrachtet werden.",
       "conversations": [
@@ -11235,6 +11253,23 @@
       "googleLeadResource": "customers/4889362380/localServicesLeads/322173476",
       "leadType": "PHONE_CALL",
       "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:web:4889362380:350174046",
+      "Musteri": "0664 4510031",
+      "Telefon": "0664 4510031",
+      "Telefon2": null,
+      "Hizmet": "-",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "05.11.26 7:23 AM",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350174046",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "Wird überprüft\nhelp_outline"
     },
     {
       "id": "lsa:web:4889362380:350070688",
