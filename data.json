@@ -1,5 +1,5 @@
 {
-  "updatedAt": "5.11.2026, 09:33:13",
+  "updatedAt": "5.11.2026, 19:23:35",
   "leads": [
     {
       "id": "lsa:4889362380:350174046",
@@ -7,7 +7,7 @@
       "Telefon": "+436644510031",
       "Telefon2": null,
       "Hizmet": "xcat:service_area_business_mover",
-      "Konum": "-",
+      "Konum": "Wiener Neustadt",
       "Tarih": "05.11.2026 08:23",
       "Mesaj": "-",
       "conversations": [],
