@@ -1,5 +1,5 @@
 {
-  "updatedAt": "4.11.2026, 22:26:01",
+  "updatedAt": "5.11.2026, 02:32:34",
   "leads": [
     {
       "id": "lsa:4889362380:350070688",
@@ -7,7 +7,7 @@
       "Telefon": "+436601373579",
       "Telefon2": null,
       "Hizmet": "local_move",
-      "Konum": "Krems",
+      "Konum": "Krems an der Donau",
       "Tarih": "04.11.2026 22:18",
       "Mesaj": "Hallo würde mich gerne über die Preise informieren meine Möbel müssten abgebaut (Krems an der Donau) und transportiert werden nach Herzogenburg.",
       "conversations": [
@@ -24,7 +24,8 @@
       "googleLeadId": "350070688",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350070688",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "NEW",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:349982224",
