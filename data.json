@@ -1,6 +1,23 @@
 {
-  "updatedAt": "5.11.2026, 19:23:35",
+  "updatedAt": "5.11.2026, 21:13:18",
   "leads": [
+    {
+      "id": "lsa:web:4889362380:350293237",
+      "Musteri": "0676 6822892",
+      "Telefon": "0676 6822892",
+      "Telefon2": null,
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "05.11.26 8:08 PM",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350293237",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "Wird überprüft\nhelp_outline"
+    },
     {
       "id": "lsa:4889362380:350174046",
       "Musteri": "+436644510031",
