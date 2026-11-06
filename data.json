@@ -1,5 +1,5 @@
 {
-  "updatedAt": "5.11.2026, 23:30:04",
+  "updatedAt": "6.11.2026, 03:49:14",
   "leads": [
     {
       "id": "lsa:4889362380:350293237",
@@ -7,7 +7,7 @@
       "Telefon": "+436766822892",
       "Telefon2": null,
       "Hizmet": "moving_transportation",
-      "Konum": "-",
+      "Konum": "Wien",
       "Tarih": "05.11.2026 21:08",
       "Mesaj": "-",
       "conversations": [],
@@ -17,7 +17,8 @@
       "googleLeadId": "350293237",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350293237",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350174046",
