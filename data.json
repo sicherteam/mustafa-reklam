@@ -1,13 +1,56 @@
 {
-  "updatedAt": "6.11.2026, 11:41:33",
+  "updatedAt": "6.11.2026, 14:07:53",
   "leads": [
+    {
+      "id": "lsa:4889362380:350383144",
+      "Musteri": "+436644648187",
+      "Telefon": "+436644648187",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Niederösterreich (2026)",
+      "Tarih": "06.11.2026 14:07",
+      "Mesaj": "Hallo! Ich benötige für einen Umzug am 27.11.2026 von meiner Wohnung (7031 Krensdorf) in ein Reihenhaus (7033 Pöttsching) eine Umzugsfirma für diversen Transport (Kästen, 3 Betten, WM, Trockner, einige Kisten etc) mit Ab- und Aufbau Bitte um rasche Kontaktaufnahme, vielen Dank im Voraus! Freundliche Grüße Jasmin Eitzenberger",
+      "conversations": [
+        {
+          "id": "3412302038",
+          "date": "2026-11-06 14:07:01.178978",
+          "time": "14:07",
+          "text": "Hallo! Ich benötige für einen Umzug am 27.11.2026 von meiner Wohnung (7031 Krensdorf) in ein Reihenhaus (7033 Pöttsching) eine Umzugsfirma für diversen Transport (Kästen, 3 Betten, WM, Trockner, einige Kisten etc) mit Ab- und Aufbau Bitte um rasche Kontaktaufnahme, vielen Dank im Voraus! Freundliche Grüße Jasmin Eitzenberger"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3412302038",
+      "telegramSent": true,
+      "googleLeadId": "350383144",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350383144",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
+    {
+      "id": "lsa:4889362380:350411367",
+      "Musteri": "+436644648187",
+      "Telefon": "+436644648187",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "-",
+      "Tarih": "06.11.2026 14:04",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350411367",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350411367",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350017244",
       "Musteri": "+436765130626",
       "Telefon": "+436765130626",
       "Telefon2": null,
       "Hizmet": "moving_transportation",
-      "Konum": "-",
+      "Konum": "Wien",
       "Tarih": "06.11.2026 11:38",
       "Mesaj": "Hallo, würde sich heute für 16 Uhr ein Transport ausgehen? Wenn ja wollte ich nach Preis fragen Eine Couch geteilt in zwei, von Kolbergasse 4-6 müsste es abgeholt werden um 16 uhr circa, Lift ist vorhanden im 4 Stock In den 10. Bezirk Quellenstraße 133, Tür 32 — ist der 7. Stock ohne Lift",
       "conversations": [
@@ -24,7 +67,8 @@
       "googleLeadId": "350017244",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350017244",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "NEW",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350009303",
@@ -708,7 +752,7 @@
       "Musteri": "Kunde",
       "Telefon": null,
       "Hizmet": "local_move",
-      "Konum": "Wien",
+      "Konum": "Riedlingsdorf",
       "Tarih": "28.10.2026 17:44",
       "Mesaj": "Hallo, ich ziehe von Riedlingsdorf nach Pinkafeld.Geplant Ende November Anfang Dezember.Wohnung jetzt 75 m2 2ter Stock ohne Lift neue Wohnung 5 stufen zur Wohnung.Möbel sind: einige Kasterl. .Schachtel Anzahl ca 30-40 geschätzt Keine grossen Kästen keine Betten, keine Couch.Keine Küche. Bitte um einen Kostenvoranschlag.Danke. Lg Susanne Wais\n\nVon den Regalen sind es 7 ,\n2 andere etwas größere Regale 1 Schreibtisch ca 1.80 lang 1\neckschreibtisch, 1 Waschmaschine welche in den 2ten Stock gehört.\n1 Wz- Tisch.\nIm Kellerabteil der alten Wohnung ca 5 kisten und einige Bretter\n\nVon meinem/meiner Galaxy gesendet\n\n-------- Ursprüngliche Nachricht --------\nVon:",
       "telegramSent": true,
@@ -11317,6 +11361,23 @@
       "googleLeadResource": "customers/4889362380/localServicesLeads/322173476",
       "leadType": "PHONE_CALL",
       "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:web:4889362380:350411367",
+      "Musteri": "0664 4648187",
+      "Telefon": "0664 4648187",
+      "Telefon2": null,
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Mattersburg",
+      "Tarih": "06.11.26 1:07 PM",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350411367",
+      "leadType": "MESSAGE",
+      "leadStatus": "Wird überprüft\nhelp_outline"
     },
     {
       "id": "lsa:web:4889362380:350293237",
