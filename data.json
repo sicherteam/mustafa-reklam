@@ -1,6 +1,24 @@
 {
-  "updatedAt": "6.11.2026, 03:49:14",
+  "updatedAt": "6.11.2026, 08:14:38",
   "leads": [
+    {
+      "id": "lsa:4889362380:350009303",
+      "Musteri": "+436644031956",
+      "Telefon": "+436644031956",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "06.11.2026 08:07",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350009303",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350009303",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350293237",
       "Musteri": "+436766822892",
@@ -1980,7 +1998,7 @@
       "Musteri": "+436644031956",
       "Telefon": "+436644031956",
       "Hizmet": "xcat:service_area_business_mover",
-      "Konum": "Wien",
+      "Konum": "Tulln an der Donau",
       "Tarih": "10.10.2026 10:39",
       "Mesaj": "-",
       "telegramSent": true,
