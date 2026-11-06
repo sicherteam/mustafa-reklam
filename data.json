@@ -1,6 +1,24 @@
 {
-  "updatedAt": "6.11.2026, 14:09:53",
+  "updatedAt": "6.11.2026, 14:36:27",
   "leads": [
+    {
+      "id": "lsa:4889362380:350386603",
+      "Musteri": "+436765365811",
+      "Telefon": "+436765365811",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Wien",
+      "Tarih": "06.11.2026 14:30",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350386603",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350386603",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350383144",
       "Musteri": "+436644648187",
@@ -24,7 +42,8 @@
       "googleLeadId": "350383144",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350383144",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "NEW",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350411367",
@@ -42,7 +61,8 @@
       "googleLeadId": "350411367",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350411367",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350017244",
