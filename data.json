@@ -1,6 +1,31 @@
 {
-  "updatedAt": "6.11.2026, 11:11:59",
+  "updatedAt": "6.11.2026, 11:41:33",
   "leads": [
+    {
+      "id": "lsa:4889362380:350017244",
+      "Musteri": "+436765130626",
+      "Telefon": "+436765130626",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "-",
+      "Tarih": "06.11.2026 11:38",
+      "Mesaj": "Hallo, würde sich heute für 16 Uhr ein Transport ausgehen? Wenn ja wollte ich nach Preis fragen Eine Couch geteilt in zwei, von Kolbergasse 4-6 müsste es abgeholt werden um 16 uhr circa, Lift ist vorhanden im 4 Stock In den 10. Bezirk Quellenstraße 133, Tür 32 — ist der 7. Stock ohne Lift",
+      "conversations": [
+        {
+          "id": "3411797422",
+          "date": "2026-11-06 11:38:38.011071",
+          "time": "11:38",
+          "text": "Hallo, würde sich heute für 16 Uhr ein Transport ausgehen? Wenn ja wollte ich nach Preis fragen Eine Couch geteilt in zwei, von Kolbergasse 4-6 müsste es abgeholt werden um 16 uhr circa, Lift ist vorhanden im 4 Stock In den 10. Bezirk Quellenstraße 133, Tür 32 — ist der 7. Stock ohne Lift"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3411797422",
+      "telegramSent": true,
+      "googleLeadId": "350017244",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350017244",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:350009303",
       "Musteri": "+436644031956",
@@ -11360,6 +11385,23 @@
       "googleLeadId": "350028204",
       "leadType": "PHONE_CALL",
       "leadStatus": "Nicht belastet"
+    },
+    {
+      "id": "lsa:web:4889362380:350017244",
+      "Musteri": "0676 5130626",
+      "Telefon": "0676 5130626",
+      "Telefon2": null,
+      "Hizmet": "Beförderung von Umzugsgut",
+      "Konum": "Wien",
+      "Tarih": "06.11.26 10:38 AM",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350017244",
+      "leadType": "MESSAGE",
+      "leadStatus": "Wird überprüft\nhelp_outline"
     },
     {
       "id": "lsa:web:4889362380:349982224",
