@@ -1,5 +1,5 @@
 {
-  "updatedAt": "6.11.2026, 08:14:38",
+  "updatedAt": "6.11.2026, 11:11:59",
   "leads": [
     {
       "id": "lsa:4889362380:350009303",
@@ -7,7 +7,7 @@
       "Telefon": "+436644031956",
       "Telefon2": null,
       "Hizmet": "xcat:service_area_business_mover",
-      "Konum": "-",
+      "Konum": "Tulln an der Donau",
       "Tarih": "06.11.2026 08:07",
       "Mesaj": "-",
       "conversations": [],
@@ -17,7 +17,8 @@
       "googleLeadId": "350009303",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350009303",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350293237",
