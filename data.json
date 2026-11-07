@@ -1,5 +1,5 @@
 {
-  "updatedAt": "7.11.2026, 22:01:24",
+  "updatedAt": "7.11.2026, 22:10:51",
   "leads": [
     {
       "id": "lsa:4889362380:350308421",
@@ -9,22 +9,35 @@
       "Hizmet": "moving_transportation",
       "Konum": "Neusiedl am See",
       "Tarih": "07.11.2026 21:58",
-      "Mesaj": "Möchte ein Foto senden",
+      "Mesaj": "Möchte ein Foto senden\n\nAnfrage\n\nAnita Richter <greyhound1975@gmail.com>",
       "conversations": [
         {
           "id": "3412295956",
           "date": "2026-11-07 21:58:22.102953",
           "time": "21:58",
           "text": "Möchte ein Foto senden"
+        },
+        {
+          "id": "3412804532",
+          "date": "2026-11-07 22:07:35.584",
+          "time": "22:07",
+          "text": "Anfrage"
+        },
+        {
+          "id": "3412804913",
+          "date": "2026-11-07 22:08:01.106",
+          "time": "22:08",
+          "text": "Anita Richter <greyhound1975@gmail.com>"
         }
       ],
-      "conversationCount": 1,
-      "lastConversationId": "3412295956",
+      "conversationCount": 3,
+      "lastConversationId": "3412804913",
       "telegramSent": true,
       "googleLeadId": "350308421",
       "googleLeadResource": "customers/4889362380/localServicesLeads/350308421",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "NEW",
+      "isMessageUpdate": true
     },
     {
       "id": "lsa:4889362380:350386603",
