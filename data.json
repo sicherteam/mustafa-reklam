@@ -1,6 +1,31 @@
 {
-  "updatedAt": "7.11.2026, 20:31:05",
+  "updatedAt": "7.11.2026, 22:01:24",
   "leads": [
+    {
+      "id": "lsa:4889362380:350308421",
+      "Musteri": "+436644021805",
+      "Telefon": "+436644021805",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Neusiedl am See",
+      "Tarih": "07.11.2026 21:58",
+      "Mesaj": "Möchte ein Foto senden",
+      "conversations": [
+        {
+          "id": "3412295956",
+          "date": "2026-11-07 21:58:22.102953",
+          "time": "21:58",
+          "text": "Möchte ein Foto senden"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3412295956",
+      "telegramSent": true,
+      "googleLeadId": "350308421",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350308421",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:350386603",
       "Musteri": "+436765365811",
