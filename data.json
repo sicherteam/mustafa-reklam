@@ -1,6 +1,24 @@
 {
-  "updatedAt": "10.11.2026, 16:46:51",
+  "updatedAt": "10.11.2026, 16:59:23",
   "leads": [
+    {
+      "id": "lsa:4889362380:350768327",
+      "Musteri": "+4367762521608",
+      "Telefon": "+4367762521608",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "10.11.2026 16:54",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350768327",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350768327",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350699558",
       "Musteri": "+436649694917",
@@ -1208,7 +1226,7 @@
       "Hizmet": "national_move",
       "Konum": "Wien",
       "Tarih": "26.10.2026 11:59",
-      "Mesaj": "Hallo! Ich würde am kommenden Mittwoch Nachmittag Hilfe benötigen beim Übersiedeln, ca 15-20 Umzugskartons, sowie ein TV Gerät, ein Bett, ein Computer mit Drucker, sowie 2 Regale. Von Perchtoldsdorf Brunnerbergstraße nach Perchtoldsdorf Stuttgarterstrasse. Können sie mir bitte ein Angebot machen, falls sie verfügbar sind? Vielen Dank! Mit freundlichen Grüßen, Horst Rockmann",
+      "Mesaj": "Hallo! Ich würde am kommenden Mittwoch Nachmittag Hilfe benötigen beim Übersiedeln, ca 15-20 Umzugskartons, sowie ein TV Gerät, ein Bett, ein Computer mit Drucker, sowie 2 Regale. Von Perchtoldsdorf Brunnerbergstraße nach Perchtoldsdorf Stuttgarterstrasse. Können sie mir bitte ein Angebot machen, falls sie verfügbar sind? Vielen Dank! Mit freundlichen Grüßen, Horst Rockmann\n\nHallo! Könnt ihr mir bitte einen Weinschrank von Perchtoldsdorf, Brunnerbergstraße 146 nach 1110 Wien, Hugogasse bringen? Gewicht ca 120kg. Was würde das bitte kosten? Vielen Dank! MfrGr Horst Rockmann",
       "telegramSent": true,
       "googleLeadId": "347898440",
       "googleLeadResource": "customers/4889362380/localServicesLeads/347898440",
@@ -1221,11 +1239,17 @@
           "date": "2026-10-26 11:59:53.62615",
           "time": "11:59",
           "text": "Hallo! Ich würde am kommenden Mittwoch Nachmittag Hilfe benötigen beim Übersiedeln, ca 15-20 Umzugskartons, sowie ein TV Gerät, ein Bett, ein Computer mit Drucker, sowie 2 Regale. Von Perchtoldsdorf Brunnerbergstraße nach Perchtoldsdorf Stuttgarterstrasse. Können sie mir bitte ein Angebot machen, falls sie verfügbar sind? Vielen Dank! Mit freundlichen Grüßen, Horst Rockmann"
+        },
+        {
+          "id": "3412724316",
+          "date": "2026-11-10 16:58:48.822529",
+          "time": "16:58",
+          "text": "Hallo! Könnt ihr mir bitte einen Weinschrank von Perchtoldsdorf, Brunnerbergstraße 146 nach 1110 Wien, Hugogasse bringen? Gewicht ca 120kg. Was würde das bitte kosten? Vielen Dank! MfrGr Horst Rockmann"
         }
       ],
-      "conversationCount": 1,
-      "lastConversationId": "3408171277",
-      "isMessageUpdate": false
+      "conversationCount": 2,
+      "lastConversationId": "3412724316",
+      "isMessageUpdate": true
     },
     {
       "id": "lsa:4889362380:347891630",
