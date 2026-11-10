@@ -1,6 +1,25 @@
 {
-  "updatedAt": "10.11.2026, 10:47:10",
+  "updatedAt": "10.11.2026, 11:13:29",
   "leads": [
+    {
+      "id": "lsa:4889362380:350697446",
+      "Musteri": "+4369981809195",
+      "Telefon": "+4369981809195",
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Neusiedl am See",
+      "Tarih": "10.11.2026 11:08",
+      "Mesaj": "-",
+      "telegramSent": true,
+      "googleLeadId": "350697446",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350697446",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE",
+      "Telefon2": null,
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "isMessageUpdate": false
+    },
     {
       "id": "lsa:4889362380:351094728",
       "Musteri": "+436509702765",
@@ -17,7 +36,8 @@
       "googleLeadId": "351094728",
       "googleLeadResource": "customers/4889362380/localServicesLeads/351094728",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350808295",
