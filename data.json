@@ -1,6 +1,24 @@
 {
-  "updatedAt": "10.11.2026, 08:33:09",
+  "updatedAt": "10.11.2026, 10:47:10",
   "leads": [
+    {
+      "id": "lsa:4889362380:351094728",
+      "Musteri": "+436509702765",
+      "Telefon": "+436509702765",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "10.11.2026 10:41",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "351094728",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/351094728",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350808295",
       "Musteri": "+436769770656",
