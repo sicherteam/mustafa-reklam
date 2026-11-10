@@ -1,6 +1,24 @@
 {
-  "updatedAt": "10.11.2026, 11:13:29",
+  "updatedAt": "10.11.2026, 11:40:32",
   "leads": [
+    {
+      "id": "lsa:4889362380:350699558",
+      "Musteri": "+436649694917",
+      "Telefon": "+436649694917",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Baden",
+      "Tarih": "10.11.2026 11:35",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "350699558",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/350699558",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:350697446",
       "Musteri": "+4369981809195",
