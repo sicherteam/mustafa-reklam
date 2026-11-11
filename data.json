@@ -1,5 +1,5 @@
 {
-  "updatedAt": "10.11.2026, 22:29:35",
+  "updatedAt": "11.11.2026, 02:28:17",
   "leads": [
     {
       "id": "lsa:4889362380:350768327",
@@ -1256,7 +1256,7 @@
       ],
       "conversationCount": 3,
       "lastConversationId": "3413243431",
-      "isMessageUpdate": true
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:347891630",
