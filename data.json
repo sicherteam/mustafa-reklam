@@ -1,6 +1,24 @@
 {
-  "updatedAt": "11.11.2026, 18:10:34",
+  "updatedAt": "11.11.2026, 18:51:19",
   "leads": [
+    {
+      "id": "lsa:4889362380:351411625",
+      "Musteri": "+4369913020960",
+      "Telefon": "+4369913020960",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Sankt Pölten",
+      "Tarih": "11.11.2026 18:41",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "351411625",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/351411625",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:351415464",
       "Musteri": "+4369910689958",
@@ -17,7 +35,8 @@
       "googleLeadId": "351415464",
       "googleLeadResource": "customers/4889362380/localServicesLeads/351415464",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:350957714",
