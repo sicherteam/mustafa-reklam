@@ -1,6 +1,31 @@
 {
-  "updatedAt": "12.11.2026, 09:48:14",
+  "updatedAt": "12.11.2026, 12:56:53",
   "leads": [
+    {
+      "id": "lsa:4889362380:351305654",
+      "Musteri": "Kunde",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Wien",
+      "Tarih": "12.11.2026 11:51",
+      "Mesaj": "Guten Tag, ich wollte mich erkundigen, wie viel es bei Ihnen kostet, ein L-förmiges Sofa ca .2.50m×1m groß zu entsorgen (20.Bezirk, passt nicht in den Lift, 5.Stock). Und im Anschluss ein Kinderhochbett (2.50mx 1m und Höhe ca ,75) vom 18. Bezirk in den 20.Bezirk in die oben genannte Wohnung zu transportieren. Eventuell auch Ab- und Aufbau des Bettes. (Die Teile des Bettes passen in den Lift.) Vielen Dank im Voraus für Ihr Angebot. Mit freundlichen Grüßen Martina Seehuber",
+      "conversations": [
+        {
+          "id": "3413753887",
+          "date": "2026-11-12 11:51:16.402892",
+          "time": "11:51",
+          "text": "Guten Tag, ich wollte mich erkundigen, wie viel es bei Ihnen kostet, ein L-förmiges Sofa ca .2.50m×1m groß zu entsorgen (20.Bezirk, passt nicht in den Lift, 5.Stock). Und im Anschluss ein Kinderhochbett (2.50mx 1m und Höhe ca ,75) vom 18. Bezirk in den 20.Bezirk in die oben genannte Wohnung zu transportieren. Eventuell auch Ab- und Aufbau des Bettes. (Die Teile des Bettes passen in den Lift.) Vielen Dank im Voraus für Ihr Angebot. Mit freundlichen Grüßen Martina Seehuber"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3413753887",
+      "telegramSent": true,
+      "googleLeadId": "351305654",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/351305654",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:351299384",
       "Musteri": "+436643472425",
@@ -17,7 +42,8 @@
       "googleLeadId": "351299384",
       "googleLeadResource": "customers/4889362380/localServicesLeads/351299384",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:351411625",
