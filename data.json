@@ -1,6 +1,24 @@
 {
-  "updatedAt": "13.11.2026, 08:26:42",
+  "updatedAt": "13.11.2026, 14:59:22",
   "leads": [
+    {
+      "id": "lsa:4889362380:351537995",
+      "Musteri": "+4369918166504",
+      "Telefon": "+4369918166504",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "13.11.2026 14:55",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "351537995",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/351537995",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:351305654",
       "Musteri": "Kunde",
