@@ -1,6 +1,24 @@
 {
-  "updatedAt": "15.11.2026, 14:42:04",
+  "updatedAt": "15.11.2026, 18:59:03",
   "leads": [
+    {
+      "id": "lsa:4889362380:352249966",
+      "Musteri": "+4368110144445",
+      "Telefon": "+4368110144445",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Amstetten",
+      "Tarih": "15.11.2026 18:54",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "352249966",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352249966",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:351858614",
       "Musteri": "+4367684148910",
@@ -17,7 +35,8 @@
       "googleLeadId": "351858614",
       "googleLeadResource": "customers/4889362380/localServicesLeads/351858614",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352219903",
