@@ -1,6 +1,24 @@
 {
-  "updatedAt": "15.11.2026, 14:00:44",
+  "updatedAt": "15.11.2026, 14:42:04",
   "leads": [
+    {
+      "id": "lsa:4889362380:351858614",
+      "Musteri": "+4367684148910",
+      "Telefon": "+4367684148910",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Gänserndorf",
+      "Tarih": "15.11.2026 14:34",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "351858614",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/351858614",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:352219903",
       "Musteri": "+4369910602215",
@@ -43,7 +61,7 @@
       "googleLeadId": "351854435",
       "googleLeadResource": "customers/4889362380/localServicesLeads/351854435",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW",
+      "leadStatus": "ACTIVE",
       "isMessageUpdate": false
     },
     {
