@@ -1,6 +1,49 @@
 {
-  "updatedAt": "15.11.2026, 06:49:36",
+  "updatedAt": "15.11.2026, 13:33:48",
   "leads": [
+    {
+      "id": "lsa:4889362380:352219903",
+      "Musteri": "+4369910602215",
+      "Telefon": "+4369910602215",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "15.11.2026 13:29",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "352219903",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352219903",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:4889362380:351854435",
+      "Musteri": "Kunde",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "local_move",
+      "Konum": "Wien",
+      "Tarih": "15.11.2026 12:43",
+      "Mesaj": "Liebes Schnellpack Team, da mein Onkel leider krank im Bett liegt, würde ich bitte für einen Tisch und zwei Stühlen eine Abholung innerhalb Wiens benötigen. Welche Kosten würden anfallen? Mit freundlichen Grüßen Nina",
+      "conversations": [
+        {
+          "id": "3415159865",
+          "date": "2026-11-15 12:43:52.264062",
+          "time": "12:43",
+          "text": "Liebes Schnellpack Team, da mein Onkel leider krank im Bett liegt, würde ich bitte für einen Tisch und zwei Stühlen eine Abholung innerhalb Wiens benötigen. Welche Kosten würden anfallen? Mit freundlichen Grüßen Nina"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3415159865",
+      "telegramSent": true,
+      "googleLeadId": "351854435",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/351854435",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:351537995",
       "Musteri": "+4369918166504",
