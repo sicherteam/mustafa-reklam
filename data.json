@@ -1,5 +1,5 @@
 {
-  "updatedAt": "15.11.2026, 13:33:48",
+  "updatedAt": "15.11.2026, 13:37:19",
   "leads": [
     {
       "id": "lsa:4889362380:352219903",
@@ -17,7 +17,8 @@
       "googleLeadId": "352219903",
       "googleLeadResource": "customers/4889362380/localServicesLeads/352219903",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:351854435",
@@ -42,7 +43,8 @@
       "googleLeadId": "351854435",
       "googleLeadResource": "customers/4889362380/localServicesLeads/351854435",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "NEW",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:351537995",
