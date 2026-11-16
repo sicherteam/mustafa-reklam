@@ -1,5 +1,5 @@
 {
-  "updatedAt": "16.11.2026, 16:58:33",
+  "updatedAt": "16.11.2026, 22:01:05",
   "leads": [
     {
       "id": "lsa:4889362380:352378804",
@@ -17,7 +17,8 @@
       "googleLeadId": "352378804",
       "googleLeadResource": "customers/4889362380/localServicesLeads/352378804",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352366906",
@@ -42,7 +43,8 @@
       "googleLeadId": "352366906",
       "googleLeadResource": "customers/4889362380/localServicesLeads/352366906",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352333602",
@@ -93,7 +95,7 @@
       "googleLeadResource": "customers/4889362380/localServicesLeads/352316886",
       "leadType": "MESSAGE",
       "leadStatus": "ACTIVE",
-      "isMessageUpdate": true
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352249966",
@@ -160,23 +162,29 @@
       "Hizmet": "local_move",
       "Konum": "Wien",
       "Tarih": "15.11.2026 12:43",
-      "Mesaj": "Liebes Schnellpack Team, da mein Onkel leider krank im Bett liegt, würde ich bitte für einen Tisch und zwei Stühlen eine Abholung innerhalb Wiens benötigen. Welche Kosten würden anfallen? Mit freundlichen Grüßen Nina",
+      "Mesaj": "Liebes Schnellpack Team, da mein Onkel leider krank im Bett liegt, würde ich bitte für einen Tisch und zwei Stühlen eine Abholung innerhalb Wiens benötigen. Welche Kosten würden anfallen? Mit freundlichen Grüßen Nina\n\nLeider auf die falsche Adresse geschrieben.\n\nVon meinem iPhone gesendet",
       "conversations": [
         {
           "id": "3415159865",
           "date": "2026-11-15 12:43:52.264062",
           "time": "12:43",
           "text": "Liebes Schnellpack Team, da mein Onkel leider krank im Bett liegt, würde ich bitte für einen Tisch und zwei Stühlen eine Abholung innerhalb Wiens benötigen. Welche Kosten würden anfallen? Mit freundlichen Grüßen Nina"
+        },
+        {
+          "id": "3415585175",
+          "date": "2026-11-16 19:36:05.053",
+          "time": "19:36",
+          "text": "Leider auf die falsche Adresse geschrieben.\n\nVon meinem iPhone gesendet"
         }
       ],
-      "conversationCount": 1,
-      "lastConversationId": "3415159865",
+      "conversationCount": 2,
+      "lastConversationId": "3415585175",
       "telegramSent": true,
       "googleLeadId": "351854435",
       "googleLeadResource": "customers/4889362380/localServicesLeads/351854435",
       "leadType": "MESSAGE",
       "leadStatus": "ACTIVE",
-      "isMessageUpdate": false
+      "isMessageUpdate": true
     },
     {
       "id": "lsa:4889362380:351537995",
