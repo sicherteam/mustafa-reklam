@@ -1,6 +1,31 @@
 {
-  "updatedAt": "16.11.2026, 04:01:41",
+  "updatedAt": "16.11.2026, 12:07:09",
   "leads": [
+    {
+      "id": "lsa:4889362380:352316886",
+      "Musteri": "Kunde",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "national_move",
+      "Konum": "Amstetten",
+      "Tarih": "16.11.2026 07:44",
+      "Mesaj": "Guten Tag, ich benötige bitte einen Kostenvoranschlag, Umzug von Amstetten nach Asten. Es müssen nur Möbel transportiert werden. Termin ist noch nicht fix",
+      "conversations": [
+        {
+          "id": "3414803737",
+          "date": "2026-11-16 07:44:05.115506",
+          "time": "07:44",
+          "text": "Guten Tag, ich benötige bitte einen Kostenvoranschlag, Umzug von Amstetten nach Asten. Es müssen nur Möbel transportiert werden. Termin ist noch nicht fix"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3414803737",
+      "telegramSent": true,
+      "googleLeadId": "352316886",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352316886",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:352249966",
       "Musteri": "+4368110144445",
