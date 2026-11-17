@@ -1,6 +1,31 @@
 {
-  "updatedAt": "17.11.2026, 22:21:25",
+  "updatedAt": "18.11.2026, 00:13:33",
   "leads": [
+    {
+      "id": "lsa:4889362380:352797165",
+      "Musteri": "+436801583811",
+      "Telefon": "+436801583811",
+      "Telefon2": null,
+      "Hizmet": "international_move",
+      "Konum": "Wolfpassing",
+      "Tarih": "17.11.2026 22:24",
+      "Mesaj": "Ich übersiedeln von Neumarkt an der Ybbs Nach 3304 Hart sind 12 Kilometer Ich brauche ein pauschal Angebot Für meine Sachen Diverse Kleinteile Drei Kästen Couch Gartengarnitur Zwei liege 4 Blumentöpfe mit Blumen 20 Schachtel 10 Säcke Drei Bücher Regal Kühlgeräte Ein kleiner Kühlschrank Ist nur eine ca. Angaben Können sie mir ein pauschal Angebot machen LG Michaela Eder Scharner",
+      "conversations": [
+        {
+          "id": "3415578487",
+          "date": "2026-11-17 22:24:14.902582",
+          "time": "22:24",
+          "text": "Ich übersiedeln von Neumarkt an der Ybbs Nach 3304 Hart sind 12 Kilometer Ich brauche ein pauschal Angebot Für meine Sachen Diverse Kleinteile Drei Kästen Couch Gartengarnitur Zwei liege 4 Blumentöpfe mit Blumen 20 Schachtel 10 Säcke Drei Bücher Regal Kühlgeräte Ein kleiner Kühlschrank Ist nur eine ca. Angaben Können sie mir ein pauschal Angebot machen LG Michaela Eder Scharner"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3415578487",
+      "telegramSent": true,
+      "googleLeadId": "352797165",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352797165",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:352674210",
       "Musteri": "+4368120435509",
