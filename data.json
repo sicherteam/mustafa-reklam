@@ -1,6 +1,24 @@
 {
-  "updatedAt": "17.11.2026, 04:44:59",
+  "updatedAt": "17.11.2026, 07:49:03",
   "leads": [
+    {
+      "id": "lsa:4889362380:352585456",
+      "Musteri": "+436608040700",
+      "Telefon": "+436608040700",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "17.11.2026 07:42",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "352585456",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352585456",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:352378804",
       "Musteri": "+436767059798",
