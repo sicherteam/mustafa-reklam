@@ -1,13 +1,31 @@
 {
-  "updatedAt": "17.11.2026, 07:49:03",
+  "updatedAt": "17.11.2026, 08:27:21",
   "leads": [
+    {
+      "id": "lsa:4889362380:352604058",
+      "Musteri": "+4369911846426",
+      "Telefon": "+4369911846426",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Lanzendorf",
+      "Tarih": "17.11.2026 08:24",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "352604058",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352604058",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:352585456",
       "Musteri": "+436608040700",
       "Telefon": "+436608040700",
       "Telefon2": null,
       "Hizmet": "xcat:service_area_business_mover",
-      "Konum": "-",
+      "Konum": "Gloggnitz",
       "Tarih": "17.11.2026 07:42",
       "Mesaj": "-",
       "conversations": [],
@@ -17,7 +35,8 @@
       "googleLeadId": "352585456",
       "googleLeadResource": "customers/4889362380/localServicesLeads/352585456",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352378804",
