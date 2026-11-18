@@ -1,6 +1,31 @@
 {
-  "updatedAt": "18.11.2026, 09:16:17",
+  "updatedAt": "18.11.2026, 12:30:38",
   "leads": [
+    {
+      "id": "lsa:4889362380:352452584",
+      "Musteri": "Kunde",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "moving_junk_removal",
+      "Konum": "Wien",
+      "Tarih": "18.11.2026 11:11",
+      "Mesaj": "Ich bräuchte einen Kostenvoranschlag zum entsorgen von Möbeln: ein Eckschlafsofa ca 1,50 x 2,50 mit Bettzeuglade, eine Waschmaschine und einen Küchenkasten mit einer Abwasch die auch abgebaut werden müssen. Da ich erst neue Möbelbestelle wird das Sofa extra abgeholt werden müssen da Küchen länger dauern, was nicht sein muss. Ideal wären zwei Kostenvoranschläge. Ich bedanke mich im Vorhinein und verbleibe mit freundlichen Grüßen Marion Glatz",
+      "conversations": [
+        {
+          "id": "3415352208",
+          "date": "2026-11-18 11:11:48.554998",
+          "time": "11:11",
+          "text": "Ich bräuchte einen Kostenvoranschlag zum entsorgen von Möbeln: ein Eckschlafsofa ca 1,50 x 2,50 mit Bettzeuglade, eine Waschmaschine und einen Küchenkasten mit einer Abwasch die auch abgebaut werden müssen. Da ich erst neue Möbelbestelle wird das Sofa extra abgeholt werden müssen da Küchen länger dauern, was nicht sein muss. Ideal wären zwei Kostenvoranschläge. Ich bedanke mich im Vorhinein und verbleibe mit freundlichen Grüßen Marion Glatz"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3415352208",
+      "telegramSent": true,
+      "googleLeadId": "352452584",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352452584",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:352849353",
       "Musteri": "+436763984658",
@@ -17,7 +42,8 @@
       "googleLeadId": "352849353",
       "googleLeadResource": "customers/4889362380/localServicesLeads/352849353",
       "leadType": "PHONE_CALL",
-      "leadStatus": "NEW"
+      "leadStatus": "NEW",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352847427",
