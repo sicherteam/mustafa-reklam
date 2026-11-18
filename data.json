@@ -1,6 +1,24 @@
 {
-  "updatedAt": "18.11.2026, 07:59:41",
+  "updatedAt": "18.11.2026, 08:35:36",
   "leads": [
+    {
+      "id": "lsa:4889362380:352847427",
+      "Musteri": "+436765423954",
+      "Telefon": "+436765423954",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wiener Neustadt",
+      "Tarih": "18.11.2026 08:29",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "352847427",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/352847427",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:352846644",
       "Musteri": "+436706084264",
@@ -17,7 +35,8 @@
       "googleLeadId": "352846644",
       "googleLeadResource": "customers/4889362380/localServicesLeads/352846644",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352797165",
