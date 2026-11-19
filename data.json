@@ -1,6 +1,24 @@
 {
-  "updatedAt": "19.11.2026, 13:26:19",
+  "updatedAt": "19.11.2026, 14:04:19",
   "leads": [
+    {
+      "id": "lsa:4889362380:353092704",
+      "Musteri": "+436644383573",
+      "Telefon": "+436644383573",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "19.11.2026 13:58",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "353092704",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353092704",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:353057251",
       "Musteri": "+4369917102371",
@@ -17,7 +35,8 @@
       "googleLeadId": "353057251",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353057251",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:353079870",
@@ -132,7 +151,7 @@
       "googleLeadResource": "customers/4889362380/localServicesLeads/352452584",
       "leadType": "MESSAGE",
       "leadStatus": "ACTIVE",
-      "isMessageUpdate": true
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352849353",
