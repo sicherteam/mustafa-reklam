@@ -1,6 +1,24 @@
 {
-  "updatedAt": "19.11.2026, 10:27:50",
+  "updatedAt": "19.11.2026, 13:26:19",
   "leads": [
+    {
+      "id": "lsa:4889362380:353057251",
+      "Musteri": "+4369917102371",
+      "Telefon": "+4369917102371",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Baden",
+      "Tarih": "19.11.2026 13:17",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "353057251",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353057251",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:353079870",
       "Musteri": "Kunde",
@@ -24,7 +42,8 @@
       "googleLeadId": "353079870",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353079870",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "DECLINED",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:353079831",
@@ -42,7 +61,8 @@
       "googleLeadId": "353079831",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353079831",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352899846",
@@ -90,23 +110,29 @@
       "Hizmet": "moving_junk_removal",
       "Konum": "Wien",
       "Tarih": "18.11.2026 11:11",
-      "Mesaj": "Ich bräuchte einen Kostenvoranschlag zum entsorgen von Möbeln: ein Eckschlafsofa ca 1,50 x 2,50 mit Bettzeuglade, eine Waschmaschine und einen Küchenkasten mit einer Abwasch die auch abgebaut werden müssen. Da ich erst neue Möbelbestelle wird das Sofa extra abgeholt werden müssen da Küchen länger dauern, was nicht sein muss. Ideal wären zwei Kostenvoranschläge. Ich bedanke mich im Vorhinein und verbleibe mit freundlichen Grüßen Marion Glatz",
+      "Mesaj": "Ich bräuchte einen Kostenvoranschlag zum entsorgen von Möbeln: ein Eckschlafsofa ca 1,50 x 2,50 mit Bettzeuglade, eine Waschmaschine und einen Küchenkasten mit einer Abwasch die auch abgebaut werden müssen. Da ich erst neue Möbelbestelle wird das Sofa extra abgeholt werden müssen da Küchen länger dauern, was nicht sein muss. Ideal wären zwei Kostenvoranschläge. Ich bedanke mich im Vorhinein und verbleibe mit freundlichen Grüßen Marion Glatz\n\nSehr geehrte Damen & Herren,\n\nvielen Dank für die rasche Antwort.\nIch wohne im ersten Stock mit 18 Stufen und einen kleinen Lift.\n\nFolgende Möbel hätte ich zu entsorgen.\n\nEine Teilküche, Waschmaschine und Sofa.\n\nWeiters hätte meine Freundin die im gleichen Haus am vierten Stock wohnt\neinen Geschirrspüler zu entsorgen.\n\nDas können sie zum Sofa Angebot dazu schreiben und es ist das letzte Foto.\n\nIch bedanke mich im Vorhinein und verbleibe\nmit freundlichen Grüßen\nMarion Glatz",
       "conversations": [
         {
           "id": "3415352208",
           "date": "2026-11-18 11:11:48.554998",
           "time": "11:11",
           "text": "Ich bräuchte einen Kostenvoranschlag zum entsorgen von Möbeln: ein Eckschlafsofa ca 1,50 x 2,50 mit Bettzeuglade, eine Waschmaschine und einen Küchenkasten mit einer Abwasch die auch abgebaut werden müssen. Da ich erst neue Möbelbestelle wird das Sofa extra abgeholt werden müssen da Küchen länger dauern, was nicht sein muss. Ideal wären zwei Kostenvoranschläge. Ich bedanke mich im Vorhinein und verbleibe mit freundlichen Grüßen Marion Glatz"
+        },
+        {
+          "id": "3416080663",
+          "date": "2026-11-19 12:51:59.946",
+          "time": "12:51",
+          "text": "Sehr geehrte Damen & Herren,\n\nvielen Dank für die rasche Antwort.\nIch wohne im ersten Stock mit 18 Stufen und einen kleinen Lift.\n\nFolgende Möbel hätte ich zu entsorgen.\n\nEine Teilküche, Waschmaschine und Sofa.\n\nWeiters hätte meine Freundin die im gleichen Haus am vierten Stock wohnt\neinen Geschirrspüler zu entsorgen.\n\nDas können sie zum Sofa Angebot dazu schreiben und es ist das letzte Foto.\n\nIch bedanke mich im Vorhinein und verbleibe\nmit freundlichen Grüßen\nMarion Glatz"
         }
       ],
-      "conversationCount": 1,
-      "lastConversationId": "3415352208",
+      "conversationCount": 2,
+      "lastConversationId": "3416080663",
       "telegramSent": true,
       "googleLeadId": "352452584",
       "googleLeadResource": "customers/4889362380/localServicesLeads/352452584",
       "leadType": "MESSAGE",
       "leadStatus": "ACTIVE",
-      "isMessageUpdate": false
+      "isMessageUpdate": true
     },
     {
       "id": "lsa:4889362380:352849353",
