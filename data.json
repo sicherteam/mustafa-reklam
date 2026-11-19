@@ -1,6 +1,49 @@
 {
-  "updatedAt": "19.11.2026, 02:30:45",
+  "updatedAt": "19.11.2026, 10:26:06",
   "leads": [
+    {
+      "id": "lsa:4889362380:353079870",
+      "Musteri": "Kunde",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "local_move",
+      "Konum": "Pöchlarn",
+      "Tarih": "19.11.2026 10:17",
+      "Mesaj": "Ich benötige Hilfe beim Umzug in Pöchlarn von der Mankerstrasse in die Oskar Kokoskarstrasse im Jänner 2027. mit welchen Kosten habe ich da zu rechnen von einer 2 Zimmer Wohnung in eine gleich große. Danke für ihre Antwort. Hildegard u. Wolfi Peintner",
+      "conversations": [
+        {
+          "id": "3416597717",
+          "date": "2026-11-19 10:17:30.869663",
+          "time": "10:17",
+          "text": "Ich benötige Hilfe beim Umzug in Pöchlarn von der Mankerstrasse in die Oskar Kokoskarstrasse im Jänner 2027. mit welchen Kosten habe ich da zu rechnen von einer 2 Zimmer Wohnung in eine gleich große. Danke für ihre Antwort. Hildegard u. Wolfi Peintner"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3416597717",
+      "telegramSent": true,
+      "googleLeadId": "353079870",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353079870",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
+    {
+      "id": "lsa:4889362380:353079831",
+      "Musteri": "+436643509419",
+      "Telefon": "+436643509419",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Langenzersdorf",
+      "Tarih": "19.11.2026 10:13",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "353079831",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353079831",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:352899846",
       "Musteri": "+436767376581",
