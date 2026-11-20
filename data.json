@@ -1,5 +1,5 @@
 {
-  "updatedAt": "20.11.2026, 08:58:35",
+  "updatedAt": "20.11.2026, 09:17:52",
   "leads": [
     {
       "id": "lsa:4889362380:353250817",
@@ -7,7 +7,7 @@
       "Telefon": "+436766824179",
       "Telefon2": null,
       "Hizmet": "xcat:service_area_business_mover",
-      "Konum": "-",
+      "Konum": "Eisenstadt",
       "Tarih": "20.11.2026 08:54",
       "Mesaj": "-",
       "conversations": [],
@@ -17,7 +17,8 @@
       "googleLeadId": "353250817",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353250817",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:352890845",
