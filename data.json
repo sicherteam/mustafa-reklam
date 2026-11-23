@@ -1,6 +1,24 @@
 {
-  "updatedAt": "23.11.2026, 10:47:53",
+  "updatedAt": "23.11.2026, 12:33:36",
   "leads": [
+    {
+      "id": "lsa:4889362380:353686471",
+      "Musteri": "+436644883776",
+      "Telefon": "+436644883776",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Wien",
+      "Tarih": "23.11.2026 12:29",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "353686471",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353686471",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:353317712",
       "Musteri": "+436644105144",
