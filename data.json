@@ -1,6 +1,24 @@
 {
-  "updatedAt": "23.11.2026, 02:35:03",
+  "updatedAt": "23.11.2026, 08:41:41",
   "leads": [
+    {
+      "id": "lsa:4889362380:353317712",
+      "Musteri": "+436644105144",
+      "Telefon": "+436644105144",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Baden",
+      "Tarih": "23.11.2026 08:31",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "353317712",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353317712",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:353629755",
       "Musteri": "+436645508135",
