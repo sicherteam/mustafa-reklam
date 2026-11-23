@@ -1,5 +1,5 @@
 {
-  "updatedAt": "23.11.2026, 22:45:51",
+  "updatedAt": "23.11.2026, 23:08:06",
   "leads": [
     {
       "id": "lsa:4889362380:353834863",
@@ -30,7 +30,8 @@
       "googleLeadId": "353834863",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353834863",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:353818170",
@@ -55,7 +56,8 @@
       "googleLeadId": "353818170",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353818170",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:353728956",
@@ -80,7 +82,8 @@
       "googleLeadId": "353728956",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353728956",
       "leadType": "MESSAGE",
-      "leadStatus": "NEW"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:353724687",
