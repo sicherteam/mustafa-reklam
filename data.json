@@ -1,6 +1,24 @@
 {
-  "updatedAt": "23.11.2026, 14:28:39",
+  "updatedAt": "23.11.2026, 14:34:53",
   "leads": [
+    {
+      "id": "lsa:4889362380:353724687",
+      "Musteri": "+436644244632",
+      "Telefon": "+436644244632",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "23.11.2026 14:30",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "353724687",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353724687",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:353346476",
       "Musteri": "+436602688123",
@@ -17,7 +35,8 @@
       "googleLeadId": "353346476",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353346476",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:353686471",
