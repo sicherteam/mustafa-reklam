@@ -1,6 +1,87 @@
 {
-  "updatedAt": "23.11.2026, 14:34:53",
+  "updatedAt": "23.11.2026, 22:45:51",
   "leads": [
+    {
+      "id": "lsa:4889362380:353834863",
+      "Musteri": "Kunde",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "international_move",
+      "Konum": "Neusiedl am See",
+      "Tarih": "23.11.2026 20:10",
+      "Mesaj": "Hi :) ich wollte gerne Fragen, für welchen Umkreis man die Dienstleistung buchen kann? Wie kurzfristig und was das kostet? Aktueller Wohnort ist Krensdorf. Die Möbel müssten nach Winden am See gebracht werden. Lg Fam. Pail\n\nOrt wäre Krensdorf - ca. 35 min von Neusiedl am See entfernt.",
+      "conversations": [
+        {
+          "id": "3417983744",
+          "date": "2026-11-23 20:10:51.07453",
+          "time": "20:10",
+          "text": "Hi :) ich wollte gerne Fragen, für welchen Umkreis man die Dienstleistung buchen kann? Wie kurzfristig und was das kostet? Aktueller Wohnort ist Krensdorf. Die Möbel müssten nach Winden am See gebracht werden. Lg Fam. Pail"
+        },
+        {
+          "id": "3418011083",
+          "date": "2026-11-23 20:59:18.381",
+          "time": "20:59",
+          "text": "Ort wäre Krensdorf - ca. 35 min von Neusiedl am See entfernt."
+        }
+      ],
+      "conversationCount": 2,
+      "lastConversationId": "3418011083",
+      "telegramSent": true,
+      "googleLeadId": "353834863",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353834863",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
+    {
+      "id": "lsa:4889362380:353818170",
+      "Musteri": "+436644687479",
+      "Telefon": "+436644687479",
+      "Telefon2": null,
+      "Hizmet": "international_move",
+      "Konum": "Krems an der Donau",
+      "Tarih": "23.11.2026 18:37",
+      "Mesaj": "Ich benötige eine Umzugsfirma zum Möbeltransport von 3500 Gneixendorf, Flieglerinstraße 40b nach 2500 Baden, Rohrfeldgasse 20.",
+      "conversations": [
+        {
+          "id": "3417909422",
+          "date": "2026-11-23 18:37:26.649136",
+          "time": "18:37",
+          "text": "Ich benötige eine Umzugsfirma zum Möbeltransport von 3500 Gneixendorf, Flieglerinstraße 40b nach 2500 Baden, Rohrfeldgasse 20."
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3417909422",
+      "telegramSent": true,
+      "googleLeadId": "353818170",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353818170",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
+    {
+      "id": "lsa:4889362380:353728956",
+      "Musteri": "+4369917172062",
+      "Telefon": "+4369917172062",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Bruck an der Leitha",
+      "Tarih": "23.11.2026 14:52",
+      "Mesaj": "Hallo, was würde ein Umzug von 2431 Enzersdorf an der Fischa nach 7100 Neusiedl am See kosten? Es geht um ca. 10 Umzugskartons, 2 x 55“ Fernseher, einen Schreibtischsessel und 3-4 kleine Möbelstücke. Vorraussichtlicher Umzug am Samstag den 28.11. Danke! Lg, Boris",
+      "conversations": [
+        {
+          "id": "3417217249",
+          "date": "2026-11-23 14:52:09.585481",
+          "time": "14:52",
+          "text": "Hallo, was würde ein Umzug von 2431 Enzersdorf an der Fischa nach 7100 Neusiedl am See kosten? Es geht um ca. 10 Umzugskartons, 2 x 55“ Fernseher, einen Schreibtischsessel und 3-4 kleine Möbelstücke. Vorraussichtlicher Umzug am Samstag den 28.11. Danke! Lg, Boris"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3417217249",
+      "telegramSent": true,
+      "googleLeadId": "353728956",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353728956",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:353724687",
       "Musteri": "+436644244632",
@@ -17,7 +98,8 @@
       "googleLeadId": "353724687",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353724687",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:353346476",
