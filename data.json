@@ -1,5 +1,5 @@
 {
-  "updatedAt": "24.11.2026, 17:27:44",
+  "updatedAt": "24.11.2026, 18:31:46",
   "leads": [
     {
       "id": "lsa:4889362380:353983698",
@@ -112,7 +112,7 @@
       "Hizmet": "moving_transportation",
       "Konum": "Bruck an der Leitha",
       "Tarih": "23.11.2026 14:52",
-      "Mesaj": "Hallo, was würde ein Umzug von 2431 Enzersdorf an der Fischa nach 7100 Neusiedl am See kosten? Es geht um ca. 10 Umzugskartons, 2 x 55“ Fernseher, einen Schreibtischsessel und 3-4 kleine Möbelstücke. Vorraussichtlicher Umzug am Samstag den 28.11. Danke! Lg, Boris\n\nHallo,\n\nbesten Dank.\n\nIch melde mich so schnell als möglich.\n\nMit freundlichen Grüßen\nBoris\n\nVon meinem iPhone gesendet",
+      "Mesaj": "Hallo, was würde ein Umzug von 2431 Enzersdorf an der Fischa nach 7100 Neusiedl am See kosten? Es geht um ca. 10 Umzugskartons, 2 x 55“ Fernseher, einen Schreibtischsessel und 3-4 kleine Möbelstücke. Vorraussichtlicher Umzug am Samstag den 28.11. Danke! Lg, Boris\n\nHallo,\n\nbesten Dank.\n\nIch melde mich so schnell als möglich.\n\nMit freundlichen Grüßen\nBoris\n\nVon meinem iPhone gesendet\n\nHallo,\n\nwäre am Samstag um 11 Uhr möglich?\n\nLg, Boris\n\nVon meinem iPhone gesendet",
       "conversations": [
         {
           "id": "3417217249",
@@ -125,16 +125,22 @@
           "date": "2026-11-24 08:04:36.996",
           "time": "08:04",
           "text": "Hallo,\n\nbesten Dank.\n\nIch melde mich so schnell als möglich.\n\nMit freundlichen Grüßen\nBoris\n\nVon meinem iPhone gesendet"
+        },
+        {
+          "id": "3418316537",
+          "date": "2026-11-24 18:28:31.42",
+          "time": "18:28",
+          "text": "Hallo,\n\nwäre am Samstag um 11 Uhr möglich?\n\nLg, Boris\n\nVon meinem iPhone gesendet"
         }
       ],
-      "conversationCount": 2,
-      "lastConversationId": "3417603829",
+      "conversationCount": 3,
+      "lastConversationId": "3418316537",
       "telegramSent": true,
       "googleLeadId": "353728956",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353728956",
       "leadType": "MESSAGE",
       "leadStatus": "ACTIVE",
-      "isMessageUpdate": false
+      "isMessageUpdate": true
     },
     {
       "id": "lsa:4889362380:353724687",
