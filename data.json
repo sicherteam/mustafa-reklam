@@ -1,6 +1,31 @@
 {
-  "updatedAt": "24.11.2026, 06:38:10",
+  "updatedAt": "24.11.2026, 14:22:41",
   "leads": [
+    {
+      "id": "lsa:4889362380:353590097",
+      "Musteri": "Lili",
+      "Telefon": null,
+      "Telefon2": null,
+      "Hizmet": "packing_unpacking",
+      "Konum": "Eisenstadt",
+      "Tarih": "24.11.2026 09:43",
+      "Mesaj": "Hallo :) Ich muss aus einer 90 Quadratmeter Wohnung ausziehen. Es müssen aber nur mehr zwei Zimmer eingepackt und übersiedelt werden (Ankleidezimmer und Küche). Ich ziehe von Klingenbach nach Graz. Und wollte nur mal wissen, was der ganze Prozess kosten würde, damit ich mal einschätzen kann, ob das für mich in frage kommen würde. Liebe Grüße Lili",
+      "conversations": [
+        {
+          "id": "3418160345",
+          "date": "2026-11-24 09:43:51.197823",
+          "time": "09:43",
+          "text": "Hallo :) Ich muss aus einer 90 Quadratmeter Wohnung ausziehen. Es müssen aber nur mehr zwei Zimmer eingepackt und übersiedelt werden (Ankleidezimmer und Küche). Ich ziehe von Klingenbach nach Graz. Und wollte nur mal wissen, was der ganze Prozess kosten würde, damit ich mal einschätzen kann, ob das für mich in frage kommen würde. Liebe Grüße Lili"
+        }
+      ],
+      "conversationCount": 1,
+      "lastConversationId": "3418160345",
+      "telegramSent": true,
+      "googleLeadId": "353590097",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353590097",
+      "leadType": "MESSAGE",
+      "leadStatus": "NEW"
+    },
     {
       "id": "lsa:4889362380:353834863",
       "Musteri": "Kunde",
@@ -67,23 +92,29 @@
       "Hizmet": "moving_transportation",
       "Konum": "Bruck an der Leitha",
       "Tarih": "23.11.2026 14:52",
-      "Mesaj": "Hallo, was würde ein Umzug von 2431 Enzersdorf an der Fischa nach 7100 Neusiedl am See kosten? Es geht um ca. 10 Umzugskartons, 2 x 55“ Fernseher, einen Schreibtischsessel und 3-4 kleine Möbelstücke. Vorraussichtlicher Umzug am Samstag den 28.11. Danke! Lg, Boris",
+      "Mesaj": "Hallo, was würde ein Umzug von 2431 Enzersdorf an der Fischa nach 7100 Neusiedl am See kosten? Es geht um ca. 10 Umzugskartons, 2 x 55“ Fernseher, einen Schreibtischsessel und 3-4 kleine Möbelstücke. Vorraussichtlicher Umzug am Samstag den 28.11. Danke! Lg, Boris\n\nHallo,\n\nbesten Dank.\n\nIch melde mich so schnell als möglich.\n\nMit freundlichen Grüßen\nBoris\n\nVon meinem iPhone gesendet",
       "conversations": [
         {
           "id": "3417217249",
           "date": "2026-11-23 14:52:09.585481",
           "time": "14:52",
           "text": "Hallo, was würde ein Umzug von 2431 Enzersdorf an der Fischa nach 7100 Neusiedl am See kosten? Es geht um ca. 10 Umzugskartons, 2 x 55“ Fernseher, einen Schreibtischsessel und 3-4 kleine Möbelstücke. Vorraussichtlicher Umzug am Samstag den 28.11. Danke! Lg, Boris"
+        },
+        {
+          "id": "3417603829",
+          "date": "2026-11-24 08:04:36.996",
+          "time": "08:04",
+          "text": "Hallo,\n\nbesten Dank.\n\nIch melde mich so schnell als möglich.\n\nMit freundlichen Grüßen\nBoris\n\nVon meinem iPhone gesendet"
         }
       ],
-      "conversationCount": 1,
-      "lastConversationId": "3417217249",
+      "conversationCount": 2,
+      "lastConversationId": "3417603829",
       "telegramSent": true,
       "googleLeadId": "353728956",
       "googleLeadResource": "customers/4889362380/localServicesLeads/353728956",
       "leadType": "MESSAGE",
       "leadStatus": "ACTIVE",
-      "isMessageUpdate": false
+      "isMessageUpdate": true
     },
     {
       "id": "lsa:4889362380:353724687",
