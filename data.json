@@ -1,6 +1,24 @@
 {
-  "updatedAt": "25.11.2026, 10:47:05",
+  "updatedAt": "25.11.2026, 10:56:43",
   "leads": [
+    {
+      "id": "lsa:4889362380:354124639",
+      "Musteri": "+436644201992",
+      "Telefon": "+436644201992",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Mistelbach",
+      "Tarih": "25.11.2026 10:47",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "354124639",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/354124639",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:353805647",
       "Musteri": "+436802344212",
