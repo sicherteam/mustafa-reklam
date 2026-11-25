@@ -1,6 +1,24 @@
 {
-  "updatedAt": "25.11.2026, 02:01:39",
+  "updatedAt": "25.11.2026, 08:21:55",
   "leads": [
+    {
+      "id": "lsa:4889362380:353805647",
+      "Musteri": "+436802344212",
+      "Telefon": "+436802344212",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "25.11.2026 08:09",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "353805647",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/353805647",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:353983698",
       "Musteri": "+4366567055054",
