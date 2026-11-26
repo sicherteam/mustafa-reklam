@@ -1,6 +1,24 @@
 {
-  "updatedAt": "26.11.2026, 12:27:14",
+  "updatedAt": "26.11.2026, 15:17:05",
   "leads": [
+    {
+      "id": "lsa:4889362380:354317230",
+      "Musteri": "+436764156310",
+      "Telefon": "+436764156310",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Heldenberg",
+      "Tarih": "26.11.2026 15:08",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "354317230",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/354317230",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:354344391",
       "Musteri": "+4366499094146",
