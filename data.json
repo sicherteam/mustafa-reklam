@@ -1,6 +1,24 @@
 {
-  "updatedAt": "26.11.2026, 03:29:11",
+  "updatedAt": "26.11.2026, 10:31:54",
   "leads": [
+    {
+      "id": "lsa:4889362380:354344391",
+      "Musteri": "+4366499094146",
+      "Telefon": "+4366499094146",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Ternitz",
+      "Tarih": "26.11.2026 10:26",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "354344391",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/354344391",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:354227827",
       "Musteri": "+436645262901",
