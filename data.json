@@ -1,6 +1,24 @@
 {
-  "updatedAt": "26.11.2026, 15:17:05",
+  "updatedAt": "26.11.2026, 15:21:46",
   "leads": [
+    {
+      "id": "lsa:4889362380:354011891",
+      "Musteri": "+4369912750344",
+      "Telefon": "+4369912750344",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "-",
+      "Tarih": "26.11.2026 15:15",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "354011891",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/354011891",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:354317230",
       "Musteri": "+436764156310",
@@ -17,7 +35,8 @@
       "googleLeadId": "354317230",
       "googleLeadResource": "customers/4889362380/localServicesLeads/354317230",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:354344391",
