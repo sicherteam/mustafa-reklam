@@ -1,6 +1,42 @@
 {
-  "updatedAt": "27.11.2026, 08:31:41",
+  "updatedAt": "27.11.2026, 12:36:40",
   "leads": [
+    {
+      "id": "lsa:4889362380:354401164",
+      "Musteri": "+4368110159006",
+      "Telefon": "+4368110159006",
+      "Telefon2": null,
+      "Hizmet": "xcat:service_area_business_mover",
+      "Konum": "Wien",
+      "Tarih": "27.11.2026 12:33",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "354401164",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/354401164",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
+    {
+      "id": "lsa:4889362380:354400984",
+      "Musteri": "+436506523456",
+      "Telefon": "+436506523456",
+      "Telefon2": null,
+      "Hizmet": "moving_transportation",
+      "Konum": "Purkersdorf",
+      "Tarih": "27.11.2026 12:29",
+      "Mesaj": "-",
+      "conversations": [],
+      "conversationCount": 0,
+      "lastConversationId": null,
+      "telegramSent": true,
+      "googleLeadId": "354400984",
+      "googleLeadResource": "customers/4889362380/localServicesLeads/354400984",
+      "leadType": "PHONE_CALL",
+      "leadStatus": "ACTIVE"
+    },
     {
       "id": "lsa:4889362380:354067871",
       "Musteri": "+4367682537115",
@@ -17,7 +53,8 @@
       "googleLeadId": "354067871",
       "googleLeadResource": "customers/4889362380/localServicesLeads/354067871",
       "leadType": "PHONE_CALL",
-      "leadStatus": "ACTIVE"
+      "leadStatus": "ACTIVE",
+      "isMessageUpdate": false
     },
     {
       "id": "lsa:4889362380:354023711",
